@@ -16,46 +16,129 @@ const TIERS = [
 ] as const;
 
 type TierLabel = (typeof TIERS)[number]["label"];
+type SelectedItem = { slug: string; tier: TierLabel };
 
 function calcPrice(pricePerKg: number, grams: number, packaging: number) {
   return Math.round((pricePerKg * grams) / 1000) + packaging;
 }
 
+function AddProductCard({
+  product,
+  defaultTier,
+  onAdd,
+}: {
+  product: (typeof products)[number];
+  defaultTier: TierLabel;
+  onAdd: (tier: TierLabel) => void;
+}) {
+  const [tier, setTier] = useState<TierLabel>(defaultTier);
+  const tierData = TIERS.find((t) => t.label === tier)!;
+  const price    = calcPrice(product.priceRange.min, tierData.grams, tierData.packaging);
+
+  return (
+    <div className="flex flex-col rounded-2xl border border-gray-200 bg-white overflow-hidden hover:border-gray-300 hover:shadow-sm transition-all">
+      <div className="relative aspect-square bg-gray-50 overflow-hidden">
+        <Image src={product.image} alt={product.name} fill draggable={false} className="object-contain p-4" />
+      </div>
+      <div className="flex flex-col flex-1 p-4 gap-3">
+        <div className="flex-1">
+          <p className="font-semibold text-sm text-black leading-tight">{product.name}</p>
+          {product.region && <p className="text-xs text-muted-foreground mt-0.5">{product.region}</p>}
+        </div>
+        <div className="flex gap-1.5 flex-wrap">
+          {TIERS.map((t) => (
+            <button
+              key={t.label}
+              type="button"
+              onClick={() => setTier(t.label)}
+              className={`px-3 py-1 text-sm rounded-lg border font-medium transition-colors cursor-pointer ${
+                tier === t.label
+                  ? "bg-neutral-800 border-neutral-800 text-white"
+                  : "border-gray-200 text-gray-500 hover:border-gray-400 hover:text-gray-700"
+              }`}
+            >
+              {t.label}
+            </button>
+          ))}
+        </div>
+        <p className="text-base font-semibold text-black">₹{price}</p>
+        <button
+          type="button"
+          onClick={() => onAdd(tier)}
+          className="w-full py-2.5 text-sm font-medium bg-teal-600 text-white rounded-xl hover:bg-teal-700 transition-colors cursor-pointer"
+        >
+          + Add
+        </button>
+      </div>
+    </div>
+  );
+}
+
 function BuySamplesInner() {
-  const searchParams   = useSearchParams();
-  const preselected    = searchParams.get("product");
+  const searchParams = useSearchParams();
+  const preselected  = searchParams.get("product");
 
   const [step,       setStep]       = useState<"select" | "checkout">("select");
   const [activeTier, setActiveTier] = useState<TierLabel>(() => {
     if (typeof window === "undefined") return "100g";
     return (localStorage.getItem("bgc_tier") as TierLabel) ?? "100g";
   });
-  const [selected,   setSelected]   = useState<string[]>(() => {
-    if (typeof window === "undefined") return preselected ? [preselected] : [];
+  const [selected, setSelected] = useState<SelectedItem[]>(() => {
+    if (typeof window === "undefined") return preselected ? [{ slug: preselected, tier: "100g" }] : [];
     try {
-      const saved: string[] = JSON.parse(localStorage.getItem("bgc_selected") ?? "[]");
-      if (!Array.isArray(saved)) return preselected ? [preselected] : [];
-      if (preselected && !saved.includes(preselected)) return [...saved, preselected];
-      return saved.length > 0 ? saved : (preselected ? [preselected] : []);
+      const raw = localStorage.getItem("bgc_selected");
+      if (!raw) return preselected ? [{ slug: preselected, tier: "100g" }] : [];
+      const parsed = JSON.parse(raw);
+      if (!Array.isArray(parsed)) return preselected ? [{ slug: preselected, tier: "100g" }] : [];
+      // Migrate old string[] format
+      const normalized: SelectedItem[] = parsed.map((s: string | SelectedItem) =>
+        typeof s === "string" ? { slug: s, tier: "100g" as TierLabel } : s
+      );
+      if (preselected && !normalized.find((s) => s.slug === preselected)) {
+        return [...normalized, { slug: preselected, tier: "100g" }];
+      }
+      return normalized;
     } catch {
-      return preselected ? [preselected] : [];
+      return preselected ? [{ slug: preselected, tier: "100g" }] : [];
     }
   });
 
-  const tier          = TIERS.find((t) => t.label === activeTier)!;
-  const selectedItems = products.filter((p) => selected.includes(p.slug));
-  const orderTotal    = selectedItems.reduce(
-    (sum, p) => sum + calcPrice(p.priceRange.min, tier.grams, tier.packaging),
+  const selectedSlugs    = selected.map((s) => s.slug);
+  const selectedProducts = selected
+    .map((s) => {
+      const product  = products.find((p) => p.slug === s.slug);
+      const tierData = TIERS.find((t) => t.label === s.tier)!;
+      return product ? { product, tier: s.tier as TierLabel, tierData } : null;
+    })
+    .filter(Boolean) as { product: (typeof products)[number]; tier: TierLabel; tierData: (typeof TIERS)[number] }[];
+
+  const unselectedProducts = products.filter((p) => !selectedSlugs.includes(p.slug));
+
+  const orderTotal = selectedProducts.reduce(
+    (sum, { product, tierData }) => sum + calcPrice(product.priceRange.min, tierData.grams, tierData.packaging),
     0,
   );
 
+  // Tier for the selection grid prices
+  const gridTier = TIERS.find((t) => t.label === activeTier)!;
+
   const toggle = (slug: string) =>
     setSelected((prev) =>
-      prev.includes(slug) ? prev.filter((s) => s !== slug) : [...prev, slug],
+      prev.find((s) => s.slug === slug)
+        ? prev.filter((s) => s.slug !== slug)
+        : [...prev, { slug, tier: activeTier }],
     );
+
+  const setItemTier = (slug: string, tier: TierLabel) =>
+    setSelected((prev) => prev.map((s) => (s.slug === slug ? { ...s, tier } : s)));
+
+  // Dominant tier for the checkout form (used for tax field logic)
+  const tierCounts = selected.reduce((acc, s) => { acc[s.tier] = (acc[s.tier] ?? 0) + 1; return acc; }, {} as Record<string, number>);
+  const quantityTier = (Object.entries(tierCounts).sort(([, a], [, b]) => b - a)[0]?.[0] ?? "100g") as TierLabel;
 
   React.useEffect(() => { localStorage.setItem("bgc_selected", JSON.stringify(selected)); }, [selected]);
   React.useEffect(() => { localStorage.setItem("bgc_tier", activeTier); }, [activeTier]);
+  React.useEffect(() => { window.scrollTo({ top: 0, behavior: "instant" }); }, [step]);
 
   /* ── STEP 1: product selection ───────────────────────────────────── */
   if (step === "select") {
@@ -92,8 +175,8 @@ function BuySamplesInner() {
         <div className="max-w-7xl mx-auto px-4 lg:px-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
             {products.map((product) => {
-              const isSelected = selected.includes(product.slug);
-              const price      = calcPrice(product.priceRange.min, tier.grams, tier.packaging);
+              const isSelected = selectedSlugs.includes(product.slug);
+              const price      = calcPrice(product.priceRange.min, gridTier.grams, gridTier.packaging);
               return (
                 <div
                   key={product.slug}
@@ -125,7 +208,7 @@ function BuySamplesInner() {
                       )}
                     </div>
                     <div>
-                      <p className="text-xs text-muted-foreground">{tier.label}</p>
+                      <p className="text-xs text-muted-foreground">{gridTier.label}</p>
                       <p className="text-base font-semibold text-black">₹{price}</p>
                     </div>
                     <button
@@ -154,11 +237,11 @@ function BuySamplesInner() {
 
         {/* Sticky bottom bar */}
         <div
-          className={`fixed bottom-0 inset-x-0 z-40 bg-yellow-200 border-t-[5px] border-neutral-800 shadow-lg transition-transform duration-200 ${
+          className={`fixed bottom-0 inset-x-0 z-40 bg-yellow-200 shadow-lg transition-transform duration-300 ${
             selected.length > 0 ? "translate-y-0" : "translate-y-full"
           }`}
         >
-          <div className="max-w-7xl mx-auto px-4 lg:px-6 py-4 flex  items-center justify-between gap-4">
+          <div className="max-w-7xl mx-auto px-4 lg:px-6 py-8 flex items-center justify-between gap-4">
             <div>
               <p className="font-semibold text-black text-sm">
                 {selected.length} product{selected.length !== 1 ? "s" : ""}
@@ -184,47 +267,90 @@ function BuySamplesInner() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           {/* Left: form */}
           <CheckoutForm
-            products={selected}
-            quantityTier={activeTier}
+            products={selectedSlugs}
+            quantityTier={quantityTier}
             totalAmount={orderTotal}
             onBack={() => setStep("select")}
           />
 
           {/* Right: order summary */}
-          <div className="rounded-2xl border border-gray-200 overflow-hidden sticky top-8">
-            {selectedItems.map((product, i) => {
-              const price = calcPrice(product.priceRange.min, tier.grams, tier.packaging);
+          <div className="rounded-2xl border border-gray-200 sticky top-8 max-h-[80vh] overflow-y-auto">
+            {selectedProducts.map(({ product, tier: itemTier, tierData }, i) => {
+              const price = calcPrice(product.priceRange.min, tierData.grams, tierData.packaging);
               return (
                 <div
                   key={product.slug}
-                  className={`flex items-center gap-4 px-4 py-3 ${i < selectedItems.length - 1 ? "border-b border-gray-100" : ""}`}
+                  className={`px-4 py-3 ${i < selectedProducts.length - 1 ? "border-b border-gray-100" : ""}`}
                 >
-                  <div className="relative w-12 h-12 rounded-lg overflow-hidden bg-gray-50 shrink-0">
-                    <Image src={product.image} alt={product.name} fill className="object-contain p-1" />
+                  <div className="flex items-start gap-3">
+                    <div className="relative w-10 h-10 rounded-lg overflow-hidden bg-gray-50 shrink-0 mt-0.5">
+                      <Image src={product.image} alt={product.name} fill className="object-contain p-1" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-start justify-between gap-2">
+                        <p className="text-sm font-medium text-black leading-tight">{product.name}</p>
+                        <div className="flex items-center gap-2 shrink-0">
+                          <p className="text-sm font-semibold text-black">₹{price}</p>
+                          <button
+                            type="button"
+                            onClick={() => toggle(product.slug)}
+                            className="text-gray-300 hover:text-red-400 transition-colors text-base leading-none"
+                          >
+                            ✕
+                          </button>
+                        </div>
+                      </div>
+                      {/* Per-product tier selector */}
+                      <div className="flex gap-1.5 mt-2 flex-wrap">
+                        {TIERS.map((t) => (
+                          <button
+                            key={t.label}
+                            type="button"
+                            onClick={() => setItemTier(product.slug, t.label)}
+                            className={`px-3 py-1 text-sm rounded-lg border font-medium transition-colors cursor-pointer ${
+                              itemTier === t.label
+                                ? "bg-neutral-800 border-neutral-800 text-white"
+                                : "border-gray-200 text-gray-500 hover:border-gray-400 hover:text-gray-700"
+                            }`}
+                          >
+                            {t.label}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
                   </div>
-                  <div className="flex-1 min-w-0">
-                    <p className="text-sm font-medium text-black truncate">{product.name}</p>
-                    <p className="text-xs text-muted-foreground">{tier.label}</p>
-                  </div>
-                  <p className="text-sm font-semibold text-black shrink-0">₹{price}</p>
-                  <button
-                    type="button"
-                    onClick={() => toggle(product.slug)}
-                    className="text-xs text-muted-foreground hover:text-red-500 transition-colors shrink-0"
-                  >
-                    Remove
-                  </button>
                 </div>
               );
             })}
-            {selectedItems.length > 0 && (
-              <div className="flex justify-between px-4 py-3 border-t border-gray-100 bg-gray-50">
+
+            {selectedProducts.length > 0 && (
+              <div className="flex justify-between px-4 py-3 border-t border-gray-200 bg-gray-50">
                 <p className="text-sm font-semibold text-black">Total</p>
                 <p className="text-sm font-semibold text-black">₹{orderTotal}</p>
               </div>
             )}
           </div>
         </div>
+
+        {/* Add more — below everything, card grid */}
+        {unselectedProducts.length > 0 && (
+          <div className="mt-16">
+            <h2 className="text-xl font-semibold text-black mb-1">Add more samples</h2>
+            <p className="text-sm text-muted-foreground mb-6">Pick a size and add to your order.</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+              {unselectedProducts.map((product) => (
+                <AddProductCard
+                  key={product.slug}
+                  product={product}
+                  defaultTier={activeTier}
+                  onAdd={(tier: TierLabel) => {
+                    setSelected((prev) => [...prev, { slug: product.slug, tier }]);
+                  }}
+                />
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

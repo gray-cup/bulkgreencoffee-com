@@ -11,6 +11,7 @@ export const bulkgreencoffee_site = pgTable("bulkgreencoffee_site", {
   country:        text("country").notNull().default("IN"),
   pincode:        text("pincode").notNull(),
   address:        text("address").notNull(),
+  state:          text("state"),
   gst_or_tax_id:  text("gst_or_tax_id"),
   business_type:  text("business_type"),
 

@@ -31,28 +31,38 @@ export function CheckoutForm({ products, quantityTier, totalAmount, renderSummar
   const router = useRouter();
   const turnstile = useTurnstile();
 
-  const [country,          setCountry]          = useState("IN");
+  const [customerType,     setCustomerType]     = useState<"individual" | "business">("individual");
+  const [country,          setCountry]          = useState("");
   const [name,             setName]             = useState("");
   const [phone,            setPhone]            = useState("");
   const [email,            setEmail]            = useState("");
   const [pincode,          setPincode]          = useState("");
   const [address,          setAddress]          = useState("");
+  const [state,            setState]            = useState("");
   const [gstOrTaxId,       setGstOrTaxId]       = useState("");
   const [businessType,     setBusinessType]     = useState("");
   const [isLoading,        setIsLoading]        = useState(false);
   const [error,            setError]            = useState("");
 
-  // Auto-detect country from the geo API
+  // Auto-detect country from the geo API and map code → full name
   useEffect(() => {
     fetch("/api/geo")
       .then((r) => r.json())
-      .then((d) => { if (d.country) setCountry(d.country); })
+      .then((d) => {
+        if (!d.country) return;
+        try {
+          const name = new Intl.DisplayNames(["en"], { type: "region" }).of(d.country);
+          if (name) setCountry(name);
+        } catch {
+          setCountry(d.country);
+        }
+      })
       .catch(() => {});
   }, []);
 
-  const isIndia       = country === "IN";
-  const needsTaxField = quantityTier !== "100g"; // show GST/Tax ID for 1kg+
-  const taxLabel      = isIndia ? "GST Number" : "Tax ID";
+  const isIndia        = country.trim().toLowerCase() === "india";
+  const isBusiness     = customerType === "business";
+  const taxLabel       = isIndia ? "GST Number" : "Tax ID";
   const taxPlaceholder = isIndia ? "22AAAAA0000A1Z5" : "VAT / Tax registration number";
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -67,6 +77,7 @@ export function CheckoutForm({ products, quantityTier, totalAmount, renderSummar
       country,
       pincode,
       address,
+      state:        state || undefined,
       gstOrTaxId:   gstOrTaxId || undefined,
       businessType: businessType || undefined,
       products,
@@ -91,19 +102,27 @@ export function CheckoutForm({ products, quantityTier, totalAmount, renderSummar
 
   return (
     <div>
-      {onBack && (
-        <button
-          type="button"
-          onClick={onBack}
-          className="text-sm text-muted-foreground hover:text-black mb-8 flex items-center gap-1 transition-colors"
-        >
-          ← Back to products
-        </button>
-      )}
-
       {renderSummary?.()}
 
       <form className="space-y-5" onSubmit={handleSubmit}>
+
+        {/* Individual / Business tab */}
+        <div className="inline-flex gap-1 bg-gray-100 rounded-xl p-1">
+          {(["individual", "business"] as const).map((type) => (
+            <button
+              key={type}
+              type="button"
+              onClick={() => setCustomerType(type)}
+              className={`px-5 py-1.5 rounded-lg text-sm font-medium transition-colors cursor-pointer capitalize ${
+                customerType === type
+                  ? "bg-white text-black shadow-sm"
+                  : "text-gray-500 hover:text-gray-800 hover:bg-white/60"
+              }`}
+            >
+              {type.charAt(0).toUpperCase() + type.slice(1)}
+            </button>
+          ))}
+        </div>
 
         {/* Name */}
         <div className="space-y-2">
@@ -134,9 +153,9 @@ export function CheckoutForm({ products, quantityTier, totalAmount, renderSummar
             <Label htmlFor="country">Country</Label>
             <Input
               id="country"
-              placeholder="Country code e.g. IN, US, GB"
+              placeholder="India, Germany, Japan…"
               value={country}
-              onChange={(e) => setCountry(e.target.value.toUpperCase().slice(0, 2))}
+              onChange={(e) => setCountry(e.target.value)}
             />
           </div>
         </div>
@@ -153,62 +172,76 @@ export function CheckoutForm({ products, quantityTier, totalAmount, renderSummar
           />
         </div>
 
-        {/* Address + Pincode */}
+        {/* Address */}
         <div className="space-y-2">
           <Label htmlFor="address">Full Delivery Address</Label>
           <Textarea
             id="address"
-            placeholder="House / flat no., street, area, city, state"
+            placeholder="House / flat no., street, area, city"
             rows={3}
             required
             value={address}
             onChange={(e) => setAddress(e.target.value)}
           />
         </div>
-        <div className="space-y-2">
-          <Label htmlFor="pincode">Pincode / ZIP</Label>
-          <Input
-            id="pincode"
-            placeholder={isIndia ? "400001" : "ZIP / Postal code"}
-            required
-            value={pincode}
-            onChange={(e) => setPincode(e.target.value)}
-          />
-        </div>
 
-        {/* GST / Tax ID — only for 1kg+ */}
-        {needsTaxField && (
+        {/* State + Pincode */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div className="space-y-2">
-            <Label htmlFor="tax">{taxLabel} <span className="text-muted-foreground font-normal">(optional)</span></Label>
+            <Label htmlFor="state">State</Label>
             <Input
-              id="tax"
-              placeholder={taxPlaceholder}
-              value={gstOrTaxId}
-              onChange={(e) => setGstOrTaxId(e.target.value)}
+              id="state"
+              placeholder={isIndia ? "Maharashtra" : "State / Province"}
+              value={state}
+              onChange={(e) => setState(e.target.value)}
             />
           </div>
-        )}
-
-        {/* Business type */}
-        <div className="space-y-3">
-          <Label>Business Type <span className="text-muted-foreground font-normal">(optional)</span></Label>
-          <div className="flex flex-wrap gap-2">
-            {businessCategories.map((cat) => (
-              <button
-                key={cat.id}
-                type="button"
-                onClick={() => setBusinessType(businessType === cat.id ? "" : cat.id)}
-                className={`px-4 py-2 text-sm rounded-lg border transition-colors ${
-                  businessType === cat.id
-                    ? "bg-neutral-800 border-neutral-800 text-white"
-                    : "border-gray-200 bg-white text-gray-700 hover:border-gray-300"
-                }`}
-              >
-                {cat.label}
-              </button>
-            ))}
+          <div className="space-y-2">
+            <Label htmlFor="pincode">Pincode / ZIP</Label>
+            <Input
+              id="pincode"
+              placeholder={isIndia ? "400001" : "ZIP / Postal code"}
+              required
+              value={pincode}
+              onChange={(e) => setPincode(e.target.value)}
+            />
           </div>
         </div>
+
+        {/* Business-only fields */}
+        {isBusiness && (
+          <>
+            <div className="space-y-2">
+              <Label htmlFor="tax">{taxLabel} <span className="text-muted-foreground font-normal">(optional)</span></Label>
+              <Input
+                id="tax"
+                placeholder={taxPlaceholder}
+                value={gstOrTaxId}
+                onChange={(e) => setGstOrTaxId(e.target.value)}
+              />
+            </div>
+
+            <div className="space-y-3">
+              <Label>Business Type <span className="text-muted-foreground font-normal">(optional)</span></Label>
+              <div className="flex flex-wrap gap-2">
+                {businessCategories.map((cat) => (
+                  <button
+                    key={cat.id}
+                    type="button"
+                    onClick={() => setBusinessType(businessType === cat.id ? "" : cat.id)}
+                    className={`px-4 py-2 text-sm rounded-lg border transition-colors cursor-pointer ${
+                      businessType === cat.id
+                        ? "bg-neutral-800 border-neutral-800 text-white"
+                        : "border-gray-200 bg-white text-gray-700 hover:border-gray-300"
+                    }`}
+                  >
+                    {cat.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </>
+        )}
 
         <Turnstile
           onVerify={turnstile.handleVerify}

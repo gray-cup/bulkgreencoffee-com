@@ -13,6 +13,7 @@ export interface SampleOrderRequest {
   country: string;
   pincode: string;
   address: string;
+  state?: string;
   gstOrTaxId?: string;
   businessType?: string;
   products: string[];       // slugs
@@ -30,7 +31,7 @@ export async function POST(request: NextRequest) {
     }
 
     const body: SampleOrderRequest = await request.json();
-    const { name, phone, email, country, pincode, address, gstOrTaxId, businessType, products, quantityTier, totalAmount } = body;
+    const { name, phone, email, country, pincode, address, state, gstOrTaxId, businessType, products, quantityTier, totalAmount } = body;
 
     if (!name || !phone || !address || !pincode || products.length === 0) {
       return NextResponse.json(
@@ -53,6 +54,7 @@ export async function POST(request: NextRequest) {
       country,
       pincode,
       address,
+      state:          state || null,
       gst_or_tax_id:  gstOrTaxId || null,
       business_type:  businessType || null,
       products:       JSON.stringify(products),
