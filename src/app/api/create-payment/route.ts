@@ -9,7 +9,7 @@ const CASHFREE_CLIENT_SECRET = process.env.CASHFREE_CLIENT_SECRET;
 export interface SampleOrderRequest {
   name: string;
   phone: string;
-  email?: string;
+  email: string;
   country: string;
   pincode: string;
   address: string;
