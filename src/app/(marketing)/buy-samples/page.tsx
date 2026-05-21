@@ -275,58 +275,108 @@ function BuySamplesInner() {
 
         {/* Show Items dialog */}
         <Dialog open={showItemsOpen} onOpenChange={setShowItemsOpen}>
-          <DialogContent className="max-w-md max-h-[80vh] flex flex-col">
+          <DialogContent className="sm:max-w-2xl flex flex-col" style={{ maxHeight: "80vh" }}>
             <DialogHeader>
               <DialogTitle>Your Items ({selected.length})</DialogTitle>
             </DialogHeader>
-            <div className="flex-1 overflow-y-auto divide-y divide-gray-100">
-              {selectedProducts.map(({ product, tier: itemTier, tierData }) => {
-                const price = calcPrice(product.priceRange.min, tierData.grams, tierData.packaging);
-                return (
-                  <div key={`${product.slug}-${itemTier}`} className="py-3 flex items-start gap-3">
-                    <div className="relative w-12 h-12 rounded-lg overflow-hidden bg-gray-50 shrink-0">
-                      <Image src={product.image} alt={product.name} fill className="object-contain p-1" />
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-start justify-between gap-2">
-                        <p className="text-sm font-medium text-black leading-tight">{product.name}</p>
-                        <div className="flex items-center gap-2 shrink-0">
-                          <p className="text-sm font-semibold text-black">{fmt(price)}</p>
-                          <button
-                            type="button"
-                            onClick={() => setSelected((prev) => prev.filter((s) => !(s.slug === product.slug && s.tier === itemTier)))}
-                            className="text-gray-300 hover:text-red-400 transition-colors text-base leading-none"
-                          >
-                            ✕
-                          </button>
+            <div className="overflow-y-auto flex-1 -mx-6 px-6">
+              {/* Mobile: rows */}
+              <div className="flex flex-col divide-y divide-gray-100 sm:hidden">
+                {selectedProducts.map(({ product, tier: itemTier, tierData }) => {
+                  const price = calcPrice(product.priceRange.min, tierData.grams, tierData.packaging);
+                  return (
+                    <div key={`${product.slug}-${itemTier}`} className="py-3 flex items-start gap-3">
+                      <div className="relative w-12 h-12 rounded-lg overflow-hidden bg-gray-50 shrink-0">
+                        <Image src={product.image} alt={product.name} fill className="object-contain p-1" />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-start justify-between gap-2">
+                          <p className="text-sm font-medium text-black leading-tight">{product.name}</p>
+                          <div className="flex items-center gap-2 shrink-0">
+                            <p className="text-sm font-semibold text-black">{fmt(price)}</p>
+                            <button
+                              type="button"
+                              onClick={() => setSelected((prev) => prev.filter((s) => !(s.slug === product.slug && s.tier === itemTier)))}
+                              className="text-gray-300 hover:text-red-400 transition-colors text-base leading-none"
+                            >
+                              ✕
+                            </button>
+                          </div>
+                        </div>
+                        <div className="flex gap-1.5 mt-2 flex-wrap">
+                          {TIERS.map((t) => (
+                            <button
+                              key={t.label}
+                              type="button"
+                              onClick={() =>
+                                setSelected((prev) =>
+                                  prev.map((s) =>
+                                    s.slug === product.slug && s.tier === itemTier ? { ...s, tier: t.label } : s
+                                  )
+                                )
+                              }
+                              className={`px-3 py-1 text-xs rounded-lg border font-medium transition-colors cursor-pointer ${
+                                itemTier === t.label
+                                  ? "bg-neutral-800 border-neutral-800 text-white"
+                                  : "border-gray-200 text-gray-500 hover:border-gray-400 hover:text-gray-700"
+                              }`}
+                            >
+                              {t.label}
+                            </button>
+                          ))}
                         </div>
                       </div>
-                      <div className="flex gap-1.5 mt-2 flex-wrap">
-                        {TIERS.map((t) => (
-                          <button
-                            key={t.label}
-                            type="button"
-                            onClick={() =>
-                              setSelected((prev) =>
-                                prev.map((s) =>
-                                  s.slug === product.slug && s.tier === itemTier ? { ...s, tier: t.label } : s
+                    </div>
+                  );
+                })}
+              </div>
+
+              {/* Desktop: cards grid */}
+              <div className="hidden sm:grid grid-cols-2 md:grid-cols-3 gap-3 py-2">
+                {selectedProducts.map(({ product, tier: itemTier, tierData }) => {
+                  const price = calcPrice(product.priceRange.min, tierData.grams, tierData.packaging);
+                  return (
+                    <div key={`${product.slug}-${itemTier}`} className="relative flex flex-col rounded-xl border border-gray-200 bg-white overflow-hidden">
+                      <button
+                        type="button"
+                        onClick={() => setSelected((prev) => prev.filter((s) => !(s.slug === product.slug && s.tier === itemTier)))}
+                        className="absolute top-2 right-2 z-10 text-gray-300 hover:text-red-400 transition-colors text-sm leading-none bg-white rounded-full w-5 h-5 flex items-center justify-center shadow-sm"
+                      >
+                        ✕
+                      </button>
+                      <div className="relative aspect-square bg-gray-50 overflow-hidden">
+                        <Image src={product.image} alt={product.name} fill className="object-contain p-3" />
+                      </div>
+                      <div className="p-3 flex flex-col gap-2">
+                        <p className="text-xs font-semibold text-black leading-tight">{product.name}</p>
+                        <div className="flex gap-1 flex-wrap">
+                          {TIERS.map((t) => (
+                            <button
+                              key={t.label}
+                              type="button"
+                              onClick={() =>
+                                setSelected((prev) =>
+                                  prev.map((s) =>
+                                    s.slug === product.slug && s.tier === itemTier ? { ...s, tier: t.label } : s
+                                  )
                                 )
-                              )
-                            }
-                            className={`px-3 py-1 text-xs rounded-lg border font-medium transition-colors cursor-pointer ${
-                              itemTier === t.label
-                                ? "bg-neutral-800 border-neutral-800 text-white"
-                                : "border-gray-200 text-gray-500 hover:border-gray-400 hover:text-gray-700"
-                            }`}
-                          >
-                            {t.label}
-                          </button>
-                        ))}
+                              }
+                              className={`px-2 py-0.5 text-xs rounded-md border font-medium transition-colors cursor-pointer ${
+                                itemTier === t.label
+                                  ? "bg-neutral-800 border-neutral-800 text-white"
+                                  : "border-gray-200 text-gray-500 hover:border-gray-400 hover:text-gray-700"
+                              }`}
+                            >
+                              {t.label}
+                            </button>
+                          ))}
+                        </div>
+                        <p className="text-sm font-semibold text-black">{fmt(price)}</p>
                       </div>
                     </div>
-                  </div>
-                );
-              })}
+                  );
+                })}
+              </div>
             </div>
             {selectedProducts.length > 0 && (
               <div className="border-t border-gray-200 pt-3 flex justify-between items-center">
