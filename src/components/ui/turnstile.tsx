@@ -138,10 +138,13 @@ export function useTurnstile() {
     setError(false);
   }, []);
 
+  // If no site key is configured, skip verification entirely
+  const noKey = !TURNSTILE_SITE_KEY;
+
   return {
     token,
     error,
-    isVerified: !!token,
+    isVerified: noKey || !!token,
     handleVerify,
     handleError,
     handleExpire,
