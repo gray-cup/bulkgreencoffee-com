@@ -256,6 +256,13 @@ function BuySamplesInner() {
               <p className="text-md sm:text-lg md:text-xl font-semibold text-black">{fmt(orderTotal)}</p>
             </div>
             <div className="flex items-center gap-3 shrink-0">
+              <button
+                type="button"
+                onClick={() => setSelected([])}
+                className="text-sm font-medium text-black/50 hover:text-red-500 transition-colors cursor-pointer"
+              >
+                Clear
+              </button>
               <Button variant="outline" size="lg" className="border-black/20 bg-yellow-100 hover:bg-yellow-50" onClick={() => setShowItemsOpen(true)}>
                 Show Items
               </Button>
