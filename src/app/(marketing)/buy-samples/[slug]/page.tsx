@@ -10,16 +10,18 @@ import { Badge } from "@/components/ui/badge";
 import { CheckoutForm } from "@/components/buy-samples/CheckoutForm";
 
 const TIERS = [
-  { label: "100g", grams: 100,  packaging: 30 },
-  { label: "1kg",  grams: 1000, packaging: 0  },
-  { label: "3kg",  grams: 3000, packaging: 0  },
-  { label: "5kg",  grams: 5000, packaging: 0  },
+  { label: "100g", grams: 100,   delivery: 50  },
+  { label: "1kg",  grams: 1000,  delivery: 150 },
+  { label: "3kg",  grams: 3000,  delivery: 150 },
+  { label: "5kg",  grams: 5000,  delivery: 150 },
+  { label: "10kg", grams: 10000, delivery: 300 },
+  { label: "20kg", grams: 20000, delivery: 500 },
 ] as const;
 
 type TierLabel = (typeof TIERS)[number]["label"];
 
-function calcPrice(pricePerKg: number, grams: number, packaging: number) {
-  return Math.round((pricePerKg * grams) / 1000) + packaging;
+function calcPrice(pricePerKg: number, grams: number, delivery: number) {
+  return Math.round((pricePerKg * grams) / 1000) + delivery;
 }
 
 export default function BuySampleSlugPage() {
@@ -29,7 +31,7 @@ export default function BuySampleSlugPage() {
 
   const [activeTier, setActiveTier] = useState<TierLabel>("100g");
   const tier  = TIERS.find((t) => t.label === activeTier)!;
-  const total = calcPrice(product.priceRange.min, tier.grams, tier.packaging);
+  const total = calcPrice(product.priceRange.min, tier.grams, tier.delivery);
 
   return (
     <div className="min-h-screen py-12">
@@ -113,10 +115,10 @@ export default function BuySampleSlugPage() {
                 <span>{tier.label} of {product.name}</span>
                 <span>₹{calcPrice(product.priceRange.min, tier.grams, 0)}</span>
               </div>
-              {tier.packaging > 0 && (
+              {tier.delivery > 0 && (
                 <div className="flex justify-between text-gray-700">
-                  <span>Packaging</span>
-                  <span>₹{tier.packaging}</span>
+                  <span>Delivery</span>
+                  <span>₹{tier.delivery}</span>
                 </div>
               )}
               <div className="flex justify-between font-semibold text-black border-t border-gray-200 pt-2">

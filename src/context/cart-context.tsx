@@ -3,10 +3,12 @@
 import React, { createContext, useContext, useState, useEffect, useCallback } from "react";
 
 export const CART_TIERS = [
-  { label: "100g", grams: 100, packaging: 30 },
-  { label: "1kg",  grams: 1000, packaging: 0 },
-  { label: "3kg",  grams: 3000, packaging: 0 },
-  { label: "5kg",  grams: 5000, packaging: 0 },
+  { label: "100g", grams: 100,   delivery: 50  },
+  { label: "1kg",  grams: 1000,  delivery: 150 },
+  { label: "3kg",  grams: 3000,  delivery: 150 },
+  { label: "5kg",  grams: 5000,  delivery: 150 },
+  { label: "10kg", grams: 10000, delivery: 300 },
+  { label: "20kg", grams: 20000, delivery: 500 },
 ] as const;
 
 export type TierLabel = (typeof CART_TIERS)[number]["label"];

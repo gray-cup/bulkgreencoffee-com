@@ -11,17 +11,19 @@ import { useCurrency } from "@/components/currency-provider";
 import { formatPrice, convertPrice } from "@/lib/currency";
 
 const TIERS = [
-  { label: "100g", grams: 100,  packaging: 30 },
-  { label: "1kg",  grams: 1000, packaging: 0  },
-  { label: "3kg",  grams: 3000, packaging: 0  },
-  { label: "5kg",  grams: 5000, packaging: 0  },
+  { label: "100g", grams: 100,   delivery: 50  },
+  { label: "1kg",  grams: 1000,  delivery: 150 },
+  { label: "3kg",  grams: 3000,  delivery: 150 },
+  { label: "5kg",  grams: 5000,  delivery: 150 },
+  { label: "10kg", grams: 10000, delivery: 300 },
+  { label: "20kg", grams: 20000, delivery: 500 },
 ] as const;
 
 type TierLabel = (typeof TIERS)[number]["label"];
 type SelectedItem = { slug: string; tier: TierLabel };
 
-function calcPrice(pricePerKg: number, grams: number, packaging: number) {
-  return Math.round((pricePerKg * grams) / 1000) + packaging;
+function calcPrice(pricePerKg: number, grams: number, delivery: number) {
+  return Math.round((pricePerKg * grams) / 1000) + delivery;
 }
 
 
@@ -65,7 +67,7 @@ function BuySamplesInner() {
     .filter(Boolean) as { product: (typeof products)[number]; tier: TierLabel; tierData: (typeof TIERS)[number] }[];
 
   const orderTotal = selectedProducts.reduce(
-    (sum, { product, tierData }) => sum + calcPrice(product.priceRange.min, tierData.grams, tierData.packaging),
+    (sum, { product, tierData }) => sum + calcPrice(product.priceRange.min, tierData.grams, tierData.delivery),
     0,
   );
 
@@ -119,7 +121,7 @@ function BuySamplesInner() {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
             {products.map((product) => {
               const isSelected = selected.some((s) => s.slug === product.slug && s.tier === activeTier);
-              const price      = calcPrice(product.priceRange.min, gridTier.grams, gridTier.packaging);
+              const price      = calcPrice(product.priceRange.min, gridTier.grams, gridTier.delivery);
               return (
                 <div
                   key={product.slug}
@@ -152,7 +154,9 @@ function BuySamplesInner() {
                   </div>
                   <div className="flex flex-col flex-1 p-4 gap-3">
                     <div className="flex-1">
-                      <p className="font-semibold text-sm text-black leading-tight">{product.name}</p>
+                      <Link href={`/products/${product.slug}`} className="font-semibold text-sm text-black leading-tight hover:underline cursor-pointer">
+                        {product.name}
+                      </Link>
                       {product.region && (
                         <p className="text-xs text-muted-foreground mt-0.5">{product.region}</p>
                       )}
@@ -228,7 +232,7 @@ function BuySamplesInner() {
               {/* Mobile: rows */}
               <div className="flex flex-col divide-y divide-gray-100 sm:hidden">
                 {selectedProducts.map(({ product, tier: itemTier, tierData }) => {
-                  const price = calcPrice(product.priceRange.min, tierData.grams, tierData.packaging);
+                  const price = calcPrice(product.priceRange.min, tierData.grams, tierData.delivery);
                   return (
                     <div key={`${product.slug}-${itemTier}`} className="py-3 flex items-start gap-3">
                       <div className="relative w-12 h-12 rounded-lg overflow-hidden bg-gray-50 shrink-0">
@@ -279,7 +283,7 @@ function BuySamplesInner() {
               {/* Desktop: cards grid */}
               <div className="hidden sm:grid grid-cols-2 md:grid-cols-3 gap-3 py-2">
                 {selectedProducts.map(({ product, tier: itemTier, tierData }) => {
-                  const price = calcPrice(product.priceRange.min, tierData.grams, tierData.packaging);
+                  const price = calcPrice(product.priceRange.min, tierData.grams, tierData.delivery);
                   return (
                     <div key={`${product.slug}-${itemTier}`} className="relative flex flex-col rounded-xl border border-gray-200 bg-white overflow-hidden">
                       <button

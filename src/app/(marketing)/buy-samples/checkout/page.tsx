@@ -9,17 +9,19 @@ import { useCurrency } from "@/components/currency-provider";
 import { formatPrice, convertPrice } from "@/lib/currency";
 
 const TIERS = [
-  { label: "100g", grams: 100,  packaging: 30 },
-  { label: "1kg",  grams: 1000, packaging: 0  },
-  { label: "3kg",  grams: 3000, packaging: 0  },
-  { label: "5kg",  grams: 5000, packaging: 0  },
+  { label: "100g", grams: 100,   delivery: 50  },
+  { label: "1kg",  grams: 1000,  delivery: 150 },
+  { label: "3kg",  grams: 3000,  delivery: 150 },
+  { label: "5kg",  grams: 5000,  delivery: 150 },
+  { label: "10kg", grams: 10000, delivery: 300 },
+  { label: "20kg", grams: 20000, delivery: 500 },
 ] as const;
 
 type TierLabel = (typeof TIERS)[number]["label"];
 type SelectedItem = { slug: string; tier: TierLabel };
 
-function calcPrice(pricePerKg: number, grams: number, packaging: number) {
-  return Math.round((pricePerKg * grams) / 1000) + packaging;
+function calcPrice(pricePerKg: number, grams: number, delivery: number) {
+  return Math.round((pricePerKg * grams) / 1000) + delivery;
 }
 
 function AddProductCard({
@@ -34,7 +36,7 @@ function AddProductCard({
   const [tier, setTier] = useState<TierLabel>(defaultTier);
   const { currency, rates } = useCurrency();
   const tierData = TIERS.find((t) => t.label === tier)!;
-  const priceINR = calcPrice(product.priceRange.min, tierData.grams, tierData.packaging);
+  const priceINR = calcPrice(product.priceRange.min, tierData.grams, tierData.delivery);
   const fmt = (inr: number) => formatPrice(convertPrice(inr, currency, rates), currency);
 
   return (
@@ -111,7 +113,7 @@ function CheckoutPageInner() {
   const unselectedProducts = products.filter((p) => !selectedSlugs.includes(p.slug));
 
   const orderTotal = selectedProducts.reduce(
-    (sum, { product, tierData }) => sum + calcPrice(product.priceRange.min, tierData.grams, tierData.packaging),
+    (sum, { product, tierData }) => sum + calcPrice(product.priceRange.min, tierData.grams, tierData.delivery),
     0,
   );
 
@@ -147,7 +149,7 @@ function CheckoutPageInner() {
           {/* Right: order summary */}
           <div className="rounded-2xl border border-gray-200 sticky top-8 max-h-[80vh] overflow-y-auto">
             {selectedProducts.map(({ product, tier: itemTier, tierData }, i) => {
-              const price = calcPrice(product.priceRange.min, tierData.grams, tierData.packaging);
+              const price = calcPrice(product.priceRange.min, tierData.grams, tierData.delivery);
               return (
                 <div
                   key={`${product.slug}-${itemTier}`}

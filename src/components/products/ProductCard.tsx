@@ -68,7 +68,7 @@ export function ProductCard({ product, showPrice = true }: ProductCardProps) {
       {/* Card body */}
       <div className="px-3 pt-2 pb-3">
         <Link href={`/products/${product.slug}`}>
-          <h3 className="text-md hover:underline font-semibold text-black leading-tight">
+          <h3 className="text-md font-semibold text-black leading-tight hover:underline cursor-pointer">
             {product.name}
           </h3>
         </Link>

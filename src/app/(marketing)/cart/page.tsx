@@ -10,8 +10,8 @@ import { useCurrency } from "@/components/currency-provider";
 import { formatPrice, convertPrice } from "@/lib/currency";
 import { Button } from "@/components/ui/button";
 
-function calcPrice(pricePerKg: number, grams: number, packaging: number) {
-  return Math.round((pricePerKg * grams) / 1000) + packaging;
+function calcPrice(pricePerKg: number, grams: number, delivery: number) {
+  return Math.round((pricePerKg * grams) / 1000) + delivery;
 }
 
 export default function CartPage() {
@@ -34,7 +34,7 @@ export default function CartPage() {
 
   const total = cartProducts.reduce(
     (sum, { product, tierData }) =>
-      sum + calcPrice(product.priceRange.min, tierData.grams, tierData.packaging),
+      sum + calcPrice(product.priceRange.min, tierData.grams, tierData.delivery),
     0
   );
 
@@ -75,7 +75,7 @@ export default function CartPage() {
                 const price = calcPrice(
                   product.priceRange.min,
                   tierData.grams,
-                  tierData.packaging
+                  tierData.delivery
                 );
                 return (
                   <div key={`${product.slug}-${tier}`} className="flex items-start gap-4 px-4 py-4 bg-white">
