@@ -35,6 +35,11 @@ export default function Home() {
                       Schedule a Zoom Meeting
                     </Button>
                   </Link>
+                  <Link href="/products">
+                    <Button variant="teal" size="sm">
+                      Buy Products
+                    </Button>
+                  </Link>
                 </div>
               </div>
               {/* Featured Products Section */}
@@ -43,14 +48,17 @@ export default function Home() {
                   <LazyProductRow
                     title="East India"
                     products={eastIndiaProducts}
+                    showActions={false}
                   />
                   <LazyProductRow
                     title="North East India"
                     products={northEastIndiaProducts}
+                    showActions={false}
                   />
                   <LazyProductRow
                     title="South India"
                     products={southIndiaProducts}
+                    showActions={false}
                   />
                 </div>
               </div>

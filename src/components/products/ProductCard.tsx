@@ -12,9 +12,10 @@ import { useCart } from "@/context/cart-context";
 type ProductCardProps = {
   product: Product;
   showPrice?: boolean;
+  showActions?: boolean;
 };
 
-export function ProductCard({ product, showPrice = true }: ProductCardProps) {
+export function ProductCard({ product, showPrice = true, showActions = true }: ProductCardProps) {
   const { currency, convert } = useCurrency();
   const config = CURRENCIES[currency];
   const minPriceConverted = convert(product.priceRange.min, currency);
@@ -89,24 +90,26 @@ export function ProductCard({ product, showPrice = true }: ProductCardProps) {
         )}
 
         {/* Action buttons */}
-        <div className="flex gap-2 mt-3">
-          <button
-            type="button"
-            onClick={() => {
-              add(product.slug);
-              router.push("/cart");
-            }}
-            className="flex-1 h-8 rounded-lg text-xs font-medium bg-teal-600 text-white hover:bg-teal-700 transition-colors cursor-pointer"
-          >
-            Add to Cart
-          </button>
-          <Link
-            href={`/buy-samples/${product.slug}`}
-            className="flex-1 h-8 rounded-lg text-xs font-medium border border-gray-300 text-gray-700 hover:border-gray-500 hover:text-black flex items-center justify-center transition-colors"
-          >
-            Buy Now
-          </Link>
-        </div>
+        {showActions && (
+          <div className="flex gap-2 mt-3">
+            <button
+              type="button"
+              onClick={() => {
+                add(product.slug);
+                router.push("/cart");
+              }}
+              className="flex-1 h-8 rounded-lg text-xs font-medium bg-teal-600 text-white hover:bg-teal-700 transition-colors cursor-pointer"
+            >
+              Add to Cart
+            </button>
+            <Link
+              href={`/buy-samples/${product.slug}`}
+              className="flex-1 h-8 rounded-lg text-xs font-medium border border-gray-300 text-gray-700 hover:border-gray-500 hover:text-black flex items-center justify-center transition-colors"
+            >
+              Buy Now
+            </Link>
+          </div>
+        )}
       </div>
     </Card>
   );
