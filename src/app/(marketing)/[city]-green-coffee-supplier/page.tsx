@@ -6,29 +6,21 @@ import { TOP_CITIES, getCityBySlugOnly, getStateNameFromSlug } from "@/data/indi
 import { getProductBySlug } from "@/data/products";
 import { getWhatsappLink } from "@/data/destinations";
 
-type Props = { params: Promise<{ "city-green-coffee-supplier": string }> };
-
-function parseParam(raw: string): string {
-  // param is e.g. "mumbai-green-coffee-supplier" → "mumbai"
-  return raw.replace(/-green-coffee-supplier$/, "");
-}
+type Props = { params: Promise<{ city: string }> };
 
 export function generateStaticParams() {
-  return TOP_CITIES.map((city) => ({
-    "city-green-coffee-supplier": `${city}-green-coffee-supplier`,
-  }));
+  return TOP_CITIES.map((city) => ({ city }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const raw = (await params)["city-green-coffee-supplier"];
-  const citySlug = parseParam(raw);
+  const citySlug = (await params).city;
   const data = getCityBySlugOnly(citySlug);
   if (!data) return { title: "Not Found" };
   const stateName = getStateNameFromSlug(data.stateSlug) ?? data.state;
   return {
     title: `Indian Green Coffee Suppliers in ${data.city} | Wholesale Arabica | Bulk Green Coffee`,
     description: `Find trusted Indian green coffee suppliers in ${data.city}, ${stateName}. Specialty Arabica from Koraput, Halflong & South India. MOQ ${data.moq}. Delivered in ${data.transitDays}. WhatsApp: +91 85279 14317.`,
-    alternates: { canonical: `/${citySlug}-green-coffee-supplier` },
+    alternates: { canonical: `/${citySlug}-green-coffee-supplier/` },
     openGraph: {
       title: `Green Coffee Suppliers in ${data.city} | Indian Arabica Wholesale`,
       description: `Wholesale Indian Arabica & Robusta for ${data.city}. ${data.cityContext}`,
@@ -44,8 +36,7 @@ const WA_ICON = (
 );
 
 export default async function SupplierPage({ params }: Props) {
-  const raw = (await params)["city-green-coffee-supplier"];
-  const citySlug = parseParam(raw);
+  const citySlug = (await params).city;
   const data = getCityBySlugOnly(citySlug);
   if (!data) notFound();
 
