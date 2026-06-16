@@ -1,4 +1,12 @@
 import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Refunds & Cancellations | Bulk Green Coffee",
+  description: "Refund and cancellation policy for green coffee orders placed with Bulk Green Coffee (Gray Cup Enterprises Private Limited).",
+  alternates: { canonical: "/refunds" },
+  robots: { index: true, follow: false },
+};
 
 const LAST_UPDATED = "May 18, 2026";
 
