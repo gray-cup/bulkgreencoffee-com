@@ -1,5 +1,13 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "White Label Green Coffee Sourcing | Indian Arabica & Robusta | Bulk Green Coffee",
+  description:
+    "Source Indian green coffee under your own brand. We supply specialty and commercial Arabica and Robusta from Koraput, Assam, Karnataka, and Kerala — export-ready with full traceability. MOQ from 10 kg.",
+  alternates: { canonical: "/white-label" },
+};
 
 export default function WhiteLabelPage() {
   return (
@@ -14,7 +22,7 @@ export default function WhiteLabelPage() {
             Your Brand. Our Coffee.
           </h1>
           <p className="text-md text-muted-foreground max-w-xl">
-            We can be your sourcing partner — supplying premium quality green
+            We can be your sourcing partner — supplying premium Indian green
             coffee under your brand name. Simple, reliable, and scalable.
           </p>
         </div>
@@ -28,32 +36,94 @@ export default function WhiteLabelPage() {
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="p-5 border rounded-lg">
-              <p className="font-medium text-black mb-1">Product Sourcing</p>
+              <p className="font-medium text-black mb-1">Direct Origin Sourcing</p>
               <p className="text-sm text-muted-foreground">
-                We source and supply specialty green coffee beans from
-                India — ready to carry your label.
+                We source directly from tribal cooperatives in Koraput (Odisha), small-holder farms in Halflong (Assam), and established estates in Karnataka and Kerala — cutting out commodity brokers and giving you a genuine traceability story for your brand.
               </p>
             </div>
             <div className="p-5 border rounded-lg">
               <p className="font-medium text-black mb-1">Flexible Quantities</p>
               <p className="text-sm text-muted-foreground">
-                Whether you're starting small or scaling up, we accommodate
-                orders of all sizes with consistent quality.
+                Start with 10 kg sample lots to validate quality before committing to scale. We accommodate orders from small roasters trialling a new origin up to container-scale buyers purchasing full export lots.
               </p>
             </div>
             <div className="p-5 border rounded-lg">
-              <p className="font-medium text-black mb-1">Quality Assurance</p>
+              <p className="font-medium text-black mb-1">Quality Assurance & Documentation</p>
               <p className="text-sm text-muted-foreground">
-                Every batch is quality-checked before dispatch. You get what you
-                expect, every time.
+                Every batch is moisture-checked and cupped before dispatch. We supply phytosanitary certificates, fumigation reports, moisture analysis, and SCA score sheets (for specialty lots) — so your customers can trust the quality claim on your label.
               </p>
             </div>
             <div className="p-5 border rounded-lg">
               <p className="font-medium text-black mb-1">Worldwide Shipping</p>
               <p className="text-sm text-muted-foreground">
-                We ship globally. If you have a market, we can reach it.
+                We export to Europe, the Middle East, Southeast Asia, and North America. FOB Chennai and FOB Mundra pricing available. We handle all export documentation including COO, phytosanitary, and fumigation certificates.
               </p>
             </div>
+          </div>
+        </div>
+
+        {/* What coffees you can white-label */}
+        <div className="mb-12">
+          <h2 className="text-lg font-semibold text-black mb-4">
+            What coffees can I white-label?
+          </h2>
+          <p className="text-sm text-muted-foreground mb-5">
+            Any product in our catalogue is available for white-label supply. Popular choices for branded Indian coffee programmes include:
+          </p>
+          <div className="space-y-3">
+            {[
+              {
+                name: "Koraput Arabica (Natural / HSD / Washed)",
+                desc: "Odisha tribal-grown specialty Arabica — GI-pending origin with a compelling provenance story. Scores 85–88 SCA. Available in natural, honey, and washed process.",
+              },
+              {
+                name: "Halflong SL-9 Arabica Naturals",
+                desc: "Rare high-altitude Arabica from Dima Hasao, Assam. Delicate florals, red-berry sweetness, 89 SCA. Limited availability — contact us for current lot status.",
+              },
+              {
+                name: "Chikmagalur / Coorg / Wayanad Arabica",
+                desc: "South India's most reliable commercial and specialty Arabica. Available in AA, A, AB, and PB (Peaberry) grades. Year-round supply.",
+              },
+              {
+                name: "Commercial AA/AAA Grade",
+                desc: "Plantation-grade washed Arabica for high-volume roasters, filter coffee brands, and blending. Consistent quality, competitive pricing from ₹800/kg.",
+              },
+              {
+                name: "CxR Robusta (Assam / Arunachal Pradesh)",
+                desc: "Natural-process Robusta from tribal farms in North East India. Bold body, earthy-chocolate profile. Ideal for espresso blends and instant coffee manufacturers.",
+              },
+            ].map((item) => (
+              <div key={item.name} className="flex gap-3 p-4 rounded-lg border border-neutral-200">
+                <div className="w-1.5 h-1.5 rounded-full bg-teal-600 mt-2 shrink-0" />
+                <div>
+                  <p className="font-medium text-black text-sm">{item.name}</p>
+                  <p className="text-sm text-muted-foreground">{item.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* How it works */}
+        <div className="mb-12">
+          <h2 className="text-lg font-semibold text-black mb-4">How it works</h2>
+          <div className="space-y-4">
+            {[
+              { step: "1", title: "Tell us what you need", desc: "Share your target origin, process type, grade, volume, and timeline. We'll come back with current lot availability and pricing within 24 hours." },
+              { step: "2", title: "Receive samples", desc: "We send green coffee samples before any bulk commitment. Most buyers cup 2–3 lots before selecting their white-label origin." },
+              { step: "3", title: "Confirm and order", desc: "Once you've selected a lot, we confirm the order, raise a proforma invoice, and begin export documentation. Lead time is typically 2–4 weeks from order confirmation." },
+              { step: "4", title: "Receive and roast", desc: "Your green coffee arrives in GrainPro-lined jute bags with all documentation. Roast it, pack it into your branded bags, and sell it under your brand." },
+            ].map((item) => (
+              <div key={item.step} className="flex gap-4">
+                <div className="w-7 h-7 rounded-full bg-teal-800 text-white text-xs font-semibold flex items-center justify-center shrink-0 mt-0.5">
+                  {item.step}
+                </div>
+                <div>
+                  <p className="font-medium text-black text-sm">{item.title}</p>
+                  <p className="text-sm text-muted-foreground">{item.desc}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
 
@@ -63,8 +133,8 @@ export default function WhiteLabelPage() {
             A note on packaging
           </p>
           <p className="text-sm text-muted-foreground">
-            We focus entirely on sourcing — we do not provide custom packaging.
-            For branded packaging, we recommend{" "}
+            We focus entirely on green coffee sourcing — we do not provide custom retail packaging.
+            For branded valve bags, stand-up pouches, and kraft packaging, we recommend{" "}
             <a
               href="https://www.swisspac.com"
               target="_blank"
@@ -73,7 +143,7 @@ export default function WhiteLabelPage() {
             >
               SwissPac
             </a>
-            , a trusted packaging partner used by many brands worldwide.
+            , a trusted coffee packaging partner used by brands worldwide.
           </p>
         </div>
 
