@@ -7,7 +7,7 @@ import { getWhatsappLink } from "@/data/destinations";
 export const metadata: Metadata = {
   title: "Buy Indian Green Coffee in India | All States & Cities | Bulk Green Coffee",
   description:
-    "Wholesale Indian green coffee delivered across India. Specialty Arabica from Koraput, Halflong & South India. Available in Maharashtra, Karnataka, Tamil Nadu, Delhi, and more. MOQ 10 kg.",
+    "Wholesale Indian green coffee delivered across India. Commercial AA/AAA from ₹800/kg, specialty from ₹1,100/kg. Maharashtra, Karnataka, Tamil Nadu, Delhi and more. MOQ 10 kg.",
   alternates: { canonical: "/india/available-locations" },
   openGraph: {
     title: "Indian Green Coffee Supplier — All India Locations | Bulk Green Coffee",

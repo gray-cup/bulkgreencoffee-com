@@ -1,8 +1,8 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import Image from "next/image";
 import type { Metadata } from "next";
 import { Button } from "@/components/ui/button";
+import { LocationProductCard } from "@/components/products";
 import { TOP_CITIES, getCityBySlugOnly, getStateNameFromSlug } from "@/data/india-cities";
 import { getProductBySlug } from "@/data/products";
 import { getWhatsappLink } from "@/data/destinations";
@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const stateName = getStateNameFromSlug(data.stateSlug) ?? data.state;
   return {
     title: `Indian Green Coffee Suppliers in ${data.city} | Wholesale Arabica | Bulk Green Coffee`,
-    description: `Find trusted Indian green coffee suppliers in ${data.city}, ${stateName}. Specialty Arabica from Koraput, Halflong & South India. MOQ ${data.moq}. Delivered in ${data.transitDays}. WhatsApp: +91 85279 14317.`,
+    description: `Find Indian green coffee suppliers in ${data.city}. Commercial AA/AAA from ₹800/kg, specialty from ₹1,100/kg. MOQ ${data.moq}. Delivered in ${data.transitDays}. GST invoice. WhatsApp: +91 85279 14317.`,
     alternates: { canonical: `/${citySlug}-green-coffee-supplier/` },
     openGraph: {
       title: `Green Coffee Suppliers in ${data.city} | Indian Arabica Wholesale`,
@@ -183,25 +183,7 @@ export default async function SupplierPage({ params }: Props) {
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {products.map((product) => (
-              <Link
-                key={product.slug}
-                href={`/products/${product.slug}`}
-                className="group p-4 border rounded-lg hover:border-teal-400 transition-colors"
-              >
-                <div className="aspect-square relative rounded-md overflow-hidden bg-neutral-50 mb-3">
-                  <Image src={product.image} alt={product.name} fill className="object-contain p-3" />
-                </div>
-                <p className="font-medium text-black text-sm mb-1 group-hover:text-teal-700 transition-colors">
-                  {product.name}
-                </p>
-                <p className="text-xs text-muted-foreground mb-2 line-clamp-2">{product.description}</p>
-                <div className="flex items-center justify-between text-xs">
-                  <span className="font-medium text-teal-700">
-                    ₹{product.priceRange.min}{product.priceRange.min !== product.priceRange.max ? `–₹${product.priceRange.max}` : ""}{product.priceRange.unit}
-                  </span>
-                  <span className="text-muted-foreground">MOQ {product.minimumOrder.quantity} {product.minimumOrder.unit}</span>
-                </div>
-              </Link>
+              <LocationProductCard key={product.slug} product={product} />
             ))}
           </div>
           <div className="mt-4">

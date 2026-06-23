@@ -40,7 +40,7 @@ export const countryDestinations: CountryDestination[] = [
     currency: "EUR",
     metaTitle: "Buy Indian Green Coffee in Germany | Wholesale Arabica Supplier | Bulk Green Coffee",
     metaDescription:
-      "Supply Indian green coffee to Germany — specialty Arabica from Koraput, Halflong, Chikmagalur, and Coorg. Wholesale and export pricing. DDP/DAP to Hamburg, Bremen, Frankfurt. Request samples.",
+      "Supply Indian green coffee to Germany — specialty Arabica from Koraput, Halflong, Chikmagalur, and Coorg. From ₹800/kg commercial, ₹1,100/kg specialty. DDP/DAP to Hamburg, Bremen, Frankfurt. Request samples.",
     heroHeadline: "Indian Green Coffee for German Roasters and Importers",
     heroSubtitle: "Specialty and commercial-grade Arabica from India's top origins — export-ready, fully documented, delivered to Germany.",
     marketContext:
@@ -78,7 +78,7 @@ export const countryDestinations: CountryDestination[] = [
     currency: "NOK",
     metaTitle: "Buy Indian Green Coffee in Norway | Specialty Arabica Wholesale | Bulk Green Coffee",
     metaDescription:
-      "Source Indian green coffee for Norwegian roasters and importers — specialty Arabica from Koraput, Halflong, and South India. Export-ready with full documentation. Samples available.",
+      "Source Indian green coffee for Norwegian roasters and importers — specialty Arabica from Koraput, Halflong, and South India. From ₹800/kg commercial, ₹1,100/kg specialty. Export-ready with full documentation.",
     heroHeadline: "Indian Green Coffee for Norway's Specialty Roasters",
     heroSubtitle: "Rare Indian Arabica origins — Natural, Washed, Honey — for the world's highest per-capita coffee-consuming country.",
     marketContext:
@@ -112,7 +112,7 @@ export const countryDestinations: CountryDestination[] = [
     currency: "EUR",
     metaTitle: "Buy Indian Green Coffee in the Netherlands | Wholesale Arabica | Bulk Green Coffee",
     metaDescription:
-      "Source Indian green coffee for the Netherlands — specialty and commercial Arabica from Koraput, Halflong, and South India. Sea freight via Rotterdam. Wholesale pricing. Samples on request.",
+      "Source Indian green coffee for the Netherlands — specialty and commercial Arabica from Koraput, Halflong, and South India. From ₹800/kg commercial, ₹1,100/kg specialty. Sea freight via Rotterdam.",
     heroHeadline: "Indian Green Coffee for Dutch Roasters and Traders",
     heroSubtitle: "Specialty and commercial Indian Arabica, shipped via Rotterdam — Europe's primary green coffee import gateway.",
     marketContext:
@@ -180,7 +180,7 @@ export const countryDestinations: CountryDestination[] = [
     currency: "EUR",
     metaTitle: "Buy Indian Green Coffee in Italy | Arabica & Robusta Wholesale | Bulk Green Coffee",
     metaDescription:
-      "Source Indian green coffee for Italy — commercial and specialty Arabica from South India, Odisha, and Assam. Robusta available for espresso blends. Wholesale pricing. Ship to Genova, Naples, Milan.",
+      "Source Indian green coffee for Italy — commercial and specialty Arabica from South India, Odisha, and Assam. Robusta available for espresso blends. From ₹800/kg. Ship to Genova, Naples, Milan.",
     heroHeadline: "Indian Green Coffee for Italian Roasters and Blenders",
     heroSubtitle: "Quality Arabica and Robusta from India — the right base for Italian espresso blends, specialty programmes, and commercial roasting.",
     marketContext:
@@ -214,7 +214,7 @@ export const countryDestinations: CountryDestination[] = [
     currency: "EUR",
     metaTitle: "Buy Indian Green Coffee in France | Wholesale Arabica Supplier | Bulk Green Coffee",
     metaDescription:
-      "Source Indian green coffee for France — specialty and commercial Arabica from Koraput, Halflong, and South India. Ship to Le Havre, Marseille. EU import ready. Samples available.",
+      "Source Indian green coffee for France — specialty and commercial Arabica from Koraput, Halflong, and South India. From ₹800/kg. Ship to Le Havre, Marseille. EU import ready.",
     heroHeadline: "Indian Green Coffee for French Roasters and Importers",
     heroSubtitle: "Specialty Arabica and commercial Indian green coffee — export-ready for France's growing specialty coffee market.",
     marketContext:
@@ -248,7 +248,7 @@ export const countryDestinations: CountryDestination[] = [
     currency: "EUR",
     metaTitle: "Buy Indian Green Coffee in Spain | Wholesale Arabica & Robusta | Bulk Green Coffee",
     metaDescription:
-      "Source Indian green coffee for Spain — Arabica and Robusta wholesale from India. Ship to Barcelona, Valencia, Bilbao. EU import documentation complete. Specialty and commercial grades available.",
+      "Source Indian green coffee for Spain — Arabica and Robusta wholesale from India. From ₹800/kg. Ship to Barcelona, Valencia, Bilbao.",
     heroHeadline: "Indian Green Coffee for Spanish Roasters and Importers",
     heroSubtitle: "Full-bodied South Indian Arabica and robust Indian Robusta — well-suited to Spain's espresso and café culture.",
     marketContext:
@@ -278,7 +278,7 @@ export const countryDestinations: CountryDestination[] = [
     currency: "GBP",
     metaTitle: "Buy Indian Green Coffee in the UK | Specialty Arabica Wholesale | Bulk Green Coffee",
     metaDescription:
-      "Source Indian green coffee for UK roasters and importers — specialty Arabica from Koraput, Halflong, Chikmagalur, and Bababudangiri. Ship to Felixstowe or air freight to London. Samples available.",
+      "Source Indian green coffee for UK roasters and importers — specialty Arabica from Koraput, Halflong, Chikmagalur, and Bababudangiri. From ₹800/kg. Ship to Felixstowe or air freight to London.",
     heroHeadline: "Indian Green Coffee for UK Specialty Roasters",
     heroSubtitle: "High-altitude Arabica from India's most distinctive origins — export-ready for the UK's world-leading specialty coffee scene.",
     marketContext:
@@ -312,7 +312,7 @@ export const countryDestinations: CountryDestination[] = [
     currency: "EUR",
     metaTitle: "Buy Indian Green Coffee in Ireland | Wholesale Arabica Supplier | Bulk Green Coffee",
     metaDescription:
-      "Source Indian green coffee for Ireland — specialty Arabica and commercial grades from India's top growing regions. Ship to Dublin. EU import documentation complete. Samples available.",
+      "Source Indian green coffee for Ireland — specialty Arabica and commercial grades from India's top growing regions. From ₹800/kg. Ship to Dublin. EU import documentation complete.",
     heroHeadline: "Indian Green Coffee for Irish Roasters and Importers",
     heroSubtitle: "Specialty and commercial Indian Arabica — export-ready for Ireland's fast-growing specialty coffee market.",
     marketContext:
@@ -342,7 +342,7 @@ export const countryDestinations: CountryDestination[] = [
     currency: "AED",
     metaTitle: "Buy Indian Green Coffee in UAE | Dubai Coffee Importer | Bulk Green Coffee",
     metaDescription:
-      "Source Indian green coffee for UAE — specialty and commercial Arabica from Koraput, Chikmagalur, and South India. Ship to Jebel Ali (Dubai). Wholesale pricing for roasters and hospitality buyers.",
+      "Source Indian green coffee for UAE — specialty and commercial Arabica from Koraput, Chikmagalur, and South India. From ₹800/kg. Ship to Jebel Ali (Dubai).",
     heroHeadline: "Indian Green Coffee for UAE Roasters and Hospitality Buyers",
     heroSubtitle: "Premium Indian Arabica for Dubai's booming specialty coffee scene — export-ready, fully documented, fast transit via Jebel Ali.",
     marketContext:
@@ -380,7 +380,7 @@ export const countryDestinations: CountryDestination[] = [
     currency: "SAR",
     metaTitle: "Buy Indian Green Coffee in Saudi Arabia | Wholesale Arabica Supplier | Bulk Green Coffee",
     metaDescription:
-      "Source Indian green coffee for Saudi Arabia — specialty and commercial Arabica from South India, Koraput, and Assam. Ship to Jeddah or Dammam. Wholesale pricing for roasters and hospitality buyers.",
+      "Source Indian green coffee for Saudi Arabia — specialty and commercial Arabica from South India, Koraput, and Assam. From ₹800/kg. Ship to Jeddah or Dammam.",
     heroHeadline: "Indian Green Coffee for Saudi Roasters and Hospitality Buyers",
     heroSubtitle: "Premium Indian Arabica for Saudi Arabia's rapidly growing specialty coffee market — fully documented, shipped via Jeddah.",
     marketContext:
@@ -414,7 +414,7 @@ export const countryDestinations: CountryDestination[] = [
     currency: "USD",
     metaTitle: "Buy Indian Green Coffee in the USA | Wholesale Arabica Import | Bulk Green Coffee",
     metaDescription:
-      "Source Indian green coffee for US roasters and importers — specialty Arabica from Koraput, Halflong, Chikmagalur, and Bababudangiri. Ship to Los Angeles, New York. Specialty and commercial grades.",
+      "Source Indian green coffee for US roasters and importers — specialty Arabica from Koraput, Halflong, Chikmagalur, and Bababudangiri. From ₹800/kg. Ship to Los Angeles, New York.",
     heroHeadline: "Indian Green Coffee for US Specialty Roasters and Importers",
     heroSubtitle: "Rare Indian Arabica origins for America's specialty coffee market — the undiscovered origin with the flavour profiles your customers will talk about.",
     marketContext:
@@ -448,7 +448,7 @@ export const countryDestinations: CountryDestination[] = [
     currency: "AUD",
     metaTitle: "Buy Indian Green Coffee in Australia | Specialty Arabica Wholesale | Bulk Green Coffee",
     metaDescription:
-      "Source Indian green coffee for Australia — specialty and commercial Arabica from South India, Koraput, and Assam. Ship to Melbourne, Sydney. AQIS biosecurity compliant. Samples available.",
+      "Source Indian green coffee for Australia — specialty and commercial Arabica from South India, Koraput, and Assam. From ₹800/kg. Ship to Melbourne, Sydney. AQIS compliant.",
     heroHeadline: "Indian Green Coffee for Australian Roasters and Importers",
     heroSubtitle: "Premium Indian Arabica origins — export-ready for Australia's world-class specialty coffee market.",
     marketContext:
@@ -478,7 +478,7 @@ export const countryDestinations: CountryDestination[] = [
     currency: "JPY",
     metaTitle: "Buy Indian Green Coffee in Japan | Specialty Arabica Wholesale | Bulk Green Coffee",
     metaDescription:
-      "Source Indian green coffee for Japan — specialty Arabica from Koraput, Halflong, and South India. Ship to Osaka, Tokyo. Specialty and commercial grades. Samples available on request.",
+      "Source Indian green coffee for Japan — specialty Arabica from Koraput, Halflong, and South India. From ₹800/kg. Ship to Osaka, Tokyo.",
     heroHeadline: "Indian Green Coffee for Japanese Specialty Roasters",
     heroSubtitle: "Distinctive Indian Arabica — Natural, Washed, and Honey process — for Japan's world-leading specialty coffee culture.",
     marketContext:
@@ -508,7 +508,7 @@ export const countryDestinations: CountryDestination[] = [
     currency: "SGD",
     metaTitle: "Buy Indian Green Coffee in Singapore | Specialty Arabica Wholesale | Bulk Green Coffee",
     metaDescription:
-      "Source Indian green coffee for Singapore — specialty and commercial Arabica from Koraput, Halflong, and South India. Short transit from India. Wholesale pricing for roasters and distributors.",
+      "Source Indian green coffee for Singapore — specialty and commercial Arabica from Koraput, Halflong, and South India. From ₹800/kg. Short transit from India.",
     heroHeadline: "Indian Green Coffee for Singapore's Specialty Coffee Market",
     heroSubtitle: "Premium Indian Arabica, delivered to Singapore in 7–10 days — one of the world's shortest origin-to-roaster routes.",
     marketContext:
@@ -538,7 +538,7 @@ export const countryDestinations: CountryDestination[] = [
     currency: "CAD",
     metaTitle: "Buy Indian Green Coffee in Canada | Wholesale Arabica Supplier | Bulk Green Coffee",
     metaDescription:
-      "Source Indian green coffee for Canada — specialty Arabica from Koraput, Halflong, and South India. Ship to Vancouver, Montreal, Toronto. Wholesale pricing for roasters and importers.",
+      "Source Indian green coffee for Canada — specialty Arabica from Koraput, Halflong, and South India. From ₹800/kg. Ship to Vancouver, Montreal, Toronto.",
     heroHeadline: "Indian Green Coffee for Canadian Specialty Roasters",
     heroSubtitle: "Rare, traceable Indian Arabica for Canada's growing specialty coffee market.",
     marketContext:
@@ -569,7 +569,7 @@ export const stateDestinations: StateDestination[] = [
     name: "Maharashtra",
     metaTitle: "Buy Indian Green Coffee in Maharashtra | Mumbai Wholesale Arabica | Bulk Green Coffee",
     metaDescription:
-      "Source Indian green coffee in Maharashtra — specialty and commercial Arabica from Koraput, Halflong, and South India. Wholesale pricing for Mumbai roasters, café chains, and institutional buyers.",
+      "Source Indian green coffee in Maharashtra — specialty and commercial Arabica from Koraput, Halflong, and South India. From ₹800/kg. GST invoice included.",
     heroHeadline: "Indian Green Coffee Wholesale in Maharashtra",
     heroSubtitle: "Direct sourcing from India's top coffee origins — delivered to Mumbai, Pune, Nagpur, and across Maharashtra.",
     marketContext:
@@ -597,7 +597,7 @@ export const stateDestinations: StateDestination[] = [
     name: "Karnataka",
     metaTitle: "Buy Green Coffee Wholesale in Karnataka | Bangalore Arabica Supplier | Bulk Green Coffee",
     metaDescription:
-      "Source Indian green coffee in Karnataka — specialty Arabica from Koraput, Halflong, and local South India origins. Wholesale for Bangalore roasters, café chains, and blenders.",
+      "Source Indian green coffee in Karnataka — specialty Arabica from Koraput, Halflong, and local South India origins. From ₹800/kg. GST invoice included.",
     heroHeadline: "Green Coffee Wholesale in Karnataka",
     heroSubtitle: "Supply your Bangalore roastery or café chain with traceable Indian Arabica from Koraput, Halflong, and across South India.",
     marketContext:
@@ -645,7 +645,7 @@ export const stateDestinations: StateDestination[] = [
     name: "Tamil Nadu",
     metaTitle: "Buy Green Coffee Wholesale in Tamil Nadu | Chennai Arabica Supplier | Bulk Green Coffee",
     metaDescription:
-      "Source Indian green coffee in Tamil Nadu — specialty and commercial Arabica from Koraput, South India, and Assam. Wholesale for Chennai roasters, filter coffee brands, and institutional buyers.",
+      "Source Indian green coffee in Tamil Nadu — specialty and commercial Arabica from Koraput, South India, and Assam. From ₹800/kg. GST invoice included.",
     heroHeadline: "Green Coffee Wholesale in Tamil Nadu",
     heroSubtitle: "From traditional filter coffee bases to specialty single-origin lots — supplying Chennai and Tamil Nadu's roasters and café chains.",
     marketContext:
@@ -693,7 +693,7 @@ export const stateDestinations: StateDestination[] = [
     name: "Telangana",
     metaTitle: "Buy Green Coffee Wholesale in Telangana | Hyderabad Arabica Supplier | Bulk Green Coffee",
     metaDescription:
-      "Source Indian green coffee in Telangana — specialty and commercial Arabica from Koraput, South India, and Assam. Wholesale for Hyderabad roasters, café chains, and institutional buyers.",
+      "Source Indian green coffee in Telangana — specialty and commercial Arabica from Koraput, South India, and Assam. From ₹800/kg. GST invoice included.",
     heroHeadline: "Green Coffee Wholesale in Telangana",
     heroSubtitle: "Specialty and commercial Indian Arabica for Hyderabad's growing café and hospitality sector.",
     marketContext:

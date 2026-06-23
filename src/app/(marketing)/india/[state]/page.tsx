@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!stateName) return { title: "Not Found" };
   return {
     title: `Buy Indian Green Coffee in ${stateName} | Wholesale Arabica Supplier`,
-    description: `Source Indian green coffee wholesale in ${stateName}. Specialty Arabica from Koraput, Halflong & South India. MOQ 10 kg. GST invoice. WhatsApp: +91 85279 14317.`,
+    description: `Source Indian green coffee wholesale in ${stateName}. Commercial AA/AAA from ₹800/kg, specialty from ₹1,100/kg. MOQ 10 kg. GST invoice. WhatsApp: +91 85279 14317.`,
     alternates: { canonical: `/india/${state}` },
     openGraph: {
       title: `Indian Green Coffee Supplier in ${stateName} | Bulk Green Coffee`,

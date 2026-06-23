@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Indian Green Coffee Products | Specialty & Commercial | Bulk Green Coffee",
   description:
-    "Browse wholesale Indian green coffee — specialty Natural, Washed, and HSD lots from Koraput, Halflong, and South India; plus commercial AA/AAA and Peaberry grade. MOQ from 10 kg. Export-ready.",
+    "Browse wholesale Indian green coffee — commercial AA/AAA from ₹800/kg, specialty Natural, Washed & HSD from ₹1,100/kg. Koraput, Halflong, and South India origins. MOQ from 10 kg. Export-ready.",
   alternates: { canonical: "/products" },
   openGraph: {
     title: "Indian Green Coffee Products | Bulk Green Coffee",

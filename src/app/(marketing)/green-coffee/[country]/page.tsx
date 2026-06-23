@@ -1,8 +1,8 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import Image from "next/image";
 import type { Metadata } from "next";
 import { Button } from "@/components/ui/button";
+import { LocationProductCard } from "@/components/products";
 import {
   countryDestinations,
   getCountryBySlug,
@@ -95,27 +95,7 @@ export default async function CountryPage({ params }: Props) {
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {products.map((product) => (
-              <Link
-                key={product.slug}
-                href={`/products/${product.slug}`}
-                className="group p-4 border rounded-lg hover:border-teal-400 transition-colors"
-              >
-                <div className="aspect-square relative rounded-md overflow-hidden bg-neutral-50 mb-3">
-                  <Image src={product.image} alt={product.name} fill className="object-contain p-3" />
-                </div>
-                <p className="font-medium text-black text-sm mb-1 group-hover:text-teal-700 transition-colors">
-                  {product.name}
-                </p>
-                <p className="text-xs text-muted-foreground mb-2 line-clamp-2">{product.description}</p>
-                <div className="flex items-center justify-between text-xs">
-                  <span className="font-medium text-teal-700">
-                    ₹{product.priceRange.min}
-                    {product.priceRange.min !== product.priceRange.max ? `–₹${product.priceRange.max}` : ""}{" "}
-                    {product.priceRange.unit}
-                  </span>
-                  <span className="text-muted-foreground">MOQ {product.minimumOrder.quantity} {product.minimumOrder.unit}</span>
-                </div>
-              </Link>
+              <LocationProductCard key={product.slug} product={product} />
             ))}
           </div>
           <div className="mt-4">
