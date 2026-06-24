@@ -40,16 +40,19 @@ export const specialtyCoffeeProducts: Product[] = [
         author: "Samuel Osei",
         role: "Head Roaster, Origin Coffee Lab (Cape Town)",
         text: "The Koraput Natural surprised our entire team at the cupping table. Deep blueberry and dark plum up front, chocolate on the finish. We've run two seasonal lots now and the consistency has been excellent.",
+        rating: 5,
       },
       {
         author: "Ananya Krishnan",
         role: "Founder, Drip & Bloom Roasters (Bangalore)",
         text: "We were specifically looking for an Indian natural to put on our single-origin menu. Koraput ticks every box — the story, the flavour, the price point. Our filter coffee customers love it.",
+        rating: 5,
       },
       {
         author: "Thomas Bergmann",
         role: "Green Coffee Buyer, Drei Könige Rösterei (Berlin)",
         text: "Indian naturals are still underrepresented in European specialty — this one deserves attention. Bright, fruit-forward, clean finish. We ordered a trial 30 kg and immediately followed up with 120 kg.",
+        rating: 4,
       },
     ],
     pageDescription: `Koraput Natural is one of India's most compelling specialty origins and one of the least-known outside the country. The district sits at the far southern end of Odisha, where the Eastern Ghats create a series of elevated plateaus and forested ridges at 900–1,350 metres above sea level. Tribal communities from the Kondh, Gadaba, and Poraja groups have farmed these highlands for generations, and coffee here is almost always grown under a forest canopy — with no synthetic fertilisers and minimal intervention.
@@ -97,16 +100,19 @@ Koraput is actively pursuing a Geographical Indication (GI) tag for its coffee �
         author: "Mei-Ling Chen",
         role: "Sourcing Director, Joyride Coffee (Singapore)",
         text: "The Red Honey from Koraput is our bestselling Indian single origin. The stone-fruit sweetness is immediate and the body is exactly what our pour-over customers are looking for. Reordered three times this year.",
+        rating: 5,
       },
       {
         author: "Rajan Pillai",
         role: "Co-founder, Seven Seeds Collective (Chennai)",
         text: "We initially doubted that an Indian honey process could compete with Central American equivalents. The Koraput HSD changed our mind completely — silky, sweet, and beautifully clean. Scored 88 at our lab.",
+        rating: 5,
       },
       {
         author: "Florian Huber",
         role: "Roastmaster, Kaffeemühle Oberreiter (Munich)",
         text: "The Gold Honey lot we received in Q1 was exceptional. Deep apricot and nectarine on the nose, caramel sweetness through the cup, clean finish. We listed it at a 40% premium over our house blend and it sold out in three weeks.",
+        rating: 5,
       },
     ],
     pageDescription: `The Honey Sun-Dried (HSD) process was specifically developed in Koraput to sit between the boldness of naturals and the clarity of washed coffee — and it achieves that balance exceptionally well. In the HSD method, the cherry skin is removed by a depulper but the mucilage — the sticky, sugar-rich layer around the bean — is left on during the drying phase. The beans are then laid on raised drying beds and turned multiple times daily over 10–20 days.
@@ -154,16 +160,19 @@ All HSD lots are grown by tribal farming cooperatives in Koraput's Eastern Ghats
         author: "Priya Nair",
         role: "Buyer, Blue Tokai Coffee Roasters (India)",
         text: "The Koraput Washed is one of the cleanest Indian single origins we've sourced. Bright citrus, floral top notes, and a tea-like finish. Works beautifully as a filter coffee feature. We've made it a seasonal staple.",
+        rating: 5,
       },
       {
         author: "Luca Moretti",
         role: "Specialty Buyer, Ditta Artigianale (Florence)",
         text: "We wanted a clean Indian washed to complete our single-origin filter menu. The Koraput AA washed delivered exactly that — transparent, floral, clean acidity. Our customers are consistently surprised that it's from India.",
+        rating: 4,
       },
       {
         author: "Kenji Watanabe",
         role: "Head of Procurement, % Arabica (Tokyo)",
         text: "Traceability and consistency are non-negotiable for us. The Koraput Washed team delivered both. The washed AA lot we received scored 86.5 at our Tokyo cupping lab and arrived within the moisture spec window every time.",
+        rating: 5,
       },
     ],
     pageDescription: `The washed process reveals what Koraput's terroir actually tastes like. When the fruit is removed cleanly — depulped, fermented overnight in spring water, then washed and shade-dried on raised bamboo beds — the cup becomes a direct expression of the Eastern Ghats: the elevation, the red-laterite soil, the cool nights, the slow ripening under a forest canopy.
@@ -216,16 +225,19 @@ All washed lots are processed at the cooperative's spring-fed washing station an
         author: "Marcus Elliot",
         role: "Head Roaster, Oslo Roasters",
         text: "The SL-9 from Halflong is unlike anything else coming out of India right now. Delicate florals, clean finish — our customers can't get enough of it.",
+        rating: 5,
       },
       {
         author: "Priya Nair",
         role: "Buyer, Blue Tokai Coffee",
         text: "Exceptional traceability and consistent quality lot after lot. The natural process is handled beautifully — genuine wine notes without the ferment off-flavours.",
+        rating: 5,
       },
       {
         author: "Jan Kovář",
         role: "Co-founder, Doubleshot Prague",
         text: "We sourced two lots in 2024 and both scored above 88 at our cupping table. Highly recommended for any specialty roaster looking for a rare Indian origin.",
+        rating: 5,
       },
     ],
     pageDescription: `Halflong is the hill station capital of Dima Hasao district in Assam — a place most coffee buyers have never heard of, producing Arabica that consistently outscores origins that get far more attention. At 950–960 metres above sea level, the Dima Hasao hills experience cool nights, persistent morning mist, and a slow growing season that concentrates sugars in the SL-9 cherry over months rather than weeks.
@@ -277,16 +289,19 @@ Availability is strictly limited. The Dima Hasao hills are remote, harvests are 
         author: "Dinesh Rao",
         role: "Procurement Manager, Continental Coffee (Hyderabad)",
         text: "We've been sourcing Robusta from Karnataka for years. The Chirang CxR is a solid alternative — consistent cup, good body, and the pricing is competitive. We use it in our espresso blend base.",
+        rating: 4,
       },
       {
         author: "Saba Tahir",
         role: "Head of Blending, CCD Roastery",
         text: "The North East Indian Robusta has a cleaner, less rubbery profile than some South Indian lots we've tried. Good crema contribution, reliable across batches. Works well in our 70/30 espresso blend.",
+        rating: 4,
       },
       {
         author: "Kevin Lim",
         role: "Operations Director, Old Town White Coffee (Malaysia)",
         text: "We needed a reliable Indian Robusta for our instant production line. The Chirang Grade 1 lot delivered strong, consistent cup solids with low moisture variance across shipments. Will continue sourcing.",
+        rating: 4,
       },
     ],
     pageDescription: `Chirang district in lower Assam occupies a stretch of forest-fringe land between the Brahmaputra floodplain and the foothills of Bhutan. Coffee here grows at 100–200 metres in a humid subtropical climate — very different from the high-altitude Arabica of Halflong, but producing a Robusta with more character than typical lowland lots.
@@ -343,16 +358,19 @@ The farming families of Chirang are among the least-visible contributors to Indi
         author: "Amrit Singh",
         role: "Founder, Jugaad Coffee Works (Delhi)",
         text: "Tirap Robusta was a complete surprise. At 300m it has more complexity than I expected from a CxR — mild fruitiness, rich body, none of the harsh rubber notes you sometimes get in low-altitude Robusta. Now a permanent part of our espresso blend.",
+        rating: 5,
       },
       {
         author: "Patricia Walsh",
         role: "Green Coffee Buyer, Workshop Coffee (London)",
         text: "The provenance story here is genuinely unusual — Naga and Wancho tribal farms in Arunachal Pradesh is not something you see in European green coffee catalogues. The cup backs it up: earthy depth, chocolate, clean finish. We used it in our winter blend.",
+        rating: 4,
       },
       {
         author: "Haruto Nakamura",
         role: "Production Manager, Key Coffee Inc. (Tokyo)",
         text: "We needed a North-East Indian Robusta for our instant line with consistent cup solids and low defects. The Tirap Grade 1 passed our QC requirements and the supply team were responsive throughout. Will include in next cycle.",
+        rating: 4,
       },
     ],
     pageDescription: `Tirap district occupies the far eastern edge of Arunachal Pradesh, bordering Myanmar, at the foot of the eastern Himalayas. It is inhabited primarily by the Naga and Wancho peoples — communities with deep agricultural traditions whose coffee cultivation is largely unknown to the international green coffee market.
@@ -408,16 +426,19 @@ For buyers, Tirap offers several things that are hard to find together: a genuin
         author: "Shreya Mehta",
         role: "Co-founder, Subko Coffee Roasters (Mumbai)",
         text: "Chikmagalur AA washed is our house espresso base. Consistent across every shipment, clean cup, bright acidity that holds up through milk-based drinks. We've been on the same supplier relationship for two seasons now.",
+        rating: 5,
       },
       {
         author: "David Schomer",
         role: "Owner, Espresso Vivace (Seattle)",
         text: "The S795 from Chikmagalur is a hidden gem for blenders. It adds brightness and structure without dominating the blend. We use it as a 30% component in our espresso and it lifts everything around it.",
+        rating: 4,
       },
       {
         author: "Nadia Boukhari",
         role: "Buyer, Café Comptoir de l'Est (Paris)",
         text: "We feature an Indian Arabica every winter season and Chikmagalur is consistently our best-reviewed. Customers describe it as 'clean and interesting' — not a common combination for a commercial Indian lot.",
+        rating: 4,
       },
     ],
     pageDescription: `Chikmagalur is where Indian coffee began. According to legend, Baba Budan — a Sufi saint returning from a pilgrimage to Mecca — smuggled seven coffee seeds out of Yemen in the 17th century and planted them in the hills of what is now Chikmagalur district. The British colonial plantation system formalised what began as a spiritual act, and today Chikmagalur is Karnataka's most productive and most storied coffee-growing region.
@@ -470,16 +491,19 @@ Available in AA, A, AB, and PB (Peaberry) grades across washed, natural, and hon
         author: "Ashwin Balachandran",
         role: "Head Roaster, Third Wave Coffee Roasters (Bangalore)",
         text: "Coorg AA is our go-to for South Indian filter coffee customers. Full body, low acidity, chocolate finish — exactly what that market wants. Consistent quality across every order we've placed.",
+        rating: 5,
       },
       {
         author: "Isabella Romano",
         role: "Sourcing Lead, Gardelli Specialty Coffees (Forlì)",
         text: "The Coorg Peaberry we sampled was outstanding — fuller and sweeter than the AA from the same harvest. We've started featuring it as a standalone espresso and the response has been very positive.",
+        rating: 5,
       },
       {
         author: "Ahmed Al-Rashid",
         role: "Operations Manager, Café Bateel (Dubai)",
         text: "We supply high-volume to hospitality clients in the UAE. Coorg Arabica AA gives us the reliability, body, and price point we need. Have been sourcing through Bulk Green Coffee for two seasons without quality issues.",
+        rating: 4,
       },
     ],
     pageDescription: `Coorg (officially Kodagu) is one of the most biodiverse districts in India — a dense, forested landscape of hills and valleys in southern Karnataka where coffee, pepper, cardamom, and orange plantations coexist under a canopy of silver oak and native jungle trees. Coffee here has been grown by Kodava families on large planters' estates since the 19th century, and the region has developed a distinct and recognisable cup character.
@@ -532,16 +556,19 @@ Peaberry (PB) lots from Coorg are especially prized. The same rich, chocolatey c
         author: "Rina Thomas",
         role: "Founder, Araku Coffee Lab (Kerala)",
         text: "Wayanad Arabica is our benchmark for consistency. Season after season, the cup profile barely shifts — smooth, mild, a little nutty. It's exactly what our café accounts need for a house blend base.",
+        rating: 4,
       },
       {
         author: "James Hoffmann",
         role: "Roaster and Educator (London)",
         text: "Wayanad's forest-grown cooperatives produce some of the most underrated Arabica in South Asia. The cup is mild in the best sense — accessible, consistent, and genuinely pleasant. A solid entry point for anyone exploring Indian origins.",
+        rating: 4,
       },
       {
         author: "Laila Hassan",
         role: "Procurement, Al Mawakeb Coffee (Riyadh)",
         text: "We needed a consistent, smooth Arabica for our filter coffee programme in Saudi Arabia. Wayanad AA matched our cup spec every shipment. The organic-certified lot was also well within our customer's expectations.",
+        rating: 4,
       },
     ],
     pageDescription: `Wayanad is Kerala's highest district — a plateau at the top of the Western Ghats that catches both the Arabian Sea monsoon from the west and the Bay of Bengal moisture from the east, creating one of the most reliably wet and biodiverse growing environments in South India. Coffee here is grown by small-holder farmers and cooperatives whose land is woven between the Wayanad Wildlife Sanctuary and tribal reserve forests.
@@ -594,16 +621,19 @@ Organic-certified lots from Wayanad are available on request. The certification 
         author: "Olga Melnyk",
         role: "Head of Single Origins, Tim Wendelboe (Oslo)",
         text: "The Bababudangiri lot we sourced last season was unlike anything else from India — earthy complexity, a spiced warmth that comes from the terroir, and a lingering sweetness on the finish. A genuinely memorable cup.",
+        rating: 5,
       },
       {
         author: "Sameer Gupta",
         role: "Founder, Corridor Seven Coffee Roasters (Pune)",
         text: "The provenance story sells itself — Indian coffee's mythical birthplace. But the cup delivers too. Creamy body, brown sugar, subtle spice. We sold out our 30 kg sample lot in ten days on a single Instagram post.",
+        rating: 5,
       },
       {
         author: "Beatriz Costa",
         role: "Green Coffee Buyer, Delta Cafés (Portugal)",
         text: "We feature a heritage Indian origin every year in our specialty range. Bababudangiri is the strongest yet — the altitude, the story, and the cup profile all align. Our customers love the 'birthplace of Indian coffee' narrative.",
+        rating: 5,
       },
     ],
     pageDescription: `No Indian coffee origin carries a more compelling story than Bababudangiri. According to historical records and Sufi tradition, it was here — in the Chandragiri hills of what is now Chikmagalur district, Karnataka — that Baba Budan, a Muslim pilgrim returning from Mecca, planted seven coffee seeds he had smuggled out of Yemen sometime in the early 17th century. Those seeds were the first coffee plants in India, and the descendants of that original cultivation still grow on the slopes of the hills that bear Baba Budan's name.

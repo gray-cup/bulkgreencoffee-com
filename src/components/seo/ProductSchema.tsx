@@ -14,6 +14,21 @@ export function ProductSchema({ product }: { product: Product }) {
     ? product.image
     : `${BASE_URL}${product.image}`;
 
+  const ratedReviews = (product.reviews ?? []).filter((r) => r.rating != null);
+  const aggregateRating =
+    ratedReviews.length > 0
+      ? {
+          "@type": "AggregateRating",
+          ratingValue: (
+            ratedReviews.reduce((sum, r) => sum + r.rating, 0) /
+            ratedReviews.length
+          ).toFixed(1),
+          reviewCount: ratedReviews.length,
+          bestRating: 5,
+          worstRating: 1,
+        }
+      : undefined;
+
   const schema = {
     "@context": "https://schema.org",
     "@type": "Product",
@@ -29,6 +44,7 @@ export function ProductSchema({ product }: { product: Product }) {
       name: product.brand,
     },
     category: product.googleProductCategory,
+    ...(aggregateRating && { aggregateRating }),
     offers: {
       "@type": "AggregateOffer",
       priceCurrency: "INR",
@@ -48,11 +64,40 @@ export function ProductSchema({ product }: { product: Product }) {
         .toISOString()
         .split("T")[0],
       itemCondition: "https://schema.org/NewCondition",
+      shippingDetails: {
+        "@type": "OfferShippingDetails",
+        shippingRate: {
+          "@type": "MonetaryAmount",
+          value: "0",
+          currency: "INR",
+        },
+        shippingDestination: {
+          "@type": "DefinedRegion",
+          addressCountry: "IN",
+        },
+        deliveryTime: {
+          "@type": "ShippingDeliveryTime",
+          handlingTime: {
+            "@type": "QuantitativeValue",
+            minValue: 0,
+            maxValue: 1,
+            unitCode: "DAY",
+          },
+          transitTime: {
+            "@type": "QuantitativeValue",
+            minValue: 2,
+            maxValue: 7,
+            unitCode: "DAY",
+          },
+        },
+      },
       hasMerchantReturnPolicy: {
         "@type": "MerchantReturnPolicy",
         applicableCountry: "IN",
         returnPolicyCategory: "https://schema.org/MerchantReturnFiniteReturnWindow",
         merchantReturnDays: 7,
+        returnMethod: "https://schema.org/ReturnByMail",
+        returnFees: "https://schema.org/FreeReturn",
       },
     },
     ...(product.scaScore != null && {

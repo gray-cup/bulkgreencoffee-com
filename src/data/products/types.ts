@@ -38,6 +38,7 @@ export type Product = {
     author: string;
     role?: string;
     text: string;
+    rating: number;
   }[];
   // Google Merchant Center fields
   sku: string;
