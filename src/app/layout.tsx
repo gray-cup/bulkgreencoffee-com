@@ -117,6 +117,19 @@ export default function RootLayout({
       >
 
         <OrganizationSchema />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              "@id": "https://bulkgreencoffee.com/#website",
+              name: "Bulk Green Coffee",
+              alternateName: "BulkGreenCoffee",
+              url: "https://bulkgreencoffee.com",
+            }),
+          }}
+        />
         <RootProviders>{children}</RootProviders>
         {/* <UserJotWidget /> */}
         <WhatsappWidget />
