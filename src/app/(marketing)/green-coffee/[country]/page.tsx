@@ -9,6 +9,10 @@ import {
   getWhatsappLink,
 } from "@/data/destinations";
 import { getProductBySlug } from "@/data/products";
+import { getIsoCountry, getOgLocale } from "@/data/country-codes";
+import { BreadcrumbSchema, FaqSchema, ProductSchema } from "@/components/seo";
+
+const BASE_URL = "https://bulkgreencoffee.com";
 
 type Props = { params: Promise<{ country: string }> };
 
@@ -28,6 +32,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: dest.metaTitle,
       description: dest.metaDescription,
       url: `https://bulkgreencoffee.com/green-coffee/${dest.slug}`,
+      locale: getOgLocale(dest.slug),
     },
   };
 }
@@ -45,8 +50,21 @@ export default async function CountryPage({ params }: Props) {
     `Hi, I found your page for ${dest.name} on bulkgreencoffee.com and I would like to enquire about sourcing Indian green coffee.`
   );
 
+  const isoCountry = getIsoCountry(dest.slug);
+
+  const breadcrumbs = [
+    { name: "Home", url: BASE_URL },
+    { name: "Products", url: `${BASE_URL}/products` },
+    { name: dest.name, url: `${BASE_URL}/green-coffee/${dest.slug}` },
+  ];
+
   return (
     <div className="min-h-screen py-20 px-4 lg:px-6">
+      <BreadcrumbSchema items={breadcrumbs} />
+      <FaqSchema faqs={dest.faqs} />
+      {products.map((product) => (
+        <ProductSchema key={product.slug} product={product} shippingCountry={isoCountry} />
+      ))}
       <div className="max-w-5xl mx-auto px-4 lg:px-6">
 
         {/* Header */}

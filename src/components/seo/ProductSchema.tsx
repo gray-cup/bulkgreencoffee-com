@@ -8,7 +8,15 @@ function schemaAvailability(a: ProductAvailability): string {
   return "https://schema.org/OutOfStock";
 }
 
-export function ProductSchema({ product }: { product: Product }) {
+export function ProductSchema({
+  product,
+  shippingCountry = "IN",
+}: {
+  product: Product;
+  /** ISO 3166-1 alpha-2 code of the market this schema instance describes shipping/returns for. */
+  shippingCountry?: string;
+}) {
+  const isDomestic = shippingCountry === "IN";
   const url = `${BASE_URL}/products/${product.slug}`;
   const imageUrl = product.image.startsWith("http")
     ? product.image
@@ -73,7 +81,7 @@ export function ProductSchema({ product }: { product: Product }) {
         },
         shippingDestination: {
           "@type": "DefinedRegion",
-          addressCountry: "IN",
+          addressCountry: shippingCountry,
         },
         deliveryTime: {
           "@type": "ShippingDeliveryTime",
@@ -83,17 +91,24 @@ export function ProductSchema({ product }: { product: Product }) {
             maxValue: 1,
             unitCode: "DAY",
           },
-          transitTime: {
-            "@type": "QuantitativeValue",
-            minValue: 2,
-            maxValue: 7,
-            unitCode: "DAY",
-          },
+          transitTime: isDomestic
+            ? {
+                "@type": "QuantitativeValue",
+                minValue: 2,
+                maxValue: 7,
+                unitCode: "DAY",
+              }
+            : {
+                "@type": "QuantitativeValue",
+                minValue: 14,
+                maxValue: 30,
+                unitCode: "DAY",
+              },
         },
       },
       hasMerchantReturnPolicy: {
         "@type": "MerchantReturnPolicy",
-        applicableCountry: "IN",
+        applicableCountry: shippingCountry,
         returnPolicyCategory: "https://schema.org/MerchantReturnFiniteReturnWindow",
         merchantReturnDays: 7,
         returnMethod: "https://schema.org/ReturnByMail",
