@@ -2,7 +2,18 @@
   "permissions": {
     "allow": [
       "Bash(awk '{print}')",
-      "Bash(xxd)"
+      "Bash(xxd)",
+      "Bash(mkdir -p \"src/app/\\(marketing\\)/[country]/products\")",
+      "Bash(mkdir -p \"src/app/\\(marketing\\)/[country]/[city]/products\")",
+      "Bash(curl -s -o /dev/null -w \"germany/products: %{http_code}\\\\n\" http://localhost:3921/germany/products)",
+      "Bash(curl -s -o /dev/null -w \"germany/berlin/products: %{http_code}\\\\n\" http://localhost:3921/germany/berlin/products)",
+      "Bash(curl -s -o /dev/null -w \"bulgaria/products \\(no cities\\): %{http_code}\\\\n\" http://localhost:3921/bulgaria/products)",
+      "Bash(curl -s -o /dev/null -w \"bulgaria/sofia/products \\(no city data\\): %{http_code}\\\\n\" http://localhost:3921/bulgaria/sofia/products)",
+      "Bash(curl -s http://localhost:3921/germany/berlin/products)",
+      "Bash(curl -s http://localhost:3922/germany)",
+      "Bash(curl -s http://localhost:3922/germany/berlin)",
+      "Bash(curl -s http://localhost:3922/germany/products)",
+      "Bash(curl -s http://localhost:3922/germany/berlin/products)"
     ]
   }
 }

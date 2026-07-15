@@ -26,7 +26,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const dest = getCountryBySlug(country);
   if (!dest) return { title: "Not Found" };
   return {
-    title: dest.metaTitle,
+    // dest.metaTitle already includes the "| Bulk Green Coffee" brand suffix,
+    // so it must bypass the root layout's title template (which would append it again).
+    title: { absolute: dest.metaTitle },
     description: dest.metaDescription,
     alternates: { canonical: `/${dest.slug}` },
     openGraph: {
@@ -88,7 +90,7 @@ export default async function CountryPage({ params }: Props) {
             <Link href="/contact">
               <Button variant="lightgraybg" size="sm">Contact Form</Button>
             </Link>
-            <Link href="/products">
+            <Link href={`/${dest.slug}/products`}>
               <Button variant="lightgraybg" size="sm">Browse All Products</Button>
             </Link>
           </div>
@@ -144,8 +146,8 @@ export default async function CountryPage({ params }: Props) {
             ))}
           </div>
           <div className="mt-4">
-            <Link href="/products" className="text-sm text-teal-700 hover:text-teal-900 font-medium">
-              View all products →
+            <Link href={`/${dest.slug}/products`} className="text-sm text-teal-700 hover:text-teal-900 font-medium">
+              View all products for {dest.name} →
             </Link>
           </div>
         </div>

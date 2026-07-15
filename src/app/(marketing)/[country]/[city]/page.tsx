@@ -117,7 +117,7 @@ export default async function CountryCityPage({ params }: Props) {
             <a href={waLink} target="_blank" rel="noopener noreferrer">
               <Button variant="teal" size="sm">WhatsApp — +91 85279 14317</Button>
             </a>
-            <Link href="/products">
+            <Link href={`/${country}/${city}/products`}>
               <Button variant="lightgraybg" size="sm">Browse Products</Button>
             </Link>
             <Link href={`/${country}`}>
@@ -152,8 +152,8 @@ export default async function CountryCityPage({ params }: Props) {
             ))}
           </div>
           <div className="mt-4">
-            <Link href="/products" className="text-sm text-teal-700 hover:text-teal-900 font-medium">
-              View all products →
+            <Link href={`/${country}/${city}/products`} className="text-sm text-teal-700 hover:text-teal-900 font-medium">
+              View all products for {data.city} →
             </Link>
           </div>
         </div>

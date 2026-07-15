@@ -25,7 +25,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const dest = getCountryBySlug(country);
   if (!dest) return { title: "Not Found" };
   return {
-    title: dest.metaTitle,
+    // dest.metaTitle already includes the "| Bulk Green Coffee" brand suffix,
+    // so it must bypass the root layout's title template (which would append it again).
+    title: { absolute: dest.metaTitle },
     description: dest.metaDescription,
     // Canonicalizes to the shorter root-level URL (e.g. /germany) which is the
     // primary international route going forward — see src/app/(marketing)/[country].

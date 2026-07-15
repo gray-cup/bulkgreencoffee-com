@@ -42,6 +42,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url(`/${c.countrySlug}/${c.citySlug}`, 0.8, "weekly")
   );
 
+  const countryProductPages = countryDestinations.map((c) =>
+    url(`/${c.slug}/products`, 0.75, "weekly")
+  );
+
+  const countryCityProductPages = countryCityContent.map((c) =>
+    url(`/${c.countrySlug}/${c.citySlug}/products`, 0.7, "weekly")
+  );
+
   const destinationStatePages = stateDestinations.map((s) =>
     url(`/green-coffee/india/${s.slug}`, 0.8, "weekly")
   );
@@ -65,6 +73,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...productPages,
     ...countryPages,
     ...countryCityPages,
+    ...countryProductPages,
+    ...countryCityProductPages,
     ...destinationStatePages,
     ...indiaIndex,
     ...indiaStatePages,
