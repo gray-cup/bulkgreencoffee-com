@@ -2,52 +2,55 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { Button } from "@/components/ui/button";
-import {
-  indiaCities,
-  getCityBySlug,
-  getRelatedCities,
-  getStateNameFromSlug,
-} from "@/data/india-locations";
-import { getProductBySlug } from "@/data/products";
 import { LocationProductCard } from "@/components/products";
-import { getWhatsappLink } from "@/data/destinations";
+import { getCountryBySlug, getWhatsappLink } from "@/data/destinations";
+import { getProductBySlug } from "@/data/products";
+import { getOgLocale } from "@/data/country-codes";
+import {
+  countryCityContent,
+  getCountryCity,
+  getRelatedCountryCities,
+} from "@/data/country-city-content";
 
-type Props = { params: Promise<{ state: string; city: string }> };
+const BASE_URL = "https://bulkgreencoffee.com";
+
+type Props = { params: Promise<{ country: string; city: string }> };
 
 export function generateStaticParams() {
-  return indiaCities.map((c) => ({ state: c.stateSlug, city: c.citySlug }));
+  return countryCityContent.map((c) => ({ country: c.countrySlug, city: c.citySlug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { state, city } = await params;
-  const data = getCityBySlug(state, city);
-  if (!data) return { title: "Not Found" };
-  const stateName = getStateNameFromSlug(state) ?? data.state;
+  const { country, city } = await params;
+  const data = getCountryCity(country, city);
+  const dest = getCountryBySlug(country);
+  if (!data || !dest) return { title: "Not Found" };
   return {
-    title: `Buy Indian Green Coffee in ${data.city}, ${stateName} | Wholesale Arabica Supplier`,
-    description: `Source Indian green coffee in ${data.city}, ${stateName}. Commercial AA/AAA from ₹800/kg, specialty lots from ₹1,100/kg. MOQ ${data.moq}. Delivered in ${data.transitDays}. WhatsApp: +91 85279 14317.`,
-    alternates: { canonical: `/india/${state}/${city}` },
+    title: `Buy Indian Green Coffee in ${data.city}, ${dest.name} | Wholesale Arabica Supplier`,
+    description: `Source Indian green coffee in ${data.city}, ${dest.name}. Commercial and specialty Arabica, export-ready with full documentation. Delivered in ${data.transitDays}. WhatsApp: +91 85279 14317.`,
+    alternates: { canonical: `/${country}/${city}` },
     openGraph: {
       title: `Indian Green Coffee Supplier in ${data.city} | Bulk Green Coffee`,
       description: `Wholesale Indian Arabica for ${data.city} roasters and buyers. ${data.cityContext}`,
-      url: `https://bulkgreencoffee.com/india/${state}/${city}`,
+      url: `${BASE_URL}/${country}/${city}`,
+      locale: getOgLocale(country),
     },
   };
 }
 
-export default async function CityPage({ params }: Props) {
-  const { state, city } = await params;
-  const data = getCityBySlug(state, city);
-  if (!data) notFound();
+export default async function CountryCityPage({ params }: Props) {
+  const { country, city } = await params;
+  const data = getCountryCity(country, city);
+  const dest = getCountryBySlug(country);
+  if (!data || !dest) notFound();
 
-  const stateName = getStateNameFromSlug(state) ?? data.state;
-  const relatedCities = getRelatedCities(city, state);
-  const products = data.popularProductSlugs
+  const relatedCities = getRelatedCountryCities(city, country);
+  const products = dest.popularProductSlugs
     .map((s) => getProductBySlug(s))
     .filter(Boolean) as NonNullable<ReturnType<typeof getProductBySlug>>[];
 
   const waLink = getWhatsappLink(
-    `Hi, I found your page for ${data.city}, ${stateName} on bulkgreencoffee.com and I would like to enquire about sourcing Indian green coffee.`
+    `Hi, I found your page for ${data.city}, ${dest.name} on bulkgreencoffee.com and I would like to enquire about sourcing Indian green coffee.`
   );
 
   const jsonLd = [
@@ -55,19 +58,18 @@ export default async function CityPage({ params }: Props) {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Home", item: "https://bulkgreencoffee.com" },
-        { "@type": "ListItem", position: 2, name: "India", item: "https://bulkgreencoffee.com/india/available-locations" },
-        { "@type": "ListItem", position: 3, name: stateName, item: `https://bulkgreencoffee.com/india/${state}` },
-        { "@type": "ListItem", position: 4, name: data.city, item: `https://bulkgreencoffee.com/india/${state}/${city}` },
+        { "@type": "ListItem", position: 1, name: "Home", item: BASE_URL },
+        { "@type": "ListItem", position: 2, name: dest.name, item: `${BASE_URL}/${country}` },
+        { "@type": "ListItem", position: 3, name: data.city, item: `${BASE_URL}/${country}/${city}` },
       ],
     },
     {
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
-      "@id": `https://bulkgreencoffee.com/india/${state}/${city}`,
+      "@id": `${BASE_URL}/${country}/${city}`,
       name: `Bulk Green Coffee — ${data.city}`,
-      description: `Indian green coffee wholesale supplier serving ${data.city}, ${stateName}.`,
-      url: `https://bulkgreencoffee.com/india/${state}/${city}`,
+      description: `Indian green coffee wholesale supplier serving ${data.city}, ${dest.name}.`,
+      url: `${BASE_URL}/${country}/${city}`,
       telephone: "+918527914317",
       areaServed: [data.city, ...data.nearbyAreas].map((area) => ({ "@type": "City", name: area })),
       geo: { "@type": "GeoCoordinates", latitude: data.coordinates.lat, longitude: data.coordinates.lng },
@@ -95,9 +97,7 @@ export default async function CityPage({ params }: Props) {
         <nav className="flex items-center gap-2 text-xs text-muted-foreground mb-8 flex-wrap">
           <Link href="/" className="hover:text-black transition-colors">Home</Link>
           <span>/</span>
-          <Link href="/india/available-locations" className="hover:text-black transition-colors">India</Link>
-          <span>/</span>
-          <Link href={`/india/${state}`} className="hover:text-black transition-colors">{stateName}</Link>
+          <Link href={`/${country}`} className="hover:text-black transition-colors">{dest.name}</Link>
           <span>/</span>
           <span className="text-black">{data.city}</span>
         </nav>
@@ -105,7 +105,7 @@ export default async function CityPage({ params }: Props) {
         {/* Header */}
         <div className="mb-10">
           <p className="text-xs font-medium uppercase tracking-widest text-muted-foreground mb-3">
-            Indian Green Coffee — {stateName}
+            {dest.flag} Indian Green Coffee — {dest.name}
           </p>
           <h1 className="text-3xl md:text-4xl font-semibold text-black mb-3">
             Green Coffee in {data.city}
@@ -120,8 +120,8 @@ export default async function CityPage({ params }: Props) {
             <Link href="/products">
               <Button variant="lightgraybg" size="sm">Browse Products</Button>
             </Link>
-            <Link href={`/india/${state}`}>
-              <Button variant="lightgraybg" size="sm">All {stateName} Cities</Button>
+            <Link href={`/${country}`}>
+              <Button variant="lightgraybg" size="sm">All {dest.name} Cities</Button>
             </Link>
           </div>
         </div>
@@ -129,10 +129,9 @@ export default async function CityPage({ params }: Props) {
         <hr className="mb-10" />
 
         {/* Quick stats */}
-        <div className="grid grid-cols-3 gap-4 mb-12">
+        <div className="grid grid-cols-2 gap-4 mb-12">
           {[
             { label: `Delivery to ${data.city}`, value: data.transitDays },
-            { label: "Minimum Order", value: data.moq },
             { label: "Origins Available", value: "10+" },
           ].map((stat) => (
             <div key={stat.label} className="p-5 border rounded-lg text-center">
@@ -179,9 +178,9 @@ export default async function CityPage({ params }: Props) {
               {[
                 { label: "Origins", value: "Koraput, Halflong, South India" },
                 { label: "Delivery", value: `${data.transitDays} to ${data.city}` },
-                { label: "MOQ", value: `${data.moq} (specialty) · 60 kg (commercial)` },
-                { label: "Packaging", value: "GrainPro bags · GrainPro jute bags" },
-                { label: "Invoice", value: "GST from Gray Cup Enterprises Pvt. Ltd." },
+                { label: "MOQ", value: "10 kg (specialty) · 60 kg (commercial)" },
+                { label: "Packaging", value: "GrainPro-lined jute bags" },
+                { label: "Documentation", value: "Phytosanitary, fumigation, certificate of origin" },
               ].map((row) => (
                 <div key={row.label} className="flex gap-3">
                   <span className="text-muted-foreground w-24 shrink-0">{row.label}</span>
@@ -198,10 +197,10 @@ export default async function CityPage({ params }: Props) {
             Indian Green Coffee Supply in {data.city}
           </h2>
           <p className="text-sm text-muted-foreground leading-relaxed mb-3">
-            We supply Indian green (unroasted) Arabica and Robusta coffee to {data.city} buyers across the {data.industries.slice(0, 3).join(", ")} sectors. Our specialty origins — Koraput Arabica (Natural, Honey Sun-Dried, Washed) from Odisha, Halflong SL-9 Arabica from Assam, and South India lots from Chikmagalur, Coorg, Wayanad, and Bababudangiri — are available from {data.moq} minimum order.
+            We supply Indian green (unroasted) Arabica and Robusta coffee to {data.city} buyers across the {data.industries.slice(0, 3).join(", ")} sectors. Our specialty origins — Koraput Arabica (Natural, Honey Sun-Dried, Washed) from Odisha, Halflong SL-9 Arabica from Assam, and South India lots from Chikmagalur, Coorg, and Bababudangiri — are available from 10 kg minimum order.
           </p>
           <p className="text-sm text-muted-foreground leading-relaxed">
-            Delivery from dispatch to {data.city} takes {data.transitDays} by road freight. All India domestic orders include a valid GST invoice from Gray Cup Enterprises Private Limited (GST: 06AAMCG4985H1Z4). WhatsApp us to discuss your requirement — we respond within a few hours and can arrange sample packs before any bulk order.
+            Sea freight from India to {data.city} takes {data.transitDays}, with full export documentation including phytosanitary and fumigation certificates. WhatsApp us to discuss your requirement — we respond within a few hours and can arrange sample packs before any bulk order.
           </p>
         </div>
 
@@ -240,12 +239,12 @@ export default async function CityPage({ params }: Props) {
         {/* Related cities */}
         {relatedCities.length > 0 && (
           <div className="mb-12">
-            <h2 className="text-lg font-semibold text-black mb-4">Other Cities in {stateName}</h2>
+            <h2 className="text-lg font-semibold text-black mb-4">Other Cities in {dest.name}</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {relatedCities.map((related) => (
                 <Link
                   key={related.city}
-                  href={`/india/${related.stateSlug}/${related.citySlug}`}
+                  href={`/${related.countrySlug}/${related.citySlug}`}
                   className="flex items-center justify-between p-4 border rounded-lg hover:border-teal-400 transition-colors group"
                 >
                   <div>
@@ -265,7 +264,7 @@ export default async function CityPage({ params }: Props) {
             Source Indian Green Coffee in {data.city}
           </h2>
           <p className="text-sm text-muted-foreground mb-4">
-            Minimum {data.moq}. Delivered in {data.transitDays}. GST invoice included.
+            Delivered in {data.transitDays}. Full export documentation included.
           </p>
           <div className="flex flex-wrap gap-3">
             <a href={waLink} target="_blank" rel="noopener noreferrer">

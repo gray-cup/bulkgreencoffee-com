@@ -3,14 +3,14 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { Button } from "@/components/ui/button";
 import { LocationProductCard } from "@/components/products";
-import { TOP_CITIES, getCityBySlugOnly, getStateNameFromSlug } from "@/data/india-cities";
+import { TOP_INDIAN_CITIES, getCityBySlugOnly, getStateNameFromSlug } from "@/data/india-locations";
 import { getProductBySlug } from "@/data/products";
 import { getWhatsappLink } from "@/data/destinations";
 
 type Props = { params: Promise<{ city: string }> };
 
 export function generateStaticParams() {
-  return TOP_CITIES.map((city) => ({ city }));
+  return TOP_INDIAN_CITIES.map((city) => ({ city }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { Button } from "@/components/ui/button";
-import { INDIA_STATES, getCitiesByState, indiaCities } from "@/data/india-cities";
+import { INDIA_STATES, getCitiesByState, indiaCities } from "@/data/india-locations";
 import { getWhatsappLink } from "@/data/destinations";
 
 export const metadata: Metadata = {

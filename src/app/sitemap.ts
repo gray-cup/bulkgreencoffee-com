@@ -1,7 +1,8 @@
 import type { MetadataRoute } from "next";
 import { getAllProductSlugs } from "@/data/products";
 import { countryDestinations, stateDestinations } from "@/data/destinations";
-import { indiaCities, INDIA_STATES, TOP_CITIES } from "@/data/india-cities";
+import { indiaCities, INDIA_STATES, TOP_INDIAN_CITIES } from "@/data/india-locations";
+import { countryCityContent } from "@/data/country-city-content";
 
 const BASE = "https://bulkgreencoffee.com";
 const NOW = new Date().toISOString();
@@ -31,8 +32,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url(`/products/${slug}`, 0.8, "weekly")
   );
 
+  // Root-level country pages (/germany, /bulgaria, …) are canonical; the older
+  // /green-coffee/[country] route now points its canonical tag at these URLs.
   const countryPages = countryDestinations.map((c) =>
-    url(`/green-coffee/${c.slug}`, 0.85, "weekly")
+    url(`/${c.slug}`, 0.85, "weekly")
+  );
+
+  const countryCityPages = countryCityContent.map((c) =>
+    url(`/${c.countrySlug}/${c.citySlug}`, 0.8, "weekly")
   );
 
   const destinationStatePages = stateDestinations.map((s) =>
@@ -49,7 +56,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url(`/india/${c.stateSlug}/${c.citySlug}`, 0.75, "weekly")
   );
 
-  const supplierPages = TOP_CITIES.map((city) =>
+  const supplierPages = TOP_INDIAN_CITIES.map((city) =>
     url(`/${city}-green-coffee-supplier`, 0.75, "weekly")
   );
 
@@ -57,6 +64,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...staticPages,
     ...productPages,
     ...countryPages,
+    ...countryCityPages,
     ...destinationStatePages,
     ...indiaIndex,
     ...indiaStatePages,

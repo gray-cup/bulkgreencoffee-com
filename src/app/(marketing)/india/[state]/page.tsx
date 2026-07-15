@@ -6,7 +6,7 @@ import {
   INDIA_STATES,
   getCitiesByState,
   getStateNameFromSlug,
-} from "@/data/india-cities";
+} from "@/data/india-locations";
 import { getWhatsappLink } from "@/data/destinations";
 
 type Props = { params: Promise<{ state: string }> };

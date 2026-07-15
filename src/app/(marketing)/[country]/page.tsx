@@ -10,6 +10,7 @@ import {
 } from "@/data/destinations";
 import { getProductBySlug } from "@/data/products";
 import { getIsoCountry, getOgLocale } from "@/data/country-codes";
+import { getCitiesByCountry } from "@/data/country-city-content";
 import { BreadcrumbSchema, FaqSchema, ProductSchema } from "@/components/seo";
 
 const BASE_URL = "https://bulkgreencoffee.com";
@@ -27,13 +28,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: dest.metaTitle,
     description: dest.metaDescription,
-    // Canonicalizes to the shorter root-level URL (e.g. /germany) which is the
-    // primary international route going forward — see src/app/(marketing)/[country].
     alternates: { canonical: `/${dest.slug}` },
     openGraph: {
       title: dest.metaTitle,
       description: dest.metaDescription,
-      url: `https://bulkgreencoffee.com/green-coffee/${dest.slug}`,
+      url: `${BASE_URL}/${dest.slug}`,
       locale: getOgLocale(dest.slug),
     },
   };
@@ -43,6 +42,8 @@ export default async function CountryPage({ params }: Props) {
   const { country } = await params;
   const dest = getCountryBySlug(country);
   if (!dest) notFound();
+
+  const cities = getCitiesByCountry(dest.slug);
 
   const products = dest.popularProductSlugs
     .map((s) => getProductBySlug(s))
@@ -57,7 +58,7 @@ export default async function CountryPage({ params }: Props) {
   const breadcrumbs = [
     { name: "Home", url: BASE_URL },
     { name: "Products", url: `${BASE_URL}/products` },
-    { name: dest.name, url: `${BASE_URL}/green-coffee/${dest.slug}` },
+    { name: dest.name, url: `${BASE_URL}/${dest.slug}` },
   ];
 
   return (
@@ -104,6 +105,30 @@ export default async function CountryPage({ params }: Props) {
             {dest.marketContext}
           </p>
         </div>
+
+        {/* Cities */}
+        {cities.length > 0 && (
+          <div className="mb-12">
+            <h2 className="text-lg font-semibold text-black mb-2">
+              Cities We Supply in {dest.name}
+            </h2>
+            <p className="text-sm text-muted-foreground mb-6">
+              Local delivery details, industries served, and FAQs for each city.
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+              {cities.map((c) => (
+                <Link
+                  key={c.citySlug}
+                  href={`/${dest.slug}/${c.citySlug}`}
+                  className="flex items-center justify-between p-4 border rounded-lg hover:border-teal-400 transition-colors group"
+                >
+                  <span className="font-medium text-black group-hover:text-teal-700 transition-colors">{c.city}</span>
+                  <span className="text-muted-foreground group-hover:text-teal-700 transition-colors">→</span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
 
         {/* Featured Products */}
         <div className="mb-12">
