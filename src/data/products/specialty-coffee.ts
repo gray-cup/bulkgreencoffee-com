@@ -319,15 +319,17 @@ The farming families of Chirang are among the least-visible contributors to Indi
   {
     slug: "tirap-robusta-naturals",
     name: "Tirap Robusta Naturals Green Coffee",
-    image: "/products/north-east/tirap-robusta-naturals.png",
+    image: "/products/north-east/arunachal-pradesh/tirap/tirap-robusta-naturals.webp",
     description:
       "Natural-process Robusta green coffee from the hilly forests of Tirap, Arunachal Pradesh — rich, full-bodied, and traceable to tribal farms.",
     longDescription:
       "Tirap district in Arunachal Pradesh sits at around 300m in the eastern foothills of the Himalayas, producing a CxR Robusta with more elevation character than typical lowland Robusta. The natural process lends a mild fruitiness on top of the variety's inherent earthiness and depth. Harvested by Naga and Wancho tribal communities, this coffee offers a compelling provenance story alongside solid commercial cup quality. Suitable for blending, instant, and high-volume roastery buyers.",
     estateImages: [
-      "/products/north-east/tirap-robusta-naturals.png",
-      "/products/north-east/tirap-robusta-naturals.png",
-      "/products/north-east/tirap-robusta-naturals.png",
+      "/products/north-east/arunachal-pradesh/tirap/tirap-robusta-naturals-beans.webp",
+      "/products/north-east/arunachal-pradesh/tirap/tirap-robusta-trees.webp",
+      "/products/north-east/arunachal-pradesh/tirap/tirap-robusta-branch.webp",
+      "/products/north-east/arunachal-pradesh/tirap/tirap-robusta-berries.webp",
+      "/products/north-east/arunachal-pradesh/tirap/tirap-tree-beans.webp",
     ],
     details: [
       "CxR (Congensis × Robusta) cultivar",
