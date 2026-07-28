@@ -1,0 +1,4 @@
+msg_file="$1"
+if grep -qi "image" "$msg_file"; then
+  node scripts/optimize-staged-images.js
+fi

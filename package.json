@@ -8,7 +8,8 @@
     "postbuild": "next-sitemap && node scripts/generate-llms.js",
     "start": "next start",
     "format": "prettier --write .",
-    "images:webp": "node scripts/convert-images-to-webp.js"
+    "images:webp": "node scripts/convert-images-to-webp.js",
+    "prepare": "husky"
   },
   "dependencies": {
     "@intercom/messenger-js-sdk": "^0.0.18",
@@ -43,6 +44,7 @@
     "@types/react": "^19.2.7",
     "@types/react-dom": "^19.2.3",
     "drizzle-kit": "^0.31.10",
+    "husky": "^9.1.7",
     "prettier": "3.6.2",
     "sharp": "^0.35.3",
     "tailwindcss": "^4.1.18",
