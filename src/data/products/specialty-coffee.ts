@@ -7,7 +7,14 @@ export const specialtyCoffeeProducts: Product[] = [
     slug: "koraput-naturals",
     variety: "Arabica",
     name: "Koraput Arabica Naturals Green Coffee",
-    image: "/products/specific/assam.jpg",
+    image: "/products/koraput-odisha/koraput-cherries-drying-raised-beds.webp",
+    estateImages: [
+      "/products/koraput-odisha/koraput-parchment-drying-closeup.webp",
+      "/products/koraput-odisha/koraput-farmers-inspecting-drying-beds.webp",
+      "/products/koraput-odisha/koraput-forest-shade-grown-branch.webp",
+      "/products/koraput-odisha/koraput-forest-canopy-farm-path.webp",
+      "/products/koraput-odisha/koraput-forest-canopy-vines-path.webp",
+    ],
     description:
       "Sun-dried natural process green coffee beans from the tribal highlands of Koraput, Odisha — bold, fruity, and traceable to small-holder farms.",
     longDescription:
@@ -67,7 +74,14 @@ Koraput is actively pursuing a Geographical Indication (GI) tag for its coffee �
     slug: "koraput-hsd",
     variety: "Arabica",
     name: "Koraput Arabica Honey Sun-Dried Green Coffee",
-    image: "/products/specific/hsd.jpg",
+    image: "/products/koraput-odisha/koraput-ripe-cherries-collection-bin.webp",
+    estateImages: [
+      "/products/koraput-odisha/koraput-ripe-cherries-closeup.webp",
+      "/products/koraput-odisha/koraput-green-cherries-forest-branch.webp",
+      "/products/koraput-odisha/koraput-parchment-bags-storage.webp",
+      "/products/koraput-odisha/koraput-roasted-beans-in-hand.webp",
+      "/products/koraput-odisha/koraput-roasted-beans-cooling-drum.webp",
+    ],
     description:
       "Honey Sun-Dried (HSD) green coffee from Koraput, Odisha — a unique process that delivers sweetness and body between naturals and washed.",
     longDescription:
@@ -127,7 +141,14 @@ All HSD lots are grown by tribal farming cooperatives in Koraput's Eastern Ghats
     slug: "koraput-washed",
     variety: "Arabica",
     name: "Koraput Arabica Washed Green Coffee",
-    image: "/products/specific/washed.jpg",
+    image: "/products/koraput-odisha/koraput-green-coffee-grainpro-bags.webp",
+    estateImages: [
+      "/products/koraput-odisha/koraput-drying-beds-eastern-ghats.webp",
+      "/products/koraput-odisha/koraput-misty-forest-path-sunrays.webp",
+      "/products/koraput-odisha/koraput-estate-path-dusk.webp",
+      "/products/koraput-odisha/koraput-estate-building-forest.webp",
+      "/products/koraput-odisha/koraput-green-beans-sample-roast.webp",
+    ],
     description:
       "Fully washed green coffee beans from Koraput, Odisha — clean, bright, and expressive of the Eastern Ghats terroir.",
     longDescription:
