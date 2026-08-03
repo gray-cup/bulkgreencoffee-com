@@ -94,7 +94,7 @@ export function CheckoutForm({ products, quantityTier, totalAmount, totalKg, ren
   const isBusiness       = customerType === "business";
   const taxLabel         = isIndia ? "GST Number" : "Tax ID";
   const taxPlaceholder   = isIndia ? "22AAAAA0000A1Z5" : "VAT / Tax registration number";
-  const indiaDeliveryFee = isIndia ? Math.round(totalKg * 100) : 0;
+  const indiaDeliveryFee = isIndia ? Math.round(totalKg * 50) : 0;
   const finalAmount      = totalAmount + indiaDeliveryFee;
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -325,7 +325,7 @@ export function CheckoutForm({ products, quantityTier, totalAmount, totalKg, ren
 
         {indiaDeliveryFee > 0 && (
           <div className="flex justify-between text-sm text-gray-700 bg-gray-50 border border-gray-200 rounded-lg px-3 py-2">
-            <span>India delivery (₹100/kg)</span>
+            <span>India delivery (₹50/kg)</span>
             <span className="font-medium">₹{indiaDeliveryFee}</span>
           </div>
         )}
