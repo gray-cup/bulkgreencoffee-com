@@ -97,7 +97,7 @@ function BuySamplesInner() {
         </div>
 
         {/* Quantity tabs */}
-        <div className="max-w-7xl mx-auto px-4 lg:px-6 pb-8">
+        <div className="max-w-7xl mx-auto px-4 lg:px-6 pb-8 overflow-x-auto">
           <div className="inline-flex gap-1 bg-gray-100 rounded-xl p-1">
             {TIERS.map((t) => (
               <button
@@ -118,7 +118,7 @@ function BuySamplesInner() {
 
         {/* Product grid */}
         <div className="max-w-7xl mx-auto px-4 lg:px-6">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-5">
             {products.map((product) => {
               const isSelected = selected.some((s) => s.slug === product.slug && s.tier === activeTier);
               const price      = calcPrice(product.priceRange.min, gridTier.grams, gridTier.delivery);
@@ -197,25 +197,25 @@ function BuySamplesInner() {
             selected.length > 0 ? "translate-y-0" : "translate-y-full"
           }`}
         >
-          <div className="max-w-7xl mx-auto px-4 lg:px-6 py-8 flex items-center justify-between gap-4">
-            <div>
+          <div className="max-w-7xl mx-auto px-4 lg:px-6 py-4 sm:py-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-4">
+            <div className="flex items-center justify-between sm:block">
               <p className="font-semibold text-black text-sm">
                 {selected.length} item{selected.length !== 1 ? "s" : ""}
               </p>
               <p className="text-md sm:text-lg md:text-xl font-semibold text-black">{fmt(orderTotal)}</p>
             </div>
-            <div className="flex items-center gap-3 shrink-0">
+            <div className="flex items-center justify-between sm:justify-end gap-2 sm:gap-3 sm:shrink-0">
               <button
                 type="button"
                 onClick={() => setSelected([])}
-                className="text-sm font-medium text-black/50 hover:text-red-500 transition-colors cursor-pointer"
+                className="text-sm font-medium text-black/50 hover:text-red-500 transition-colors cursor-pointer shrink-0"
               >
                 Clear
               </button>
-              <Button variant="lightgraybg" size="sm" onClick={() => setShowItemsOpen(true)}>
+              <Button variant="lightgraybg" size="sm" className="flex-1 sm:flex-none" onClick={() => setShowItemsOpen(true)}>
                 Show Items
               </Button>
-              <Button variant="teal" size="lg" onClick={() => router.push("/buy-samples/checkout")}>
+              <Button variant="teal" size="lg" className="flex-1 sm:flex-none" onClick={() => router.push("/buy-samples/checkout")}>
                 Proceed to Checkout
               </Button>
             </div>

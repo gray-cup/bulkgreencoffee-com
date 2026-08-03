@@ -89,7 +89,7 @@ export default function BuySampleSlugPage() {
           {/* Right — quantity, order summary, form */}
           <div className="space-y-6">
             {/* Quantity tabs */}
-            <div>
+            <div className="overflow-x-auto">
               <p className="text-xs text-muted-foreground mb-2">Quantity</p>
               <div className="inline-flex gap-1 bg-gray-100 rounded-xl p-1">
                 {TIERS.map((t) => (

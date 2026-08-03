@@ -359,7 +359,7 @@ export function FeedbackOrganizer() {
               className="p-4 space-y-4"
             >
               {/* Stats Overview */}
-              <div className="grid grid-cols-3 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 {Object.entries(categoryStats).map(([type, stats]) => (
                   <motion.div
                     key={type}

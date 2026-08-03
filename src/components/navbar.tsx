@@ -14,15 +14,15 @@ export function Navbar() {
   return (
     <>
       <header className="w-full bg-teal-800">
-        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 lg:px-6">
+        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-3 sm:px-4 lg:px-6">
           {/* LEFT */}
-          <div className="flex items-center gap-6">
-            <Link href="/" className="flex items-center gap-3">
-              <span className="text-xl text-white font-semibold text-nowrap tracking-tight">
+          <div className="flex items-center gap-2 md:gap-6 min-w-0">
+            <Link href="/" className="flex items-center gap-3 min-w-0">
+              <span className="text-sm sm:text-xl text-white font-semibold text-nowrap tracking-tight truncate">
                 Bulk Green Coffee
               </span>
             </Link>
-            <p className="opacity-20">|</p>
+            <p className="opacity-20 hidden md:block">|</p>
             <nav className="hidden md:flex text-neutral-100 gap-1 text-sm font-medium">
               {[
                 ["Products", "/products"],
@@ -41,7 +41,7 @@ export function Navbar() {
             </nav>
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-0.5 sm:gap-2 shrink-0">
             <CurrencySelector />
             <Link href="/cart" className="relative p-2 text-white hover:bg-teal-500 rounded-md transition-colors">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -114,7 +114,7 @@ export function Navbar() {
         {/* Drawer */}
         <aside
           style={{ backgroundColor: "#115e59" }}
-          className={`absolute right-0 top-0 h-full w-72 p-6 shadow-xl flex flex-col
+          className={`absolute right-0 top-0 h-full w-72 max-w-[85vw] p-6 shadow-xl flex flex-col
           transform transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]
           ${menuOpen ? "translate-x-0" : "translate-x-full"}
         `}

@@ -210,7 +210,7 @@ function CheckoutPageInner() {
           <div className="mt-16">
             <h2 className="text-xl font-semibold text-black mb-1">Add more samples</h2>
             <p className="text-sm text-muted-foreground mb-6">Pick a size and add to your order.</p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
               {unselectedProducts.map((product) => (
                 <AddProductCard
                   key={product.slug}

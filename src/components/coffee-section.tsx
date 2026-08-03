@@ -3,9 +3,9 @@ import Image from "next/image";
 export function CoffeeSection() {
   return (
     <div className="px-0 lg:px-8 pb-8 lg:pb-20">
-      <div className="flex flex-row justify-center md:justify-start xl:pl-10">
+      <div className="flex flex-col sm:flex-row justify-center md:justify-start xl:pl-10">
         <div className="flex flex-row rounded-none sm:rounded-l-2xl bg-orange-200">
-          <h3 className="text-sm xs:text-md sm:text-lg md:text-xl lg:text-2xl text-orange-950 text-nowrap font-semibold font-instrument-sans py-4 md:py-8 px-5 md:px-6">
+          <h3 className="text-sm xs:text-md sm:text-lg md:text-xl lg:text-2xl text-orange-950 sm:text-nowrap font-semibold font-instrument-sans py-4 md:py-8 px-5 md:px-6">
             Beans & Leaves <br /> from Global <br /> Regions
           </h3>
         </div>
@@ -32,7 +32,7 @@ export function CoffeeSection() {
         />
       </div>
 
-      <div className="flex justify-center sm:justify-end xl:justify-center z-30">
+      <div className="flex flex-col sm:flex-row justify-center sm:justify-end xl:justify-center z-30">
         {/* <Image
           src="/three-beans.webp"
           alt="beans"
@@ -43,7 +43,7 @@ export function CoffeeSection() {
         /> */}
 
         <div className="flex flex-row sm:rounded-bl-2xl bg-yellow-200 z-30">
-          <h3 className="text-sm xs:text-md sm:text-lg md:text-xl lg:text-2xl text-orange-950 text-nowrap font-semibold font-instrument-sans py-4 md:py-8 px-5 md:px-6">
+          <h3 className="text-sm xs:text-md sm:text-lg md:text-xl lg:text-2xl text-orange-950 sm:text-nowrap font-semibold font-instrument-sans py-4 md:py-8 px-5 md:px-6">
             Single Origin
             <br /> and <br />
             Hand Picked

@@ -104,10 +104,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="bg-white">
+    <html lang="en" className="bg-white overflow-x-hidden">
       <body
         className={cn(
-          "min-h-screen bg-background font-sans antialiased",
+          "min-h-screen w-full overflow-x-hidden bg-background font-sans antialiased",
           fontSans.variable,
           fontPoppins.variable,
           fontMono.variable,

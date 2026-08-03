@@ -129,7 +129,7 @@ export default async function CityPage({ params }: Props) {
         <hr className="mb-10" />
 
         {/* Quick stats */}
-        <div className="grid grid-cols-3 gap-4 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-12">
           {[
             { label: `Delivery to ${data.city}`, value: data.transitDays },
             { label: "Minimum Order", value: data.moq },

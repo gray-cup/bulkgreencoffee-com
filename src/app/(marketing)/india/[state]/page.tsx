@@ -91,7 +91,7 @@ export default async function StatePage({ params }: Props) {
         <hr className="mb-10" />
 
         {/* Quick stats */}
-        <div className="grid grid-cols-3 gap-4 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-12">
           {[
             { label: `Cities in ${stateName}`, value: `${cities.length} Cities` },
             { label: "Specialty MOQ", value: "10 kg" },
