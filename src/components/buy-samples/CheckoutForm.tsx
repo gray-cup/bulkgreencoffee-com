@@ -10,6 +10,7 @@ import { Turnstile, useTurnstile } from "@/components/ui/turnstile";
 import type { SampleOrderRequest } from "@/app/api/create-payment/route";
 import { useCurrency } from "@/components/currency-provider";
 import { convertPrice, formatPrice } from "@/lib/currency";
+import { priceForItem, gramsForTier, indiaDeliveryFee as calcIndiaDeliveryFee, type OrderItem } from "@/lib/pricing";
 
 const businessCategories = [
   { id: "roastery",   label: "Roastery" },
@@ -41,15 +42,12 @@ function validate(fields: {
 }
 
 type Props = {
-  products: string[];
-  quantityTier: string;
-  totalAmount: number;
-  totalKg: number;
+  items: OrderItem[];
   renderSummary?: () => React.ReactNode;
   onBack?: () => void;
 };
 
-export function CheckoutForm({ products, quantityTier, totalAmount, totalKg, renderSummary, onBack }: Props) {
+export function CheckoutForm({ items, renderSummary, onBack }: Props) {
   const turnstile = useTurnstile();
   const { currency, rates } = useCurrency();
 
@@ -97,7 +95,13 @@ export function CheckoutForm({ products, quantityTier, totalAmount, totalKg, ren
   const isBusiness       = customerType === "business";
   const taxLabel         = isIndia ? "GST Number" : "Tax ID";
   const taxPlaceholder   = isIndia ? "22AAAAA0000A1Z5" : "VAT / Tax registration number";
-  const indiaDeliveryFee = isIndia ? Math.round(totalKg * 50) : 0;
+
+  // Display only — the server independently recomputes this from `items`
+  // against the product catalogue, so a tampered request can't change what's
+  // actually charged.
+  const totalAmount      = items.reduce((sum, item) => sum + (priceForItem(item) ?? 0), 0);
+  const totalGrams       = items.reduce((sum, item) => sum + gramsForTier(item.tier), 0);
+  const indiaDeliveryFee = isIndia ? calcIndiaDeliveryFee(totalGrams) : 0;
   const finalAmount      = totalAmount + indiaDeliveryFee;
 
   // International orders are charged in the customer's local currency
@@ -125,9 +129,7 @@ export function CheckoutForm({ products, quantityTier, totalAmount, totalKg, ren
       state:        state || undefined,
       gstOrTaxId:   gstOrTaxId || undefined,
       businessType: businessType || undefined,
-      products,
-      quantityTier,
-      totalAmount: finalAmount,
+      items,
       currency: isIndia ? "INR" : currency,
     };
 
@@ -363,7 +365,7 @@ export function CheckoutForm({ products, quantityTier, totalAmount, totalKg, ren
           type="submit"
           variant="teal"
           className="w-full h-11 rounded-xl active:scale-95"
-          disabled={!turnstile.isVerified || isLoading || products.length === 0}
+          disabled={!turnstile.isVerified || isLoading || items.length === 0}
         >
           {isLoading ? "Processing…" : payLabel}
         </Button>

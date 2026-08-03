@@ -116,13 +116,9 @@ function CheckoutPageInner() {
     (sum, { product, tierData }) => sum + calcPrice(product.priceRange.min, tierData.grams, tierData.delivery),
     0,
   );
-  const orderTotalKg = selectedProducts.reduce((sum, { tierData }) => sum + tierData.grams / 1000, 0);
 
   const { currency, rates } = useCurrency();
   const fmt = (inr: number) => formatPrice(convertPrice(inr, currency, rates), currency);
-
-  const tierCounts = selected.reduce((acc, s) => { acc[s.tier] = (acc[s.tier] ?? 0) + 1; return acc; }, {} as Record<string, number>);
-  const quantityTier = (Object.entries(tierCounts).sort(([, a], [, b]) => b - a)[0]?.[0] ?? "100g") as TierLabel;
 
   React.useEffect(() => {
     localStorage.setItem("bgc_selected", JSON.stringify(selected));
@@ -141,10 +137,7 @@ function CheckoutPageInner() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           {/* Left: form */}
           <CheckoutForm
-            products={selectedSlugs}
-            quantityTier={quantityTier}
-            totalAmount={orderTotal}
-            totalKg={orderTotalKg}
+            items={selected}
             onBack={() => router.push("/buy-samples")}
           />
 

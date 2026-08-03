@@ -129,10 +129,7 @@ export default function BuySampleSlugPage() {
 
             {/* Form */}
             <CheckoutForm
-              products={[product.slug]}
-              quantityTier={activeTier}
-              totalAmount={total}
-              totalKg={tier.grams / 1000}
+              items={[{ slug: product.slug, tier: activeTier }]}
             />
           </div>
         </div>

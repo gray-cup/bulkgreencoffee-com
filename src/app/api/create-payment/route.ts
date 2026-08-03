@@ -10,6 +10,7 @@ import {
 } from "@/lib/cashfree";
 import { convertPrice, type CurrencyCode } from "@/lib/currency";
 import { fetchExchangeRates } from "@/lib/exchange-rates";
+import { computeOrderTotal, dominantTier, type OrderItem } from "@/lib/pricing";
 
 export interface SampleOrderRequest {
   name: string;
@@ -21,10 +22,8 @@ export interface SampleOrderRequest {
   state?: string;
   gstOrTaxId?: string;
   businessType?: string;
-  products: string[];       // slugs
-  quantityTier: string;     // "100g" | "1kg" | "3kg" | "5kg"
-  totalAmount: number;      // INR, already calculated on client
-  currency?: CurrencyCode;  // customer's display currency; ignored for India
+  items: OrderItem[];        // { slug, tier }[] — price is always recomputed server-side from this
+  currency?: CurrencyCode;   // customer's display currency; ignored for India
 }
 
 export async function POST(request: NextRequest) {
@@ -37,14 +36,32 @@ export async function POST(request: NextRequest) {
     }
 
     const body: SampleOrderRequest = await request.json();
-    const { name, phone, email, country, pincode, address, state, gstOrTaxId, businessType, products, quantityTier, totalAmount } = body;
+    const { name, phone, email, country, pincode, address, state, gstOrTaxId, businessType, items } = body;
 
-    if (!name || !phone || !address || !pincode || products.length === 0) {
+    if (!name || !phone || !address || !pincode || !Array.isArray(items) || items.length === 0) {
       return NextResponse.json(
         { error: "Name, phone, address, pincode and at least one product are required" },
         { status: 400 },
       );
     }
+
+    const isIndia = country.trim().toLowerCase() === "india";
+
+    // The order total is ALWAYS computed here from our own product/tier
+    // catalogue — the client cannot influence the charged amount by editing
+    // the request body. computeOrderTotal throws if any slug/tier is invalid.
+    let totalAmount: number;
+    try {
+      totalAmount = computeOrderTotal(items, isIndia);
+    } catch (err) {
+      return NextResponse.json(
+        { error: err instanceof Error ? err.message : "Invalid order items" },
+        { status: 400 },
+      );
+    }
+
+    const quantityTier = dominantTier(items);
+    const productSlugs = items.map((i) => i.slug);
 
     const linkId = `bgc_${Date.now()}_${Math.random().toString(36).substring(2, 8)}`;
     const expiryTime = new Date();
@@ -53,11 +70,10 @@ export async function POST(request: NextRequest) {
     const origin = request.headers.get("origin") || "https://bulkgreencoffee.com";
 
     // Domestic (India) always settles in INR. International orders are charged
-    // in the customer's local currency (Cashfree settles to the merchant in
-    // INR regardless) so the amount on their card statement matches what they
+    // in the customer's local currency (Cashfree settles to us in INR
+    // regardless) so the amount on their card statement matches what they
     // were shown, and so foreign-card declines caused by an INR-only charge
     // are avoided.
-    const isIndia = country.trim().toLowerCase() === "india";
     let linkCurrency: CurrencyCode = "INR";
     let linkAmount = totalAmount;
 
@@ -84,7 +100,7 @@ export async function POST(request: NextRequest) {
       state:          state || null,
       gst_or_tax_id:  gstOrTaxId || null,
       business_type:  businessType || null,
-      products:       JSON.stringify(products),
+      products:       JSON.stringify(productSlugs),
       quantity_tier:  quantityTier,
       total_amount:   totalAmount,
       link_id:        linkId,
@@ -97,7 +113,7 @@ export async function POST(request: NextRequest) {
       link_id: linkId,
       link_amount: linkAmount,
       link_currency: linkCurrency,
-      link_purpose: `Bulk Green Coffee — ${quantityTier} sample${products.length > 1 ? "s" : ""} (${products.join(", ")})`,
+      link_purpose: `Bulk Green Coffee — ${quantityTier} sample${productSlugs.length > 1 ? "s" : ""} (${productSlugs.join(", ")})`,
 
       customer_details: {
         customer_name:  name,
