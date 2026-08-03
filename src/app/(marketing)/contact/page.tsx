@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { Button } from "@/components/ui/button";
 
 export const metadata: Metadata = {
-  title: "Contact Us | Bulk Green Coffee — Indian Green Coffee Wholesale",
+  title: "Contact Us | Bulk Green Coffee - Indian Green Coffee Wholesale",
   description:
     "Get in touch with Bulk Green Coffee to enquire about wholesale Indian green coffee. WhatsApp: +91 85279 14317. We supply roasters, importers, and distributors worldwide.",
   alternates: { canonical: "/contact" },

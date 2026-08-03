@@ -83,7 +83,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
       <BreadcrumbSchema items={breadcrumbs} />
       <ProductSchema product={product} />
 
-      {/* Main product section — breadcrumb sticks within this container */}
+      {/* Main product section - breadcrumb sticks within this container */}
       <div className="py-12 px-4 lg:px-6">
         <div className="max-w-7xl mx-auto">
 
@@ -277,7 +277,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
         </div>
       </div>
 
-      {/* Wide estate section — outside max-w-7xl, breaks to full width */}
+      {/* Wide estate section - outside max-w-7xl, breaks to full width */}
       {!!(product.estateImages?.length || product.reviews?.length) && (
         <div className="border-t border-gray-100 py-16 px-4 lg:px-6">
           {/* Section title */}
@@ -292,7 +292,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
             </p>
           </div>
 
-          {/* Estate images — full bleed grid */}
+          {/* Estate images - full bleed grid */}
           {product.estateImages && product.estateImages.length > 0 && (
             <div className="max-w-7xl mx-auto mb-16">
               <div className={`grid gap-4 ${product.estateImages.length === 1 ? "grid-cols-1" : "grid-cols-2 md:grid-cols-3 lg:grid-cols-4"}`}>
@@ -332,7 +332,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
         </div>
       )}
 
-      {/* Page description — free-form editorial text, written per product */}
+      {/* Page description - free-form editorial text, written per product */}
       {product.pageDescription && (
         <div className="border-t border-gray-100 py-16 px-4 lg:px-6">
           <div className="max-w-3xl mx-auto">

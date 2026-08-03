@@ -16,7 +16,7 @@ export const specialtyCoffeeProducts: Product[] = [
       "/products/koraput-odisha/koraput-forest-canopy-vines-path.webp",
     ],
     description:
-      "Sun-dried natural process green coffee beans from the tribal highlands of Koraput, Odisha — bold, fruity, and traceable to small-holder farms.",
+      "Sun-dried natural process green coffee beans from the tribal highlands of Koraput, Odisha, bold, fruity, and traceable to small-holder farms.",
     longDescription:
       "Grown at 900-1200m in the Eastern Ghats by tribal farming communities in Koraput district, these natural-process beans are dried whole on raised beds under the Odisha sun. The result is an intense, fruit-forward cup with wine-like complexity and a heavy, lingering body. Each lot is micro-milled and hand-sorted for export quality. Ideal for specialty roasters seeking authentic Indian single-origin coffees with a compelling provenance story.",
     details: [
@@ -52,23 +52,23 @@ export const specialtyCoffeeProducts: Product[] = [
       {
         author: "Ananya Krishnan",
         role: "Founder, Drip & Bloom Roasters (Bangalore)",
-        text: "We were specifically looking for an Indian natural to put on our single-origin menu. Koraput ticks every box — the story, the flavour, the price point. Our filter coffee customers love it.",
+        text: "We were specifically looking for an Indian natural to put on our single-origin menu. Koraput ticks every box, the story, the flavour, the price point. Our filter coffee customers love it.",
         rating: 5,
       },
       {
         author: "Thomas Bergmann",
         role: "Green Coffee Buyer, Drei Könige Rösterei (Berlin)",
-        text: "Indian naturals are still underrepresented in European specialty — this one deserves attention. Bright, fruit-forward, clean finish. We ordered a trial 30 kg and immediately followed up with 120 kg.",
+        text: "Indian naturals are still underrepresented in European specialty, this one deserves attention. Bright, fruit-forward, clean finish. We ordered a trial 30 kg and immediately followed up with 120 kg.",
         rating: 4,
       },
     ],
-    pageDescription: `Koraput Natural is one of India's most compelling specialty origins and one of the least-known outside the country. The district sits at the far southern end of Odisha, where the Eastern Ghats create a series of elevated plateaus and forested ridges at 900–1,350 metres above sea level. Tribal communities from the Kondh, Gadaba, and Poraja groups have farmed these highlands for generations, and coffee here is almost always grown under a forest canopy — with no synthetic fertilisers and minimal intervention.
+    pageDescription: `Koraput Natural is one of India's most compelling specialty origins and one of the least-known outside the country. The district sits at the far southern end of Odisha, where the Eastern Ghats create a series of elevated plateaus and forested ridges at 900–1,350 metres above sea level. Tribal communities from the Kondh, Gadaba, and Poraja groups have farmed these highlands for generations, and coffee here is almost always grown under a forest canopy, with no synthetic fertilisers and minimal intervention.
 
-The natural process was adopted in Koraput partly out of necessity — limited access to running water in some farm clusters — and partly because the dry Odisha climate makes it highly effective. Cherries are dried on raised bamboo beds or tarpaulins in the sun for 3–5 weeks, turning regularly. The slow, controlled drying infuses the bean with the fruit sugars of the cherry, producing the bold, wine-like character that distinguishes Koraput Naturals from Indian washed lots.
+The natural process was adopted in Koraput partly out of necessity, limited access to running water in some farm clusters, and partly because the dry Odisha climate makes it highly effective. Cherries are dried on raised bamboo beds or tarpaulins in the sun for 3–5 weeks, turning regularly. The slow, controlled drying infuses the bean with the fruit sugars of the cherry, producing the bold, wine-like character that distinguishes Koraput Naturals from Indian washed lots.
 
-For specialty roasters, this origin offers a rare combination: genuine traceability, a distinctive flavour story, SCA scores consistently in the 85–88 range, and pricing that sits well below comparable naturals from Ethiopia or Brazil. MOQ starts at 10 kg for sample lots — we recommend ordering a sample before committing to bulk so you can cup the current harvest.
+For specialty roasters, this origin offers a rare combination: genuine traceability, a distinctive flavour story, SCA scores consistently in the 85–88 range, and pricing that sits well below comparable naturals from Ethiopia or Brazil. MOQ starts at 10 kg for sample lots, and we recommend ordering a sample before committing to bulk so you can cup the current harvest.
 
-Koraput is actively pursuing a Geographical Indication (GI) tag for its coffee — a formal recognition that will further differentiate it on the global market. Buying Koraput now means building a supplier relationship with an origin that is going to matter more, not less, over the next five years.`,
+Koraput is actively pursuing a Geographical Indication (GI) tag for its coffee, a formal recognition that will further differentiate it on the global market. Buying Koraput now means building a supplier relationship with an origin that is going to matter more, not less, over the next five years.`,
   },
   {
     slug: "koraput-hsd",
@@ -83,7 +83,7 @@ Koraput is actively pursuing a Geographical Indication (GI) tag for its coffee �
       "/products/koraput-odisha/koraput-roasted-beans-cooling-drum.webp",
     ],
     description:
-      "Honey Sun-Dried (HSD) green coffee from Koraput, Odisha — a unique process that delivers sweetness and body between naturals and washed.",
+      "Honey Sun-Dried (HSD) green coffee from Koraput, Odisha, a unique process that delivers sweetness and body between naturals and washed.",
     longDescription:
       "Honey Sun-Dried (HSD) coffee from Koraput is pulped and then dried with the mucilage intact under direct sunlight, capturing the natural sugars of the cherry without full fermentation. The resulting green bean delivers pronounced sweetness, stone-fruit notes, and a silky body that appeals to both specialty and commercial buyers. Grown by tribal cooperatives in the biodiverse highlands of Koraput district, Odisha.",
     details: [
@@ -119,7 +119,7 @@ Koraput is actively pursuing a Geographical Indication (GI) tag for its coffee �
       {
         author: "Rajan Pillai",
         role: "Co-founder, Seven Seeds Collective (Chennai)",
-        text: "We initially doubted that an Indian honey process could compete with Central American equivalents. The Koraput HSD changed our mind completely — silky, sweet, and beautifully clean. Scored 88 at our lab.",
+        text: "We initially doubted that an Indian honey process could compete with Central American equivalents. The Koraput HSD changed our mind completely, silky, sweet, and beautifully clean. Scored 88 at our lab.",
         rating: 5,
       },
       {
@@ -129,13 +129,13 @@ Koraput is actively pursuing a Geographical Indication (GI) tag for its coffee �
         rating: 5,
       },
     ],
-    pageDescription: `The Honey Sun-Dried (HSD) process was specifically developed in Koraput to sit between the boldness of naturals and the clarity of washed coffee — and it achieves that balance exceptionally well. In the HSD method, the cherry skin is removed by a depulper but the mucilage — the sticky, sugar-rich layer around the bean — is left on during the drying phase. The beans are then laid on raised drying beds and turned multiple times daily over 10–20 days.
+    pageDescription: `The Honey Sun-Dried (HSD) process was specifically developed in Koraput to sit between the boldness of naturals and the clarity of washed coffee, and it achieves that balance exceptionally well. In the HSD method, the cherry skin is removed by a depulper but the mucilage, the sticky, sugar-rich layer around the bean, is left on during the drying phase. The beans are then laid on raised drying beds and turned multiple times daily over 10–20 days.
 
-The result is a cup that carries the caramel and stone-fruit sweetness of a natural without the heavy ferment character. Acidity is present but soft. Body is full and silky. It is a profile that works across brewing methods — from espresso and Aeropress to filter and cold brew — and tends to convert customers who normally prefer washed coffees.
+The result is a cup that carries the caramel and stone-fruit sweetness of a natural without the heavy ferment character. Acidity is present but soft. Body is full and silky. It is a profile that works across brewing methods, from espresso and Aeropress to filter and cold brew, and tends to convert customers who normally prefer washed coffees.
 
 Koraput HSD is available in three honey grades: Gold Honey (most mucilage retained, sweetest and most complex), Red Honey (medium mucilage, balanced sweetness and acidity), and Yellow Honey (least mucilage, cleanest expression closest to washed). Gold and Red Honey lots score 87–88 SCA; Yellow Honey is typically 85–86.
 
-All HSD lots are grown by tribal farming cooperatives in Koraput's Eastern Ghats at 900–1,200 masl, processed at community micro-mills, and packed in GrainPro-lined jute bags for export. This is a genuinely distinctive Indian process coffee with limited seasonal availability — contact us to check current lot status and request samples.`,
+All HSD lots are grown by tribal farming cooperatives in Koraput's Eastern Ghats at 900–1,200 masl, processed at community micro-mills, and packed in GrainPro-lined jute bags for export. This is a genuinely distinctive Indian process coffee with limited seasonal availability, contact us to check current lot status and request samples.`,
   },
   {
     slug: "koraput-washed",
@@ -150,7 +150,7 @@ All HSD lots are grown by tribal farming cooperatives in Koraput's Eastern Ghats
       "/products/koraput-odisha/koraput-green-beans-sample-roast.webp",
     ],
     description:
-      "Fully washed green coffee beans from Koraput, Odisha — clean, bright, and expressive of the Eastern Ghats terroir.",
+      "Fully washed green coffee beans from Koraput, Odisha, clean, bright, and expressive of the Eastern Ghats terroir.",
     longDescription:
       "Koraput Washed coffee undergoes a meticulous wet-process at community washing stations in Odisha's Eastern Ghats. Cherries are depulped, fermented in clean spring water overnight, thoroughly washed, and shade-dried on raised beds. This classic process highlights the origin's floral brightness and crisp, tea-like acidity. Perfect for filter coffee buyers and roasters looking for a clean, transparent Indian single origin.",
     details: [
@@ -186,7 +186,7 @@ All HSD lots are grown by tribal farming cooperatives in Koraput's Eastern Ghats
       {
         author: "Luca Moretti",
         role: "Specialty Buyer, Ditta Artigianale (Florence)",
-        text: "We wanted a clean Indian washed to complete our single-origin filter menu. The Koraput AA washed delivered exactly that — transparent, floral, clean acidity. Our customers are consistently surprised that it's from India.",
+        text: "We wanted a clean Indian washed to complete our single-origin filter menu. The Koraput AA washed delivered exactly that, transparent, floral, clean acidity. Our customers are consistently surprised that it's from India.",
         rating: 4,
       },
       {
@@ -196,11 +196,11 @@ All HSD lots are grown by tribal farming cooperatives in Koraput's Eastern Ghats
         rating: 5,
       },
     ],
-    pageDescription: `The washed process reveals what Koraput's terroir actually tastes like. When the fruit is removed cleanly — depulped, fermented overnight in spring water, then washed and shade-dried on raised bamboo beds — the cup becomes a direct expression of the Eastern Ghats: the elevation, the red-laterite soil, the cool nights, the slow ripening under a forest canopy.
+    pageDescription: `The washed process reveals what Koraput's terroir actually tastes like. When the fruit is removed cleanly, depulped, fermented overnight in spring water, then washed and shade-dried on raised bamboo beds, the cup becomes a direct expression of the Eastern Ghats: the elevation, the red-laterite soil, the cool nights, the slow ripening under a forest canopy.
 
-What you get is a profile that coffee buyers familiar with East African washed lots will find surprisingly familiar: crisp acidity, floral aromatics, clean cup, tea-like finish. Yet it is distinctly Indian — there is a subtle earthiness and warmth in the body that you don't find in Ethiopian or Kenyan washed coffees.
+What you get is a profile that coffee buyers familiar with East African washed lots will find surprisingly familiar: crisp acidity, floral aromatics, clean cup, tea-like finish. Yet it is distinctly Indian, there is a subtle earthiness and warmth in the body that you don't find in Ethiopian or Kenyan washed coffees.
 
-Koraput Washed is available in AA, A, AB, and PB (Peaberry) grades. The AA grade is the most popular among specialty roasters for its balance of screen size consistency and cup clarity. PB (Peaberry) lots are limited — hand-sorted from the same washed harvest — and deliver a noticeably rounder, sweeter cup compared to the flat-bean AA from the same origin.
+Koraput Washed is available in AA, A, AB, and PB (Peaberry) grades. The AA grade is the most popular among specialty roasters for its balance of screen size consistency and cup clarity. PB (Peaberry) lots are limited, hand-sorted from the same washed harvest, and deliver a noticeably rounder, sweeter cup compared to the flat-bean AA from the same origin.
 
 All washed lots are processed at the cooperative's spring-fed washing station and shade-dried under the forest canopy for 12–15 days. GrainPro inner liner bags preserve moisture stability during sea freight. Suitable for filter, pour-over, Aeropress, and light-roast espresso. SCA scores typically 85–87.`,
   },
@@ -214,9 +214,9 @@ All washed lots are processed at the cooperative's spring-fed washing station an
       "/products/koraput-odisha/koraput-green-beans-sample-roast.webp",
     ],
     description:
-      "Top-lot washed green coffee from Koraput, Odisha — hand-picked ripe-only cherry, cupped and released as specialty-grade for buyers who want the highest quality band from this origin.",
+      "Top-lot washed green coffee from Koraput, Odisha, hand-picked ripe-only cherry, cupped and released as specialty-grade for buyers who want the highest quality band from this origin.",
     longDescription:
-      "Koraput Washed Specialty is the top cut of the cooperative's washed harvest — ripe-only handpicked cherry, depulped and fermented in clean spring water, then shade-dried on raised beds and cup-selected before release. It carries the same floral, tea-like brightness as the standard Koraput Washed lot with tighter screen consistency and higher cup scores.",
+      "Koraput Washed Specialty is the top cut of the cooperative's washed harvest, ripe-only handpicked cherry, depulped and fermented in clean spring water, then shade-dried on raised beds and cup-selected before release. It carries the same floral, tea-like brightness as the standard Koraput Washed lot with tighter screen consistency and higher cup scores.",
     details: [
       "Top-lot, cup-selected washed process",
       "Ripe-only handpicked cherry",
@@ -246,16 +246,16 @@ All washed lots are processed at the cooperative's spring-fed washing station an
     name: "Halflong Arabica Naturals Green Coffee",
     image: "/products/specific/naturals.jpg",
     description:
-      "Natural-process Arabica green coffee from the misty highlands of Halflong, Assam — rare, aromatic, and distinctly North-East Indian.",
+      "Natural-process Arabica green coffee from the misty highlands of Halflong, Assam, rare, aromatic, and distinctly North-East Indian.",
     longDescription:
-      "Halflong, nestled in the Dima Hasao district of Assam at elevations above 1000m, produces some of India's most underrated Arabica coffees. These natural-process beans are dried whole on raised beds under Assam's cool highland climate, developing a wine-like intensity softened by the region's persistent mist and cool nights. The resulting green bean carries delicate florals, red-berry sweetness, and a smooth, rounded body — a compelling contrast to the bold naturals of South India. Strictly limited harvests make this an exceptional origin for specialty buyers.",
+      "Halflong, nestled in the Dima Hasao district of Assam at elevations above 1000m, produces some of India's most underrated Arabica coffees. These natural-process beans are dried whole on raised beds under Assam's cool highland climate, developing a wine-like intensity softened by the region's persistent mist and cool nights. The resulting green bean carries delicate florals, red-berry sweetness, and a smooth, rounded body, a compelling contrast to the bold naturals of South India. Strictly limited harvests make this an exceptional origin for specialty buyers.",
     details: [
       "Natural sun-dried Arabica",
       "High-altitude Dima Hasao hills",
       "Cool-climate slow drying",
       "Wine-like and floral notes",
       "Red-berry sweetness",
-      "Limited harvest — North-East India origin",
+      "Limited harvest: North-East India origin",
     ],
     locations: ["Halflong, Assam"],
     category: "Coffee",
@@ -282,13 +282,13 @@ All washed lots are processed at the cooperative's spring-fed washing station an
       {
         author: "Marcus Elliot",
         role: "Head Roaster, Oslo Roasters",
-        text: "The SL-9 from Halflong is unlike anything else coming out of India right now. Delicate florals, clean finish — our customers can't get enough of it.",
+        text: "The SL-9 from Halflong is unlike anything else coming out of India right now. Delicate florals, clean finish, our customers can't get enough of it.",
         rating: 5,
       },
       {
         author: "Priya Nair",
         role: "Buyer, Blue Tokai Coffee",
-        text: "Exceptional traceability and consistent quality lot after lot. The natural process is handled beautifully — genuine wine notes without the ferment off-flavours.",
+        text: "Exceptional traceability and consistent quality lot after lot. The natural process is handled beautifully, genuine wine notes without the ferment off-flavours.",
         rating: 5,
       },
       {
@@ -298,11 +298,11 @@ All washed lots are processed at the cooperative's spring-fed washing station an
         rating: 5,
       },
     ],
-    pageDescription: `Halflong is the hill station capital of Dima Hasao district in Assam — a place most coffee buyers have never heard of, producing Arabica that consistently outscores origins that get far more attention. At 950–960 metres above sea level, the Dima Hasao hills experience cool nights, persistent morning mist, and a slow growing season that concentrates sugars in the SL-9 cherry over months rather than weeks.
+    pageDescription: `Halflong is the hill station capital of Dima Hasao district in Assam, a place most coffee buyers have never heard of, producing Arabica that consistently outscores origins that get far more attention. At 950–960 metres above sea level, the Dima Hasao hills experience cool nights, persistent morning mist, and a slow growing season that concentrates sugars in the SL-9 cherry over months rather than weeks.
 
-SL-9 is a Kenyan-derived variety — part of the Scott Laboratories series developed in Nairobi in the mid-20th century — that was introduced to India's North East decades ago. In Halflong's specific microclimate, it expresses differently than it does anywhere else: less acidic than the Kenyan SLs, more floral, with a red-berry sweetness and a smooth rounded body that makes it immediately accessible to a wide range of customers.
+SL-9 is a Kenyan-derived variety, part of the Scott Laboratories series developed in Nairobi in the mid-20th century, that was introduced to India's North East decades ago. In Halflong's specific microclimate, it expresses differently than it does anywhere else: less acidic than the Kenyan SLs, more floral, with a red-berry sweetness and a smooth rounded body that makes it immediately accessible to a wide range of customers.
 
-The natural process adds a further layer of complexity. Whole cherries are dried on raised beds over 4–6 weeks in Halflong's cool highland air — a slower fermentation than you'd get in a hot-climate natural, which produces a wine-like intensity without the heavy, overripe character that underprocessed naturals sometimes carry.
+The natural process adds a further layer of complexity. Whole cherries are dried on raised beds over 4–6 weeks in Halflong's cool highland air, a slower fermentation than you'd get in a hot-climate natural, which produces a wine-like intensity without the heavy, overripe character that underprocessed naturals sometimes carry.
 
 Availability is strictly limited. The Dima Hasao hills are remote, harvests are small-scale, and the SL-9 varietal is labour-intensive to process well. We typically have one lot per harvest season, sold in 30 kg minimum quantities. If you are building a specialty single-origin programme and want an Indian origin that will genuinely surprise your customers, this is the one to request first.`,
     sku: "BGC-HLG-ARB-001",
@@ -315,15 +315,15 @@ Availability is strictly limited. The Dima Hasao hills are remote, harvests are 
     name: "Halflong Arabica Washed Green Coffee",
     image: "/products/specific/assam.jpg",
     description:
-      "Fully washed SL-9 Arabica from Halflong, Assam — a rare North-East Indian washed lot with clean, floral clarity.",
+      "Fully washed SL-9 Arabica from Halflong, Assam, a rare North-East Indian washed lot with clean, floral clarity.",
     longDescription:
-      "This washed-process lot from Halflong's Dima Hasao hills is depulped and fermented before drying, stripping away the fruit to reveal the SL-9 varietal's underlying character directly. Compared to the region's more common naturals, the washed lot is brighter and cleaner — floral top notes, a light, tea-like body, and none of the wine-like intensity of the natural process. Grown above 950m in a cool, misty highland climate with strictly limited seasonal harvests.",
+      "This washed-process lot from Halflong's Dima Hasao hills is depulped and fermented before drying, stripping away the fruit to reveal the SL-9 varietal's underlying character directly. Compared to the region's more common naturals, the washed lot is brighter and cleaner, floral top notes, a light, tea-like body, and none of the wine-like intensity of the natural process. Grown above 950m in a cool, misty highland climate with strictly limited seasonal harvests.",
     details: [
       "Fully washed SL-9 Arabica",
       "High-altitude Dima Hasao hills",
       "Clean, floral cup with tea-like body",
       "Cool-climate slow drying",
-      "Limited harvest — North-East India origin",
+      "Limited harvest: North-East India origin",
     ],
     locations: ["Halflong, Assam"],
     category: "Coffee",
@@ -352,15 +352,15 @@ Availability is strictly limited. The Dima Hasao hills are remote, harvests are 
     name: "Halflong Arabica Washed Specialty Green Coffee",
     image: "/products/specific/assam.jpg",
     description:
-      "Top-lot washed SL-9 Arabica from Halflong, Assam — cup-selected for the highest quality band from this rare North-East Indian origin.",
+      "Top-lot washed SL-9 Arabica from Halflong, Assam, cup-selected for the highest quality band from this rare North-East Indian origin.",
     longDescription:
-      "Halflong Washed Specialty is the cup-selected top cut of the estate's washed SL-9 harvest — depulped, fermented, and dried to the same clean, floral profile as the standard washed lot, with tighter screen consistency and a higher cup score. Grown above 950m in the cool, misty Dima Hasao hills with strictly limited seasonal harvests.",
+      "Halflong Washed Specialty is the cup-selected top cut of the estate's washed SL-9 harvest, depulped, fermented, and dried to the same clean, floral profile as the standard washed lot, with tighter screen consistency and a higher cup score. Grown above 950m in the cool, misty Dima Hasao hills with strictly limited seasonal harvests.",
     details: [
       "Cup-selected top-lot washed SL-9 Arabica",
       "High-altitude Dima Hasao hills",
       "Clean, floral cup with tea-like body",
       "Tighter screen size consistency",
-      "Limited harvest — North-East India origin",
+      "Limited harvest: North-East India origin",
     ],
     locations: ["Halflong, Assam"],
     category: "Coffee",
@@ -389,7 +389,7 @@ Availability is strictly limited. The Dima Hasao hills are remote, harvests are 
     name: "Halflong Arabica Honey Sun-Dried Green Coffee",
     image: "/products/specific/naturals.jpg",
     description:
-      "Honey sun-dried SL-9 Arabica from Halflong, Assam — mucilage-on drying for extra sweetness between naturals and washed.",
+      "Honey sun-dried SL-9 Arabica from Halflong, Assam, mucilage-on drying for extra sweetness between naturals and washed.",
     longDescription:
       "Honey Sun-Dried Halflong Arabica is pulped and dried with the mucilage intact, capturing the SL-9 varietal's red-berry sweetness without the full wine-like intensity of the whole-cherry natural. The slow drying in Dima Hasao's cool, misty highland air develops a syrupy body and rounded sweetness that sits between the estate's natural and washed lots. Strictly limited seasonal harvests from above 950m.",
     details: [
@@ -397,7 +397,7 @@ Availability is strictly limited. The Dima Hasao hills are remote, harvests are 
       "High-altitude Dima Hasao hills",
       "Syrupy body, red-berry sweetness",
       "Cool-climate slow drying",
-      "Limited harvest — North-East India origin",
+      "Limited harvest: North-East India origin",
     ],
     locations: ["Halflong, Assam"],
     category: "Coffee",
@@ -426,9 +426,9 @@ Availability is strictly limited. The Dima Hasao hills are remote, harvests are 
     name: "Chirang Robusta Naturals Green Coffee",
     image: "/products/specific/assam.jpg",
     description:
-      "Natural-process Robusta green coffee from the lowland forests of Chirang, Assam — bold, earthy, and distinctly North-East Indian.",
+      "Natural-process Robusta green coffee from the lowland forests of Chirang, Assam, bold, earthy, and distinctly North-East Indian.",
     longDescription:
-      "Grown in the forest-fringe villages of Chirang district at 100–200m, this CxR (Congensis × Robusta) cultivar thrives in Assam's humid subtropical climate. Natural process drying on raised beds brings out a deep, chocolatey body with earthy undertones and low acidity — well-suited for espresso blends, instant coffee production, or buyers seeking affordable North-East Indian Robusta. Harvested by small-holder farming families under a canopy of deciduous forest.",
+      "Grown in the forest-fringe villages of Chirang district at 100–200m, this CxR (Congensis × Robusta) cultivar thrives in Assam's humid subtropical climate. Natural process drying on raised beds brings out a deep, chocolatey body with earthy undertones and low acidity, well-suited for espresso blends, instant coffee production, or buyers seeking affordable North-East Indian Robusta. Harvested by small-holder farming families under a canopy of deciduous forest.",
     details: [
       "CxR (Congensis × Robusta) cultivar",
       "Natural sun-dried process",
@@ -457,7 +457,7 @@ Availability is strictly limited. The Dima Hasao hills are remote, harvests are 
       {
         author: "Dinesh Rao",
         role: "Procurement Manager, Continental Coffee (Hyderabad)",
-        text: "We've been sourcing Robusta from Karnataka for years. The Chirang CxR is a solid alternative — consistent cup, good body, and the pricing is competitive. We use it in our espresso blend base.",
+        text: "We've been sourcing Robusta from Karnataka for years. The Chirang CxR is a solid alternative, consistent cup, good body, and the pricing is competitive. We use it in our espresso blend base.",
         rating: 4,
       },
       {
@@ -473,13 +473,13 @@ Availability is strictly limited. The Dima Hasao hills are remote, harvests are 
         rating: 4,
       },
     ],
-    pageDescription: `Chirang district in lower Assam occupies a stretch of forest-fringe land between the Brahmaputra floodplain and the foothills of Bhutan. Coffee here grows at 100–200 metres in a humid subtropical climate — very different from the high-altitude Arabica of Halflong, but producing a Robusta with more character than typical lowland lots.
+    pageDescription: `Chirang district in lower Assam occupies a stretch of forest-fringe land between the Brahmaputra floodplain and the foothills of Bhutan. Coffee here grows at 100–200 metres in a humid subtropical climate, very different from the high-altitude Arabica of Halflong, but producing a Robusta with more character than typical lowland lots.
 
-The CxR (Congensis × Robusta) cultivar grown in Chirang is a hybrid developed for disease resistance and productivity in humid low-altitude environments. It produces large cherries with a high caffeine content, low acidity, and a distinctively bold, earthy body with chocolate undertones. The natural process — drying whole cherries on raised beds or ground tarpaulins — adds a mild fruitiness on top of the variety's inherent depth.
+The CxR (Congensis × Robusta) cultivar grown in Chirang is a hybrid developed for disease resistance and productivity in humid low-altitude environments. It produces large cherries with a high caffeine content, low acidity, and a distinctively bold, earthy body with chocolate undertones. The natural process, drying whole cherries on raised beds or ground tarpaulins, adds a mild fruitiness on top of the variety's inherent depth.
 
 For commercial buyers, Chirang Robusta serves several critical roles: as a crema and body contributor in espresso blends, as a high-solids base for instant coffee manufacturing, and as a cost-effective blend component for South Indian filter coffee (which traditionally uses 25–40% Robusta). The Grade 1 lot has a low defect count relative to price and is suitable for direct commercial roasting without re-sorting.
 
-The farming families of Chirang are among the least-visible contributors to India's coffee supply chain. Most of their production disappears into anonymous bulk lots aggregated by traders in Guwahati. By sourcing directly from Chirang and naming the origin, we give these farms a traceability story they can build on — and give buyers a more honest supply chain than the typical "Indian Robusta" with no further attribution.`,
+The farming families of Chirang are among the least-visible contributors to India's coffee supply chain. Most of their production disappears into anonymous bulk lots aggregated by traders in Guwahati. By sourcing directly from Chirang and naming the origin, we give these farms a traceability story they can build on, and give buyers a more honest supply chain than the typical "Indian Robusta" with no further attribution.`,
     sku: "BGC-CHR-ROB-001",
     brand: "Bulk Green Coffee",
     availability: "in_stock",
@@ -490,7 +490,7 @@ The farming families of Chirang are among the least-visible contributors to Indi
     name: "Tirap Robusta Naturals Green Coffee",
     image: "/products/north-east/arunachal-pradesh/tirap/tirap-robusta-naturals.webp",
     description:
-      "Natural-process Robusta green coffee from the hilly forests of Tirap, Arunachal Pradesh — rich, full-bodied, and traceable to tribal farms.",
+      "Natural-process Robusta green coffee from the hilly forests of Tirap, Arunachal Pradesh, rich, full-bodied, and traceable to tribal farms.",
     longDescription:
       "Tirap district in Arunachal Pradesh sits at around 300m in the eastern foothills of the Himalayas, producing a CxR Robusta with more elevation character than typical lowland Robusta. The natural process lends a mild fruitiness on top of the variety's inherent earthiness and depth. Harvested by Naga and Wancho tribal communities, this coffee offers a compelling provenance story alongside solid commercial cup quality. Suitable for blending, instant, and high-volume roastery buyers.",
     estateImages: [
@@ -528,13 +528,13 @@ The farming families of Chirang are among the least-visible contributors to Indi
       {
         author: "Amrit Singh",
         role: "Founder, Jugaad Coffee Works (Delhi)",
-        text: "Tirap Robusta was a complete surprise. At 300m it has more complexity than I expected from a CxR — mild fruitiness, rich body, none of the harsh rubber notes you sometimes get in low-altitude Robusta. Now a permanent part of our espresso blend.",
+        text: "Tirap Robusta was a complete surprise. At 300m it has more complexity than I expected from a CxR, mild fruitiness, rich body, none of the harsh rubber notes you sometimes get in low-altitude Robusta. Now a permanent part of our espresso blend.",
         rating: 5,
       },
       {
         author: "Patricia Walsh",
         role: "Green Coffee Buyer, Workshop Coffee (London)",
-        text: "The provenance story here is genuinely unusual — Naga and Wancho tribal farms in Arunachal Pradesh is not something you see in European green coffee catalogues. The cup backs it up: earthy depth, chocolate, clean finish. We used it in our winter blend.",
+        text: "The provenance story here is genuinely unusual: Naga and Wancho tribal farms in Arunachal Pradesh is not something you see in European green coffee catalogues. The cup backs it up: earthy depth, chocolate, clean finish. We used it in our winter blend.",
         rating: 4,
       },
       {
@@ -544,11 +544,11 @@ The farming families of Chirang are among the least-visible contributors to Indi
         rating: 4,
       },
     ],
-    pageDescription: `Tirap district occupies the far eastern edge of Arunachal Pradesh, bordering Myanmar, at the foot of the eastern Himalayas. It is inhabited primarily by the Naga and Wancho peoples — communities with deep agricultural traditions whose coffee cultivation is largely unknown to the international green coffee market.
+    pageDescription: `Tirap district occupies the far eastern edge of Arunachal Pradesh, bordering Myanmar, at the foot of the eastern Himalayas. It is inhabited primarily by the Naga and Wancho peoples, communities with deep agricultural traditions whose coffee cultivation is largely unknown to the international green coffee market.
 
-Coffee here grows at around 300 metres — higher than typical Robusta-growing zones, which gives the CxR cultivar a slightly more nuanced expression than flat lowland Robusta. The Himalayan foothills bring a seasonal temperature swing and periodic mist that moderates the otherwise subtropical climate. The result is a Robusta with a rich, earthy body, mild fruitiness from the natural process drying, and a longer, cleaner finish than comparable lowland lots.
+Coffee here grows at around 300 metres, higher than typical Robusta-growing zones, which gives the CxR cultivar a slightly more nuanced expression than flat lowland Robusta. The Himalayan foothills bring a seasonal temperature swing and periodic mist that moderates the otherwise subtropical climate. The result is a Robusta with a rich, earthy body, mild fruitiness from the natural process drying, and a longer, cleaner finish than comparable lowland lots.
 
-The natural process is the dominant post-harvest method in Tirap simply because the infrastructure for wet processing doesn't exist at scale in these remote valleys. Cherries are sun-dried on tarpaulins or raised platforms by individual farming families, then aggregated and milled before export. The drying adds a subtle fruit dimension — dark cherry, dried fig — that distinguishes Tirap Robusta from more generic commercial lots.
+The natural process is the dominant post-harvest method in Tirap simply because the infrastructure for wet processing doesn't exist at scale in these remote valleys. Cherries are sun-dried on tarpaulins or raised platforms by individual farming families, then aggregated and milled before export. The drying adds a subtle fruit dimension, dark cherry, dried fig, that distinguishes Tirap Robusta from more generic commercial lots.
 
 For buyers, Tirap offers several things that are hard to find together: a genuine provenance story, a competitive price, solid commercial cup quality, and the knowledge that your purchase supports farming communities in one of India's most remote and economically marginalised regions. Available in Grade 1 (low defect, suitable for direct commercial roasting) and Grade 2 (for blending or instant production).`,
     sku: "BGC-TRP-ROB-001",
@@ -566,9 +566,9 @@ For buyers, Tirap offers several things that are hard to find together: a genuin
       "/products/north-east/arunachal-pradesh/tirap/tirap-robusta-branch.webp",
     ],
     description:
-      "Fully washed Robusta green coffee from Tirap, Arunachal Pradesh — clean, low-defect, and traceable to Naga and Wancho tribal farms.",
+      "Fully washed Robusta green coffee from Tirap, Arunachal Pradesh, clean, low-defect, and traceable to Naga and Wancho tribal farms.",
     longDescription:
-      "This washed-process lot from Tirap is depulped and fermented at small community stations before drying, removing the mucilage entirely for a cleaner, more consistent bean than the region's more common natural-process lots. The result is a Robusta with a straightforward, low-defect cup — bold body, low acidity, and none of the fermenty edge that can appear in poorly managed naturals. Grown at around 300m in the eastern Himalayan foothills by Naga and Wancho tribal communities.",
+      "This washed-process lot from Tirap is depulped and fermented at small community stations before drying, removing the mucilage entirely for a cleaner, more consistent bean than the region's more common natural-process lots. The result is a Robusta with a straightforward, low-defect cup, bold body, low acidity, and none of the fermenty edge that can appear in poorly managed naturals. Grown at around 300m in the eastern Himalayan foothills by Naga and Wancho tribal communities.",
     details: [
       "CxR (Congensis × Robusta) cultivar",
       "Fully washed process",
@@ -607,7 +607,7 @@ For buyers, Tirap offers several things that are hard to find together: a genuin
       "/products/north-east/arunachal-pradesh/tirap/tirap-tree-beans.webp",
     ],
     description:
-      "Honey sun-dried Robusta green coffee from Tirap, Arunachal Pradesh — mucilage-on drying for extra sweetness and body.",
+      "Honey sun-dried Robusta green coffee from Tirap, Arunachal Pradesh, mucilage-on drying for extra sweetness and body.",
     longDescription:
       "Honey Sun-Dried Tirap Robusta is pulped and then dried with the mucilage intact on raised platforms, capturing more of the cherry's natural sugars than a fully washed lot without the heavier ferment character of a whole-cherry natural. The result is a rounder, sweeter Robusta with the earthy depth typical of the CxR cultivar. Grown at around 300m by Naga and Wancho tribal farming families in Arunachal Pradesh's eastern foothills.",
     details: [
@@ -647,9 +647,9 @@ For buyers, Tirap offers several things that are hard to find together: a genuin
     name: "Chikmagalur Arabica Green Coffee",
     image: "/products/green-coffee-beans.png",
     description:
-      "Premium green Arabica from the misty coffee estates of Chikmagalur, Karnataka — the heartland of Indian coffee with bright acidity and floral notes.",
+      "Premium green Arabica from the misty coffee estates of Chikmagalur, Karnataka, the heartland of Indian coffee with bright acidity and floral notes.",
     longDescription:
-      "Chikmagalur, perched in the Western Ghats of Karnataka, is the cradle of Indian coffee and produces some of the country's most consistent, well-structured Arabica. Grown at 900–1200m on well-established estates under silver oak shade, these beans develop a classic profile of bright citrus acidity, subtle floral notes, and a clean, balanced finish. Available in washed, natural, and honey process — ideal for specialty roasters building a reliable South India offering.",
+      "Chikmagalur, perched in the Western Ghats of Karnataka, is the cradle of Indian coffee and produces some of the country's most consistent, well-structured Arabica. Grown at 900–1200m on well-established estates under silver oak shade, these beans develop a classic profile of bright citrus acidity, subtle floral notes, and a clean, balanced finish. Available in washed, natural, and honey process, ideal for specialty roasters building a reliable South India offering.",
     details: [
       "Western Ghats shade-grown Arabica",
       "900–1200 masl elevation",
@@ -691,17 +691,17 @@ For buyers, Tirap offers several things that are hard to find together: a genuin
       {
         author: "Nadia Boukhari",
         role: "Buyer, Café Comptoir de l'Est (Paris)",
-        text: "We feature an Indian Arabica every winter season and Chikmagalur is consistently our best-reviewed. Customers describe it as 'clean and interesting' — not a common combination for a commercial Indian lot.",
+        text: "We feature an Indian Arabica every winter season and Chikmagalur is consistently our best-reviewed. Customers describe it as 'clean and interesting', not a common combination for a commercial Indian lot.",
         rating: 4,
       },
     ],
-    pageDescription: `Chikmagalur is where Indian coffee began. According to legend, Baba Budan — a Sufi saint returning from a pilgrimage to Mecca — smuggled seven coffee seeds out of Yemen in the 17th century and planted them in the hills of what is now Chikmagalur district. The British colonial plantation system formalised what began as a spiritual act, and today Chikmagalur is Karnataka's most productive and most storied coffee-growing region.
+    pageDescription: `Chikmagalur is where Indian coffee began. According to legend, Baba Budan, a Sufi saint returning from a pilgrimage to Mecca, smuggled seven coffee seeds out of Yemen in the 17th century and planted them in the hills of what is now Chikmagalur district. The British colonial plantation system formalised what began as a spiritual act, and today Chikmagalur is Karnataka's most productive and most storied coffee-growing region.
 
-The Western Ghats here rise to over 1,800 metres, though most coffee grows in the 900–1,200 metre band where temperature and rainfall are optimal. Estates are shaded by silver oak, jackfruit, and native jungle trees — a multi-layer canopy that maintains soil moisture, prevents erosion, and creates the cool microclimate that slows cherry ripening and concentrates flavour.
+The Western Ghats here rise to over 1,800 metres, though most coffee grows in the 900–1,200 metre band where temperature and rainfall are optimal. Estates are shaded by silver oak, jackfruit, and native jungle trees, a multi-layer canopy that maintains soil moisture, prevents erosion, and creates the cool microclimate that slows cherry ripening and concentrates flavour.
 
-The dominant variety is S.795 — India's most widely planted Arabica, bred from Kent and S.288 in the 1940s at the Coffee Board of India's research station. S.795 produces a well-balanced cup: moderate brightness, good body, subtle chocolate and mocha notes. Catuai and SLN-9 lots are also available with slightly different cup profiles — Catuai being cleaner and brighter, SLN-9 having more floral complexity.
+The dominant variety is S.795: India's most widely planted Arabica, bred from Kent and S.288 in the 1940s at the Coffee Board of India's research station. S.795 produces a well-balanced cup: moderate brightness, good body, subtle chocolate and mocha notes. Catuai and SLN-9 lots are also available with slightly different cup profiles: Catuai being cleaner and brighter, SLN-9 having more floral complexity.
 
-Available in AA, A, AB, and PB (Peaberry) grades across washed, natural, and honey process. The AA washed is our most popular commercial option for South Indian buyers and espresso blenders. PB grade is hand-sorted and adds a noticeably rounder, sweeter dimension — excellent as a single-origin filter feature or as a premium component in a specialty blend.`,
+Available in AA, A, AB, and PB (Peaberry) grades across washed, natural, and honey process. The AA washed is our most popular commercial option for South Indian buyers and espresso blenders. PB grade is hand-sorted and adds a noticeably rounder, sweeter dimension, excellent as a single-origin filter feature or as a premium component in a specialty blend.`,
     sku: "BGC-CHK-ARB-001",
     brand: "Bulk Green Coffee",
     availability: "in_stock",
@@ -712,9 +712,9 @@ Available in AA, A, AB, and PB (Peaberry) grades across washed, natural, and hon
     name: "Coorg Arabica Green Coffee",
     image: "/products/green-coffee-beans.png",
     description:
-      "Rich, full-bodied green Arabica from Coorg (Kodagu), Karnataka — grown on lush planters' estates at elevation with excellent body and mild acidity.",
+      "Rich, full-bodied green Arabica from Coorg (Kodagu), Karnataka, grown on lush planters' estates at elevation with excellent body and mild acidity.",
     longDescription:
-      "Coorg, also known as Kodagu, is Karnataka's other great coffee district — famous for its dense, forested planters' estates where Arabica grows under pepper vines and silver oak at 800–1100m. The beans carry a characteristic richness: full body, mild acidity, chocolate and spice undertones, and a long, clean finish. A favourite among South Indian filter coffee blenders and specialty roasters alike, Coorg Arabica is one of India's most reliably traded origins.",
+      "Coorg, also known as Kodagu, is Karnataka's other great coffee district, famous for its dense, forested planters' estates where Arabica grows under pepper vines and silver oak at 800–1100m. The beans carry a characteristic richness: full body, mild acidity, chocolate and spice undertones, and a long, clean finish. A favourite among South Indian filter coffee blenders and specialty roasters alike, Coorg Arabica is one of India's most reliably traded origins.",
     details: [
       "Full-bodied Arabica from Kodagu estates",
       "800–1100 masl elevation",
@@ -744,13 +744,13 @@ Available in AA, A, AB, and PB (Peaberry) grades across washed, natural, and hon
       {
         author: "Ashwin Balachandran",
         role: "Head Roaster, Third Wave Coffee Roasters (Bangalore)",
-        text: "Coorg AA is our go-to for South Indian filter coffee customers. Full body, low acidity, chocolate finish — exactly what that market wants. Consistent quality across every order we've placed.",
+        text: "Coorg AA is our go-to for South Indian filter coffee customers. Full body, low acidity, chocolate finish, exactly what that market wants. Consistent quality across every order we've placed.",
         rating: 5,
       },
       {
         author: "Isabella Romano",
         role: "Sourcing Lead, Gardelli Specialty Coffees (Forlì)",
-        text: "The Coorg Peaberry we sampled was outstanding — fuller and sweeter than the AA from the same harvest. We've started featuring it as a standalone espresso and the response has been very positive.",
+        text: "The Coorg Peaberry we sampled was outstanding, fuller and sweeter than the AA from the same harvest. We've started featuring it as a standalone espresso and the response has been very positive.",
         rating: 5,
       },
       {
@@ -760,11 +760,11 @@ Available in AA, A, AB, and PB (Peaberry) grades across washed, natural, and hon
         rating: 4,
       },
     ],
-    pageDescription: `Coorg (officially Kodagu) is one of the most biodiverse districts in India — a dense, forested landscape of hills and valleys in southern Karnataka where coffee, pepper, cardamom, and orange plantations coexist under a canopy of silver oak and native jungle trees. Coffee here has been grown by Kodava families on large planters' estates since the 19th century, and the region has developed a distinct and recognisable cup character.
+    pageDescription: `Coorg (officially Kodagu) is one of the most biodiverse districts in India, a dense, forested landscape of hills and valleys in southern Karnataka where coffee, pepper, cardamom, and orange plantations coexist under a canopy of silver oak and native jungle trees. Coffee here has been grown by Kodava families on large planters' estates since the 19th century, and the region has developed a distinct and recognisable cup character.
 
-Where Chikmagalur Arabica tends towards brightness and florals, Coorg leans fuller and richer — lower acidity, heavier body, and pronounced chocolate and spice undertones that come partly from the terroir and partly from the proximity of pepper and cardamom in the same growing environment. This profile makes Coorg Arabica particularly well-suited to espresso blending, South Indian filter coffee, and milk-based café drinks where a structured, full-bodied base is desirable.
+Where Chikmagalur Arabica tends towards brightness and florals, Coorg leans fuller and richer, lower acidity, heavier body, and pronounced chocolate and spice undertones that come partly from the terroir and partly from the proximity of pepper and cardamom in the same growing environment. This profile makes Coorg Arabica particularly well-suited to espresso blending, South Indian filter coffee, and milk-based café drinks where a structured, full-bodied base is desirable.
 
-Estates in Coorg are typically larger than the smallholder farms of Koraput or North East India — well-established, with reliable wet-processing infrastructure and experienced post-harvest teams. This translates to consistent quality across shipments, which is why Coorg AA is among India's most reliably traded green coffee grades for commercial buyers.
+Estates in Coorg are typically larger than the smallholder farms of Koraput or North East India, well-established, with reliable wet-processing infrastructure and experienced post-harvest teams. This translates to consistent quality across shipments, which is why Coorg AA is among India's most reliably traded green coffee grades for commercial buyers.
 
 Peaberry (PB) lots from Coorg are especially prized. The same rich, chocolatey character of the flat-bean Coorg, but with added roundness, sweetness, and aromatic concentration from the single-seed mutation. Available from 10 kg for sampling. Contact us for current lot availability and moisture certificates.`,
     sku: "BGC-CRG-ARB-001",
@@ -777,9 +777,9 @@ Peaberry (PB) lots from Coorg are especially prized. The same rich, chocolatey c
     name: "Wayanad Arabica Green Coffee",
     image: "/products/green-coffee-beans.png",
     description:
-      "Smooth, well-rounded green Arabica from the highland forests of Wayanad, Kerala — celebrated for its mild flavour and excellent cup consistency.",
+      "Smooth, well-rounded green Arabica from the highland forests of Wayanad, Kerala, celebrated for its mild flavour and excellent cup consistency.",
     longDescription:
-      "Wayanad's coffee grows in the biodiverse forests of northern Kerala at 700–1000m, benefiting from the Arabian Sea's moisture and cool Ghats nights. Small-holder farms and cooperatives produce Arabica with a notably smooth cup — gentle acidity, mild nuttiness, subtle floral hints, and a clean, medium body. Wayanad Arabica is prized for its consistency and adaptability across filter, espresso, and blending applications. Certified organic lots are available on request.",
+      "Wayanad's coffee grows in the biodiverse forests of northern Kerala at 700–1000m, benefiting from the Arabian Sea's moisture and cool Ghats nights. Small-holder farms and cooperatives produce Arabica with a notably smooth cup, gentle acidity, mild nuttiness, subtle floral hints, and a clean, medium body. Wayanad Arabica is prized for its consistency and adaptability across filter, espresso, and blending applications. Certified organic lots are available on request.",
     details: [
       "Kerala forest-grown Arabica",
       "700–1000 masl elevation",
@@ -809,13 +809,13 @@ Peaberry (PB) lots from Coorg are especially prized. The same rich, chocolatey c
       {
         author: "Rina Thomas",
         role: "Founder, Araku Coffee Lab (Kerala)",
-        text: "Wayanad Arabica is our benchmark for consistency. Season after season, the cup profile barely shifts — smooth, mild, a little nutty. It's exactly what our café accounts need for a house blend base.",
+        text: "Wayanad Arabica is our benchmark for consistency. Season after season, the cup profile barely shifts, smooth, mild, a little nutty. It's exactly what our café accounts need for a house blend base.",
         rating: 4,
       },
       {
         author: "James Hoffmann",
         role: "Roaster and Educator (London)",
-        text: "Wayanad's forest-grown cooperatives produce some of the most underrated Arabica in South Asia. The cup is mild in the best sense — accessible, consistent, and genuinely pleasant. A solid entry point for anyone exploring Indian origins.",
+        text: "Wayanad's forest-grown cooperatives produce some of the most underrated Arabica in South Asia. The cup is mild in the best sense, accessible, consistent, and genuinely pleasant. A solid entry point for anyone exploring Indian origins.",
         rating: 4,
       },
       {
@@ -825,13 +825,13 @@ Peaberry (PB) lots from Coorg are especially prized. The same rich, chocolatey c
         rating: 4,
       },
     ],
-    pageDescription: `Wayanad is Kerala's highest district — a plateau at the top of the Western Ghats that catches both the Arabian Sea monsoon from the west and the Bay of Bengal moisture from the east, creating one of the most reliably wet and biodiverse growing environments in South India. Coffee here is grown by small-holder farmers and cooperatives whose land is woven between the Wayanad Wildlife Sanctuary and tribal reserve forests.
+    pageDescription: `Wayanad is Kerala's highest district, a plateau at the top of the Western Ghats that catches both the Arabian Sea monsoon from the west and the Bay of Bengal moisture from the east, creating one of the most reliably wet and biodiverse growing environments in South India. Coffee here is grown by small-holder farmers and cooperatives whose land is woven between the Wayanad Wildlife Sanctuary and tribal reserve forests.
 
-The cup character of Wayanad Arabica is defined by its smoothness. Where Chikmagalur produces bright, structured acidity and Coorg delivers heavy-bodied richness, Wayanad sits in between: medium body, gentle acidity, mild nuttiness, and a clean, floral finish that makes it immediately accessible across brewing methods and customer demographics. It is not a coffee that demands attention — but it is a coffee that reliably satisfies.
+The cup character of Wayanad Arabica is defined by its smoothness. Where Chikmagalur produces bright, structured acidity and Coorg delivers heavy-bodied richness, Wayanad sits in between: medium body, gentle acidity, mild nuttiness, and a clean, floral finish that makes it immediately accessible across brewing methods and customer demographics. It is not a coffee that demands attention, but it is a coffee that reliably satisfies.
 
-This makes Wayanad a favourite for café chain buyers, hospitality clients, and blenders who need a consistent, non-aggressive Indian Arabica at scale. The cooperative sourcing model — involving hundreds of small farmers — actually improves lot-level consistency, because the variations between individual farms average out across the collective processing station.
+This makes Wayanad a favourite for café chain buyers, hospitality clients, and blenders who need a consistent, non-aggressive Indian Arabica at scale. The cooperative sourcing model, involving hundreds of small farmers, actually improves lot-level consistency, because the variations between individual farms average out across the collective processing station.
 
-Organic-certified lots from Wayanad are available on request. The certification is managed through cooperative-level certification bodies and can be supplied with documentation. PB (Peaberry) grade is available from the same washed harvest — hand-sorted, limited availability. Contact us for current lot status, moisture analysis, and sample requests.`,
+Organic-certified lots from Wayanad are available on request. The certification is managed through cooperative-level certification bodies and can be supplied with documentation. PB (Peaberry) grade is available from the same washed harvest, hand-sorted, limited availability. Contact us for current lot status, moisture analysis, and sample requests.`,
     sku: "BGC-WYD-ARB-001",
     brand: "Bulk Green Coffee",
     availability: "in_stock",
@@ -842,12 +842,12 @@ Organic-certified lots from Wayanad are available on request. The certification 
     name: "Bababudangiri Arabica Green Coffee",
     image: "/products/green-coffee-beans.png",
     description:
-      "Rare single-origin green Arabica from the ancient Bababudangiri hills, Karnataka — India's mythical coffee birthplace with a distinctive earthy complexity.",
+      "Rare single-origin green Arabica from the ancient Bababudangiri hills, Karnataka: India's mythical coffee birthplace with a distinctive earthy complexity.",
     longDescription:
-      "The Bababudangiri hills in Karnataka's Chikmagalur district are where coffee is said to have first been cultivated in India, brought by Baba Budan in the 17th century. Today, small estates and forest-fringe farms at 1000–1400m produce limited lots of Arabica with a profile unlike any other Indian origin — earthy and spiced at its core, with a creamy body, brown-sugar sweetness, and a lingering, complex finish. These lots are genuinely rare and carry a provenance story that resonates strongly with specialty buyers.",
+      "The Bababudangiri hills in Karnataka's Chikmagalur district are where coffee is said to have first been cultivated in India, brought by Baba Budan in the 17th century. Today, small estates and forest-fringe farms at 1000–1400m produce limited lots of Arabica with a profile unlike any other Indian origin, earthy and spiced at its core, with a creamy body, brown-sugar sweetness, and a lingering, complex finish. These lots are genuinely rare and carry a provenance story that resonates strongly with specialty buyers.",
     details: [
       "India's mythical coffee origin",
-      "1000–1400 masl — one of India's highest-grown origins",
+      "1000–1400 masl, one of India's highest-grown origins",
       "Rare, limited-availability lots",
       "Earthy, spiced complexity with creamy body",
       "Brown-sugar sweetness and long finish",
@@ -874,29 +874,29 @@ Organic-certified lots from Wayanad are available on request. The certification 
       {
         author: "Olga Melnyk",
         role: "Head of Single Origins, Tim Wendelboe (Oslo)",
-        text: "The Bababudangiri lot we sourced last season was unlike anything else from India — earthy complexity, a spiced warmth that comes from the terroir, and a lingering sweetness on the finish. A genuinely memorable cup.",
+        text: "The Bababudangiri lot we sourced last season was unlike anything else from India, earthy complexity, a spiced warmth that comes from the terroir, and a lingering sweetness on the finish. A genuinely memorable cup.",
         rating: 5,
       },
       {
         author: "Sameer Gupta",
         role: "Founder, Corridor Seven Coffee Roasters (Pune)",
-        text: "The provenance story sells itself — Indian coffee's mythical birthplace. But the cup delivers too. Creamy body, brown sugar, subtle spice. We sold out our 30 kg sample lot in ten days on a single Instagram post.",
+        text: "The provenance story sells itself: Indian coffee's mythical birthplace. But the cup delivers too. Creamy body, brown sugar, subtle spice. We sold out our 30 kg sample lot in ten days on a single Instagram post.",
         rating: 5,
       },
       {
         author: "Beatriz Costa",
         role: "Green Coffee Buyer, Delta Cafés (Portugal)",
-        text: "We feature a heritage Indian origin every year in our specialty range. Bababudangiri is the strongest yet — the altitude, the story, and the cup profile all align. Our customers love the 'birthplace of Indian coffee' narrative.",
+        text: "We feature a heritage Indian origin every year in our specialty range. Bababudangiri is the strongest yet, the altitude, the story, and the cup profile all align. Our customers love the 'birthplace of Indian coffee' narrative.",
         rating: 5,
       },
     ],
-    pageDescription: `No Indian coffee origin carries a more compelling story than Bababudangiri. According to historical records and Sufi tradition, it was here — in the Chandragiri hills of what is now Chikmagalur district, Karnataka — that Baba Budan, a Muslim pilgrim returning from Mecca, planted seven coffee seeds he had smuggled out of Yemen sometime in the early 17th century. Those seeds were the first coffee plants in India, and the descendants of that original cultivation still grow on the slopes of the hills that bear Baba Budan's name.
+    pageDescription: `No Indian coffee origin carries a more compelling story than Bababudangiri. According to historical records and Sufi tradition, it was here, in the Chandragiri hills of what is now Chikmagalur district, Karnataka, that Baba Budan, a Muslim pilgrim returning from Mecca, planted seven coffee seeds he had smuggled out of Yemen sometime in the early 17th century. Those seeds were the first coffee plants in India, and the descendants of that original cultivation still grow on the slopes of the hills that bear Baba Budan's name.
 
-Today, Bababudangiri is one of India's highest coffee-growing areas, with farms reaching 1,000–1,400 metres above sea level — significantly higher than most of Chikmagalur's main growing belt. The extra elevation means cooler temperatures, slower cherry development, and a more complex cup. The profile here is earthy and spiced in a way that is distinctly different from other Indian origins — a quality that comes partly from the altitude and partly from the ancient, unregistered heirloom varietals that have been growing on these slopes for centuries.
+Today, Bababudangiri is one of India's highest coffee-growing areas, with farms reaching 1,000–1,400 metres above sea level, significantly higher than most of Chikmagalur's main growing belt. The extra elevation means cooler temperatures, slower cherry development, and a more complex cup. The profile here is earthy and spiced in a way that is distinctly different from other Indian origins, a quality that comes partly from the altitude and partly from the ancient, unregistered heirloom varietals that have been growing on these slopes for centuries.
 
 The lots available from Bababudangiri are genuinely limited. Small estates and forest-fringe farms with ageing heirloom trees don't produce at commercial scale. What they produce is remarkable: Grade 1 lots with 86+ SCA scores, a creamy, heavy body, brown-sugar sweetness, and a finishing complexity that specialist buyers often describe as the most "complete" Indian Arabica they've tried.
 
-Peaberry (PB) from Bababudangiri is especially rare — hand-sorted from an already limited harvest, it amplifies the origin's characteristic earthiness and sweetness into an extraordinarily concentrated cup. Available in 30 kg minimum lots only. Contact us well in advance of the harvest season (November–February) to reserve allocation.`,
+Peaberry (PB) from Bababudangiri is especially rare, hand-sorted from an already limited harvest, and it amplifies the origin's characteristic earthiness and sweetness into an extraordinarily concentrated cup. Available in 30 kg minimum lots only. Contact us well in advance of the harvest season (November–February) to reserve allocation.`,
     sku: "BGC-BBG-ARB-001",
     brand: "Bulk Green Coffee",
     availability: "in_stock",
@@ -910,7 +910,7 @@ Peaberry (PB) from Bababudangiri is especially rare — hand-sorted from an alre
     name: "Karadykan Estate Arabica Naturals Green Coffee",
     image: "/products/green-coffee-beans.png",
     description:
-      "Natural-process Arabica green coffee from Karadykan Estate, Chikmagalur — a 620-acre estate in Karnataka's coffee heartland.",
+      "Natural-process Arabica green coffee from Karadykan Estate, Chikmagalur, a 620-acre estate in Karnataka's coffee heartland.",
     longDescription:
       "Karadykan Estate sits at 1,100m in Chikmagalur district and is part of the Sangameshwar Coffee group, one of Karnataka's most established estate networks. The natural-process lot is dried whole on raised beds, developing a fruit-forward sweetness on top of the estate's clean, well-balanced base character. The estate's scale allows for section-by-section microclimate management, giving distinct flavour expressions from the same core varieties across the property.",
     details: [
@@ -947,7 +947,7 @@ Peaberry (PB) from Bababudangiri is especially rare — hand-sorted from an alre
     name: "Karadykan Estate Arabica Honey Sun-Dried Green Coffee",
     image: "/products/green-coffee-beans.png",
     description:
-      "Honey sun-dried Arabica green coffee from Karadykan Estate, Chikmagalur — mucilage-on drying for a sweeter, rounder cup.",
+      "Honey sun-dried Arabica green coffee from Karadykan Estate, Chikmagalur, mucilage-on drying for a sweeter, rounder cup.",
     longDescription:
       "This honey-processed lot from Karadykan Estate is pulped and dried with the mucilage intact, capturing more of the cherry's natural sugars than a fully washed lot. The result is a rounder, sweeter cup than the estate's washed lots, with the estate's characteristic clean base and smooth, aromatic finish carrying through. Grown at 1,100m under native shade canopy on a 620-acre estate within the Sangameshwar Coffee group.",
     details: [
@@ -984,7 +984,7 @@ Peaberry (PB) from Bababudangiri is especially rare — hand-sorted from an alre
     name: "Karadykan Estate Arabica Washed Green Coffee",
     image: "/products/green-coffee-beans.png",
     description:
-      "Fully washed Arabica green coffee from Karadykan Estate, Chikmagalur — clean, bright, and aromatic.",
+      "Fully washed Arabica green coffee from Karadykan Estate, Chikmagalur, clean, bright, and aromatic.",
     longDescription:
       "Karadykan Estate's washed lot is depulped, fermented, and rinsed before drying, producing a clean, well-balanced cup with bright acidity and a smooth, aromatic finish. Grown under native shade canopy at 1,100m on a 620-acre estate that is part of the Sangameshwar Coffee group, this lot is hand-picked and processed on-site, reflecting the terroir of its high-altitude plantation.",
     details: [
@@ -1021,9 +1021,9 @@ Peaberry (PB) from Bababudangiri is especially rare — hand-sorted from an alre
     name: "Karadykan Estate Arabica Washed Specialty Green Coffee",
     image: "/products/green-coffee-beans.png",
     description:
-      "Top-lot washed Arabica from Karadykan Estate, Chikmagalur — cup-selected for the highest quality band from this 620-acre estate.",
+      "Top-lot washed Arabica from Karadykan Estate, Chikmagalur, cup-selected for the highest quality band from this 620-acre estate.",
     longDescription:
-      "Karadykan Washed Specialty is the cup-selected top cut of the estate's washed lot — depulped, fermented, and rinsed before drying, delivering the same clean, bright acidity as the standard washed lot with tighter screen consistency and a higher cup score. Grown under native shade canopy at 1,100m on a 620-acre estate that is part of the Sangameshwar Coffee group.",
+      "Karadykan Washed Specialty is the cup-selected top cut of the estate's washed lot, depulped, fermented, and rinsed before drying, delivering the same clean, bright acidity as the standard washed lot with tighter screen consistency and a higher cup score. Grown under native shade canopy at 1,100m on a 620-acre estate that is part of the Sangameshwar Coffee group.",
     details: [
       "Cup-selected top-lot washed process",
       "620-acre estate, Chikmagalur district",
@@ -1058,12 +1058,12 @@ Peaberry (PB) from Bababudangiri is especially rare — hand-sorted from an alre
     name: "Attikan Estate Specialty Arabica Naturals Green Coffee",
     image: "/products/green-coffee-beans.png",
     description:
-      "Natural-process specialty Arabica from Attikan Estate, perched up to 1,650m in the Biligiri Ranjan Hills — among India's highest-grown coffee.",
+      "Natural-process specialty Arabica from Attikan Estate, perched up to 1,650m in the Biligiri Ranjan Hills, among India's highest-grown coffee.",
     longDescription:
-      "Attikan Estate sits in the mist-laden Biligiri Ranjan Hills of Chamarajanagar district, reaching up to 1,650m — one of India's highest coffee operations. This natural-process lot is dried whole on raised beds after selective three-round handpicking, developing an intense, fruit-forward sweetness on top of the estate's characteristic complexity. The estate is grown under a canopy of silver oak, figs, and citrus trees, sharing its terrain with elephants, bison, and over 100 bird species. Part of the Sangameshwar Coffee group.",
+      "Attikan Estate sits in the mist-laden Biligiri Ranjan Hills of Chamarajanagar district, reaching up to 1,650m, one of India's highest coffee operations. This natural-process lot is dried whole on raised beds after selective three-round handpicking, developing an intense, fruit-forward sweetness on top of the estate's characteristic complexity. The estate is grown under a canopy of silver oak, figs, and citrus trees, sharing its terrain with elephants, bison, and over 100 bird species. Part of the Sangameshwar Coffee group.",
     details: [
       "Natural sun-dried process",
-      "Up to 1,650 masl — among India's highest-grown coffee",
+      "Up to 1,650 masl, among India's highest-grown coffee",
       "Biligiri Ranjan Hills, Chamarajanagar district",
       "Selective three-round handpicking",
       "Silver oak, fig and citrus shade canopy",
@@ -1095,12 +1095,12 @@ Peaberry (PB) from Bababudangiri is especially rare — hand-sorted from an alre
     name: "Attikan Estate Specialty Arabica Honey Sun-Dried Green Coffee",
     image: "/products/green-coffee-beans.png",
     description:
-      "Honey sun-dried specialty Arabica from Attikan Estate, Biligiri Ranjan Hills — mucilage-on drying for extra sweetness and body.",
+      "Honey sun-dried specialty Arabica from Attikan Estate, Biligiri Ranjan Hills, mucilage-on drying for extra sweetness and body.",
     longDescription:
       "This honey-processed lot from Attikan Estate is pulped and dried with the mucilage intact on raised beds, capturing more of the cherry's sugars for a rounder, sweeter cup than the estate's washed lots. Grown up to 1,650m in the mist-laden Biligiri Ranjan Hills under a canopy of silver oak, fig, and citrus trees, this is one of India's highest-grown specialty coffees. Part of the Sangameshwar Coffee group, with final curing at the group's central facility.",
     details: [
       "Honey (mucilage-on) sun-dried process",
-      "Up to 1,650 masl — among India's highest-grown coffee",
+      "Up to 1,650 masl, among India's highest-grown coffee",
       "Biligiri Ranjan Hills, Chamarajanagar district",
       "Selective three-round handpicking",
       "Silver oak, fig and citrus shade canopy",
@@ -1132,12 +1132,12 @@ Peaberry (PB) from Bababudangiri is especially rare — hand-sorted from an alre
     name: "Attikan Estate Specialty Arabica Washed Green Coffee",
     image: "/products/green-coffee-beans.png",
     description:
-      "Fully washed specialty Arabica from Attikan Estate, Biligiri Ranjan Hills — clean, bright, and grown at up to 1,650m.",
+      "Fully washed specialty Arabica from Attikan Estate, Biligiri Ranjan Hills, clean, bright, and grown at up to 1,650m.",
     longDescription:
       "Attikan Estate's washed lot goes through pulping, fermentation, washing, and sun-drying on raised beds before final curing at the Sangameshwar group's facility. Grown up to 1,650m in the mist-laden Biligiri Ranjan Hills, this lot delivers the clarity and bright acidity typical of a well-managed washed process, layered over the estate's naturally complex, high-altitude character. Cultivated under a canopy of silver oak, fig, and citrus trees in terrain shared with elephants, bison, and over 100 bird species.",
     details: [
       "Fully washed process",
-      "Up to 1,650 masl — among India's highest-grown coffee",
+      "Up to 1,650 masl, among India's highest-grown coffee",
       "Biligiri Ranjan Hills, Chamarajanagar district",
       "Selective three-round handpicking",
       "Silver oak, fig and citrus shade canopy",
@@ -1169,9 +1169,9 @@ Peaberry (PB) from Bababudangiri is especially rare — hand-sorted from an alre
     name: "Biccode Estate Coffee Naturals Green Coffee",
     image: "/products/green-coffee-beans.png",
     description:
-      "Award-winning natural-process coffee from Biccode Estate, Hassan district — a heritage estate near Belur at the start of Karnataka's coffee belt.",
+      "Award-winning natural-process coffee from Biccode Estate, Hassan district, a heritage estate near Belur at the start of Karnataka's coffee belt.",
     longDescription:
-      "Biccode Estate sits near Belur in Hassan district at 950–1,180m, at the start of Karnataka's coffee belt where roughly 60 inches of annual rainfall supports coffee alongside pepper and avocado. Originally established by Englishman Clement Lake in the early 20th century, the estate is known for its award-winning natural-process coffees — whole cherries dried on raised beds to develop a deep, syrupy sweetness. The restored Biccode bungalow, now open as a heritage homestay, sits near tributaries of the Yagachi river system.",
+      "Biccode Estate sits near Belur in Hassan district at 950–1,180m, at the start of Karnataka's coffee belt where roughly 60 inches of annual rainfall supports coffee alongside pepper and avocado. Originally established by Englishman Clement Lake in the early 20th century, the estate is known for its award-winning natural-process coffees, whole cherries dried on raised beds to develop a deep, syrupy sweetness. The restored Biccode bungalow, now open as a heritage homestay, sits near tributaries of the Yagachi river system.",
     details: [
       "Award-winning natural sun-dried process",
       "Hassan district, near Belur",
@@ -1206,9 +1206,9 @@ Peaberry (PB) from Bababudangiri is especially rare — hand-sorted from an alre
     name: "Biccode Estate Coffee Honey Sun-Dried Green Coffee",
     image: "/products/green-coffee-beans.png",
     description:
-      "Honey sun-dried coffee from Biccode Estate, Hassan district — mucilage-on drying for a rounder, sweeter cup.",
+      "Honey sun-dried coffee from Biccode Estate, Hassan district, mucilage-on drying for a rounder, sweeter cup.",
     longDescription:
-      "This honey-processed lot from Biccode Estate is pulped and dried with the mucilage intact, sitting between the estate's award-winning naturals and its clean washed lots. Grown at 950–1,180m near Belur in Hassan district — at the start of Karnataka's coffee belt — this lot carries forward the estate's syrupy sweetness with a lighter, more balanced acidity. The estate has been in continuous cultivation since the early 20th century, when it was established by Englishman Clement Lake.",
+      "This honey-processed lot from Biccode Estate is pulped and dried with the mucilage intact, sitting between the estate's award-winning naturals and its clean washed lots. Grown at 950–1,180m near Belur in Hassan district, at the start of Karnataka's coffee belt, this lot carries forward the estate's syrupy sweetness with a lighter, more balanced acidity. The estate has been in continuous cultivation since the early 20th century, when it was established by Englishman Clement Lake.",
     details: [
       "Honey (mucilage-on) sun-dried process",
       "Hassan district, near Belur",
@@ -1243,9 +1243,9 @@ Peaberry (PB) from Bababudangiri is especially rare — hand-sorted from an alre
     name: "Biccode Estate Coffee Washed Green Coffee",
     image: "/products/green-coffee-beans.png",
     description:
-      "Fully washed Arabica SLN 795 from Biccode Estate, Hassan district — medium-intensity cup with lemon zest, cacao, and caramel notes.",
+      "Fully washed Arabica SLN 795 from Biccode Estate, Hassan district, medium-intensity cup with lemon zest, cacao, and caramel notes.",
     longDescription:
-      "Biccode Estate's washed lot is a fully washed Arabica of the SLN 795 varietal. After hand-picking and selecting only ripe cherries, the coffee is pulped and rinsed with spring water, then dried on raised beds for 21 days with continuous turning for even airflow. The result is a medium-intensity cup with notes of lemon zest, cacao nibs, caramel, and toasted flavours — grown at 950–1,180m near Belur in Hassan district, at the start of Karnataka's coffee belt.",
+      "Biccode Estate's washed lot is a fully washed Arabica of the SLN 795 varietal. After hand-picking and selecting only ripe cherries, the coffee is pulped and rinsed with spring water, then dried on raised beds for 21 days with continuous turning for even airflow. The result is a medium-intensity cup with notes of lemon zest, cacao nibs, caramel, and toasted flavours, grown at 950–1,180m near Belur in Hassan district, at the start of Karnataka's coffee belt.",
     details: [
       "Fully washed process, SLN 795 varietal",
       "Hand-picked, selectively harvested",
@@ -1280,9 +1280,9 @@ Peaberry (PB) from Bababudangiri is especially rare — hand-sorted from an alre
     name: "Gungegiri Estate Coffee Naturals Green Coffee",
     image: "/products/green-coffee-beans.png",
     description:
-      "Natural-process Arabica from Gungegiri Estate, in the Chandra Drona (Baba Budangiri) Hills — the legendary birthplace of Indian coffee.",
+      "Natural-process Arabica from Gungegiri Estate, in the Chandra Drona (Baba Budangiri) Hills, the legendary birthplace of Indian coffee.",
     longDescription:
-      "Gungegiri Estate sits at 1,200m in Chikmagalur district, within the Chandra Drona (Baba Budangiri) Hills — the range where coffee is said to have first taken root in India. Originally established by the British brothers W.L. and C.S., the estate is now part of the Sangameshwar Coffee collective, which also operates Attikan Estate. This natural-process lot is dried whole on raised beds, developing a fruit-forward intensity that reflects some of Karnataka's most favourable growing conditions.",
+      "Gungegiri Estate sits at 1,200m in Chikmagalur district, within the Chandra Drona (Baba Budangiri) Hills, the range where coffee is said to have first taken root in India. Originally established by the British brothers W.L. and C.S., the estate is now part of the Sangameshwar Coffee collective, which also operates Attikan Estate. This natural-process lot is dried whole on raised beds, developing a fruit-forward intensity that reflects some of Karnataka's most favourable growing conditions.",
     details: [
       "Natural sun-dried process",
       "Chandra Drona (Baba Budangiri) Hills, Chikmagalur district",
@@ -1317,9 +1317,9 @@ Peaberry (PB) from Bababudangiri is especially rare — hand-sorted from an alre
     name: "Gungegiri Estate Coffee Honey Sun-Dried Green Coffee",
     image: "/products/green-coffee-beans.png",
     description:
-      "Honey sun-dried Arabica from Gungegiri Estate, Chandra Drona (Baba Budangiri) Hills — mucilage-on drying for extra sweetness.",
+      "Honey sun-dried Arabica from Gungegiri Estate, Chandra Drona (Baba Budangiri) Hills, mucilage-on drying for extra sweetness.",
     longDescription:
-      "This honey-processed lot from Gungegiri Estate is pulped and dried with the mucilage intact, capturing more of the cherry's sugars for a rounder, sweeter cup than the estate's washed lots. Grown at 1,200m in the Chandra Drona (Baba Budangiri) Hills of Chikmagalur district — the legendary birthplace of Indian coffee — this lot is part of the Sangameshwar Coffee collective, which also operates Attikan Estate.",
+      "This honey-processed lot from Gungegiri Estate is pulped and dried with the mucilage intact, capturing more of the cherry's sugars for a rounder, sweeter cup than the estate's washed lots. Grown at 1,200m in the Chandra Drona (Baba Budangiri) Hills of Chikmagalur district, the legendary birthplace of Indian coffee, this lot is part of the Sangameshwar Coffee collective, which also operates Attikan Estate.",
     details: [
       "Honey (mucilage-on) sun-dried process",
       "Chandra Drona (Baba Budangiri) Hills, Chikmagalur district",
@@ -1354,9 +1354,9 @@ Peaberry (PB) from Bababudangiri is especially rare — hand-sorted from an alre
     name: "Gungegiri Estate Coffee Washed Green Coffee",
     image: "/products/green-coffee-beans.png",
     description:
-      "Fully washed Arabica from Gungegiri Estate, Chandra Drona (Baba Budangiri) Hills — clean and bright, from the birthplace of Indian coffee.",
+      "Fully washed Arabica from Gungegiri Estate, Chandra Drona (Baba Budangiri) Hills, clean and bright, from the birthplace of Indian coffee.",
     longDescription:
-      "Gungegiri Estate's washed lot is depulped, fermented, and rinsed before drying, producing a clean cup that expresses the terroir of the Chandra Drona (Baba Budangiri) Hills directly. Grown at 1,200m in Chikmagalur district — the range where coffee is said to have first taken root in India — this lot is part of the Sangameshwar Coffee collective, which also operates Attikan Estate, and reflects some of Karnataka's most favourable growing conditions.",
+      "Gungegiri Estate's washed lot is depulped, fermented, and rinsed before drying, producing a clean cup that expresses the terroir of the Chandra Drona (Baba Budangiri) Hills directly. Grown at 1,200m in Chikmagalur district, the range where coffee is said to have first taken root in India, this lot is part of the Sangameshwar Coffee collective, which also operates Attikan Estate, and reflects some of Karnataka's most favourable growing conditions.",
     details: [
       "Fully washed process",
       "Chandra Drona (Baba Budangiri) Hills, Chikmagalur district",

@@ -3,6 +3,7 @@
 import React, { useState, Suspense } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { X } from "lucide-react";
 import { products } from "@/data/products";
 import { CheckoutForm } from "@/components/buy-samples/CheckoutForm";
 import { useCurrency } from "@/components/currency-provider";
@@ -162,9 +163,9 @@ function CheckoutPageInner() {
                           <button
                             type="button"
                             onClick={() => setSelected((prev) => prev.filter((s) => !(s.slug === product.slug && s.tier === itemTier)))}
-                            className="text-gray-300 hover:text-red-400 transition-colors text-base leading-none"
+                            className="text-gray-300 hover:text-red-400 transition-colors"
                           >
-                            ✕
+                            <X className="w-4 h-4" />
                           </button>
                         </div>
                       </div>

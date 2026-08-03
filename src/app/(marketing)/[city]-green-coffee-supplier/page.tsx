@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { LocationProductCard } from "@/components/products";
 import { TOP_INDIAN_CITIES, getCityBySlugOnly, getStateNameFromSlug } from "@/data/india-locations";
@@ -19,9 +20,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!data) return { title: "Not Found" };
   const stateName = getStateNameFromSlug(data.stateSlug) ?? data.state;
   return {
-    title: `Indian Green Coffee Suppliers in ${data.city} | Wholesale Arabica | Bulk Green Coffee`,
+    title: `${data.city} Green Coffee Supplier | Bulk Green Coffee`,
     description: `Find Indian green coffee suppliers in ${data.city}. Commercial AA/AAA from ₹800/kg, specialty from ₹1,100/kg. MOQ ${data.moq}. Delivered in ${data.transitDays}. GST invoice. WhatsApp: +91 85279 14317.`,
-    alternates: { canonical: `/${citySlug}-green-coffee-supplier/` },
+    alternates: { canonical: `/${citySlug}-green-coffee-supplier` },
     openGraph: {
       title: `Green Coffee Suppliers in ${data.city} | Indian Arabica Wholesale`,
       description: `Wholesale Indian Arabica & Robusta for ${data.city}. ${data.cityContext}`,
@@ -58,7 +59,7 @@ export default async function SupplierPage({ params }: Props) {
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
       "@id": `https://bulkgreencoffee.com/${citySlug}-green-coffee-supplier`,
-      name: `Bulk Green Coffee — Supplier in ${data.city}`,
+      name: `Bulk Green Coffee - Supplier in ${data.city}`,
       description: `Indian green coffee wholesale supplier serving ${data.city}, ${stateName}.`,
       url: `https://bulkgreencoffee.com/${citySlug}-green-coffee-supplier`,
       telephone: "+918527914317",
@@ -108,13 +109,13 @@ export default async function SupplierPage({ params }: Props) {
           </p>
           <div className="flex flex-wrap gap-3">
             <a href={waLink} target="_blank" rel="noopener noreferrer">
-              <Button variant="teal" size="sm">WhatsApp — +91 85279 14317</Button>
+              <Button variant="teal" size="sm">WhatsApp - +91 85279 14317</Button>
             </a>
             <Link href="/products">
               <Button variant="lightgraybg" size="sm">Browse Products</Button>
             </Link>
             <Link href={`/india/${data.stateSlug}/${data.citySlug}`}>
-              <Button variant="lightgraybg" size="sm">{data.city} City Page →</Button>
+              <Button variant="lightgraybg" size="sm">{data.city} City Page <ArrowRight className="w-4 h-4" /></Button>
             </Link>
           </div>
         </div>
@@ -187,8 +188,8 @@ export default async function SupplierPage({ params }: Props) {
             ))}
           </div>
           <div className="mt-4">
-            <Link href="/products" className="text-sm text-teal-700 hover:text-teal-900 font-medium">
-              View all products →
+            <Link href="/products" className="inline-flex items-center gap-1 text-sm text-teal-700 hover:text-teal-900 font-medium">
+              View all products <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
         </div>
@@ -198,14 +199,14 @@ export default async function SupplierPage({ params }: Props) {
         {/* FAQ */}
         <div className="mb-12">
           <h2 className="text-lg font-semibold text-black mb-6">
-            FAQ — Green Coffee Suppliers in {data.city}
+            FAQ - Green Coffee Suppliers in {data.city}
           </h2>
           <div className="space-y-4">
             {[
               ...data.faqs,
               {
                 question: `What makes Bulk Green Coffee a reliable green coffee supplier in ${data.city}?`,
-                answer: `We supply directly from origin — no commodity intermediaries — with full documentation including GST invoice, quality sheet, and origin certificate. MOQ starts at ${data.moq}, making us accessible to both small roasters and large-scale buyers in ${data.city}.`,
+                answer: `We supply directly from origin - no commodity intermediaries - with full documentation including GST invoice, quality sheet, and origin certificate. MOQ starts at ${data.moq}, making us accessible to both small roasters and large-scale buyers in ${data.city}.`,
               },
             ].map((faq, i) => (
               <div key={i} className="p-5 border rounded-lg">
@@ -245,7 +246,7 @@ export default async function SupplierPage({ params }: Props) {
           </p>
           <div className="flex flex-wrap gap-3">
             <a href={waLink} target="_blank" rel="noopener noreferrer">
-              <Button variant="teal" size="sm">WhatsApp — +91 85279 14317</Button>
+              <Button variant="teal" size="sm">WhatsApp - +91 85279 14317</Button>
             </a>
             <Link href="/contact">
               <Button variant="lightgraybg" size="sm">Contact Form</Button>

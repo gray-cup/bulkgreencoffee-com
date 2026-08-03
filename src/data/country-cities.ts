@@ -16,7 +16,7 @@ function toSlug(name: string): string {
     .replace(/^-+|-+$/g, "");
 }
 
-// City names only — slugs are derived automatically via toSlug().
+// City names only - slugs are derived automatically via toSlug().
 const CITY_NAMES_BY_COUNTRY: Record<string, string[]> = {
   germany: ["Berlin", "Hamburg", "Munich", "Cologne", "Frankfurt", "Stuttgart", "Düsseldorf", "Leipzig", "Dortmund", "Essen"],
   norway: ["Oslo", "Bergen", "Trondheim", "Stavanger", "Drammen", "Fredrikstad", "Kristiansand", "Sandnes", "Tromsø", "Sarpsborg"],

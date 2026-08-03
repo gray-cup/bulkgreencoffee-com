@@ -2,7 +2,7 @@ import { getProductBySlug } from "@/data/products";
 
 // Single source of truth for sample-order pricing, shared by every
 // /buy-samples client page AND the server (create-payment/route.ts). Prices
-// are never trusted from the client — the server always recomputes the
+// are never trusted from the client - the server always recomputes the
 // order total itself from `items` using this module before creating a
 // Cashfree payment link, so editing the request body can't change what's
 // charged.

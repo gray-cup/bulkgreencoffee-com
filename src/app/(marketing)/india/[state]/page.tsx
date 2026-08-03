@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   INDIA_STATES,
@@ -70,17 +71,17 @@ export default async function StatePage({ params }: Props) {
         {/* Header */}
         <div className="mb-10">
           <p className="text-xs font-medium uppercase tracking-widest text-muted-foreground mb-3">
-            Indian Green Coffee — India
+            Indian Green Coffee - India
           </p>
           <h1 className="text-3xl md:text-4xl font-semibold text-black mb-3">
             Green Coffee in {stateName}
           </h1>
           <p className="text-md text-muted-foreground max-w-2xl mb-6">
-            We supply wholesale Indian green coffee to roasters, distributors, and institutional buyers across {stateName}. Specialty Arabica from Koraput, Halflong, and South India — delivered with GST invoice and full origin documentation.
+            We supply wholesale Indian green coffee to roasters, distributors, and institutional buyers across {stateName}. Specialty Arabica from Koraput, Halflong, and South India - delivered with GST invoice and full origin documentation.
           </p>
           <div className="flex flex-wrap gap-3">
             <a href={waLink} target="_blank" rel="noopener noreferrer">
-              <Button variant="teal" size="sm">WhatsApp — +91 85279 14317</Button>
+              <Button variant="teal" size="sm">WhatsApp - +91 85279 14317</Button>
             </a>
             <Link href="/products">
               <Button variant="lightgraybg" size="sm">Browse Products</Button>
@@ -125,7 +126,7 @@ export default async function StatePage({ params }: Props) {
                     {city.cityContext}
                   </p>
                 </div>
-                <span className="text-muted-foreground group-hover:text-teal-700 transition-colors ml-4 mt-0.5">→</span>
+                <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-teal-700 transition-colors ml-4 mt-0.5 shrink-0" />
               </Link>
             ))}
           </div>
@@ -169,7 +170,7 @@ export default async function StatePage({ params }: Props) {
           </p>
           <div className="flex flex-wrap gap-3">
             <a href={waLink} target="_blank" rel="noopener noreferrer">
-              <Button variant="teal" size="sm">WhatsApp — +91 85279 14317</Button>
+              <Button variant="teal" size="sm">WhatsApp - +91 85279 14317</Button>
             </a>
             <Link href="/contact">
               <Button variant="lightgraybg" size="sm">Contact Form</Button>

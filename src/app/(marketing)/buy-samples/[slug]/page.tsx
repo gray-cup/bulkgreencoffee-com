@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ChevronLeft } from "lucide-react";
+import { Check, ChevronLeft } from "lucide-react";
 import { notFound, useParams } from "next/navigation";
 import { getProductBySlug } from "@/data/products";
 import { Badge } from "@/components/ui/badge";
@@ -46,7 +46,7 @@ export default function BuySampleSlugPage() {
 
         <div className="mt-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
 
-          {/* Left — image + product info */}
+          {/* Left - image + product info */}
           <div className="lg:sticky lg:top-28 lg:self-start space-y-5">
             <div className="aspect-square relative rounded-2xl overflow-hidden bg-gray-50 border border-gray-200">
               <Image
@@ -78,7 +78,7 @@ export default function BuySampleSlugPage() {
               <ul className="space-y-1.5">
                 {product.details.map((d) => (
                   <li key={d} className="flex items-start gap-2 text-sm text-gray-700">
-                    <span className="mt-0.5 text-teal-600 shrink-0">✓</span>
+                    <Check className="w-4 h-4 mt-0.5 text-teal-600 shrink-0" />
                     {d}
                   </li>
                 ))}
@@ -86,7 +86,7 @@ export default function BuySampleSlugPage() {
             )}
           </div>
 
-          {/* Right — quantity, order summary, form */}
+          {/* Right - quantity, order summary, form */}
           <div className="space-y-6">
             {/* Quantity tabs */}
             <div className="overflow-x-auto">

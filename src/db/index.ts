@@ -2,7 +2,7 @@ import { drizzle } from "drizzle-orm/postgres-js";
 import postgres from "postgres";
 import * as schema from "./schema";
 
-// Lazy singleton — avoids cold-start failures when the module is imported
+// Lazy singleton - avoids cold-start failures when the module is imported
 // before env vars are fully available in serverless environments.
 let _client: ReturnType<typeof postgres> | null = null;
 let _db: ReturnType<typeof drizzle<typeof schema>> | null = null;

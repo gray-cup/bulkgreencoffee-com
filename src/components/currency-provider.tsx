@@ -47,7 +47,7 @@ export function CurrencyProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     async function init() {
-      // If the user manually picked a currency, respect it — skip geo
+      // If the user manually picked a currency, respect it - skip geo
       const isManual = localStorage.getItem(CURRENCY_MANUAL_KEY) === "true";
       const stored = localStorage.getItem(CURRENCY_STORAGE_KEY);
       if (isManual && stored && stored in CURRENCIES) {
@@ -73,7 +73,7 @@ export function CurrencyProvider({ children }: { children: React.ReactNode }) {
       }
       setIsLoading(false);
 
-      // Fetch live rates in the background — doesn't block the selector
+      // Fetch live rates in the background - doesn't block the selector
       try {
         const ratesData = await fetch("/api/exchange-rates").then((r) => r.json() as Promise<RatesMap>);
         if (ratesData) setRates(ratesData);

@@ -36,7 +36,7 @@ type ExchangeRateApiResponse = {
   conversion_rates: Record<string, number>;
 };
 
-// Cached for 1 day — revalidated every 24 hours
+// Cached for 1 day - revalidated every 24 hours
 export const fetchExchangeRates = unstable_cache(
   async (): Promise<RatesMap> => {
     const apiKey = process.env.EXCHANGERATE_API_KEY;

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Our Sites | Bulk Green Coffee",
@@ -15,7 +16,7 @@ export default function SitesPage() {
         <h1 className="text-4xl font-bold text-gray-900">Our Sites</h1>
         <p className="mt-4 max-w-3xl text-lg text-gray-600">
           Bulk Green Coffee operates a group of informational websites focused on
-          different aspects of tea — from bulk chai usage to CTC grading and
+          different aspects of tea - from bulk chai usage to CTC grading and
           loose-leaf tea education. All sites listed below are owned and
           operated by Bulk Green Coffee.
         </p>
@@ -40,11 +41,11 @@ export default function SitesPage() {
 
           <Link
             href="https://bulkchai.com"
-            className="mt-6 inline-block font-medium text-primary-600 hover:underline"
+            className="mt-6 inline-flex items-center gap-1 font-medium text-primary-600 hover:underline"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Visit bulkchai.com →
+            Visit bulkchai.com <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
 
@@ -52,7 +53,7 @@ export default function SitesPage() {
         <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
           <h2 className="text-2xl font-semibold text-gray-900">BulkCTC</h2>
           <p className="mt-3 text-gray-600">
-            BulkCTC is dedicated to explaining CTC (Crush, Tear, Curl) tea —
+            BulkCTC is dedicated to explaining CTC (Crush, Tear, Curl) tea -
             including grades, particle size, colour output, and consistency in
             bulk chai preparation.
           </p>
@@ -65,11 +66,11 @@ export default function SitesPage() {
 
           <Link
             href="https://bulkctc.com"
-            className="mt-6 inline-block font-medium text-primary-600 hover:underline"
+            className="mt-6 inline-flex items-center gap-1 font-medium text-primary-600 hover:underline"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Visit bulkctc.com →
+            Visit bulkctc.com <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
 
@@ -89,11 +90,11 @@ export default function SitesPage() {
 
           <Link
             href="https://purecha.in"
-            className="mt-6 inline-block font-medium text-primary-600 hover:underline"
+            className="mt-6 inline-flex items-center gap-1 font-medium text-primary-600 hover:underline"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Visit purecha.in →
+            Visit purecha.in <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
 
@@ -101,7 +102,7 @@ export default function SitesPage() {
         <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
           <h2 className="text-2xl font-semibold text-gray-900">Indian Green Coffee</h2>
           <p className="mt-3 text-gray-600">
-            An origin guide to India&apos;s green coffee — Koraput, Halflong,
+            An origin guide to India&apos;s green coffee - Koraput, Halflong,
             Chikmagalur, and Bababudangiri estates, processing methods, and
             grading, for buyers researching where their coffee comes from.
           </p>
@@ -114,11 +115,11 @@ export default function SitesPage() {
 
           <Link
             href="https://indiangreencoffee.com"
-            className="mt-6 inline-block font-medium text-primary-600 hover:underline"
+            className="mt-6 inline-flex items-center gap-1 font-medium text-primary-600 hover:underline"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Visit indiangreencoffee.com →
+            Visit indiangreencoffee.com <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
       </section>

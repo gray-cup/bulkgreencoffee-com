@@ -96,7 +96,7 @@ export function CheckoutForm({ items, renderSummary, onBack }: Props) {
   const taxLabel         = isIndia ? "GST Number" : "Tax ID";
   const taxPlaceholder   = isIndia ? "22AAAAA0000A1Z5" : "VAT / Tax registration number";
 
-  // Display only — the server independently recomputes this from `items`
+  // Display only - the server independently recomputes this from `items`
   // against the product catalogue, so a tampered request can't change what's
   // actually charged.
   const totalAmount      = items.reduce((sum, item) => sum + (priceForItem(item) ?? 0), 0);

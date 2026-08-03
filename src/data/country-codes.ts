@@ -93,7 +93,7 @@ export const SLUG_TO_ISO: Record<string, string> = {
   georgia: "GE",
 };
 
-// OG locale hints — only set for markets where a non-English default is meaningful.
+// OG locale hints - only set for markets where a non-English default is meaningful.
 // Everywhere else defaults to en_<ISO> so OG still reflects the target region.
 const OG_LOCALE_OVERRIDES: Record<string, string> = {
   germany: "de_DE",

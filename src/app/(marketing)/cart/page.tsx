@@ -4,6 +4,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { X } from "lucide-react";
 import { products } from "@/data/products";
 import { useCart, CART_TIERS, type TierLabel } from "@/context/cart-context";
 import { useCurrency } from "@/components/currency-provider";
@@ -102,9 +103,9 @@ export default function CartPage() {
                           <button
                             type="button"
                             onClick={() => remove(product.slug)}
-                            className="text-gray-300 hover:text-red-400 transition-colors text-sm leading-none cursor-pointer"
+                            className="text-gray-300 hover:text-red-400 transition-colors cursor-pointer"
                           >
-                            ✕
+                            <X className="w-4 h-4" />
                           </button>
                         </div>
                       </div>

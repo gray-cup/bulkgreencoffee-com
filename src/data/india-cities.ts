@@ -21,7 +21,7 @@ export const indiaCities: IndiaCity[] = [
     state: "Maharashtra",
     stateSlug: "maharashtra",
     cityContext:
-      "India's largest commercial city — home to hundreds of specialty cafés, hotel chains, HORECA distributors, and coffee roasters sourcing in bulk for the hospitality sector.",
+      "India's largest commercial city, home to hundreds of specialty cafés, hotel chains, HORECA distributors, and coffee roasters sourcing in bulk for the hospitality sector.",
     industries: ["Hospitality & Hotels", "Specialty Cafés", "Corporate Offices", "Food Service", "Coffee Roasters", "Retail Chains"],
     nearbyAreas: ["Thane", "Navi Mumbai", "Kalyan", "Panvel", "Vasai"],
     transitDays: "3-5 days",
@@ -38,7 +38,7 @@ export const indiaCities: IndiaCity[] = [
       },
       {
         question: "Do you supply to cafés and hotels in Mumbai directly?",
-        answer: "Yes — we supply green (unroasted) coffee to roasters who then supply cafés and hotels. If you run a roastery or are a distributor supplying the HORECA sector, we can work directly with you.",
+        answer: "Yes, we supply green (unroasted) coffee to roasters who then supply cafés and hotels. If you run a roastery or are a distributor supplying the HORECA sector, we can work directly with you.",
       },
     ],
     coordinates: { lat: 19.076, lng: 72.8777 },
@@ -58,7 +58,7 @@ export const indiaCities: IndiaCity[] = [
     faqs: [
       {
         question: "Can I buy specialty green coffee in Pune in small trial quantities?",
-        answer: "Yes — specialty lots start from 10 kg, ideal for Pune roasters trialling a new origin. We also send 250-500g sample packs before any bulk order. Contact us on WhatsApp.",
+        answer: "Yes, specialty lots start from 10 kg, ideal for Pune roasters trialling a new origin. We also send 250-500g sample packs before any bulk order. Contact us on WhatsApp.",
       },
       {
         question: "How long does delivery to Pune take?",
@@ -82,7 +82,7 @@ export const indiaCities: IndiaCity[] = [
     faqs: [
       {
         question: "Do you supply commercial grade green coffee to Nagpur?",
-        answer: "Yes — Koraput AA and AAA commercial grade are available for delivery to Nagpur. MOQ 60 kg for commercial grade. GST invoice provided for all domestic orders.",
+        answer: "Yes, Koraput AA and AAA commercial grade are available for delivery to Nagpur. MOQ 60 kg for commercial grade. GST invoice provided for all domestic orders.",
       },
     ],
     coordinates: { lat: 21.1458, lng: 79.0882 },
@@ -95,7 +95,7 @@ export const indiaCities: IndiaCity[] = [
     state: "Karnataka",
     stateSlug: "karnataka",
     cityContext:
-      "India's specialty coffee capital — Bengaluru hosts the country's most sophisticated roasters, baristas, and café culture. The city is where Indian specialty coffee was invented for modern consumers.",
+      "India's specialty coffee capital: Bengaluru hosts the country's most sophisticated roasters, baristas, and café culture. The city is where Indian specialty coffee was invented for modern consumers.",
     industries: ["Specialty Cafés", "Coffee Roasters", "Tech Campuses", "Hotels", "Exporters", "Barista Training"],
     nearbyAreas: ["Whitefield", "Koramangala", "Indiranagar", "HSR Layout", "Electronic City"],
     transitDays: "2-4 days",
@@ -108,11 +108,11 @@ export const indiaCities: IndiaCity[] = [
       },
       {
         question: "Can you deliver green coffee to specific areas in Bengaluru?",
-        answer: "Yes — we deliver to Koramangala, Indiranagar, Whitefield, HSR Layout, and all Bengaluru areas via road freight. Delivery typically takes 2-4 business days from dispatch.",
+        answer: "Yes, we deliver to Koramangala, Indiranagar, Whitefield, HSR Layout, and all Bengaluru areas via road freight. Delivery typically takes 2-4 business days from dispatch.",
       },
       {
         question: "Do you source from South India estates directly?",
-        answer: "Yes — our Chikmagalur, Coorg, Wayanad, and Bababudangiri lots are sourced directly from Karnataka and Kerala estates. Bengaluru roasters buying South India origins get the shortest supply chain.",
+        answer: "Yes, our Chikmagalur, Coorg, Wayanad, and Bababudangiri lots are sourced directly from Karnataka and Kerala estates. Bengaluru roasters buying South India origins get the shortest supply chain.",
       },
     ],
     coordinates: { lat: 12.9716, lng: 77.5946 },
@@ -132,7 +132,7 @@ export const indiaCities: IndiaCity[] = [
     faqs: [
       {
         question: "Can I source South India Arabica through you near Mysuru?",
-        answer: "Yes — Coorg (Kodagu), Chikmagalur, and Bababudangiri are all within 100-200 km of Mysuru. We source from these estates and can deliver directly to your Mysuru address within 2-3 business days.",
+        answer: "Yes, Coorg (Kodagu), Chikmagalur, and Bababudangiri are all within 100-200 km of Mysuru. We source from these estates and can deliver directly to your Mysuru address within 2-3 business days.",
       },
     ],
     coordinates: { lat: 12.2958, lng: 76.6394 },
@@ -158,7 +158,7 @@ export const indiaCities: IndiaCity[] = [
       },
       {
         question: "Is your green coffee suitable for filter coffee grinding in Chennai?",
-        answer: "Yes — our commercial AA/AAA Arabica and CxR Robusta are both suitable as base beans for South Indian filter coffee blends. Contact us for grade recommendations based on your blend requirements.",
+        answer: "Yes, our commercial AA/AAA Arabica and CxR Robusta are both suitable as base beans for South Indian filter coffee blends. Contact us for grade recommendations based on your blend requirements.",
       },
     ],
     coordinates: { lat: 13.0827, lng: 80.2707 },
@@ -178,7 +178,7 @@ export const indiaCities: IndiaCity[] = [
     faqs: [
       {
         question: "Can I source Wayanad Arabica through you for delivery to Coimbatore?",
-        answer: "Yes — Wayanad (Kerala) is approximately 100 km from Coimbatore. We source Wayanad Arabica in AA, AB, and PB grades and can deliver to Coimbatore in 3-5 business days.",
+        answer: "Yes, Wayanad (Kerala) is approximately 100 km from Coimbatore. We source Wayanad Arabica in AA, AB, and PB grades and can deliver to Coimbatore in 3-5 business days.",
       },
     ],
     coordinates: { lat: 11.0168, lng: 76.9558 },
@@ -191,7 +191,7 @@ export const indiaCities: IndiaCity[] = [
     state: "Kerala",
     stateSlug: "kerala",
     cityContext:
-      "Kochi is Kerala's commercial capital — a port city with a thriving hospitality sector, specialty café scene, and strong institutional demand from IT parks and the tourism industry.",
+      "Kochi is Kerala's commercial capital, a port city with a thriving hospitality sector, specialty café scene, and strong institutional demand from IT parks and the tourism industry.",
     industries: ["Hospitality & Hotels", "Specialty Cafés", "IT Parks", "Port-Related Businesses", "Tourism", "Coffee Roasters"],
     nearbyAreas: ["Ernakulam", "Thrissur", "Aluva", "Perumbavoor", "Angamaly"],
     transitDays: "2-4 days",
@@ -200,7 +200,7 @@ export const indiaCities: IndiaCity[] = [
     faqs: [
       {
         question: "Can I source Wayanad Arabica directly through you in Kochi?",
-        answer: "Yes — Wayanad is approximately 120 km from Kochi. We source Wayanad Arabica in multiple grades and can deliver to Kochi within 2-4 business days. Ideal for Kerala roasters and distributors wanting local origin traceability.",
+        answer: "Yes, Wayanad is approximately 120 km from Kochi. We source Wayanad Arabica in multiple grades and can deliver to Kochi within 2-4 business days. Ideal for Kerala roasters and distributors wanting local origin traceability.",
       },
       {
         question: "Do you supply organic-certified Wayanad Arabica?",
@@ -217,7 +217,7 @@ export const indiaCities: IndiaCity[] = [
     state: "Delhi NCR",
     stateSlug: "delhi-ncr",
     cityContext:
-      "India's capital and one of the world's largest hospitality markets — Delhi's hotel chains, corporate campuses, government institutions, and growing third-wave café scene create massive green coffee demand.",
+      "India's capital and one of the world's largest hospitality markets: Delhi's hotel chains, corporate campuses, government institutions, and growing third-wave café scene create massive green coffee demand.",
     industries: ["Hotels & Hospitality", "Government Offices", "Corporate Campuses", "Specialty Cafés", "Distributors", "Exporters"],
     nearbyAreas: ["Gurgaon", "Noida", "Faridabad", "Ghaziabad", "Sonipat"],
     transitDays: "2-4 days",
@@ -226,11 +226,11 @@ export const indiaCities: IndiaCity[] = [
     faqs: [
       {
         question: "Is Gray Cup Enterprises based near Delhi?",
-        answer: "Yes — our registered office is in Sonipat, Haryana, which is 45 km from New Delhi. This makes us one of the most geographically accessible Indian green coffee suppliers for Delhi NCR buyers.",
+        answer: "Yes, our registered office is in Sonipat, Haryana, which is 45 km from New Delhi. This makes us one of the most geographically accessible Indian green coffee suppliers for Delhi NCR buyers.",
       },
       {
-        question: "Can you deliver green coffee to specific Delhi addresses — Connaught Place, South Delhi, etc?",
-        answer: "Yes — we deliver to all Delhi NCR areas including Connaught Place, South Delhi, Karol Bagh, Dwarka, and all NCR areas (Gurgaon, Noida, Faridabad). Delivery takes 2-4 business days from dispatch.",
+        question: "Can you deliver green coffee to specific Delhi addresses: Connaught Place, South Delhi, etc?",
+        answer: "Yes, we deliver to all Delhi NCR areas including Connaught Place, South Delhi, Karol Bagh, Dwarka, and all NCR areas (Gurgaon, Noida, Faridabad). Delivery takes 2-4 business days from dispatch.",
       },
     ],
     coordinates: { lat: 28.6139, lng: 77.2090 },
@@ -250,7 +250,7 @@ export const indiaCities: IndiaCity[] = [
     faqs: [
       {
         question: "Do you supply green coffee to corporate campuses in Gurgaon?",
-        answer: "Yes — corporate procurement teams in Gurgaon can source directly from us. We supply both commercial AA/AAA for high-volume canteens and specialty lots for premium office café programmes. GST invoice provided.",
+        answer: "Yes, corporate procurement teams in Gurgaon can source directly from us. We supply both commercial AA/AAA for high-volume canteens and specialty lots for premium office café programmes. GST invoice provided.",
       },
     ],
     coordinates: { lat: 28.4595, lng: 77.0266 },
@@ -270,7 +270,7 @@ export const indiaCities: IndiaCity[] = [
     faqs: [
       {
         question: "How quickly can you deliver green coffee to Noida?",
-        answer: "Noida is close to our Haryana base — delivery typically takes 2-3 business days. We deliver to Sector 18, Sector 62, Greater Noida, and all Noida areas.",
+        answer: "Noida is close to our Haryana base, delivery typically takes 2-3 business days. We deliver to Sector 18, Sector 62, Greater Noida, and all Noida areas.",
       },
     ],
     coordinates: { lat: 28.5355, lng: 77.3910 },
@@ -296,7 +296,7 @@ export const indiaCities: IndiaCity[] = [
       },
       {
         question: "Do you supply to IT company campuses in Hyderabad?",
-        answer: "Yes — corporate procurement teams can source commercial-grade green coffee for in-house roasting or work with their roaster partners. We supply GST invoices for all Telangana orders.",
+        answer: "Yes, corporate procurement teams can source commercial-grade green coffee for in-house roasting or work with their roaster partners. We supply GST invoices for all Telangana orders.",
       },
     ],
     coordinates: { lat: 17.3850, lng: 78.4867 },
@@ -318,7 +318,7 @@ export const indiaCities: IndiaCity[] = [
     faqs: [
       {
         question: "Can you supply commercial green coffee to Ahmedabad distributors?",
-        answer: "Yes — we work with distributors in Gujarat who supply the hospitality and food service sector. Contact us for bulk pricing on commercial AA/AAA lots for Ahmedabad-based distributors.",
+        answer: "Yes, we work with distributors in Gujarat who supply the hospitality and food service sector. Contact us for bulk pricing on commercial AA/AAA lots for Ahmedabad-based distributors.",
       },
     ],
     coordinates: { lat: 23.0225, lng: 72.5714 },
@@ -360,11 +360,11 @@ export const indiaCities: IndiaCity[] = [
     faqs: [
       {
         question: "Why is Kolkata a good city for sourcing Assam and Odisha green coffee?",
-        answer: "Kolkata is geographically close to both our North East India origins (Halflong, Chirang — Assam) and East India origins (Koraput — Odisha). This means shorter road transit, fresher lots, and lower freight costs than sourcing from South India.",
+        answer: "Kolkata is geographically close to both our North East India origins (Halflong, Chirang, Assam) and East India origins (Koraput, Odisha). This means shorter road transit, fresher lots, and lower freight costs than sourcing from South India.",
       },
       {
         question: "Do you serve Howrah and other Kolkata districts?",
-        answer: "Yes — we deliver across Greater Kolkata including Howrah, Salt Lake, New Town, and Barrackpore. Transit time from dispatch to Kolkata area is 3-4 business days.",
+        answer: "Yes, we deliver across Greater Kolkata including Howrah, Salt Lake, New Town, and Barrackpore. Transit time from dispatch to Kolkata area is 3-4 business days.",
       },
     ],
     coordinates: { lat: 22.5726, lng: 88.3639 },
@@ -377,7 +377,7 @@ export const indiaCities: IndiaCity[] = [
     state: "Punjab",
     stateSlug: "punjab",
     cityContext:
-      "Amritsar's massive religious tourism sector — the Golden Temple draws 100,000+ daily visitors — creates large institutional demand for food service including coffee. Growing hospitality sector drives commercial grade sourcing.",
+      "Amritsar's massive religious tourism sector (the Golden Temple draws 100,000+ daily visitors) creates large institutional demand for food service including coffee. Growing hospitality sector drives commercial grade sourcing.",
     industries: ["Religious Tourism", "Hospitality & Hotels", "Pilgrimage Services", "Food Service", "Corporate Offices"],
     nearbyAreas: ["Tarn Taran", "Gurdaspur", "Batala", "Attari"],
     transitDays: "3-5 days",
@@ -386,7 +386,7 @@ export const indiaCities: IndiaCity[] = [
     faqs: [
       {
         question: "Do you supply green coffee for Amritsar's large hospitality sector?",
-        answer: "Yes — Amritsar's hotel and hospitality sector is one of Punjab's largest. We supply commercial AA/AAA for high-volume institutional buyers and specialty lots for boutique hotels and cafés.",
+        answer: "Yes, Amritsar's hotel and hospitality sector is one of Punjab's largest. We supply commercial AA/AAA for high-volume institutional buyers and specialty lots for boutique hotels and cafés.",
       },
     ],
     coordinates: { lat: 31.6340, lng: 74.8723 },
@@ -406,7 +406,7 @@ export const indiaCities: IndiaCity[] = [
     faqs: [
       {
         question: "Can you supply green coffee to factories and canteens in Ludhiana?",
-        answer: "Yes — commercial AA/AAA grade is well-suited for factory canteen sourcing. We supply in 60 kg bags (GrainPro-lined jute) or can arrange smaller lots for smaller operations. GST invoice included.",
+        answer: "Yes, commercial AA/AAA grade is well-suited for factory canteen sourcing. We supply in 60 kg bags (GrainPro-lined jute) or can arrange smaller lots for smaller operations. GST invoice included.",
       },
     ],
     coordinates: { lat: 30.9010, lng: 75.8573 },
@@ -419,7 +419,7 @@ export const indiaCities: IndiaCity[] = [
     state: "Rajasthan",
     stateSlug: "rajasthan",
     cityContext:
-      "Jaipur's massive tourism economy — heritage hotels, palace properties, and luxury hospitality — creates premium demand for both commercial and specialty green coffee.",
+      "Jaipur's massive tourism economy (heritage hotels, palace properties, and luxury hospitality) creates premium demand for both commercial and specialty green coffee.",
     industries: ["Heritage Hotels", "Tourism", "Government Offices", "Specialty Cafés", "Retail Chains"],
     nearbyAreas: ["Ajmer", "Alwar", "Sikar", "Dausa", "Tonk"],
     transitDays: "3-5 days",
@@ -428,7 +428,7 @@ export const indiaCities: IndiaCity[] = [
     faqs: [
       {
         question: "Do you supply to heritage hotels and palace properties in Jaipur?",
-        answer: "Yes — Jaipur's heritage hospitality sector is a natural buyer for quality Indian green coffee. We supply both commercial AA/AAA for high-volume use and specialty single-origin lots for premium menus. Contact us for institutional pricing.",
+        answer: "Yes, Jaipur's heritage hospitality sector is a natural buyer for quality Indian green coffee. We supply both commercial AA/AAA for high-volume use and specialty single-origin lots for premium menus. Contact us for institutional pricing.",
       },
     ],
     coordinates: { lat: 26.9124, lng: 75.7873 },
@@ -439,7 +439,7 @@ export const indiaCities: IndiaCity[] = [
     state: "Rajasthan",
     stateSlug: "rajasthan",
     cityContext:
-      "Jodhpur's growing hotel and resort scene — anchored by heritage properties in the Blue City — drives demand for quality green coffee, especially for hotel F&B and specialty cafés serving tourists.",
+      "Jodhpur's growing hotel and resort scene, anchored by heritage properties in the Blue City, drives demand for quality green coffee, especially for hotel F&B and specialty cafés serving tourists.",
     industries: ["Heritage Hotels", "Tourism", "Retail Chains", "Specialty Cafés"],
     nearbyAreas: ["Barmer", "Pali", "Nagaur", "Jaisalmer"],
     transitDays: "4-6 days",
@@ -448,7 +448,7 @@ export const indiaCities: IndiaCity[] = [
     faqs: [
       {
         question: "Can I buy green coffee wholesale in Jodhpur?",
-        answer: "Yes — we supply commercial and specialty green coffee to Jodhpur's hospitality sector and roasters. Transit is 4-6 days. Contact us on WhatsApp for current lot availability and pricing.",
+        answer: "Yes, we supply commercial and specialty green coffee to Jodhpur's hospitality sector and roasters. Transit is 4-6 days. Contact us on WhatsApp for current lot availability and pricing.",
       },
     ],
     coordinates: { lat: 26.2389, lng: 73.0243 },
@@ -468,7 +468,7 @@ export const indiaCities: IndiaCity[] = [
     faqs: [
       {
         question: "Do you supply specialty green coffee to Udaipur's luxury hotels?",
-        answer: "Yes — Udaipur's palace properties and lake hotels often prefer specialty single-origin lots. We supply Koraput Naturals, Peaberry, and Coorg Arabica with full traceability. Sample packs available before bulk orders.",
+        answer: "Yes, Udaipur's palace properties and lake hotels often prefer specialty single-origin lots. We supply Koraput Naturals, Peaberry, and Coorg Arabica with full traceability. Sample packs available before bulk orders.",
       },
     ],
     coordinates: { lat: 24.5854, lng: 73.7125 },
@@ -490,7 +490,7 @@ export const indiaCities: IndiaCity[] = [
     faqs: [
       {
         question: "How do I source bulk green coffee in Lucknow?",
-        answer: "We dispatch from our warehouse to Lucknow via road freight — typical transit is 3-5 days. Minimum order is 10 kg for specialty and 60 kg for commercial grade. WhatsApp us for a quote and sample.",
+        answer: "We dispatch from our warehouse to Lucknow via road freight, typical transit is 3-5 days. Minimum order is 10 kg for specialty and 60 kg for commercial grade. WhatsApp us for a quote and sample.",
       },
     ],
     coordinates: { lat: 26.8467, lng: 80.9462 },
@@ -510,7 +510,7 @@ export const indiaCities: IndiaCity[] = [
     faqs: [
       {
         question: "Do you deliver green coffee to Kanpur industrial canteens?",
-        answer: "Yes — commercial AA and AAA grade green coffee is ideal for Kanpur's factory and institutional canteens. We supply in 60 kg GrainPro-lined jute bags. GST invoice included for corporate procurement.",
+        answer: "Yes, commercial AA and AAA grade green coffee is ideal for Kanpur's factory and institutional canteens. We supply in 60 kg GrainPro-lined jute bags. GST invoice included for corporate procurement.",
       },
     ],
     coordinates: { lat: 26.4499, lng: 80.3319 },
@@ -530,7 +530,7 @@ export const indiaCities: IndiaCity[] = [
     faqs: [
       {
         question: "Can specialty cafés in Varanasi order small green coffee lots?",
-        answer: "Yes — specialty lots start from 10 kg, ideal for boutique cafés along the ghats. We offer 250g sample packs before any bulk commitment. WhatsApp us for availability.",
+        answer: "Yes, specialty lots start from 10 kg, ideal for boutique cafés along the ghats. We offer 250g sample packs before any bulk commitment. WhatsApp us for availability.",
       },
     ],
     coordinates: { lat: 25.3176, lng: 82.9739 },
@@ -541,7 +541,7 @@ export const indiaCities: IndiaCity[] = [
     state: "Uttar Pradesh",
     stateSlug: "uttar-pradesh",
     cityContext:
-      "Agra's massive tourism sector — anchored by the Taj Mahal — means luxury hotels, heritage properties, and high-footfall cafés need reliable green coffee supply.",
+      "Agra's massive tourism sector, anchored by the Taj Mahal, means luxury hotels, heritage properties, and high-footfall cafés need reliable green coffee supply.",
     industries: ["Luxury Hotels", "Tourism", "Specialty Cafés", "Heritage Resorts"],
     nearbyAreas: ["Mathura", "Firozabad", "Etah", "Mainpuri"],
     transitDays: "3-5 days",
@@ -550,7 +550,7 @@ export const indiaCities: IndiaCity[] = [
     faqs: [
       {
         question: "Do you supply green coffee to Agra's hotel corridor near the Taj Mahal?",
-        answer: "Yes — we supply both commercial-grade lots for high-volume hotel use and specialty single-origin for premium café menus. Delivery to Agra takes 3-5 days from dispatch.",
+        answer: "Yes, we supply both commercial-grade lots for high-volume hotel use and specialty single-origin for premium café menus. Delivery to Agra takes 3-5 days from dispatch.",
       },
     ],
     coordinates: { lat: 27.1767, lng: 78.0081 },
@@ -592,7 +592,7 @@ export const indiaCities: IndiaCity[] = [
     faqs: [
       {
         question: "Can government institutions in Bhopal buy green coffee from you?",
-        answer: "Yes — we supply to government canteens and institutional kitchens with proper GST invoicing and delivery challans. Commercial AA/AAA grade is most suitable for high-volume institutional use.",
+        answer: "Yes, we supply to government canteens and institutional kitchens with proper GST invoicing and delivery challans. Commercial AA/AAA grade is most suitable for high-volume institutional use.",
       },
     ],
     coordinates: { lat: 23.2599, lng: 77.4126 },
@@ -614,7 +614,7 @@ export const indiaCities: IndiaCity[] = [
     faqs: [
       {
         question: "Do you deliver green coffee to Visakhapatnam's industrial canteens?",
-        answer: "Yes — Vizag's steel plants, pharma campuses, and shipping offices are served via road freight in 4-6 days. Commercial AA/AAA suits high-volume canteen use. GST invoice provided.",
+        answer: "Yes, Vizag's steel plants, pharma campuses, and shipping offices are served via road freight in 4-6 days. Commercial AA/AAA suits high-volume canteen use. GST invoice provided.",
       },
     ],
     coordinates: { lat: 17.6868, lng: 83.2185 },
@@ -647,7 +647,7 @@ export const indiaCities: IndiaCity[] = [
     state: "Haryana",
     stateSlug: "haryana",
     cityContext:
-      "Gurugram's dense corporate hub — home to Fortune 500 offices, MNC campuses, and hundreds of specialty cafés along Cyber Hub and Golf Course Road — drives some of the highest per-capita green coffee demand in India.",
+      "Gurugram's dense corporate hub, home to Fortune 500 offices, MNC campuses, and hundreds of specialty cafés along Cyber Hub and Golf Course Road, drives some of the highest per-capita green coffee demand in India.",
     industries: ["MNC Offices", "Tech Campuses", "Specialty Cafés", "Hotels", "Co-working Spaces"],
     nearbyAreas: ["Manesar", "Faridabad", "Rewari", "Pataudi"],
     transitDays: "2-4 days",
@@ -656,7 +656,7 @@ export const indiaCities: IndiaCity[] = [
     faqs: [
       {
         question: "Can I buy specialty green coffee for my Gurugram café or roastery?",
-        answer: "Yes — Gurugram's roasters and specialty cafés are some of our most active buyers. Transit is 2-4 days. We carry Koraput Naturals, HSD, and Peaberry for single-origin menus. Sample packs available.",
+        answer: "Yes, Gurugram's roasters and specialty cafés are some of our most active buyers. Transit is 2-4 days. We carry Koraput Naturals, HSD, and Peaberry for single-origin menus. Sample packs available.",
       },
     ],
     coordinates: { lat: 28.4595, lng: 77.0266 },
@@ -676,7 +676,7 @@ export const indiaCities: IndiaCity[] = [
     faqs: [
       {
         question: "Do you supply green coffee to Faridabad factory canteens?",
-        answer: "Yes — commercial AA/AAA grade is ideal for industrial canteens. Delivery to Faridabad is 2-4 days. We provide proper GST invoicing for corporate procurement.",
+        answer: "Yes, commercial AA/AAA grade is ideal for industrial canteens. Delivery to Faridabad is 2-4 days. We provide proper GST invoicing for corporate procurement.",
       },
     ],
     coordinates: { lat: 28.4089, lng: 77.3178 },
@@ -698,7 +698,7 @@ export const indiaCities: IndiaCity[] = [
     faqs: [
       {
         question: "Can Chandigarh specialty cafés buy single-origin green coffee from you?",
-        answer: "Yes — Chandigarh's café scene has excellent palates. We supply Koraput Naturals, Peaberry, and Halflong Arabica for single-origin menus. Minimum 10 kg. Sample packs available via WhatsApp.",
+        answer: "Yes, Chandigarh's café scene has excellent palates. We supply Koraput Naturals, Peaberry, and Halflong Arabica for single-origin menus. Minimum 10 kg. Sample packs available via WhatsApp.",
       },
     ],
     coordinates: { lat: 30.7333, lng: 76.7794 },
@@ -720,7 +720,7 @@ export const indiaCities: IndiaCity[] = [
     faqs: [
       {
         question: "Can I source Koraput green coffee directly in Bhubaneswar?",
-        answer: "Yes — as the nearest major city to Koraput's growing coffee belt, Bhubaneswar gets some of our fastest deliveries (2-3 days). Ideal for roasters wanting fresh-harvest Odisha Arabica.",
+        answer: "Yes, as the nearest major city to Koraput's growing coffee belt, Bhubaneswar gets some of our fastest deliveries (2-3 days). Ideal for roasters wanting fresh-harvest Odisha Arabica.",
       },
     ],
     coordinates: { lat: 20.2961, lng: 85.8245 },
@@ -731,7 +731,7 @@ export const indiaCities: IndiaCity[] = [
     state: "Odisha",
     stateSlug: "odisha",
     cityContext:
-      "Cuttack — Odisha's silver city and commercial centre — has a growing HORECA sector and educational institutions creating institutional coffee demand.",
+      "Cuttack, Odisha's silver city and commercial centre, has a growing HORECA sector and educational institutions creating institutional coffee demand.",
     industries: ["HORECA", "Educational Institutions", "Government Offices", "Food Service"],
     nearbyAreas: ["Bhubaneswar", "Kendrapara", "Jagatsinghpur"],
     transitDays: "2-3 days",
@@ -740,7 +740,7 @@ export const indiaCities: IndiaCity[] = [
     faqs: [
       {
         question: "Do you deliver green coffee to Cuttack?",
-        answer: "Yes — Cuttack delivery is 2-3 days from dispatch. We supply both commercial and specialty Odisha coffee. Being close to the Koraput source means you get some of the freshest lots.",
+        answer: "Yes, Cuttack delivery is 2-3 days from dispatch. We supply both commercial and specialty Odisha coffee. Being close to the Koraput source means you get some of the freshest lots.",
       },
     ],
     coordinates: { lat: 20.4625, lng: 85.8828 },
@@ -762,7 +762,7 @@ export const indiaCities: IndiaCity[] = [
     faqs: [
       {
         question: "Can I buy bulk green coffee in Guwahati?",
-        answer: "Yes — we deliver to Guwahati in 5-7 days via road freight from our dispatch point. Commercial lots for canteens and specialty for cafés. WhatsApp us for current availability.",
+        answer: "Yes, we deliver to Guwahati in 5-7 days via road freight from our dispatch point. Commercial lots for canteens and specialty for cafés. WhatsApp us for current availability.",
       },
     ],
     coordinates: { lat: 26.1445, lng: 91.7362 },
@@ -775,7 +775,7 @@ export const indiaCities: IndiaCity[] = [
     state: "Jharkhand",
     stateSlug: "jharkhand",
     cityContext:
-      "Ranchi — Jharkhand's capital — has a growing hospitality sector, government institutions, and a café culture emerging among its young professional population. Industrial canteens are a key buyer segment.",
+      "Ranchi, Jharkhand's capital, has a growing hospitality sector, government institutions, and a café culture emerging among its young professional population. Industrial canteens are a key buyer segment.",
     industries: ["Government Offices", "Industrial Canteens", "Hotels", "Specialty Cafés"],
     nearbyAreas: ["Jamshedpur", "Bokaro", "Ramgarh", "Hazaribagh"],
     transitDays: "4-6 days",
@@ -797,7 +797,7 @@ export const indiaCities: IndiaCity[] = [
     state: "Chhattisgarh",
     stateSlug: "chhattisgarh",
     cityContext:
-      "Raipur — Chhattisgarh's capital and central India's emerging commercial hub — has a growing café scene, steel industry campuses, and large government institutions driving coffee demand.",
+      "Raipur, Chhattisgarh's capital and central India's emerging commercial hub, has a growing café scene, steel industry campuses, and large government institutions driving coffee demand.",
     industries: ["Steel Industry", "Government Offices", "Hotels", "Specialty Cafés", "Corporate Campuses"],
     nearbyAreas: ["Durg", "Bhilai", "Rajnandgaon", "Baloda Bazar"],
     transitDays: "3-5 days",
@@ -806,7 +806,7 @@ export const indiaCities: IndiaCity[] = [
     faqs: [
       {
         question: "Can Raipur's steel industry campuses buy green coffee in bulk?",
-        answer: "Yes — commercial AA/AAA is ideal for industrial canteens. We deliver to Raipur in 3-5 days. GST invoice included. WhatsApp for institutional pricing.",
+        answer: "Yes, commercial AA/AAA is ideal for industrial canteens. We deliver to Raipur in 3-5 days. GST invoice included. WhatsApp for institutional pricing.",
       },
     ],
     coordinates: { lat: 21.2514, lng: 81.6296 },
@@ -828,7 +828,7 @@ export const indiaCities: IndiaCity[] = [
     faqs: [
       {
         question: "Do you supply green coffee to Dehradun schools and colleges?",
-        answer: "Yes — educational institutions and army canteens are regular buyers. Commercial AA/AAA from 60 kg. Delivery to Dehradun in 3-5 days from dispatch.",
+        answer: "Yes, educational institutions and army canteens are regular buyers. Commercial AA/AAA from 60 kg. Delivery to Dehradun in 3-5 days from dispatch.",
       },
     ],
     coordinates: { lat: 30.3165, lng: 78.0322 },
@@ -850,7 +850,7 @@ export const indiaCities: IndiaCity[] = [
     faqs: [
       {
         question: "Can I get Karnataka-origin green coffee delivered to Hubli?",
-        answer: "Yes — Chikmagalur and Coorg Arabica are a natural fit for Hubli buyers wanting origin-proximity. Transit is 3-5 days. Specialty from 10 kg, commercial from 60 kg.",
+        answer: "Yes, Chikmagalur and Coorg Arabica are a natural fit for Hubli buyers wanting origin-proximity. Transit is 3-5 days. Specialty from 10 kg, commercial from 60 kg.",
       },
     ],
     coordinates: { lat: 15.3647, lng: 75.1240 },
@@ -870,7 +870,7 @@ export const indiaCities: IndiaCity[] = [
     faqs: [
       {
         question: "Is Mangaluru close to Karnataka's coffee growing regions?",
-        answer: "Yes — Mangaluru is the nearest port city to Coorg and Chikmagalur. Our transit to Mangaluru is just 2-3 days. Ideal for roasters wanting traceability and freshness from Karnataka origins.",
+        answer: "Yes, Mangaluru is the nearest port city to Coorg and Chikmagalur. Our transit to Mangaluru is just 2-3 days. Ideal for roasters wanting traceability and freshness from Karnataka origins.",
       },
     ],
     coordinates: { lat: 12.9141, lng: 74.8560 },
@@ -892,7 +892,7 @@ export const indiaCities: IndiaCity[] = [
     faqs: [
       {
         question: "Do you deliver green coffee to Madurai cafés and hotels?",
-        answer: "Yes — Madurai delivery is 4-6 days. Commercial lots for filter coffee blending and specialty for single-origin menus. WhatsApp for current stock and pricing.",
+        answer: "Yes, Madurai delivery is 4-6 days. Commercial lots for filter coffee blending and specialty for single-origin menus. WhatsApp for current stock and pricing.",
       },
     ],
     coordinates: { lat: 9.9252, lng: 78.1198 },
@@ -912,7 +912,7 @@ export const indiaCities: IndiaCity[] = [
     faqs: [
       {
         question: "Can factories and canteens in Trichy buy green coffee from you?",
-        answer: "Yes — commercial AA/AAA is ideal for high-volume canteen use. We deliver to Trichy in 4-6 days. GST invoice provided for industrial procurement.",
+        answer: "Yes, commercial AA/AAA is ideal for high-volume canteen use. We deliver to Trichy in 4-6 days. GST invoice provided for industrial procurement.",
       },
     ],
     coordinates: { lat: 10.7905, lng: 78.7047 },
@@ -954,7 +954,7 @@ export const indiaCities: IndiaCity[] = [
     faqs: [
       {
         question: "Can Nashik vineyards and resorts buy specialty green coffee from you?",
-        answer: "Yes — Nashik's resort and winery hospitality sector is a natural fit for premium single-origin lots. We supply Koraput Naturals and Peaberry for cupping menus. Delivery in 2-3 days.",
+        answer: "Yes, Nashik's resort and winery hospitality sector is a natural fit for premium single-origin lots. We supply Koraput Naturals and Peaberry for cupping menus. Delivery in 2-3 days.",
       },
     ],
     coordinates: { lat: 19.9975, lng: 73.7898 },
@@ -974,7 +974,7 @@ export const indiaCities: IndiaCity[] = [
     faqs: [
       {
         question: "Do you supply green coffee to Aurangabad's automotive industry canteens?",
-        answer: "Yes — commercial AA/AAA grade is ideal for large industrial canteens. Delivery to Aurangabad is 3-4 days from dispatch. GST invoice for corporate procurement.",
+        answer: "Yes, commercial AA/AAA grade is ideal for large industrial canteens. Delivery to Aurangabad is 3-4 days from dispatch. GST invoice for corporate procurement.",
       },
     ],
     coordinates: { lat: 19.8762, lng: 75.3433 },
@@ -987,7 +987,7 @@ export const indiaCities: IndiaCity[] = [
     state: "Gujarat",
     stateSlug: "gujarat",
     cityContext:
-      "Vadodara's large industrial base — chemicals, petrochemicals, and engineering — creates strong institutional canteen demand. A growing hospitality sector adds premium green coffee buyers.",
+      "Vadodara's large industrial base, chemicals, petrochemicals, and engineering, creates strong institutional canteen demand. A growing hospitality sector adds premium green coffee buyers.",
     industries: ["Chemical & Petrochemical Industry", "Engineering Companies", "Hotels", "Corporate Campuses"],
     nearbyAreas: ["Anand", "Bharuch", "Kheda", "Panchmahal"],
     transitDays: "3-5 days",
@@ -996,7 +996,7 @@ export const indiaCities: IndiaCity[] = [
     faqs: [
       {
         question: "Can Vadodara's chemical industry campuses buy green coffee in bulk?",
-        answer: "Yes — we supply commercial-grade lots to industrial canteens across Gujarat. Delivery to Vadodara is 3-5 days. GST invoice and delivery challans provided.",
+        answer: "Yes, we supply commercial-grade lots to industrial canteens across Gujarat. Delivery to Vadodara is 3-5 days. GST invoice and delivery challans provided.",
       },
     ],
     coordinates: { lat: 22.3072, lng: 73.1812 },
@@ -1016,7 +1016,7 @@ export const indiaCities: IndiaCity[] = [
     faqs: [
       {
         question: "Do you deliver green coffee to Rajkot businesses?",
-        answer: "Yes — Rajkot delivery is 3-5 days. We cater to industrial canteens and specialty cafés. WhatsApp us for pricing and current stock.",
+        answer: "Yes, Rajkot delivery is 3-5 days. We cater to industrial canteens and specialty cafés. WhatsApp us for pricing and current stock.",
       },
     ],
     coordinates: { lat: 22.3039, lng: 70.8022 },
@@ -1029,7 +1029,7 @@ export const indiaCities: IndiaCity[] = [
     state: "Bihar",
     stateSlug: "bihar",
     cityContext:
-      "Patna — Bihar's capital — has large government institutions, a growing hospitality sector, and an emerging café culture driven by students and professionals. Institutional canteens are a key buyer segment.",
+      "Patna, Bihar's capital, has large government institutions, a growing hospitality sector, and an emerging café culture driven by students and professionals. Institutional canteens are a key buyer segment.",
     industries: ["Government Offices", "Educational Institutions", "Hotels", "HORECA"],
     nearbyAreas: ["Hajipur", "Danapur", "Biharsharif", "Gaya"],
     transitDays: "4-6 days",
@@ -1038,7 +1038,7 @@ export const indiaCities: IndiaCity[] = [
     faqs: [
       {
         question: "Can government institutions in Patna buy green coffee from you?",
-        answer: "Yes — we supply institutional buyers in Patna with GST invoicing. Commercial AA/AAA grade in 60 kg bags is standard for high-volume use. Delivery in 4-6 days.",
+        answer: "Yes, we supply institutional buyers in Patna with GST invoicing. Commercial AA/AAA grade in 60 kg bags is standard for high-volume use. Delivery in 4-6 days.",
       },
     ],
     coordinates: { lat: 25.5941, lng: 85.1376 },

@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { Check, Plus } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import type { Product } from "@/data/products";
 import { useCurrency } from "@/components/currency-provider";
@@ -45,13 +46,21 @@ export function ProductCard({ product, showPrice = true, showActions = true }: P
             <button
               type="button"
               onClick={() => toggle(product.slug)}
-              className={`px-3 py-1 rounded text-xs font-semibold transition-colors cursor-pointer ${
+              className={`flex items-center gap-1 px-3 py-1 rounded text-xs font-semibold transition-colors cursor-pointer ${
                 inCart
                   ? "bg-teal-600 text-white hover:bg-teal-700"
                   : "bg-white text-black hover:bg-teal-600 hover:text-white"
               }`}
             >
-              {inCart ? "✓ Selected" : "+ Select"}
+              {inCart ? (
+                <>
+                  <Check className="w-3.5 h-3.5" /> Selected
+                </>
+              ) : (
+                <>
+                  <Plus className="w-3.5 h-3.5" /> Select
+                </>
+              )}
             </button>
           )}
 

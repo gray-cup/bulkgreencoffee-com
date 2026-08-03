@@ -23,7 +23,7 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ error: "Order not found" }, { status: 404 });
   }
 
-  // Webhook already reconciled this order — no need to call Cashfree again.
+  // Webhook already reconciled this order - no need to call Cashfree again.
   if (order.payment_status === "paid" || order.payment_status === "failed") {
     return NextResponse.json({ status: order.payment_status });
   }

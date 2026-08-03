@@ -4,6 +4,8 @@ import React, { useState, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
+import { Check, Plus, X } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { products } from "@/data/products";
@@ -152,13 +154,21 @@ function BuySamplesInner() {
                       draggable={false}
                       className="object-contain p-4"
                     />
-                    {/* Selected badge — visual only; the whole image is clickable */}
+                    {/* Selected badge - visual only; the whole image is clickable */}
                     <div
-                      className={`absolute top-2 right-2 z-10 px-3 py-1 rounded text-xs border border-neutral-400 font-semibold pointer-events-none ${
+                      className={`absolute top-2 right-2 z-10 flex items-center gap-1 px-3 py-1 rounded text-xs border border-neutral-400 font-semibold pointer-events-none ${
                         isSelected ? "bg-teal-600 text-white" : "bg-white text-black"
                       }`}
                     >
-                      {isSelected ? "✓ Selected" : "+ Select"}
+                      {isSelected ? (
+                        <>
+                          <Check className="w-3.5 h-3.5" /> Selected
+                        </>
+                      ) : (
+                        <>
+                          <Plus className="w-3.5 h-3.5" /> Select
+                        </>
+                      )}
                     </div>
                   </div>
                   <div className="flex flex-col flex-1 p-4 gap-3">
@@ -174,23 +184,34 @@ function BuySamplesInner() {
                       <p className="text-xs text-muted-foreground">{gridTier.label}</p>
                       <p className="text-base font-semibold text-black">{fmt(price)}</p>
                     </div>
-                    {!isSelected && (
-                      <div className="flex flex-col sm:flex-row gap-2">
-                        <button
-                          type="button"
-                          onClick={() => toggle(product.slug)}
-                          className="sm:flex-1 h-9 cursor-pointer rounded-xl text-sm font-medium transition-colors bg-teal-600 text-white hover:bg-teal-700"
+                    <AnimatePresence initial={false}>
+                      {selected.length === 0 && (
+                        <motion.div
+                          key="actions"
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.25, ease: "easeInOut" }}
+                          className="overflow-hidden"
                         >
-                          Add to Cart
-                        </button>
-                        <Link
-                          href={`/buy-samples/${product.slug}`}
-                          className="sm:flex-1 h-9 rounded-xl text-sm font-medium border border-gray-200 text-gray-700 hover:border-gray-400 hover:text-black flex items-center justify-center transition-colors"
-                        >
-                          Buy Now
-                        </Link>
-                      </div>
-                    )}
+                          <div className="flex flex-col sm:flex-row gap-2">
+                            <button
+                              type="button"
+                              onClick={() => toggle(product.slug)}
+                              className="sm:flex-1 h-9 cursor-pointer rounded-xl text-sm font-medium transition-colors bg-teal-600 text-white hover:bg-teal-700"
+                            >
+                              Add to Cart
+                            </button>
+                            <Link
+                              href={`/buy-samples/${product.slug}`}
+                              className="sm:flex-1 h-9 rounded-xl text-sm font-medium border border-gray-200 text-gray-700 hover:border-gray-400 hover:text-black flex items-center justify-center transition-colors"
+                            >
+                              Buy Now
+                            </Link>
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   </div>
                 </div>
               );
@@ -253,9 +274,9 @@ function BuySamplesInner() {
                             <button
                               type="button"
                               onClick={() => setSelected((prev) => prev.filter((s) => !(s.slug === product.slug && s.tier === itemTier)))}
-                              className="text-gray-300 hover:text-red-400 transition-colors text-base leading-none"
+                              className="text-gray-300 hover:text-red-400 transition-colors"
                             >
-                              ✕
+                              <X className="w-4 h-4" />
                             </button>
                           </div>
                         </div>
@@ -296,9 +317,9 @@ function BuySamplesInner() {
                       <button
                         type="button"
                         onClick={() => setSelected((prev) => prev.filter((s) => !(s.slug === product.slug && s.tier === itemTier)))}
-                        className="absolute top-2 right-2 z-10 text-gray-400 hover:text-red-500 transition-colors text-sm leading-none bg-white rounded-full w-5 h-5 flex items-center justify-center shadow-sm"
+                        className="absolute top-2 right-2 z-10 text-gray-400 hover:text-red-500 transition-colors bg-white rounded-full w-5 h-5 flex items-center justify-center shadow-sm"
                       >
-                        ✕
+                        <X className="w-3 h-3" />
                       </button>
                       <div className="relative aspect-square bg-gray-50 overflow-hidden">
                         <Image src={product.image} alt={product.name} fill className="object-contain p-3" />

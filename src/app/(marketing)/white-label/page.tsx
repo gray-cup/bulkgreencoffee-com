@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "White Label Green Coffee Sourcing | Indian Arabica & Robusta | Bulk Green Coffee",
   description:
-    "Source Indian green coffee under your own brand. We supply specialty and commercial Arabica and Robusta from Koraput, Assam, Karnataka, and Kerala — export-ready with full traceability. MOQ from 10 kg.",
+    "Source Indian green coffee under your own brand. We supply specialty and commercial Arabica and Robusta from Koraput, Assam, Karnataka, and Kerala, export-ready with full traceability. MOQ from 10 kg.",
   alternates: { canonical: "/white-label" },
 };
 
@@ -22,7 +22,7 @@ export default function WhiteLabelPage() {
             Your Brand. Our Coffee.
           </h1>
           <p className="text-md text-muted-foreground max-w-xl">
-            We can be your sourcing partner — supplying premium Indian green
+            We can be your sourcing partner, supplying premium Indian green
             coffee under your brand name. Simple, reliable, and scalable.
           </p>
         </div>
@@ -38,7 +38,7 @@ export default function WhiteLabelPage() {
             <div className="p-5 border rounded-lg">
               <p className="font-medium text-black mb-1">Direct Origin Sourcing</p>
               <p className="text-sm text-muted-foreground">
-                We source directly from tribal cooperatives in Koraput (Odisha), small-holder farms in Halflong (Assam), and established estates in Karnataka and Kerala — cutting out commodity brokers and giving you a genuine traceability story for your brand.
+                We source directly from tribal cooperatives in Koraput (Odisha), small-holder farms in Halflong (Assam), and established estates in Karnataka and Kerala, cutting out commodity brokers and giving you a genuine traceability story for your brand.
               </p>
             </div>
             <div className="p-5 border rounded-lg">
@@ -50,7 +50,7 @@ export default function WhiteLabelPage() {
             <div className="p-5 border rounded-lg">
               <p className="font-medium text-black mb-1">Quality Assurance & Documentation</p>
               <p className="text-sm text-muted-foreground">
-                Every batch is moisture-checked and cupped before dispatch. We supply phytosanitary certificates, fumigation reports, moisture analysis, and SCA score sheets (for specialty lots) — so your customers can trust the quality claim on your label.
+                Every batch is moisture-checked and cupped before dispatch. We supply phytosanitary certificates, fumigation reports, moisture analysis, and SCA score sheets (for specialty lots), so your customers can trust the quality claim on your label.
               </p>
             </div>
             <div className="p-5 border rounded-lg">
@@ -74,11 +74,11 @@ export default function WhiteLabelPage() {
             {[
               {
                 name: "Koraput Arabica (Natural / HSD / Washed)",
-                desc: "Odisha tribal-grown specialty Arabica — GI-pending origin with a compelling provenance story. Scores 85–88 SCA. Available in natural, honey, and washed process.",
+                desc: "Odisha tribal-grown specialty Arabica: GI-pending origin with a compelling provenance story. Scores 85–88 SCA. Available in natural, honey, and washed process.",
               },
               {
                 name: "Halflong SL-9 Arabica Naturals",
-                desc: "Rare high-altitude Arabica from Dima Hasao, Assam. Delicate florals, red-berry sweetness, 89 SCA. Limited availability — contact us for current lot status.",
+                desc: "Rare high-altitude Arabica from Dima Hasao, Assam. Delicate florals, red-berry sweetness, 89 SCA. Limited availability. Contact us for current lot status.",
               },
               {
                 name: "Chikmagalur / Coorg / Wayanad Arabica",
@@ -133,7 +133,7 @@ export default function WhiteLabelPage() {
             A note on packaging
           </p>
           <p className="text-sm text-muted-foreground">
-            We focus entirely on green coffee sourcing — we do not provide custom retail packaging.
+            We focus entirely on green coffee sourcing. We do not provide custom retail packaging.
             For branded valve bags, stand-up pouches, and kraft packaging, we recommend{" "}
             <a
               href="https://www.swisspac.com"

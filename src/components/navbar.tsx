@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { Menu, ShoppingCart, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { CurrencySelector } from "@/components/currency-selector";
 import { useCart } from "@/context/cart-context";
@@ -44,9 +45,7 @@ export function Navbar() {
           <div className="flex items-center gap-0.5 sm:gap-2 shrink-0">
             <CurrencySelector />
             <Link href="/cart" className="relative p-2 text-white hover:bg-teal-500 rounded-md transition-colors">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
-              </svg>
+              <ShoppingCart className="h-5 w-5" />
               {count > 0 && (
                 <span className="absolute -top-0.5 -right-0.5 bg-yellow-400 text-black text-[10px] font-bold rounded-full min-w-[16px] h-4 flex items-center justify-center px-0.5 leading-none">
                   {count}
@@ -74,26 +73,13 @@ export function Navbar() {
               </Button>
             </a>
 
-            {/* Hamburger — visible whenever anything is hidden */}
+            {/* Hamburger - visible whenever anything is hidden */}
             <button
               className="lg:hidden inline-flex items-center justify-center rounded-md p-2 hover:bg-teal-500"
               onClick={() => setMenuOpen(true)}
               aria-label="Open menu"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              </svg>
+              <Menu className="h-6 w-6" />
             </button>
           </div>
         </div>
@@ -128,7 +114,7 @@ export function Navbar() {
               onClick={() => setMenuOpen(false)}
               aria-label="Close menu"
             >
-              ✕
+              <X className="h-5 w-5" />
             </button>
           </div>
 

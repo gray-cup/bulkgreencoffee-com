@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { LocationProductCard } from "@/components/products";
 import {
@@ -30,7 +31,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: { absolute: dest.metaTitle },
     description: dest.metaDescription,
     // Canonicalizes to the shorter root-level URL (e.g. /germany) which is the
-    // primary international route going forward — see src/app/(marketing)/[country].
+    // primary international route going forward - see src/app/(marketing)/[country].
     alternates: { canonical: `/${dest.slug}` },
     openGraph: {
       title: dest.metaTitle,
@@ -121,8 +122,8 @@ export default async function CountryPage({ params }: Props) {
             ))}
           </div>
           <div className="mt-4">
-            <Link href="/products" className="text-sm text-teal-700 hover:text-teal-900 font-medium">
-              View all products →
+            <Link href="/products" className="inline-flex items-center gap-1 text-sm text-teal-700 hover:text-teal-900 font-medium">
+              View all products <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
         </div>
@@ -155,15 +156,15 @@ export default async function CountryPage({ params }: Props) {
             {[
               {
                 title: "Shade-Grown by Default",
-                body: "Nearly all Indian coffee grows under silver oak, pepper vines, and native jungle trees — producing slower-ripened cherries with more concentrated flavour.",
+                body: "Nearly all Indian coffee grows under silver oak, pepper vines, and native jungle trees - producing slower-ripened cherries with more concentrated flavour.",
               },
               {
                 title: "Multiple Process Types",
-                body: "Natural, Washed, Honey Sun-Dried (HSD), and Monsooned Malabar — more processing variety than most single-country origins.",
+                body: "Natural, Washed, Honey Sun-Dried (HSD), and Monsooned Malabar - more processing variety than most single-country origins.",
               },
               {
                 title: "Genuine Traceability",
-                body: "We source directly from tribal cooperatives in Koraput, small-holder farms in Assam, and estates in Karnataka — with origin documentation to district level.",
+                body: "We source directly from tribal cooperatives in Koraput, small-holder farms in Assam, and estates in Karnataka - with origin documentation to district level.",
               },
               {
                 title: "Competitive Pricing",
@@ -190,7 +191,7 @@ export default async function CountryPage({ params }: Props) {
         {dest.faqs.length > 0 && (
           <div className="mb-12">
             <h2 className="text-lg font-semibold text-black mb-6">
-              FAQs — Indian Green Coffee for {dest.name}
+              FAQs - Indian Green Coffee for {dest.name}
             </h2>
             <div className="space-y-4">
               {dest.faqs.map((faq, i) => (
@@ -213,7 +214,7 @@ export default async function CountryPage({ params }: Props) {
           </p>
           <div className="flex flex-wrap gap-3">
             <a href={waLink} target="_blank" rel="noopener noreferrer">
-              <Button variant="teal" size="sm">WhatsApp — +91 85279 14317</Button>
+              <Button variant="teal" size="sm">WhatsApp - +91 85279 14317</Button>
             </a>
             <Link href="/contact">
               <Button variant="lightgraybg" size="sm">Contact Form</Button>

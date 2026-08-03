@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { LocationProductCard } from "@/components/products";
 import { countryDestinations, getCountryBySlug, getWhatsappLink } from "@/data/destinations";
@@ -23,11 +24,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!dest) return { title: "Not Found" };
   return {
     title: `Indian Green Coffee Products for ${dest.name} Buyers`,
-    description: `Full catalogue of Indian green coffee available to ${dest.name} — specialty and commercial Arabica, Robusta, all origins. Export-ready with full documentation.`,
+    description: `Full catalogue of Indian green coffee available to ${dest.name} - specialty and commercial Arabica, Robusta, all origins. Export-ready with full documentation.`,
     alternates: { canonical: `/${dest.slug}/products` },
     openGraph: {
       title: `Indian Green Coffee Products for ${dest.name} Buyers`,
-      description: `Browse our full green coffee catalogue for ${dest.name} — specialty and commercial grades from Koraput, Halflong, Chikmagalur, Coorg, and more.`,
+      description: `Browse our full green coffee catalogue for ${dest.name} - specialty and commercial grades from Koraput, Halflong, Chikmagalur, Coorg, and more.`,
       url: `${BASE_URL}/${dest.slug}/products`,
       locale: getOgLocale(dest.slug),
     },
@@ -117,7 +118,7 @@ export default async function CountryProductsPage({ params }: Props) {
                   className="flex items-center justify-between p-4 border rounded-lg hover:border-teal-400 transition-colors group"
                 >
                   <span className="font-medium text-black group-hover:text-teal-700 transition-colors">{c.city}</span>
-                  <span className="text-muted-foreground group-hover:text-teal-700 transition-colors">→</span>
+                  <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-teal-700 transition-colors" />
                 </Link>
               ))}
             </div>
@@ -134,7 +135,7 @@ export default async function CountryProductsPage({ params }: Props) {
           </p>
           <div className="flex flex-wrap gap-3">
             <a href={waLink} target="_blank" rel="noopener noreferrer">
-              <Button variant="teal" size="sm">WhatsApp — +91 85279 14317</Button>
+              <Button variant="teal" size="sm">WhatsApp - +91 85279 14317</Button>
             </a>
             <Link href="/contact">
               <Button variant="lightgraybg" size="sm">Contact Form</Button>

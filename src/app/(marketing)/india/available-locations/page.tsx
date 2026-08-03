@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { INDIA_STATES, getCitiesByState, indiaCities } from "@/data/india-locations";
 import { getWhatsappLink } from "@/data/destinations";
@@ -10,7 +11,7 @@ export const metadata: Metadata = {
     "Wholesale Indian green coffee delivered across India. Commercial AA/AAA from ₹800/kg, specialty from ₹1,100/kg. Maharashtra, Karnataka, Tamil Nadu, Delhi and more. MOQ 10 kg.",
   alternates: { canonical: "/india/available-locations" },
   openGraph: {
-    title: "Indian Green Coffee Supplier — All India Locations | Bulk Green Coffee",
+    title: "Indian Green Coffee Supplier - All India Locations | Bulk Green Coffee",
     description:
       "Bulk green coffee delivery across India. Tribal Arabica, South India estates, and North East origins. GST invoice included.",
     url: "https://bulkgreencoffee.com/india/available-locations",
@@ -50,14 +51,14 @@ export default function AvailableLocationsPage() {
             All India Delivery
           </p>
           <h1 className="text-3xl md:text-4xl font-semibold text-black mb-3">
-            Indian Green Coffee — Delivered Across India
+            Indian Green Coffee - Delivered Across India
           </h1>
           <p className="text-md text-muted-foreground max-w-2xl mb-6">
             We supply wholesale Indian green coffee to {indiaCities.length}+ cities across {INDIA_STATES.length} states. Specialty Arabica from tribal cooperatives in Koraput (Odisha) and Halflong (Assam), plus South India estates from Chikmagalur, Coorg, Wayanad, and Bababudangiri.
           </p>
           <div className="flex flex-wrap gap-3">
             <a href={waLink} target="_blank" rel="noopener noreferrer">
-              <Button variant="teal" size="sm">WhatsApp — +91 85279 14317</Button>
+              <Button variant="teal" size="sm">WhatsApp - +91 85279 14317</Button>
             </a>
             <Link href="/products">
               <Button variant="lightgraybg" size="sm">Browse Products</Button>
@@ -99,9 +100,9 @@ export default function AvailableLocationsPage() {
                     </Link>
                     <Link
                       href={`/india/${s.slug}`}
-                      className="text-xs text-teal-700 hover:text-teal-900 transition-colors"
+                      className="inline-flex items-center gap-1 text-xs text-teal-700 hover:text-teal-900 transition-colors"
                     >
-                      View all →
+                      View all <ArrowRight className="w-3.5 h-3.5" />
                     </Link>
                   </div>
                   <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2">
@@ -184,7 +185,7 @@ export default function AvailableLocationsPage() {
             </p>
           </div>
           <Link href="/products" className="shrink-0">
-            <Button variant="lightgraybg" size="sm">Browse Products →</Button>
+            <Button variant="lightgraybg" size="sm">Browse Products <ArrowRight className="w-4 h-4" /></Button>
           </Link>
         </div>
 
@@ -196,7 +197,7 @@ export default function AvailableLocationsPage() {
           </p>
           <div className="flex flex-wrap gap-3">
             <a href={waLink} target="_blank" rel="noopener noreferrer">
-              <Button variant="teal" size="sm">WhatsApp — +91 85279 14317</Button>
+              <Button variant="teal" size="sm">WhatsApp - +91 85279 14317</Button>
             </a>
             <Link href="/contact">
               <Button variant="lightgraybg" size="sm">Contact Form</Button>

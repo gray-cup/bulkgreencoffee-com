@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   indiaCities,
@@ -65,7 +66,7 @@ export default async function CityPage({ params }: Props) {
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
       "@id": `https://bulkgreencoffee.com/india/${state}/${city}`,
-      name: `Bulk Green Coffee — ${data.city}`,
+      name: `Bulk Green Coffee - ${data.city}`,
       description: `Indian green coffee wholesale supplier serving ${data.city}, ${stateName}.`,
       url: `https://bulkgreencoffee.com/india/${state}/${city}`,
       telephone: "+918527914317",
@@ -105,7 +106,7 @@ export default async function CityPage({ params }: Props) {
         {/* Header */}
         <div className="mb-10">
           <p className="text-xs font-medium uppercase tracking-widest text-muted-foreground mb-3">
-            Indian Green Coffee — {stateName}
+            Indian Green Coffee - {stateName}
           </p>
           <h1 className="text-3xl md:text-4xl font-semibold text-black mb-3">
             Green Coffee in {data.city}
@@ -115,7 +116,7 @@ export default async function CityPage({ params }: Props) {
           </p>
           <div className="flex flex-wrap gap-3">
             <a href={waLink} target="_blank" rel="noopener noreferrer">
-              <Button variant="teal" size="sm">WhatsApp — +91 85279 14317</Button>
+              <Button variant="teal" size="sm">WhatsApp - +91 85279 14317</Button>
             </a>
             <Link href="/products">
               <Button variant="lightgraybg" size="sm">Browse Products</Button>
@@ -153,8 +154,8 @@ export default async function CityPage({ params }: Props) {
             ))}
           </div>
           <div className="mt-4">
-            <Link href="/products" className="text-sm text-teal-700 hover:text-teal-900 font-medium">
-              View all products →
+            <Link href="/products" className="inline-flex items-center gap-1 text-sm text-teal-700 hover:text-teal-900 font-medium">
+              View all products <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
         </div>
@@ -198,10 +199,10 @@ export default async function CityPage({ params }: Props) {
             Indian Green Coffee Supply in {data.city}
           </h2>
           <p className="text-sm text-muted-foreground leading-relaxed mb-3">
-            We supply Indian green (unroasted) Arabica and Robusta coffee to {data.city} buyers across the {data.industries.slice(0, 3).join(", ")} sectors. Our specialty origins — Koraput Arabica (Natural, Honey Sun-Dried, Washed) from Odisha, Halflong SL-9 Arabica from Assam, and South India lots from Chikmagalur, Coorg, Wayanad, and Bababudangiri — are available from {data.moq} minimum order.
+            We supply Indian green (unroasted) Arabica and Robusta coffee to {data.city} buyers across the {data.industries.slice(0, 3).join(", ")} sectors. Our specialty origins - Koraput Arabica (Natural, Honey Sun-Dried, Washed) from Odisha, Halflong SL-9 Arabica from Assam, and South India lots from Chikmagalur, Coorg, Wayanad, and Bababudangiri - are available from {data.moq} minimum order.
           </p>
           <p className="text-sm text-muted-foreground leading-relaxed">
-            Delivery from dispatch to {data.city} takes {data.transitDays} by road freight. All India domestic orders include a valid GST invoice from Gray Cup Enterprises Private Limited (GST: 06AAMCG4985H1Z4). WhatsApp us to discuss your requirement — we respond within a few hours and can arrange sample packs before any bulk order.
+            Delivery from dispatch to {data.city} takes {data.transitDays} by road freight. All India domestic orders include a valid GST invoice from Gray Cup Enterprises Private Limited (GST: 06AAMCG4985H1Z4). WhatsApp us to discuss your requirement - we respond within a few hours and can arrange sample packs before any bulk order.
           </p>
         </div>
 
@@ -225,7 +226,7 @@ export default async function CityPage({ params }: Props) {
         {/* FAQ */}
         <div className="mb-12">
           <h2 className="text-lg font-semibold text-black mb-6">
-            FAQs — Green Coffee in {data.city}
+            FAQs - Green Coffee in {data.city}
           </h2>
           <div className="space-y-4">
             {data.faqs.map((faq, i) => (
@@ -252,7 +253,7 @@ export default async function CityPage({ params }: Props) {
                     <p className="font-medium text-black group-hover:text-teal-700 transition-colors">{related.city}</p>
                     <p className="text-xs text-muted-foreground">{related.transitDays} delivery</p>
                   </div>
-                  <span className="text-muted-foreground group-hover:text-teal-700 transition-colors">→</span>
+                  <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-teal-700 transition-colors" />
                 </Link>
               ))}
             </div>
@@ -269,7 +270,7 @@ export default async function CityPage({ params }: Props) {
           </p>
           <div className="flex flex-wrap gap-3">
             <a href={waLink} target="_blank" rel="noopener noreferrer">
-              <Button variant="teal" size="sm">WhatsApp — +91 85279 14317</Button>
+              <Button variant="teal" size="sm">WhatsApp - +91 85279 14317</Button>
             </a>
             <Link href="/contact">
               <Button variant="lightgraybg" size="sm">Contact Form</Button>

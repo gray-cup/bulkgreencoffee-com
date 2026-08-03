@@ -22,7 +22,7 @@ export interface SampleOrderRequest {
   state?: string;
   gstOrTaxId?: string;
   businessType?: string;
-  items: OrderItem[];        // { slug, tier }[] — price is always recomputed server-side from this
+  items: OrderItem[];        // { slug, tier }[] - price is always recomputed server-side from this
   currency?: CurrencyCode;   // customer's display currency; ignored for India
 }
 
@@ -48,7 +48,7 @@ export async function POST(request: NextRequest) {
     const isIndia = country.trim().toLowerCase() === "india";
 
     // The order total is ALWAYS computed here from our own product/tier
-    // catalogue — the client cannot influence the charged amount by editing
+    // catalogue - the client cannot influence the charged amount by editing
     // the request body. computeOrderTotal throws if any slug/tier is invalid.
     let totalAmount: number;
     try {
@@ -79,7 +79,7 @@ export async function POST(request: NextRequest) {
 
     if (!isIndia && body.currency && body.currency !== "INR") {
       linkCurrency = resolveCashfreeCurrency(body.currency);
-      // Convert server-side using our own rate fetch — never trust a
+      // Convert server-side using our own rate fetch - never trust a
       // client-supplied converted amount for what gets charged.
       const rates = await fetchExchangeRates();
       linkAmount = convertPrice(totalAmount, linkCurrency, rates);
@@ -113,7 +113,7 @@ export async function POST(request: NextRequest) {
       link_id: linkId,
       link_amount: linkAmount,
       link_currency: linkCurrency,
-      link_purpose: `Bulk Green Coffee — ${quantityTier} sample${productSlugs.length > 1 ? "s" : ""} (${productSlugs.join(", ")})`,
+      link_purpose: `Bulk Green Coffee - ${quantityTier} sample${productSlugs.length > 1 ? "s" : ""} (${productSlugs.join(", ")})`,
 
       customer_details: {
         customer_name:  name,

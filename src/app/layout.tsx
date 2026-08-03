@@ -82,7 +82,7 @@ export const metadata: Metadata = {
         url: "https://bulkgreencoffee.com/og.png",
         width: 1200,
         height: 630,
-        alt: "Bulk Green Coffee — Indian Specialty & Commercial Green Coffee",
+        alt: "Bulk Green Coffee - Indian Specialty & Commercial Green Coffee",
       },
     ],
     type: "website",

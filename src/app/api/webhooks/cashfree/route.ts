@@ -59,7 +59,7 @@ export async function POST(request: NextRequest) {
   const newStatus = statusFromPayload(payload);
 
   if (!linkId || !newStatus) {
-    // Not an event we act on (e.g. NOT_ATTEMPTED / PENDING) — ack so Cashfree
+    // Not an event we act on (e.g. NOT_ATTEMPTED / PENDING) - ack so Cashfree
     // doesn't retry, but don't touch the row.
     return NextResponse.json({ received: true });
   }

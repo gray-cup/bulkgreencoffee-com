@@ -1,8 +1,10 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { LocationProductCard } from "@/components/products";
+import { FaqSchema } from "@/components/seo";
 import {
   stateDestinations,
   getStateBySlug,
@@ -47,6 +49,7 @@ export default async function StatePage({ params }: Props) {
 
   return (
     <div className="min-h-screen py-20 px-4 lg:px-6">
+      <FaqSchema faqs={dest.faqs} />
       <div className="max-w-5xl mx-auto px-4 lg:px-6">
 
         {/* Header */}
@@ -62,7 +65,7 @@ export default async function StatePage({ params }: Props) {
           </p>
           <div className="flex flex-wrap gap-3">
             <a href={waLink} target="_blank" rel="noopener noreferrer">
-              <Button variant="teal" size="sm">WhatsApp — +91 85279 14317</Button>
+              <Button variant="teal" size="sm">WhatsApp - +91 85279 14317</Button>
             </a>
             <Link href="/contact">
               <Button variant="lightgraybg" size="sm">Contact Form</Button>
@@ -94,7 +97,7 @@ export default async function StatePage({ params }: Props) {
             </div>
             <div className="p-5 border rounded-lg">
               <p className="font-medium text-black mb-1 text-sm">Direct from Origin</p>
-              <p className="text-sm text-muted-foreground">We source directly from tribal cooperatives in Koraput, farms in Assam, and estates in South India — no commodity middlemen.</p>
+              <p className="text-sm text-muted-foreground">We source directly from tribal cooperatives in Koraput, farms in Assam, and estates in South India - no commodity middlemen.</p>
             </div>
           </div>
         </div>
@@ -113,8 +116,8 @@ export default async function StatePage({ params }: Props) {
             ))}
           </div>
           <div className="mt-4">
-            <Link href="/products" className="text-sm text-teal-700 hover:text-teal-900 font-medium">
-              View all products →
+            <Link href="/products" className="inline-flex items-center gap-1 text-sm text-teal-700 hover:text-teal-900 font-medium">
+              View all products <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
         </div>
@@ -127,7 +130,7 @@ export default async function StatePage({ params }: Props) {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
               <p className="text-sm text-muted-foreground leading-relaxed mb-3">
-                Bulk Green Coffee is operated by Gray Cup Enterprises Private Limited — an India-registered company incorporated on 7th November 2025 and headquartered in Sonipat, Haryana.
+                Bulk Green Coffee is operated by Gray Cup Enterprises Private Limited - an India-registered company incorporated on 7th November 2025 and headquartered in Sonipat, Haryana.
               </p>
               <p className="text-sm text-muted-foreground leading-relaxed mb-3">
                 We source green coffee directly from tribal farming cooperatives in Koraput (Odisha), small-holder farms in Halflong and Chirang (Assam), Tirap (Arunachal Pradesh), and established estates in Chikmagalur, Coorg, Wayanad, and Bababudangiri (South India).
@@ -158,7 +161,7 @@ export default async function StatePage({ params }: Props) {
         {dest.faqs.length > 0 && (
           <div className="mb-12">
             <h2 className="text-lg font-semibold text-black mb-6">
-              FAQs — Green Coffee in {dest.name}
+              FAQs - Green Coffee in {dest.name}
             </h2>
             <div className="space-y-4">
               {dest.faqs.map((faq, i) => (
@@ -181,7 +184,7 @@ export default async function StatePage({ params }: Props) {
           </p>
           <div className="flex flex-wrap gap-3">
             <a href={waLink} target="_blank" rel="noopener noreferrer">
-              <Button variant="teal" size="sm">WhatsApp — +91 85279 14317</Button>
+              <Button variant="teal" size="sm">WhatsApp - +91 85279 14317</Button>
             </a>
             <Link href="/contact">
               <Button variant="lightgraybg" size="sm">Contact Form</Button>
