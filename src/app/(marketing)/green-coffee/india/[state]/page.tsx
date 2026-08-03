@@ -97,7 +97,7 @@ export default async function StatePage({ params }: Props) {
             </div>
             <div className="p-5 border rounded-lg">
               <p className="font-medium text-black mb-1 text-sm">Direct from Origin</p>
-              <p className="text-sm text-muted-foreground">We source directly from tribal cooperatives in Koraput, farms in Assam, and estates in South India - no commodity middlemen.</p>
+              <p className="text-sm text-muted-foreground">We source directly from tribal cooperatives in Koraput, farms in Assam, and estates in South India, with no commodity middlemen.</p>
             </div>
           </div>
         </div>
@@ -130,7 +130,7 @@ export default async function StatePage({ params }: Props) {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
               <p className="text-sm text-muted-foreground leading-relaxed mb-3">
-                Bulk Green Coffee is operated by Gray Cup Enterprises Private Limited - an India-registered company incorporated on 7th November 2025 and headquartered in Sonipat, Haryana.
+                Bulk Green Coffee is operated by Gray Cup Enterprises Private Limited, an India-registered company incorporated on 7th November 2025 and headquartered in Sonipat, Haryana.
               </p>
               <p className="text-sm text-muted-foreground leading-relaxed mb-3">
                 We source green coffee directly from tribal farming cooperatives in Koraput (Odisha), small-holder farms in Halflong and Chirang (Assam), Tirap (Arunachal Pradesh), and established estates in Chikmagalur, Coorg, Wayanad, and Bababudangiri (South India).

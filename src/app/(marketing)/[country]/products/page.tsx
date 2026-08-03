@@ -24,14 +24,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!dest) return { title: "Not Found" };
   return {
     title: `Indian Green Coffee Products for ${dest.name} Buyers`,
-    description: `Full catalogue of Indian green coffee available to ${dest.name} - specialty and commercial Arabica, Robusta, all origins. Export-ready with full documentation.`,
+    description: `Full catalogue of Indian green coffee available to ${dest.name}: specialty and commercial Arabica, Robusta, all origins. Export-ready with full documentation.`,
     // This page renders the same unfiltered product catalogue as /products for
     // every country - canonicalize to the single master catalogue page to
     // avoid ~100 near-duplicate pages competing with it in search.
     alternates: { canonical: "/products" },
     openGraph: {
       title: `Indian Green Coffee Products for ${dest.name} Buyers`,
-      description: `Browse our full green coffee catalogue for ${dest.name} - specialty and commercial grades from Koraput, Halflong, Chikmagalur, Coorg, and more.`,
+      description: `Browse our full green coffee catalogue for ${dest.name}: specialty and commercial grades from Koraput, Halflong, Chikmagalur, Coorg, and more.`,
       url: `${BASE_URL}/${dest.slug}/products`,
       locale: getOgLocale(dest.slug),
     },

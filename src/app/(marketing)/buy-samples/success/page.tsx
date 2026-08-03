@@ -69,7 +69,7 @@ function SuccessInner() {
         <div>
           <h1 className="text-2xl font-semibold text-black mb-2">Payment not completed</h1>
           <p className="text-muted-foreground">
-            Your payment didn&apos;t go through. No order has been placed - please try again.
+            Your payment didn&apos;t go through. No order has been placed. Please try again.
           </p>
         </div>
         <Link
@@ -91,7 +91,7 @@ function SuccessInner() {
         <h1 className="text-2xl font-semibold text-black mb-2">Order placed!</h1>
         <p className="text-muted-foreground">
           {status === "pending"
-            ? "We're still confirming your payment with the bank - you'll get an SMS/email as soon as it's confirmed."
+            ? "We're still confirming your payment with the bank: you'll get an SMS/email as soon as it's confirmed."
             : "Your sample order has been received. We'll pack and ship it to you within 2–3 business days."}
         </p>
       </div>

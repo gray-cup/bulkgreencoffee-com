@@ -43,12 +43,12 @@ export default function RefundsAndCancellations() {
           </ul>
           <p className="mt-3">
             We will respond within 2 business days and, where the claim is valid, issue a full refund
-            to your original payment method or ship a replacement - your choice.
+            to your original payment method or ship a replacement, whichever you prefer.
           </p>
         </section>
 
         <section>
-          <h2 className="text-lg font-semibold text-black mb-3">2. Cancellations - Sample Orders</h2>
+          <h2 className="text-lg font-semibold text-black mb-3">2. Cancellations: Sample Orders</h2>
           <ul className="list-disc pl-5 space-y-2">
             <li>
               Cancellations requested <strong className="text-black">before dispatch</strong> will receive a full refund

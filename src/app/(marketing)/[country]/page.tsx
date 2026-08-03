@@ -181,15 +181,15 @@ export default async function CountryPage({ params }: Props) {
             {[
               {
                 title: "Shade-Grown by Default",
-                body: "Nearly all Indian coffee grows under silver oak, pepper vines, and native jungle trees - producing slower-ripened cherries with more concentrated flavour.",
+                body: "Nearly all Indian coffee grows under silver oak, pepper vines, and native jungle trees, producing slower-ripened cherries with more concentrated flavour.",
               },
               {
                 title: "Multiple Process Types",
-                body: "Natural, Washed, Honey Sun-Dried (HSD), and Monsooned Malabar - more processing variety than most single-country origins.",
+                body: "Natural, Washed, Honey Sun-Dried (HSD), and Monsooned Malabar: more processing variety than most single-country origins.",
               },
               {
                 title: "Genuine Traceability",
-                body: "We source directly from tribal cooperatives in Koraput, small-holder farms in Assam, and estates in Karnataka - with origin documentation to district level.",
+                body: "We source directly from tribal cooperatives in Koraput, small-holder farms in Assam, and estates in Karnataka, with origin documentation to district level.",
               },
               {
                 title: "Competitive Pricing",

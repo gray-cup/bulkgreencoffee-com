@@ -68,7 +68,7 @@ export default async function CountryCityPage({ params }: Props) {
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
       "@id": `${BASE_URL}/${country}/${city}`,
-      name: `Bulk Green Coffee - ${data.city}`,
+      name: `Bulk Green Coffee: ${data.city}`,
       description: `Indian green coffee wholesale supplier serving ${data.city}, ${dest.name}.`,
       url: `${BASE_URL}/${country}/${city}`,
       telephone: "+918527914317",
@@ -106,7 +106,7 @@ export default async function CountryCityPage({ params }: Props) {
         {/* Header */}
         <div className="mb-10">
           <p className="text-xs font-medium uppercase tracking-widest text-muted-foreground mb-3">
-            {dest.flag} Indian Green Coffee - {dest.name}
+            {dest.flag} Indian Green Coffee: {dest.name}
           </p>
           <h1 className="text-3xl md:text-4xl font-semibold text-black mb-3">
             Green Coffee in {data.city}
@@ -198,10 +198,10 @@ export default async function CountryCityPage({ params }: Props) {
             Indian Green Coffee Supply in {data.city}
           </h2>
           <p className="text-sm text-muted-foreground leading-relaxed mb-3">
-            We supply Indian green (unroasted) Arabica and Robusta coffee to {data.city} buyers across the {data.industries.slice(0, 3).join(", ")} sectors. Our specialty origins - Koraput Arabica (Natural, Honey Sun-Dried, Washed) from Odisha, Halflong SL-9 Arabica from Assam, and South India lots from Chikmagalur, Coorg, and Bababudangiri - are available from 10 kg minimum order.
+            We supply Indian green (unroasted) Arabica and Robusta coffee to {data.city} buyers across the {data.industries.slice(0, 3).join(", ")} sectors. Our specialty origins, including Koraput Arabica (Natural, Honey Sun-Dried, Washed) from Odisha, Halflong SL-9 Arabica from Assam, and South India lots from Chikmagalur, Coorg, and Bababudangiri, are available from 10 kg minimum order.
           </p>
           <p className="text-sm text-muted-foreground leading-relaxed">
-            Sea freight from India to {data.city} takes {data.transitDays}, with full export documentation including phytosanitary and fumigation certificates. WhatsApp us to discuss your requirement - we respond within a few hours and can arrange sample packs before any bulk order.
+            Sea freight from India to {data.city} takes {data.transitDays}, with full export documentation including phytosanitary and fumigation certificates. WhatsApp us to discuss your requirement: we respond within a few hours and can arrange sample packs before any bulk order.
           </p>
         </div>
 

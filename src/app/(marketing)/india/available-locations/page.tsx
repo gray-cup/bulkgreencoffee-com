@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     "Wholesale Indian green coffee delivered across India. Commercial AA/AAA from ₹800/kg, specialty from ₹1,100/kg. Maharashtra, Karnataka, Tamil Nadu, Delhi and more. MOQ 10 kg.",
   alternates: { canonical: "/india/available-locations" },
   openGraph: {
-    title: "Indian Green Coffee Supplier - All India Locations | Bulk Green Coffee",
+    title: "Indian Green Coffee Supplier | All India Locations | Bulk Green Coffee",
     description:
       "Bulk green coffee delivery across India. Tribal Arabica, South India estates, and North East origins. GST invoice included.",
     url: "https://bulkgreencoffee.com/india/available-locations",
@@ -51,7 +51,7 @@ export default function AvailableLocationsPage() {
             All India Delivery
           </p>
           <h1 className="text-3xl md:text-4xl font-semibold text-black mb-3">
-            Indian Green Coffee - Delivered Across India
+            Indian Green Coffee: Delivered Across India
           </h1>
           <p className="text-md text-muted-foreground max-w-2xl mb-6">
             We supply wholesale Indian green coffee to {indiaCities.length}+ cities across {INDIA_STATES.length} states. Specialty Arabica from tribal cooperatives in Koraput (Odisha) and Halflong (Assam), plus South India estates from Chikmagalur, Coorg, Wayanad, and Bababudangiri.
