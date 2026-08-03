@@ -13,7 +13,7 @@ export function OrganizationSchema() {
       height: 512,
     },
     description:
-      "Wholesale and export Indian specialty green coffee - Natural, Honey, and Washed lots from Koraput (Odisha) and Halflong (Assam). Serving roasters and importers worldwide.",
+      "Wholesale and export Indian specialty green coffee: Natural, Honey, and Washed lots from Koraput (Odisha) and Halflong (Assam). Serving roasters and importers worldwide.",
     foundingDate: "2019",
     areaServed: "Worldwide",
     sameAs: [

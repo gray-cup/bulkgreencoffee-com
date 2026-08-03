@@ -113,7 +113,7 @@ export async function POST(request: NextRequest) {
       link_id: linkId,
       link_amount: linkAmount,
       link_currency: linkCurrency,
-      link_purpose: `Bulk Green Coffee - ${quantityTier} sample${productSlugs.length > 1 ? "s" : ""} (${productSlugs.join(", ")})`,
+      link_purpose: `Bulk Green Coffee: ${quantityTier} sample${productSlugs.length > 1 ? "s" : ""} (${productSlugs.join(", ")})`,
 
       customer_details: {
         customer_name:  name,

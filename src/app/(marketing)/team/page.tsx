@@ -24,6 +24,7 @@ export const metadata: Metadata = {
   title: "Our Team | Meet the Solo Developer Behind the Magic",
   description:
     "Meet Arjun Aditya, the one-person army who built this entire platform. Yes, just one person. We're as surprised as you are.",
+  alternates: { canonical: "/team" },
   openGraph: {
     title: "Our Team | Meet the Solo Developer Behind the Magic",
     description:

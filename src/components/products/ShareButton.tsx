@@ -44,7 +44,7 @@ export function ShareButton({ productName }: ShareButtonProps) {
 
   const handleShareEmail = () => {
     const url = getShareUrl();
-    const subject = `${productName} - Bulk Green Coffee`;
+    const subject = `${productName}: Bulk Green Coffee`;
     const body = `I thought you might be interested in this product:\n\n${productName}\n${url}`;
     window.location.href = `mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   };
@@ -54,7 +54,7 @@ export function ShareButton({ productName }: ShareButtonProps) {
     if (navigator.share) {
       try {
         await navigator.share({
-          title: `${productName} - Bulk Green Coffee`,
+          title: `${productName}: Bulk Green Coffee`,
           text: `Check out ${productName} on Bulk Green Coffee`,
           url: url,
         });

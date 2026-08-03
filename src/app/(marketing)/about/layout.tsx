@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "About Bulk Green Coffee | Gray Cup Enterprises Pvt. Ltd.",
   description:
-    "Learn about Bulk Green Coffee - operated by Gray Cup Enterprises Private Limited (CIN: U47211DL2025PTC457808, GST: 06AAMCG4985H1Z4). Incorporated November 2025, sourcing Indian green coffee directly from tribal cooperatives and estates.",
+    "Learn about Bulk Green Coffee, operated by Gray Cup Enterprises Private Limited (CIN: U47211DL2025PTC457808, GST: 06AAMCG4985H1Z4). Incorporated November 2025, sourcing Indian green coffee directly from tribal cooperatives and estates.",
   alternates: { canonical: "/about" },
   openGraph: {
     title: "About Bulk Green Coffee | Gray Cup Enterprises",

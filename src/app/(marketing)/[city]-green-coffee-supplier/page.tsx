@@ -18,10 +18,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const citySlug = (await params).city;
   const data = getCityBySlugOnly(citySlug);
   if (!data) return { title: "Not Found" };
-  const stateName = getStateNameFromSlug(data.stateSlug) ?? data.state;
   return {
     title: `${data.city} Green Coffee Supplier | Bulk Green Coffee`,
-    description: `Find Indian green coffee suppliers in ${data.city}. Commercial AA/AAA from ₹800/kg, specialty from ₹1,100/kg. MOQ ${data.moq}. Delivered in ${data.transitDays}. GST invoice. WhatsApp: +91 85279 14317.`,
+    description: `Wholesale Indian green coffee in ${data.city}: commercial AA/AAA from ₹800/kg, specialty from ₹1,100/kg, MOQ ${data.moq}, delivered in ${data.transitDays}.`,
     alternates: { canonical: `/${citySlug}-green-coffee-supplier` },
     openGraph: {
       title: `Green Coffee Suppliers in ${data.city} | Indian Arabica Wholesale`,

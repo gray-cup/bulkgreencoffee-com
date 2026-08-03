@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 import { getProductBySlug } from "@/data/products";
 
-export const alt = "Bulk Green Coffee - Product";
+export const alt = "Bulk Green Coffee Product";
 export const size = {
   width: 2400,
   height: 1260,

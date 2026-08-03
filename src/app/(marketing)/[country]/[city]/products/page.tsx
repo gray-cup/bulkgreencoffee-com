@@ -25,7 +25,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `Indian Green Coffee Products for ${data.city} Buyers`,
     description: `Full catalogue of Indian green coffee available in ${data.city}, ${dest.name} - specialty and commercial Arabica, Robusta, all origins. Delivered in ${data.transitDays}.`,
-    alternates: { canonical: `/${country}/${city}/products` },
+    // Same unfiltered catalogue as /products for every city - canonicalize to
+    // the single master catalogue page to avoid ~120 near-duplicate pages.
+    alternates: { canonical: "/products" },
     openGraph: {
       title: `Indian Green Coffee Products for ${data.city}`,
       description: `Browse our full green coffee catalogue for ${data.city}, ${dest.name} - specialty and commercial grades from Koraput, Halflong, Chikmagalur, Coorg, and more.`,

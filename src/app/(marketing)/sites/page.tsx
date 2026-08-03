@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "Our Sites | Bulk Green Coffee",
   description:
     "Explore the informational websites owned and operated by Bulk Green Coffee, focused on bulk chai, CTC tea education, and loose-leaf tea knowledge.",
+  alternates: { canonical: "/sites" },
 };
 
 export default function SitesPage() {

@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/sample-request" },
   openGraph: {
     title: "Request Indian Green Coffee Samples | Bulk Green Coffee",
-    description: "Try before you buy - request sample lots from our Indian specialty and commercial coffee range.",
+    description: "Try before you buy: request sample lots from our Indian specialty and commercial coffee range.",
     url: "https://bulkgreencoffee.com/sample-request",
   },
 };
