@@ -1,10 +1,15 @@
 import { NextRequest, NextResponse } from "next/server";
 import { db } from "@/db";
 import { bulkgreencoffee_site } from "@/db/schema";
-
-const CASHFREE_API_URL = "https://api.cashfree.com/pg/links";
-const CASHFREE_CLIENT_ID = process.env.CASHFREE_CLIENT_ID;
-const CASHFREE_CLIENT_SECRET = process.env.CASHFREE_CLIENT_SECRET;
+import {
+  CASHFREE_BASE_URL,
+  CASHFREE_CLIENT_ID,
+  CASHFREE_CLIENT_SECRET,
+  cashfreeHeaders,
+  resolveCashfreeCurrency,
+} from "@/lib/cashfree";
+import { convertPrice, type CurrencyCode } from "@/lib/currency";
+import { fetchExchangeRates } from "@/lib/exchange-rates";
 
 export interface SampleOrderRequest {
   name: string;
@@ -19,6 +24,7 @@ export interface SampleOrderRequest {
   products: string[];       // slugs
   quantityTier: string;     // "100g" | "1kg" | "3kg" | "5kg"
   totalAmount: number;      // INR, already calculated on client
+  currency?: CurrencyCode;  // customer's display currency; ignored for India
 }
 
 export async function POST(request: NextRequest) {
@@ -46,6 +52,27 @@ export async function POST(request: NextRequest) {
 
     const origin = request.headers.get("origin") || "https://bulkgreencoffee.com";
 
+    // Domestic (India) always settles in INR. International orders are charged
+    // in the customer's local currency (Cashfree settles to the merchant in
+    // INR regardless) so the amount on their card statement matches what they
+    // were shown, and so foreign-card declines caused by an INR-only charge
+    // are avoided.
+    const isIndia = country.trim().toLowerCase() === "india";
+    let linkCurrency: CurrencyCode = "INR";
+    let linkAmount = totalAmount;
+
+    if (!isIndia && body.currency && body.currency !== "INR") {
+      linkCurrency = resolveCashfreeCurrency(body.currency);
+      // Convert server-side using our own rate fetch — never trust a
+      // client-supplied converted amount for what gets charged.
+      const rates = await fetchExchangeRates();
+      linkAmount = convertPrice(totalAmount, linkCurrency, rates);
+      if (!linkAmount || linkAmount <= 0) {
+        linkCurrency = "INR";
+        linkAmount = totalAmount;
+      }
+    }
+
     // Save order to database first
     await db.insert(bulkgreencoffee_site).values({
       name,
@@ -62,12 +89,14 @@ export async function POST(request: NextRequest) {
       total_amount:   totalAmount,
       link_id:        linkId,
       payment_status: "pending",
+      currency:       linkCurrency,
+      charged_amount: linkCurrency === "INR" ? null : linkAmount,
     });
 
     const paymentLinkPayload = {
       link_id: linkId,
-      link_amount: totalAmount,
-      link_currency: "INR",
+      link_amount: linkAmount,
+      link_currency: linkCurrency,
       link_purpose: `Bulk Green Coffee — ${quantityTier} sample${products.length > 1 ? "s" : ""} (${products.join(", ")})`,
 
       customer_details: {
@@ -88,14 +117,9 @@ export async function POST(request: NextRequest) {
       link_expiry_time: expiryTime.toISOString(),
     };
 
-    const response = await fetch(CASHFREE_API_URL, {
+    const response = await fetch(`${CASHFREE_BASE_URL}/links`, {
       method: "POST",
-      headers: {
-        "Content-Type":    "application/json",
-        "x-client-id":     CASHFREE_CLIENT_ID,
-        "x-client-secret": CASHFREE_CLIENT_SECRET,
-        "x-api-version":   "2023-08-01",
-      },
+      headers: cashfreeHeaders(),
       body: JSON.stringify(paymentLinkPayload),
     });
 

@@ -6,8 +6,8 @@ export async function GET() {
     const rates = await fetchExchangeRates();
     return NextResponse.json(rates, {
       headers: {
-        // Cache at the CDN/browser for 1 week; serve stale for up to 1 day while revalidating
-        "Cache-Control": "public, s-maxage=604800, stale-while-revalidate=86400",
+        // Cache at the CDN/browser for 1 day; serve stale for up to 1 hour while revalidating
+        "Cache-Control": "public, s-maxage=86400, stale-while-revalidate=3600",
       },
     });
   } catch (err) {

@@ -8,6 +8,8 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Turnstile, useTurnstile } from "@/components/ui/turnstile";
 import type { SampleOrderRequest } from "@/app/api/create-payment/route";
+import { useCurrency } from "@/components/currency-provider";
+import { convertPrice, formatPrice } from "@/lib/currency";
 
 const businessCategories = [
   { id: "roastery",   label: "Roastery" },
@@ -49,6 +51,7 @@ type Props = {
 
 export function CheckoutForm({ products, quantityTier, totalAmount, totalKg, renderSummary, onBack }: Props) {
   const turnstile = useTurnstile();
+  const { currency, rates } = useCurrency();
 
   const [customerType, setCustomerType] = useState<"individual" | "business">("individual");
   const [country,      setCountry]      = useState("");
@@ -97,6 +100,13 @@ export function CheckoutForm({ products, quantityTier, totalAmount, totalKg, ren
   const indiaDeliveryFee = isIndia ? Math.round(totalKg * 50) : 0;
   const finalAmount      = totalAmount + indiaDeliveryFee;
 
+  // International orders are charged in the customer's local currency
+  // (Cashfree still settles to us in INR) so foreign cards aren't declined
+  // over an INR-only charge and the amount matches what's shown here.
+  const payLabel = isIndia
+    ? `Pay ₹${finalAmount} & Order`
+    : `Pay ${formatPrice(convertPrice(finalAmount, currency, rates), currency)} & Order`;
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setTriedSubmit(true);
@@ -118,6 +128,7 @@ export function CheckoutForm({ products, quantityTier, totalAmount, totalKg, ren
       products,
       quantityTier,
       totalAmount: finalAmount,
+      currency: isIndia ? "INR" : currency,
     };
 
     try {
@@ -354,7 +365,7 @@ export function CheckoutForm({ products, quantityTier, totalAmount, totalKg, ren
           className="w-full h-11 rounded-xl active:scale-95"
           disabled={!turnstile.isVerified || isLoading || products.length === 0}
         >
-          {isLoading ? "Processing…" : `Pay ₹${finalAmount} & Order`}
+          {isLoading ? "Processing…" : payLabel}
         </Button>
       </form>
     </div>

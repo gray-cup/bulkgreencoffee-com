@@ -36,7 +36,7 @@ type ExchangeRateApiResponse = {
   conversion_rates: Record<string, number>;
 };
 
-// Cached for 1 week — revalidated on every build and after 7 days
+// Cached for 1 day — revalidated every 24 hours
 export const fetchExchangeRates = unstable_cache(
   async (): Promise<RatesMap> => {
     const apiKey = process.env.EXCHANGERATE_API_KEY;
@@ -49,7 +49,7 @@ export const fetchExchangeRates = unstable_cache(
       // Fetch USD-based rates (one call covers all currencies)
       const res = await fetch(
         `https://v6.exchangerate-api.com/v6/${apiKey}/latest/USD`,
-        { next: { revalidate: 604800 } } // 1 week
+        { next: { revalidate: 86400 } } // 1 day
       );
 
       if (!res.ok) throw new Error(`ExchangeRate API error: ${res.status}`);
@@ -79,5 +79,5 @@ export const fetchExchangeRates = unstable_cache(
     }
   },
   ["exchange-rates-v2"],
-  { revalidate: 604800, tags: ["exchange-rates"] } // 1 week
+  { revalidate: 86400, tags: ["exchange-rates"] } // 1 day
 );
