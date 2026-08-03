@@ -131,7 +131,20 @@ function BuySamplesInner() {
                       : "border-gray-200 hover:border-gray-300 hover:shadow-sm"
                   }`}
                 >
-                  <div className="relative aspect-square bg-gray-50 overflow-hidden">
+                  <div
+                    className="relative aspect-square bg-gray-50 overflow-hidden cursor-pointer"
+                    onClick={() => toggle(product.slug)}
+                    role="button"
+                    tabIndex={0}
+                    aria-pressed={isSelected}
+                    aria-label={isSelected ? `Deselect ${product.name}` : `Select ${product.name}`}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault();
+                        toggle(product.slug);
+                      }
+                    }}
+                  >
                     <Image
                       src={product.image}
                       alt={product.name}
@@ -139,18 +152,14 @@ function BuySamplesInner() {
                       draggable={false}
                       className="object-contain p-4"
                     />
-                    {/* Select — absolute top-right */}
-                    <button
-                      type="button"
-                      onClick={() => toggle(product.slug)}
-                      className={`absolute top-2 right-2 z-10 px-3 py-1 rounded text-xs border border-neutral-400 font-semibold transition-colors cursor-pointer ${
-                        isSelected
-                          ? "bg-teal-600 text-white hover:bg-teal-700"
-                          : "bg-white text-black hover:bg-teal-600 hover:text-white"
+                    {/* Selected badge — visual only; the whole image is clickable */}
+                    <div
+                      className={`absolute top-2 right-2 z-10 px-3 py-1 rounded text-xs border border-neutral-400 font-semibold pointer-events-none ${
+                        isSelected ? "bg-teal-600 text-white" : "bg-white text-black"
                       }`}
                     >
                       {isSelected ? "✓ Selected" : "+ Select"}
-                    </button>
+                    </div>
                   </div>
                   <div className="flex flex-col flex-1 p-4 gap-3">
                     <div className="flex-1">
@@ -165,25 +174,23 @@ function BuySamplesInner() {
                       <p className="text-xs text-muted-foreground">{gridTier.label}</p>
                       <p className="text-base font-semibold text-black">{fmt(price)}</p>
                     </div>
-                    <div className="flex gap-2">
-                      <button
-                        type="button"
-                        onClick={() => toggle(product.slug)}
-                        className={`flex-1 h-9 cursor-pointer rounded-xl text-sm font-medium transition-colors ${
-                          isSelected
-                            ? "bg-teal-600 text-white hover:bg-teal-700"
-                            : "bg-teal-600 text-white hover:bg-teal-700"
-                        }`}
-                      >
-                        {isSelected ? "Remove" : "Add to Cart"}
-                      </button>
-                      <Link
-                        href={`/buy-samples/${product.slug}`}
-                        className="flex-1 h-9 rounded-xl text-sm font-medium border border-gray-200 text-gray-700 hover:border-gray-400 hover:text-black flex items-center justify-center transition-colors"
-                      >
-                        Buy Now
-                      </Link>
-                    </div>
+                    {!isSelected && (
+                      <div className="flex flex-col sm:flex-row gap-2">
+                        <button
+                          type="button"
+                          onClick={() => toggle(product.slug)}
+                          className="sm:flex-1 h-9 cursor-pointer rounded-xl text-sm font-medium transition-colors bg-teal-600 text-white hover:bg-teal-700"
+                        >
+                          Add to Cart
+                        </button>
+                        <Link
+                          href={`/buy-samples/${product.slug}`}
+                          className="sm:flex-1 h-9 rounded-xl text-sm font-medium border border-gray-200 text-gray-700 hover:border-gray-400 hover:text-black flex items-center justify-center transition-colors"
+                        >
+                          Buy Now
+                        </Link>
+                      </div>
+                    )}
                   </div>
                 </div>
               );

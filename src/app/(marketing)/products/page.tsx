@@ -65,7 +65,7 @@ function RegionSection({
         </p>
 
         {/* Filters */}
-        <div className="flex gap-2">
+        <div className="flex flex-wrap gap-2">
           {(["All", "Arabica", "Robusta"] as VarietyFilter[]).map((v) => {
             const disabled =
               (v === "Arabica" && !hasArabica) ||

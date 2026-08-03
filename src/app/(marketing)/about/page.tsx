@@ -109,7 +109,7 @@ export default function AboutPage() {
               A Homo Sapien who loves nature,
               <br /> code and design.
             </p>
-            <div className="flex items-center gap-3">
+            <div className="flex items-center flex-wrap gap-3">
               <Link
                 className="opacity-75 hover:opacity-100 transition-opacity"
                 target="_blank"
