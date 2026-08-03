@@ -58,7 +58,7 @@ export default async function SupplierPage({ params }: Props) {
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
       "@id": `https://bulkgreencoffee.com/${citySlug}-green-coffee-supplier`,
-      name: `Bulk Green Coffee - Supplier in ${data.city}`,
+      name: `Bulk Green Coffee Supplier in ${data.city}`,
       description: `Indian green coffee wholesale supplier serving ${data.city}, ${stateName}.`,
       url: `https://bulkgreencoffee.com/${citySlug}-green-coffee-supplier`,
       telephone: "+918527914317",
@@ -108,7 +108,7 @@ export default async function SupplierPage({ params }: Props) {
           </p>
           <div className="flex flex-wrap gap-3">
             <a href={waLink} target="_blank" rel="noopener noreferrer">
-              <Button variant="teal" size="sm">WhatsApp - +91 85279 14317</Button>
+              <Button variant="teal" size="sm">WhatsApp: +91 85279 14317</Button>
             </a>
             <Link href="/products">
               <Button variant="lightgraybg" size="sm">Browse Products</Button>
@@ -198,14 +198,14 @@ export default async function SupplierPage({ params }: Props) {
         {/* FAQ */}
         <div className="mb-12">
           <h2 className="text-lg font-semibold text-black mb-6">
-            FAQ - Green Coffee Suppliers in {data.city}
+            FAQ: Green Coffee Suppliers in {data.city}
           </h2>
           <div className="space-y-4">
             {[
               ...data.faqs,
               {
                 question: `What makes Bulk Green Coffee a reliable green coffee supplier in ${data.city}?`,
-                answer: `We supply directly from origin - no commodity intermediaries - with full documentation including GST invoice, quality sheet, and origin certificate. MOQ starts at ${data.moq}, making us accessible to both small roasters and large-scale buyers in ${data.city}.`,
+                answer: `We supply directly from origin, cutting out commodity intermediaries, with full documentation including GST invoice, quality sheet, and origin certificate. MOQ starts at ${data.moq}, making us accessible to both small roasters and large-scale buyers in ${data.city}.`,
               },
             ].map((faq, i) => (
               <div key={i} className="p-5 border rounded-lg">
@@ -245,7 +245,7 @@ export default async function SupplierPage({ params }: Props) {
           </p>
           <div className="flex flex-wrap gap-3">
             <a href={waLink} target="_blank" rel="noopener noreferrer">
-              <Button variant="teal" size="sm">WhatsApp - +91 85279 14317</Button>
+              <Button variant="teal" size="sm">WhatsApp: +91 85279 14317</Button>
             </a>
             <Link href="/contact">
               <Button variant="lightgraybg" size="sm">Contact Form</Button>

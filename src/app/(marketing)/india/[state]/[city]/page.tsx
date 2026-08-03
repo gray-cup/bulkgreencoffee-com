@@ -116,7 +116,7 @@ export default async function CityPage({ params }: Props) {
           </p>
           <div className="flex flex-wrap gap-3">
             <a href={waLink} target="_blank" rel="noopener noreferrer">
-              <Button variant="teal" size="sm">WhatsApp - +91 85279 14317</Button>
+              <Button variant="teal" size="sm">WhatsApp: +91 85279 14317</Button>
             </a>
             <Link href="/products">
               <Button variant="lightgraybg" size="sm">Browse Products</Button>
@@ -226,7 +226,7 @@ export default async function CityPage({ params }: Props) {
         {/* FAQ */}
         <div className="mb-12">
           <h2 className="text-lg font-semibold text-black mb-6">
-            FAQs - Green Coffee in {data.city}
+            FAQs: Green Coffee in {data.city}
           </h2>
           <div className="space-y-4">
             {data.faqs.map((faq, i) => (
@@ -270,7 +270,7 @@ export default async function CityPage({ params }: Props) {
           </p>
           <div className="flex flex-wrap gap-3">
             <a href={waLink} target="_blank" rel="noopener noreferrer">
-              <Button variant="teal" size="sm">WhatsApp - +91 85279 14317</Button>
+              <Button variant="teal" size="sm">WhatsApp: +91 85279 14317</Button>
             </a>
             <Link href="/contact">
               <Button variant="lightgraybg" size="sm">Contact Form</Button>

@@ -33,7 +33,7 @@ export default function TermsAndConditions() {
 
         <section>
           <h2 className="text-lg font-semibold text-black mb-3">2. Products & Services</h2>
-          <p className="mb-4">We offer the following green coffee products. All prices are in Indian Rupees (INR) per kilogram and represent the minimum ex-warehouse price - final pricing depends on grade, lot size, and destination:</p>
+          <p className="mb-4">We offer the following green coffee products. All prices are in Indian Rupees (INR) per kilogram and represent the minimum ex-warehouse price; final pricing depends on grade, lot size, and destination:</p>
           <div className="overflow-x-auto">
             <table className="w-full text-sm border border-gray-200 rounded-lg overflow-hidden">
               <thead className="bg-gray-50">
@@ -114,7 +114,7 @@ export default function TermsAndConditions() {
         <section>
           <h2 className="text-lg font-semibold text-black mb-3">7. Intellectual Property</h2>
           <p>
-            All content on this website - including product descriptions, images, and copy - is the property of
+            All content on this website, including product descriptions, images, and copy, is the property of
             Gray Cup Enterprises. You may not reproduce or redistribute any content without written permission.
           </p>
         </section>

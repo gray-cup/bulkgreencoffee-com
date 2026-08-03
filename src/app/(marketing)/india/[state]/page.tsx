@@ -81,7 +81,7 @@ export default async function StatePage({ params }: Props) {
           </p>
           <div className="flex flex-wrap gap-3">
             <a href={waLink} target="_blank" rel="noopener noreferrer">
-              <Button variant="teal" size="sm">WhatsApp - +91 85279 14317</Button>
+              <Button variant="teal" size="sm">WhatsApp: +91 85279 14317</Button>
             </a>
             <Link href="/products">
               <Button variant="lightgraybg" size="sm">Browse Products</Button>
@@ -170,7 +170,7 @@ export default async function StatePage({ params }: Props) {
           </p>
           <div className="flex flex-wrap gap-3">
             <a href={waLink} target="_blank" rel="noopener noreferrer">
-              <Button variant="teal" size="sm">WhatsApp - +91 85279 14317</Button>
+              <Button variant="teal" size="sm">WhatsApp: +91 85279 14317</Button>
             </a>
             <Link href="/contact">
               <Button variant="lightgraybg" size="sm">Contact Form</Button>

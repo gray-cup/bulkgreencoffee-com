@@ -17,7 +17,7 @@ export default function SitesPage() {
         <h1 className="text-4xl font-bold text-gray-900">Our Sites</h1>
         <p className="mt-4 max-w-3xl text-lg text-gray-600">
           Bulk Green Coffee operates a group of informational websites focused on
-          different aspects of tea - from bulk chai usage to CTC grading and
+          different aspects of tea, from bulk chai usage to CTC grading and
           loose-leaf tea education. All sites listed below are owned and
           operated by Bulk Green Coffee.
         </p>

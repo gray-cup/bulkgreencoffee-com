@@ -43,10 +43,10 @@ export async function generateMetadata({
   const seoDescription = `Buy ${product.name} in bulk from Bulk Green Coffee. ${product.description} Price: ₹${product.priceRange.min}-₹${product.priceRange.max} ${product.priceRange.unit}. MOQ: ${product.minimumOrder.quantity} ${product.minimumOrder.unit}.`;
 
   return {
-    title: `${product.name} | Wholesale ${product.category} Supplier India - Bulk Green Coffee`,
+    title: `${product.name} | Wholesale ${product.category} Supplier India | Bulk Green Coffee`,
     description: seoDescription,
     openGraph: {
-      title: `${product.name} | Wholesale ${product.category} - Bulk Green Coffee`,
+      title: `${product.name} | Wholesale ${product.category} | Bulk Green Coffee`,
       description: seoDescription,
       url: productUrl,
       siteName: "Bulk Green Coffee",
@@ -55,7 +55,7 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title: `${product.name} | Wholesale ${product.category} - Bulk Green Coffee`,
+      title: `${product.name} | Wholesale ${product.category} | Bulk Green Coffee`,
       description: seoDescription,
     },
     alternates: {

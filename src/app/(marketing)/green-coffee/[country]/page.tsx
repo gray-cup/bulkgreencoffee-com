@@ -191,7 +191,7 @@ export default async function CountryPage({ params }: Props) {
         {dest.faqs.length > 0 && (
           <div className="mb-12">
             <h2 className="text-lg font-semibold text-black mb-6">
-              FAQs - Indian Green Coffee for {dest.name}
+              FAQs: Indian Green Coffee for {dest.name}
             </h2>
             <div className="space-y-4">
               {dest.faqs.map((faq, i) => (
@@ -214,7 +214,7 @@ export default async function CountryPage({ params }: Props) {
           </p>
           <div className="flex flex-wrap gap-3">
             <a href={waLink} target="_blank" rel="noopener noreferrer">
-              <Button variant="teal" size="sm">WhatsApp - +91 85279 14317</Button>
+              <Button variant="teal" size="sm">WhatsApp: +91 85279 14317</Button>
             </a>
             <Link href="/contact">
               <Button variant="lightgraybg" size="sm">Contact Form</Button>
