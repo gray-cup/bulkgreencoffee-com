@@ -42,11 +42,12 @@ type Props = {
   products: string[];
   quantityTier: string;
   totalAmount: number;
+  totalKg: number;
   renderSummary?: () => React.ReactNode;
   onBack?: () => void;
 };
 
-export function CheckoutForm({ products, quantityTier, totalAmount, renderSummary, onBack }: Props) {
+export function CheckoutForm({ products, quantityTier, totalAmount, totalKg, renderSummary, onBack }: Props) {
   const turnstile = useTurnstile();
 
   const [customerType, setCustomerType] = useState<"individual" | "business">("individual");
@@ -89,10 +90,12 @@ export function CheckoutForm({ products, quantityTier, totalAmount, renderSummar
       .catch(() => {});
   }, []);
 
-  const isIndia        = country.trim().toLowerCase() === "india";
-  const isBusiness     = customerType === "business";
-  const taxLabel       = isIndia ? "GST Number" : "Tax ID";
-  const taxPlaceholder = isIndia ? "22AAAAA0000A1Z5" : "VAT / Tax registration number";
+  const isIndia          = country.trim().toLowerCase() === "india";
+  const isBusiness       = customerType === "business";
+  const taxLabel         = isIndia ? "GST Number" : "Tax ID";
+  const taxPlaceholder   = isIndia ? "22AAAAA0000A1Z5" : "VAT / Tax registration number";
+  const indiaDeliveryFee = isIndia ? Math.round(totalKg * 100) : 0;
+  const finalAmount      = totalAmount + indiaDeliveryFee;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -114,7 +117,7 @@ export function CheckoutForm({ products, quantityTier, totalAmount, renderSummar
       businessType: businessType || undefined,
       products,
       quantityTier,
-      totalAmount,
+      totalAmount: finalAmount,
     };
 
     try {
@@ -320,6 +323,13 @@ export function CheckoutForm({ products, quantityTier, totalAmount, renderSummar
           </>
         )}
 
+        {indiaDeliveryFee > 0 && (
+          <div className="flex justify-between text-sm text-gray-700 bg-gray-50 border border-gray-200 rounded-lg px-3 py-2">
+            <span>India delivery (₹100/kg)</span>
+            <span className="font-medium">₹{indiaDeliveryFee}</span>
+          </div>
+        )}
+
         <Turnstile
           onVerify={turnstile.handleVerify}
           onError={turnstile.handleError}
@@ -344,7 +354,7 @@ export function CheckoutForm({ products, quantityTier, totalAmount, renderSummar
           className="w-full h-11 rounded-xl active:scale-95"
           disabled={!turnstile.isVerified || isLoading || products.length === 0}
         >
-          {isLoading ? "Processing…" : `Pay ₹${totalAmount} & Order`}
+          {isLoading ? "Processing…" : `Pay ₹${finalAmount} & Order`}
         </Button>
       </form>
     </div>

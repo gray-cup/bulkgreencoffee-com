@@ -116,6 +116,7 @@ function CheckoutPageInner() {
     (sum, { product, tierData }) => sum + calcPrice(product.priceRange.min, tierData.grams, tierData.delivery),
     0,
   );
+  const orderTotalKg = selectedProducts.reduce((sum, { tierData }) => sum + tierData.grams / 1000, 0);
 
   const { currency, rates } = useCurrency();
   const fmt = (inr: number) => formatPrice(convertPrice(inr, currency, rates), currency);
@@ -143,6 +144,7 @@ function CheckoutPageInner() {
             products={selectedSlugs}
             quantityTier={quantityTier}
             totalAmount={orderTotal}
+            totalKg={orderTotalKg}
             onBack={() => router.push("/buy-samples")}
           />
 

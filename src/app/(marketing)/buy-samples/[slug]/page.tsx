@@ -132,6 +132,7 @@ export default function BuySampleSlugPage() {
               products={[product.slug]}
               quantityTier={activeTier}
               totalAmount={total}
+              totalKg={tier.grams / 1000}
             />
           </div>
         </div>
