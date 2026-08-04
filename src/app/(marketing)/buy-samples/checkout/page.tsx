@@ -8,22 +8,9 @@ import { products } from "@/data/products";
 import { CheckoutForm } from "@/components/buy-samples/CheckoutForm";
 import { useCurrency } from "@/components/currency-provider";
 import { formatPrice, convertPrice } from "@/lib/currency";
+import { TIERS, calcPrice, deliveryFeeForGrams, type TierLabel } from "@/lib/pricing";
 
-const TIERS = [
-  { label: "100g", grams: 100,   delivery: 50  },
-  { label: "1kg",  grams: 1000,  delivery: 150 },
-  { label: "3kg",  grams: 3000,  delivery: 150 },
-  { label: "5kg",  grams: 5000,  delivery: 150 },
-  { label: "10kg", grams: 10000, delivery: 300 },
-  { label: "20kg", grams: 20000, delivery: 500 },
-] as const;
-
-type TierLabel = (typeof TIERS)[number]["label"];
 type SelectedItem = { slug: string; tier: TierLabel };
-
-function calcPrice(pricePerKg: number, grams: number, delivery: number) {
-  return Math.round((pricePerKg * grams) / 1000) + delivery;
-}
 
 function AddProductCard({
   product,
@@ -37,7 +24,7 @@ function AddProductCard({
   const [tier, setTier] = useState<TierLabel>(defaultTier);
   const { currency, rates } = useCurrency();
   const tierData = TIERS.find((t) => t.label === tier)!;
-  const priceINR = calcPrice(product.priceRange.min, tierData.grams, tierData.delivery);
+  const priceINR = calcPrice(product.priceRange.min, tierData.grams);
   const fmt = (inr: number) => formatPrice(convertPrice(inr, currency, rates), currency);
 
   return (
@@ -113,10 +100,13 @@ function CheckoutPageInner() {
 
   const unselectedProducts = products.filter((p) => !selectedSlugs.includes(p.slug));
 
-  const orderTotal = selectedProducts.reduce(
-    (sum, { product, tierData }) => sum + calcPrice(product.priceRange.min, tierData.grams, tierData.delivery),
+  const orderSubtotal = selectedProducts.reduce(
+    (sum, { product, tierData }) => sum + calcPrice(product.priceRange.min, tierData.grams),
     0,
   );
+  const orderGrams = selectedProducts.reduce((sum, { tierData }) => sum + tierData.grams, 0);
+  const orderDeliveryFee = deliveryFeeForGrams(orderGrams);
+  const orderTotal = orderSubtotal + orderDeliveryFee;
 
   const { currency, rates } = useCurrency();
   const fmt = (inr: number) => formatPrice(convertPrice(inr, currency, rates), currency);
@@ -145,7 +135,7 @@ function CheckoutPageInner() {
           {/* Right: order summary */}
           <div className="rounded-2xl border border-gray-200 sticky top-8 max-h-[80vh] overflow-y-auto">
             {selectedProducts.map(({ product, tier: itemTier, tierData }, i) => {
-              const price = calcPrice(product.priceRange.min, tierData.grams, tierData.delivery);
+              const price = calcPrice(product.priceRange.min, tierData.grams);
               return (
                 <div
                   key={`${product.slug}-${itemTier}`}
@@ -198,10 +188,20 @@ function CheckoutPageInner() {
             })}
 
             {selectedProducts.length > 0 && (
-              <div className="flex justify-between px-4 py-3 border-t border-gray-200 bg-gray-50">
-                <p className="text-sm font-semibold text-black">Total</p>
-                <p className="text-sm font-semibold text-black">{fmt(orderTotal)}</p>
-              </div>
+              <>
+                <div className="flex justify-between px-4 py-2 border-t border-gray-200 bg-gray-50 text-xs text-muted-foreground">
+                  <p>Subtotal</p>
+                  <p>{fmt(orderSubtotal)}</p>
+                </div>
+                <div className="flex justify-between px-4 py-2 bg-gray-50 text-xs text-muted-foreground">
+                  <p>Delivery</p>
+                  <p>{fmt(orderDeliveryFee)}</p>
+                </div>
+                <div className="flex justify-between px-4 py-3 bg-gray-50">
+                  <p className="text-sm font-semibold text-black">Total</p>
+                  <p className="text-sm font-semibold text-black">{fmt(orderTotal)}</p>
+                </div>
+              </>
             )}
           </div>
         </div>

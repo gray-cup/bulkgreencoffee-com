@@ -54,7 +54,7 @@ export async function POST(request: NextRequest) {
     // the request body. computeOrderTotal throws if any slug/tier is invalid.
     let totalAmount: number;
     try {
-      totalAmount = computeOrderTotal(items, isIndia);
+      totalAmount = computeOrderTotal(items);
     } catch (err) {
       return NextResponse.json(
         { error: err instanceof Error ? err.message : "Invalid order items" },

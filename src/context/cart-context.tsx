@@ -1,17 +1,12 @@
 "use client";
 
 import React, { createContext, useContext, useState, useEffect, useCallback } from "react";
+import { TIERS, type TierLabel as PricingTierLabel } from "@/lib/pricing";
 
-export const CART_TIERS = [
-  { label: "100g", grams: 100,   delivery: 50  },
-  { label: "1kg",  grams: 1000,  delivery: 150 },
-  { label: "3kg",  grams: 3000,  delivery: 150 },
-  { label: "5kg",  grams: 5000,  delivery: 150 },
-  { label: "10kg", grams: 10000, delivery: 300 },
-  { label: "20kg", grams: 20000, delivery: 500 },
-] as const;
-
-export type TierLabel = (typeof CART_TIERS)[number]["label"];
+// Single source of truth for tier/weight labels lives in lib/pricing.ts -
+// re-exported here under the historical name so existing imports keep working.
+export const CART_TIERS = TIERS;
+export type TierLabel = PricingTierLabel;
 export type CartItem = { slug: string; tier: TierLabel };
 
 type CartCtx = {

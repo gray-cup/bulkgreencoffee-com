@@ -10,10 +10,7 @@ import { useCart, CART_TIERS, type TierLabel } from "@/context/cart-context";
 import { useCurrency } from "@/components/currency-provider";
 import { formatPrice, convertPrice } from "@/lib/currency";
 import { Button } from "@/components/ui/button";
-
-function calcPrice(pricePerKg: number, grams: number, delivery: number) {
-  return Math.round((pricePerKg * grams) / 1000) + delivery;
-}
+import { calcPrice, deliveryFeeForGrams } from "@/lib/pricing";
 
 export default function CartPage() {
   const { items, remove, updateTier, clear, count } = useCart();
@@ -33,11 +30,13 @@ export default function CartPage() {
     tierData: (typeof CART_TIERS)[number];
   }[];
 
-  const total = cartProducts.reduce(
-    (sum, { product, tierData }) =>
-      sum + calcPrice(product.priceRange.min, tierData.grams, tierData.delivery),
+  const subtotal = cartProducts.reduce(
+    (sum, { product, tierData }) => sum + calcPrice(product.priceRange.min, tierData.grams),
     0
   );
+  const totalGrams = cartProducts.reduce((sum, { tierData }) => sum + tierData.grams, 0);
+  const deliveryFee = deliveryFeeForGrams(totalGrams);
+  const total = subtotal + deliveryFee;
 
   return (
     <div className="min-h-screen py-16">
@@ -73,11 +72,7 @@ export default function CartPage() {
           <>
             <div className="divide-y divide-gray-100 border border-gray-200 rounded-2xl overflow-hidden">
               {cartProducts.map(({ product, tier, tierData }) => {
-                const price = calcPrice(
-                  product.priceRange.min,
-                  tierData.grams,
-                  tierData.delivery
-                );
+                const price = calcPrice(product.priceRange.min, tierData.grams);
                 return (
                   <div key={`${product.slug}-${tier}`} className="flex items-start gap-4 px-4 py-4 bg-white">
                     <Link href={`/products/${product.slug}`} className="shrink-0">
@@ -135,6 +130,14 @@ export default function CartPage() {
                 );
               })}
 
+              <div className="flex justify-between items-center px-4 py-2 bg-gray-50 text-sm text-muted-foreground">
+                <p>Subtotal</p>
+                <p>{fmt(subtotal)}</p>
+              </div>
+              <div className="flex justify-between items-center px-4 py-2 bg-gray-50 text-sm text-muted-foreground">
+                <p>Delivery</p>
+                <p>{fmt(deliveryFee)}</p>
+              </div>
               <div className="flex justify-between items-center px-4 py-3 bg-gray-50">
                 <p className="text-sm font-semibold text-black">Total</p>
                 <p className="text-base font-semibold text-black">{fmt(total)}</p>

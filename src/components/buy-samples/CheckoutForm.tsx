@@ -10,7 +10,7 @@ import { Turnstile, useTurnstile } from "@/components/ui/turnstile";
 import type { SampleOrderRequest } from "@/app/api/create-payment/route";
 import { useCurrency } from "@/components/currency-provider";
 import { convertPrice, formatPrice } from "@/lib/currency";
-import { priceForItem, gramsForTier, indiaDeliveryFee as calcIndiaDeliveryFee, type OrderItem } from "@/lib/pricing";
+import { priceForItem, gramsForTier, deliveryFeeForGrams, type OrderItem } from "@/lib/pricing";
 
 const businessCategories = [
   { id: "roastery",   label: "Roastery" },
@@ -101,8 +101,8 @@ export function CheckoutForm({ items, renderSummary, onBack }: Props) {
   // actually charged.
   const totalAmount      = items.reduce((sum, item) => sum + (priceForItem(item) ?? 0), 0);
   const totalGrams       = items.reduce((sum, item) => sum + gramsForTier(item.tier), 0);
-  const indiaDeliveryFee = isIndia ? calcIndiaDeliveryFee(totalGrams) : 0;
-  const finalAmount      = totalAmount + indiaDeliveryFee;
+  const deliveryFee      = deliveryFeeForGrams(totalGrams);
+  const finalAmount      = totalAmount + deliveryFee;
 
   // International orders are charged in the customer's local currency
   // (Cashfree still settles to us in INR) so foreign cards aren't declined
@@ -336,10 +336,10 @@ export function CheckoutForm({ items, renderSummary, onBack }: Props) {
           </>
         )}
 
-        {indiaDeliveryFee > 0 && (
+        {deliveryFee > 0 && (
           <div className="flex justify-between text-sm text-gray-700 bg-gray-50 border border-gray-200 rounded-lg px-3 py-2">
-            <span>India delivery (₹50/kg)</span>
-            <span className="font-medium">₹{indiaDeliveryFee}</span>
+            <span>Delivery</span>
+            <span className="font-medium">₹{deliveryFee}</span>
           </div>
         )}
 

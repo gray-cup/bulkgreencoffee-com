@@ -8,21 +8,7 @@ import { notFound, useParams } from "next/navigation";
 import { getProductBySlug } from "@/data/products";
 import { Badge } from "@/components/ui/badge";
 import { CheckoutForm } from "@/components/buy-samples/CheckoutForm";
-
-const TIERS = [
-  { label: "100g", grams: 100,   delivery: 50  },
-  { label: "1kg",  grams: 1000,  delivery: 150 },
-  { label: "3kg",  grams: 3000,  delivery: 150 },
-  { label: "5kg",  grams: 5000,  delivery: 150 },
-  { label: "10kg", grams: 10000, delivery: 300 },
-  { label: "20kg", grams: 20000, delivery: 500 },
-] as const;
-
-type TierLabel = (typeof TIERS)[number]["label"];
-
-function calcPrice(pricePerKg: number, grams: number, delivery: number) {
-  return Math.round((pricePerKg * grams) / 1000) + delivery;
-}
+import { TIERS, calcPrice, deliveryFeeForGrams, type TierLabel } from "@/lib/pricing";
 
 export default function BuySampleSlugPage() {
   const { slug }  = useParams<{ slug: string }>();
@@ -30,8 +16,10 @@ export default function BuySampleSlugPage() {
   if (!product) notFound();
 
   const [activeTier, setActiveTier] = useState<TierLabel>("100g");
-  const tier  = TIERS.find((t) => t.label === activeTier)!;
-  const total = calcPrice(product.priceRange.min, tier.grams, tier.delivery);
+  const tier         = TIERS.find((t) => t.label === activeTier)!;
+  const itemPrice    = calcPrice(product.priceRange.min, tier.grams);
+  const deliveryFee  = deliveryFeeForGrams(tier.grams);
+  const total        = itemPrice + deliveryFee;
 
   return (
     <div className="min-h-screen py-12">
@@ -113,12 +101,12 @@ export default function BuySampleSlugPage() {
             <div className="rounded-xl border border-gray-200 bg-gray-50 p-4 space-y-2 text-sm">
               <div className="flex justify-between text-gray-700">
                 <span>{tier.label} of {product.name}</span>
-                <span>₹{calcPrice(product.priceRange.min, tier.grams, 0)}</span>
+                <span>₹{itemPrice}</span>
               </div>
-              {tier.delivery > 0 && (
+              {deliveryFee > 0 && (
                 <div className="flex justify-between text-gray-700">
                   <span>Delivery</span>
-                  <span>₹{tier.delivery}</span>
+                  <span>₹{deliveryFee}</span>
                 </div>
               )}
               <div className="flex justify-between font-semibold text-black border-t border-gray-200 pt-2">
