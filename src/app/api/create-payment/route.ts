@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { eq } from "drizzle-orm";
 import { db } from "@/db";
 import { bulkgreencoffee_site } from "@/db/schema";
 import {
@@ -164,6 +165,12 @@ export async function POST(request: NextRequest) {
         { error: data.message || "Failed to create payment link" },
         { status: response.status },
       );
+    }
+
+    if (data.cf_link_id) {
+      await db.update(bulkgreencoffee_site)
+        .set({ cf_link_id: String(data.cf_link_id) })
+        .where(eq(bulkgreencoffee_site.link_id, linkId));
     }
 
     return NextResponse.json({

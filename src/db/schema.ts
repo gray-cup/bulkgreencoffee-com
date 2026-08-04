@@ -23,6 +23,7 @@ export const bulkgreencoffee_site = pgTable("bulkgreencoffee_site", {
 
   // cashfree
   link_id:        text("link_id").notNull(),
+  cf_link_id:     text("cf_link_id"),   // Cashfree's own numeric link id, set after link creation - needed to look the link up directly in the Cashfree dashboard
   payment_status: text("payment_status").notNull().default("pending"),
   currency:       text("currency").notNull().default("INR"),        // currency actually charged via Cashfree (INR for domestic, local currency for international)
   charged_amount: doublePrecision("charged_amount"),                 // amount in `currency` sent to Cashfree; null means it equals total_amount (INR)
