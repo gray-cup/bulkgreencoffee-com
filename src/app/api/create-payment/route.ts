@@ -10,7 +10,8 @@ import {
 } from "@/lib/cashfree";
 import { convertPrice, type CurrencyCode } from "@/lib/currency";
 import { fetchExchangeRates } from "@/lib/exchange-rates";
-import { computeOrderTotal, dominantTier, type OrderItem } from "@/lib/pricing";
+import { computeOrderTotal, dominantTier, priceForItem, gramsForTier, type OrderItem } from "@/lib/pricing";
+import { getProductBySlug } from "@/data/products";
 
 export interface SampleOrderRequest {
   name: string;
@@ -63,6 +64,21 @@ export async function POST(request: NextRequest) {
     const quantityTier = dominantTier(items);
     const productSlugs = items.map((i) => i.slug);
 
+    // Per-item breakdown (name/image/price/weight) for the orders-graycup admin
+    // dashboard - the order row only stores the aggregate total, so this is the
+    // only place the "how much per item" detail is ever persisted.
+    const itemsDetail = items.map((item) => {
+      const product = getProductBySlug(item.slug);
+      return {
+        slug: item.slug,
+        name: product?.name ?? item.slug,
+        image: product ? `https://bulkgreencoffee.com${product.image}` : null,
+        tier: item.tier,
+        grams: gramsForTier(item.tier),
+        price: priceForItem(item) ?? 0,
+      };
+    });
+
     const linkId = `bgc_${Date.now()}_${Math.random().toString(36).substring(2, 8)}`;
     const expiryTime = new Date();
     expiryTime.setMinutes(expiryTime.getMinutes() + 30);
@@ -102,6 +118,7 @@ export async function POST(request: NextRequest) {
       business_type:  businessType || null,
       products:       JSON.stringify(productSlugs),
       quantity_tier:  quantityTier,
+      items_detail:   JSON.stringify(itemsDetail),
       total_amount:   totalAmount,
       link_id:        linkId,
       payment_status: "pending",

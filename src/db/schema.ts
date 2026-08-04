@@ -19,6 +19,7 @@ export const bulkgreencoffee_site = pgTable("bulkgreencoffee_site", {
   products:       text("products").notNull(),   // JSON array of slugs
   quantity_tier:  text("quantity_tier").notNull(),
   total_amount:   integer("total_amount").notNull(),
+  items_detail:   text("items_detail"),          // JSON array of {slug,name,image,tier,grams,price} - per-item breakdown for the admin dashboard
 
   // cashfree
   link_id:        text("link_id").notNull(),
