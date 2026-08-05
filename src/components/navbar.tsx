@@ -14,7 +14,7 @@ export function Navbar() {
 
   return (
     <>
-      <header className="w-full bg-teal-800">
+      <header className="sticky top-0 z-40 w-full bg-teal-800">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-3 sm:px-4 lg:px-6">
           {/* LEFT */}
           <div className="flex items-center gap-2 md:gap-6 min-w-0">
