@@ -36,6 +36,23 @@ export function ProductSchema({
           worstRating: 1,
         }
       : undefined;
+  const review =
+    ratedReviews.length > 0
+      ? ratedReviews.map((r) => ({
+          "@type": "Review",
+          author: {
+            "@type": "Person",
+            name: r.author,
+          },
+          reviewBody: r.text,
+          reviewRating: {
+            "@type": "Rating",
+            ratingValue: r.rating,
+            bestRating: 5,
+            worstRating: 1,
+          },
+        }))
+      : undefined;
 
   const schema = {
     "@context": "https://schema.org",
@@ -53,6 +70,7 @@ export function ProductSchema({
     },
     category: product.googleProductCategory,
     ...(aggregateRating && { aggregateRating }),
+    ...(review && { review }),
     offers: {
       "@type": "AggregateOffer",
       priceCurrency: "INR",
