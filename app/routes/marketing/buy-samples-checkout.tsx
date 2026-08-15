@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useState, Suspense } from "react";
-import Image from "next/image";
-import { useRouter } from "next/navigation";
+import Image from "@/components/Image";
+import { useRouter } from "@/lib/next-nav-compat";
 import { X } from "lucide-react";
 import { products } from "@/data/products";
 import { CheckoutForm } from "@/components/buy-samples/CheckoutForm";

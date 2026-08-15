@@ -1,7 +1,7 @@
 "use client";
 
 import { Image } from "@/components/Image";
-import Link from "next/link";
+import Link from "@/lib/next-link-compat";
 import { useCurrency } from "@/components/currency-provider";
 import { CURRENCIES } from "@/lib/currency";
 import type { Product } from "@/data/products";

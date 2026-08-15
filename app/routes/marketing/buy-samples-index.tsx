@@ -1,9 +1,9 @@
 "use client";
 
 import React, { useState, Suspense } from "react";
-import { useSearchParams, useRouter } from "next/navigation";
-import Image from "next/image";
-import Link from "next/link";
+import { useSearchParams, useRouter } from "@/lib/next-nav-compat";
+import Image from "@/components/Image";
+import Link from "@/lib/next-link-compat";
 import { Check, Plus, X } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Button } from "@/components/ui/button";

@@ -1,4 +1,3 @@
-import { unstable_cache } from "next/cache";
 import type { CurrencyCode } from "./currency";
 
 export type RatesMap = Partial<Record<CurrencyCode, number>> & { INR: 1 };
@@ -13,15 +12,14 @@ const FALLBACK_RATES: RatesMap = {
   MDL: 0.21,   UAH: 0.49,   SAR: 0.0447, QAR: 0.0433, KWD: 0.0037,
   BHD: 0.00449,OMR: 0.00458,JOD: 0.0084, ILS: 0.044,  LBP: 106.5,
   IQD: 15.6,   IRR: 500,    SYP: 154,    YER: 2.96,   JPY: 1.81,
-  CNY: 0.086,  HKD: 0.093,  MOP: 0.096,  TWD: 0.390,  KPW: 10.71,
-  MNT: 41.0,   KZT: 6.18,   KGS: 1.21,   TJS: 0.130,  TMT: 0.042,
-  UZS: 152.0,  AFN: 0.845,  BDT: 1.31,   BTN: 1.0,    MVR: 0.184,
-  NPR: 1.60,   PKR: 3.33,   LKR: 3.55,   AUD: 0.0188, CAD: 0.016,
-  SGD: 0.016,  RUB: 1.07,   TRY: 0.41,   AMD: 4.78,   AZN: 0.020,
+  CNY: 0.086,  HKD: 0.093,  MOP: 0.096,  TWD: 0.38,   KPW: 10.7,
+  MNT: 40.5,   KZT: 5.7,    KGS: 1.03,   TJS: 0.13,   TMT: 0.042,
+  UZS: 152.0,  AFN: 0.85,   BDT: 1.42,   BTN: 1.0,    MVR: 0.18,
+  NPR: 1.6,    PKR: 3.32,   LKR: 3.52,   AUD: 0.0185, CAD: 0.0169,
+  SGD: 0.0161, RUB: 1.15,   TRY: 0.41,   AMD: 4.62,   AZN: 0.020,
   GEL: 0.032,
 };
 
-// All exchange-rate API codes we want to fetch (must match CurrencyCode names)
 const CURRENCY_CODES: CurrencyCode[] = [
   "USD","EUR","GBP","AED","KRW","CHF","NOK","SEK","DKK","PLN","CZK","HUF",
   "RON","BGN","ISK","ALL","BYN","BAM","MKD","RSD","MDL","UAH","SAR","QAR",
@@ -36,48 +34,48 @@ type ExchangeRateApiResponse = {
   conversion_rates: Record<string, number>;
 };
 
-// Cached for 1 day - revalidated every 24 hours
-export const fetchExchangeRates = unstable_cache(
-  async (): Promise<RatesMap> => {
-    const apiKey = process.env.EXCHANGERATE_API_KEY;
-    if (!apiKey) {
-      console.warn("EXCHANGERATE_API_KEY not set, using fallback rates");
-      return FALLBACK_RATES;
-    }
+let cachedRates: RatesMap | null = null;
+let lastFetchTime = 0;
+const CACHE_TTL_MS = 24 * 60 * 60 * 1000; // 24 hours
 
-    try {
-      // Fetch USD-based rates (one call covers all currencies)
-      const res = await fetch(
-        `https://v6.exchangerate-api.com/v6/${apiKey}/latest/USD`,
-        { next: { revalidate: 86400 } } // 1 day
-      );
+export async function fetchExchangeRates(): Promise<RatesMap> {
+  const now = Date.now();
+  if (cachedRates && now - lastFetchTime < CACHE_TTL_MS) {
+    return cachedRates;
+  }
 
-      if (!res.ok) throw new Error(`ExchangeRate API error: ${res.status}`);
+  const apiKey = process.env.EXCHANGERATE_API_KEY;
+  if (!apiKey) {
+    console.warn("EXCHANGERATE_API_KEY not set, using fallback rates");
+    return FALLBACK_RATES;
+  }
 
-      const data: ExchangeRateApiResponse = await res.json();
-      if (data.result !== "success") throw new Error("ExchangeRate API returned non-success");
+  try {
+    const res = await fetch(`https://v6.exchangerate-api.com/v6/${apiKey}/latest/USD`);
+    if (!res.ok) throw new Error(`ExchangeRate API error: ${res.status}`);
 
-      const r = data.conversion_rates;
-      const inrToUsd = 1 / (r["INR"] ?? 84);
+    const data: ExchangeRateApiResponse = (await res.json()) as any;
+    if (data.result !== "success") throw new Error("ExchangeRate API returned non-success");
 
-      const rates: RatesMap = { INR: 1 };
-      for (const code of CURRENCY_CODES) {
-        if (code === "INR") continue;
-        const apiRate = r[code];
-        if (apiRate !== undefined) {
-          rates[code] = inrToUsd * apiRate;
-        } else {
-          // Fall back to static rate for currencies not in the API response
-          rates[code] = FALLBACK_RATES[code];
-        }
+    const r = data.conversion_rates;
+    const inrToUsd = 1 / (r["INR"] ?? 84);
+
+    const rates: RatesMap = { INR: 1 };
+    for (const code of CURRENCY_CODES) {
+      if (code === "INR") continue;
+      const apiRate = r[code];
+      if (apiRate !== undefined) {
+        rates[code] = inrToUsd * apiRate;
+      } else {
+        rates[code] = FALLBACK_RATES[code];
       }
-
-      return rates;
-    } catch (err) {
-      console.error("Failed to fetch exchange rates, using fallback:", err);
-      return FALLBACK_RATES;
     }
-  },
-  ["exchange-rates-v2"],
-  { revalidate: 86400, tags: ["exchange-rates"] } // 1 day
-);
+
+    cachedRates = rates;
+    lastFetchTime = now;
+    return rates;
+  } catch (err) {
+    console.error("Failed to fetch exchange rates, using fallback:", err);
+    return FALLBACK_RATES;
+  }
+}

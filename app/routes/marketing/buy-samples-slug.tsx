@@ -1,10 +1,10 @@
 "use client";
 
 import React, { useState } from "react";
-import Image from "next/image";
-import Link from "next/link";
+import Image from "@/components/Image";
+import Link from "@/lib/next-link-compat";
 import { Check, ChevronLeft } from "lucide-react";
-import { notFound, useParams } from "next/navigation";
+import { notFound, useParams } from "@/lib/next-nav-compat";
 import { getProductBySlug } from "@/data/products";
 import { Badge } from "@/components/ui/badge";
 import { CheckoutForm } from "@/components/buy-samples/CheckoutForm";

@@ -1,5 +1,5 @@
-import { notFound } from "next/navigation";
-import Link from "next/link";
+import { notFound } from "@/lib/next-nav-compat";
+import Link from "@/lib/next-link-compat";
 import type { Metadata } from "next";
 import { Button } from "@/components/ui/button";
 import { LocationProductCard } from "@/components/products";

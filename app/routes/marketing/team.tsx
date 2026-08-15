@@ -1,6 +1,6 @@
 import { Metadata } from "next";
-import Link from "next/link";
-import Image from "next/image";
+import Link from "@/lib/next-link-compat";
+import Image from "@/components/Image";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {

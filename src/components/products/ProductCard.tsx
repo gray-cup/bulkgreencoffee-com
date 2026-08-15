@@ -1,8 +1,8 @@
 "use client";
 
 import { Image } from "@/components/Image";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
+import Link from "@/lib/next-link-compat";
+import { useRouter } from "@/lib/next-nav-compat";
 import { Check, Plus } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import type { Product } from "@/data/products";

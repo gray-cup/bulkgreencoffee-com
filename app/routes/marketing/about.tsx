@@ -1,6 +1,6 @@
-import Image from "next/image";
+import Image from "@/components/Image";
 import React from "react";
-import Link from "next/link";
+import Link from "@/lib/next-link-compat";
 import { Button } from "@/components/ui/button";
 import { FaGithub, FaLinkedin, FaGlobeAsia, FaInstagram } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";

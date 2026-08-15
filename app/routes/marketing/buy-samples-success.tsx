@@ -1,8 +1,8 @@
 "use client";
 
 import { Suspense, useEffect, useState } from "react";
-import { useSearchParams } from "next/navigation";
-import Link from "next/link";
+import { useSearchParams } from "@/lib/next-nav-compat";
+import Link from "@/lib/next-link-compat";
 import { Check, ChevronLeft, Loader2, X } from "lucide-react";
 
 type VerifyStatus = "checking" | "paid" | "pending" | "failed";

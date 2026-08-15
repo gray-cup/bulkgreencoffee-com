@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { X } from "lucide-react";
-import Link from "next/link";
+import Link from "@/lib/next-link-compat";
 
 interface LocationData {
   country: string;

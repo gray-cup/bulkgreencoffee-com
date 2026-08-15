@@ -1,6 +1,6 @@
-import { notFound } from "next/navigation";
-import Image from "next/image";
-import Link from "next/link";
+import { notFound } from "@/lib/next-nav-compat";
+import Image from "@/components/Image";
+import Link from "@/lib/next-link-compat";
 import type { Metadata } from "next";
 import { getProductBySlug, getAllProductSlugs } from "@/data/products";
 import {

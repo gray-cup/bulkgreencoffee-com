@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/lib/next-link-compat";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {

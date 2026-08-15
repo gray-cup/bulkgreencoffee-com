@@ -1,6 +1,6 @@
 import React from "react";
 import { Image } from "@/components/Image";
-import Link from "next/link";
+import Link from "@/lib/next-link-compat";
 import { useNavigate } from "react-router";
 import { X } from "lucide-react";
 import { products } from "@/data/products";

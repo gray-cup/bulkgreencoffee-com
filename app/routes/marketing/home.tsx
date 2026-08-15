@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { getProductsByRegion, getCommercialProducts } from "@/data/products";
 import { LazyProductRow } from "@/components/products";
 import { RequestCallDialog } from "@/components/RequestCallDialog";
-import Link from "next/link";
+import Link from "@/lib/next-link-compat";
 
 const eastIndiaProducts = getProductsByRegion("East India");
 const northEastIndiaProducts = getProductsByRegion("North East India");

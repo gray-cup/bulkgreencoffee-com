@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import Image from "next/image";
+import Image from "@/components/Image";
 
 export const Icons = {
   Logo: function Logo({

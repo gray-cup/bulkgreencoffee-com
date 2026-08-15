@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/lib/next-link-compat";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Navbar } from "@/components/navbar";

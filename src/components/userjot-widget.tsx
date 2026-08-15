@@ -1,7 +1,7 @@
 // components/userjot-widget.tsx
 "use client";
 
-import Script from "next/script";
+import Script from "@/lib/next-script-compat";
 
 export function UserJotWidget() {
   return (
