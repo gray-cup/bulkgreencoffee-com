@@ -91,7 +91,7 @@ export function CountryBanner() {
         const response = await fetch(url);
         if (!response.ok) throw new Error("Failed to fetch location");
 
-        const data = await response.json();
+        const data = (await response.json()) as any;
         setLocation({
           country: data.country,
           city: data.city,

@@ -7,7 +7,19 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Turnstile, useTurnstile } from "@/components/ui/turnstile";
-import type { SampleOrderRequest } from "@/app/api/create-payment/route";
+export interface SampleOrderRequest {
+  name: string;
+  phone: string;
+  email?: string;
+  country: string;
+  pincode: string;
+  address: string;
+  state?: string;
+  gstOrTaxId?: string;
+  businessType?: string;
+  items: Array<{ slug: string; tier: string }>;
+  currency: string;
+}
 import { useCurrency } from "@/components/currency-provider";
 import { convertPrice, formatPrice } from "@/lib/currency";
 import { priceForItem, gramsForTier, deliveryFeeForGrams, type OrderItem } from "@/lib/pricing";
@@ -145,7 +157,7 @@ export function CheckoutForm({ items, renderSummary, onBack }: Props) {
   useEffect(() => {
     fetch("/api/geo")
       .then((r) => r.json())
-      .then((d) => {
+      .then((d: any) => {
         if (!d.country) return;
         try {
           const detected = new Intl.DisplayNames(["en"], { type: "region" }).of(d.country);
@@ -205,7 +217,7 @@ export function CheckoutForm({ items, renderSummary, onBack }: Props) {
         headers: { "Content-Type": "application/json" },
         body:    JSON.stringify(payload),
       });
-      const data = await res.json();
+      const data = (await res.json()) as any;
       if (!res.ok) throw new Error(data.error || "Failed to create payment");
       window.location.href = data.paymentLink;
     } catch (err) {

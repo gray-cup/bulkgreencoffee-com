@@ -1,5 +1,5 @@
-const fs = require('fs');
-const path = require('path');
+import fs from "fs";
+import path from "path";
 
 const SITE_URL = "https://bulkgreencoffee.com";
 const OUTPUT_PATH = path.join(process.cwd(), 'public', 'llms.txt');

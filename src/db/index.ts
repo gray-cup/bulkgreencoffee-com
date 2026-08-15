@@ -1,29 +1,20 @@
-import { drizzle } from "drizzle-orm/postgres-js";
-import postgres from "postgres";
+import { drizzle } from "drizzle-orm/d1";
 import * as schema from "./schema";
 
-// Lazy singleton - avoids cold-start failures when the module is imported
-// before env vars are fully available in serverless environments.
-let _client: ReturnType<typeof postgres> | null = null;
-let _db: ReturnType<typeof drizzle<typeof schema>> | null = null;
-
-function getDb() {
-  if (!_db) {
-    if (!process.env.DATABASE_URL) {
-      throw new Error("DATABASE_URL is not set");
-    }
-    _client = postgres(process.env.DATABASE_URL, {
-      max: 10,
-      idle_timeout: 20,
-      connect_timeout: 10,
-    });
-    _db = drizzle(_client, { schema });
+export function getDb(d1Binding?: D1Database) {
+  if (d1Binding) {
+    return drizzle(d1Binding, { schema });
   }
-  return _db;
+  const globalDb = (globalThis as any).__D1_DB__;
+  if (globalDb) {
+    return drizzle(globalDb, { schema });
+  }
+  throw new Error("Cloudflare D1 Database binding 'DB' is not available in current execution context");
 }
 
 export const db = new Proxy({} as ReturnType<typeof drizzle<typeof schema>>, {
   get(_target, prop) {
-    return (getDb() as unknown as Record<string | symbol, unknown>)[prop];
+    const instance = getDb();
+    return (instance as any)[prop];
   },
 });

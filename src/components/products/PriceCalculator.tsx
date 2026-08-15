@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useMemo, useEffect, type ReactNode } from "react";
-import { useSearchParams, useRouter, usePathname } from "next/navigation";
+import { useSearchParams, useNavigate, useLocation } from "react-router";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent } from "@/components/ui/card";
@@ -20,9 +20,10 @@ export function PriceCalculator({
   onConfigChange,
   children,
 }: PriceCalculatorProps) {
-  const searchParams = useSearchParams();
-  const router = useRouter();
-  const pathname = usePathname();
+  const [searchParams] = useSearchParams();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const pathname = location.pathname;
   const { currency, convert } = useCurrency();
   const currencyConfig = CURRENCIES[currency];
 
@@ -63,8 +64,8 @@ export function PriceCalculator({
     const params = new URLSearchParams(searchParams.toString());
     params.set("grade", selectedGrade);
     params.set("qty", quantity.toString());
-    router.replace(`${pathname}?${params.toString()}`, { scroll: false });
-  }, [selectedGrade, quantity, pathname, router, searchParams]);
+    navigate(`${pathname}?${params.toString()}`, { replace: true, preventScrollReset: true });
+  }, [selectedGrade, quantity, pathname, navigate, searchParams]);
 
   // Notify parent of config changes
   useEffect(() => {

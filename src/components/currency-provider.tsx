@@ -57,7 +57,7 @@ export function CurrencyProvider({ children }: { children: React.ReactNode }) {
         try {
           const response = await fetch("/api/geo");
           if (response.ok) {
-            const data = await response.json();
+            const data = (await response.json()) as any;
             if (data.country) {
               const detected = getCurrencyFromCountry(data.country);
               setCurrencyState(detected);

@@ -8,9 +8,9 @@
 //   bun scripts/convert-images-to-webp.js [dir] --max-kb=150 --max-width=1600
 //   bun scripts/convert-images-to-webp.js [dir] --force              (re-encode even if already under budget)
 
-const fs = require("fs");
-const path = require("path");
-const sharp = require("sharp");
+import fs from "fs";
+import path from "path";
+import sharp from "sharp";
 
 const SOURCE_EXTENSIONS = new Set([".png", ".jpg", ".jpeg"]);
 

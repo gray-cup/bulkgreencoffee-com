@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { Image } from "@/components/Image";
 import Link from "next/link";
 import { useCurrency } from "@/components/currency-provider";
 import { CURRENCIES } from "@/lib/currency";

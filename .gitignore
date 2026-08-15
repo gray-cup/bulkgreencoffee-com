@@ -50,3 +50,5 @@ cloudflare-env.d.ts
 next-env.d.ts
 .env*.local
 CHECKOUT_DOCS.md
+
+.react-router
