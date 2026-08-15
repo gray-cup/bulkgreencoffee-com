@@ -1,6 +1,8 @@
 /// <reference types="@cloudflare/workers-types" />
 /// <reference types="vite/client" />
 
+import "@react-router/cloudflare";
+
 interface Env {
   DATABASE_URL?: string;
   NEXT_PUBLIC_SUPABASE_URL?: string;
@@ -17,3 +19,4 @@ declare module "@react-router/cloudflare" {
     };
   }
 }
+

@@ -10,7 +10,7 @@ export interface ImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   height?: number | string;
 }
 
-export function Image({ src, alt, className, fill, style, ...props }: ImageProps) {
+export function Image({ src, alt, className, fill, priority, quality, style, ...props }: ImageProps) {
   const computedStyle: React.CSSProperties = {
     ...style,
     ...(fill
@@ -29,7 +29,18 @@ export function Image({ src, alt, className, fill, style, ...props }: ImageProps
 
   const resolvedSrc = typeof src === "object" && src !== null && "src" in src ? (src as any).src : src;
 
-  return <img src={resolvedSrc} alt={alt} className={className} style={computedStyle} loading="lazy" {...props} />;
+  return (
+    <img
+      src={resolvedSrc}
+      alt={alt}
+      className={className}
+      style={computedStyle}
+      loading={priority ? "eager" : "lazy"}
+      fetchPriority={priority ? "high" : undefined}
+      {...props}
+    />
+  );
 }
 
 export default Image;
+
