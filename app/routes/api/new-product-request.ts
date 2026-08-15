@@ -8,14 +8,7 @@ const RATE_LIMIT_STORAGE = new Map<
   { count: number; resetTime: number }
 >();
 
-setInterval(() => {
-  const now = Date.now();
-  for (const [ip, data] of RATE_LIMIT_STORAGE.entries()) {
-    if (now > data.resetTime) {
-      RATE_LIMIT_STORAGE.delete(ip);
-    }
-  }
-}, RATE_LIMIT_WINDOW);
+
 
 interface ProductRequestData {
   company: string;
