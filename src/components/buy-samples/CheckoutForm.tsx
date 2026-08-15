@@ -100,27 +100,38 @@ export function CheckoutForm({ items, renderSummary, onBack }: Props) {
   useEffect(() => {
     try {
       const raw = localStorage.getItem(DETAILS_STORAGE_KEY);
-      if (!raw) return;
-      const saved: StoredCheckoutDetails = JSON.parse(raw);
-      if (!saved || typeof saved.savedAt !== "number" || Date.now() - saved.savedAt > DETAILS_MAX_AGE_MS) {
-        localStorage.removeItem(DETAILS_STORAGE_KEY);
-        return;
+      if (raw) {
+        const saved: StoredCheckoutDetails = JSON.parse(raw);
+        if (saved && typeof saved.savedAt === "number" && Date.now() - saved.savedAt <= DETAILS_MAX_AGE_MS) {
+          if (saved.customerType === "individual" || saved.customerType === "business") setCustomerType(saved.customerType);
+          if (saved.country)      setCountry(saved.country);
+          if (saved.name)         setName(saved.name);
+          if (saved.phone)        setPhone(saved.phone);
+          if (saved.email)        setEmail(saved.email);
+          if (saved.pincode)      setPincode(saved.pincode);
+          if (saved.address)      setAddress(saved.address);
+          if (saved.state)        setState(saved.state);
+          if (saved.gstOrTaxId)   setGstOrTaxId(saved.gstOrTaxId);
+          if (saved.businessType) setBusinessType(saved.businessType);
+        } else {
+          localStorage.removeItem(DETAILS_STORAGE_KEY);
+        }
       }
-      if (saved.customerType === "individual" || saved.customerType === "business") setCustomerType(saved.customerType);
-      if (saved.country)      setCountry(saved.country);
-      if (saved.name)         setName(saved.name);
-      if (saved.phone)        setPhone(saved.phone);
-      if (saved.email)        setEmail(saved.email);
-      if (saved.pincode)      setPincode(saved.pincode);
-      if (saved.address)      setAddress(saved.address);
-      if (saved.state)        setState(saved.state);
-      if (saved.gstOrTaxId)   setGstOrTaxId(saved.gstOrTaxId);
-      if (saved.businessType) setBusinessType(saved.businessType);
     } catch {}
   }, []);
 
   // Persist buyer details on every change, refreshing the ~3-month expiry.
+  // Skips its first (mount) invocation so it never overwrites saved details
+  // with the still-empty field values from before the restore effect above
+  // has applied them - both effects fire on mount, in declaration order, but
+  // state updates from the restore effect aren't visible here until the
+  // next render.
+  const skippedFirstPersist = useRef(false);
   useEffect(() => {
+    if (!skippedFirstPersist.current) {
+      skippedFirstPersist.current = true;
+      return;
+    }
     const details: StoredCheckoutDetails = {
       customerType, country, name, phone, email, pincode, address, state, gstOrTaxId, businessType,
       savedAt: Date.now(),
