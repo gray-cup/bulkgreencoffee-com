@@ -69,25 +69,32 @@ function AddProductCard({
 function CheckoutPageInner() {
   const router = useRouter();
 
-  const [selected, setSelected] = useState<SelectedItem[]>(() => {
-    if (typeof window === "undefined") return [];
+  // Start empty on both server and client so the first client render matches
+  // the server-rendered HTML, then load the real cart after mount. Reading
+  // localStorage directly in the initial state (the old approach) produced a
+  // hydration mismatch on a direct/hard navigation to this route - the
+  // server always rendered an empty cart, and React would sometimes keep
+  // that empty render instead of patching in the client's actual items.
+  const [selected, setSelected] = useState<SelectedItem[]>([]);
+  const [activeTier, setActiveTier] = useState<TierLabel>("100g");
+
+  React.useEffect(() => {
     try {
       const raw = localStorage.getItem("bgc_selected");
-      if (!raw) return [];
-      const parsed = JSON.parse(raw);
-      if (!Array.isArray(parsed)) return [];
-      return parsed.map((s: string | SelectedItem) =>
-        typeof s === "string" ? { slug: s, tier: "100g" as TierLabel } : s
-      );
-    } catch {
-      return [];
-    }
-  });
-
-  const activeTier = ((): TierLabel => {
-    if (typeof window === "undefined") return "100g";
-    return (localStorage.getItem("bgc_tier") as TierLabel) ?? "100g";
-  })();
+      if (raw) {
+        const parsed = JSON.parse(raw);
+        if (Array.isArray(parsed)) {
+          setSelected(
+            parsed.map((s: string | SelectedItem) =>
+              typeof s === "string" ? { slug: s, tier: "100g" as TierLabel } : s
+            )
+          );
+        }
+      }
+      const savedTier = localStorage.getItem("bgc_tier") as TierLabel | null;
+      if (savedTier) setActiveTier(savedTier);
+    } catch {}
+  }, []);
 
   const selectedSlugs = selected.map((s) => s.slug);
   const selectedProducts = selected

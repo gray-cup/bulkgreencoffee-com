@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { ChevronLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -22,6 +22,26 @@ const businessCategories = [
 ];
 
 type FieldErrors = Partial<Record<"name" | "phone" | "email" | "address" | "pincode", string>>;
+
+// Buyer details persist locally so returning visitors don't retype their
+// address/contact info. Expires after ~3 months so stale details eventually
+// stop being suggested.
+const DETAILS_STORAGE_KEY = "bgc_checkout_details";
+const DETAILS_MAX_AGE_MS = 1000 * 60 * 60 * 24 * 90;
+
+type StoredCheckoutDetails = {
+  customerType?: "individual" | "business";
+  country?: string;
+  name?: string;
+  phone?: string;
+  email?: string;
+  pincode?: string;
+  address?: string;
+  state?: string;
+  gstOrTaxId?: string;
+  businessType?: string;
+  savedAt?: number;
+};
 
 function titleCase(str: string) {
   return str.replace(/\b\w/g, (c) => c.toUpperCase());
@@ -75,7 +95,42 @@ export function CheckoutForm({ items, renderSummary, onBack }: Props) {
   const errors = validate(fieldValues);
   const hasErrors = Object.keys(errors).length > 0;
 
-  // Auto-detect country code → full name
+  // Restore previously entered buyer details (if saved within the last ~3
+  // months) so a returning visitor doesn't have to retype everything.
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem(DETAILS_STORAGE_KEY);
+      if (!raw) return;
+      const saved: StoredCheckoutDetails = JSON.parse(raw);
+      if (!saved || typeof saved.savedAt !== "number" || Date.now() - saved.savedAt > DETAILS_MAX_AGE_MS) {
+        localStorage.removeItem(DETAILS_STORAGE_KEY);
+        return;
+      }
+      if (saved.customerType === "individual" || saved.customerType === "business") setCustomerType(saved.customerType);
+      if (saved.country)      setCountry(saved.country);
+      if (saved.name)         setName(saved.name);
+      if (saved.phone)        setPhone(saved.phone);
+      if (saved.email)        setEmail(saved.email);
+      if (saved.pincode)      setPincode(saved.pincode);
+      if (saved.address)      setAddress(saved.address);
+      if (saved.state)        setState(saved.state);
+      if (saved.gstOrTaxId)   setGstOrTaxId(saved.gstOrTaxId);
+      if (saved.businessType) setBusinessType(saved.businessType);
+    } catch {}
+  }, []);
+
+  // Persist buyer details on every change, refreshing the ~3-month expiry.
+  useEffect(() => {
+    const details: StoredCheckoutDetails = {
+      customerType, country, name, phone, email, pincode, address, state, gstOrTaxId, businessType,
+      savedAt: Date.now(),
+    };
+    try {
+      localStorage.setItem(DETAILS_STORAGE_KEY, JSON.stringify(details));
+    } catch {}
+  }, [customerType, country, name, phone, email, pincode, address, state, gstOrTaxId, businessType]);
+
+  // Auto-detect country code → full name, but don't clobber a restored value
   useEffect(() => {
     fetch("/api/geo")
       .then((r) => r.json())
@@ -83,9 +138,9 @@ export function CheckoutForm({ items, renderSummary, onBack }: Props) {
         if (!d.country) return;
         try {
           const detected = new Intl.DisplayNames(["en"], { type: "region" }).of(d.country);
-          if (detected) setCountry(detected);
+          if (detected) setCountry((prev) => prev || detected);
         } catch {
-          setCountry(d.country);
+          setCountry((prev) => prev || d.country);
         }
       })
       .catch(() => {});
