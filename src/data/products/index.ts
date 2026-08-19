@@ -2,12 +2,21 @@ export type { Product } from "./types";
 
 export { specialtyCoffeeProducts } from "./specialty-coffee";
 export { commercialCoffeeProducts } from "./commercial-coffee";
+export { roastedCoffeeProducts } from "./roasted-coffee";
+export { greenCoffeeOdishaProducts } from "./green-coffee-odisha";
 
 import { specialtyCoffeeProducts } from "./specialty-coffee";
 import { commercialCoffeeProducts } from "./commercial-coffee";
+import { roastedCoffeeProducts } from "./roasted-coffee";
+import { greenCoffeeOdishaProducts } from "./green-coffee-odisha";
 import type { Product } from "./types";
 
-export const products: Product[] = [...specialtyCoffeeProducts, ...commercialCoffeeProducts];
+export const products: Product[] = [
+  ...specialtyCoffeeProducts,
+  ...commercialCoffeeProducts,
+  ...roastedCoffeeProducts,
+  ...greenCoffeeOdishaProducts,
+];
 
 export function getProductBySlug(slug: string): Product | undefined {
   return products.find((product) => product.slug === slug);

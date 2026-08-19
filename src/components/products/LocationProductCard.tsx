@@ -2,8 +2,10 @@
 
 import { Image } from "@/components/Image";
 import Link from "@/lib/next-link-compat";
+import { useRouter } from "@/lib/next-nav-compat";
 import { useCurrency } from "@/components/currency-provider";
 import { CURRENCIES } from "@/lib/currency";
+import { useCart } from "@/context/cart-context";
 import type { Product } from "@/data/products";
 
 export function LocationProductCard({ product }: { product: Product }) {
@@ -12,6 +14,8 @@ export function LocationProductCard({ product }: { product: Product }) {
   const minConverted = convert(product.priceRange.min, currency);
   const maxConverted = convert(product.priceRange.max, currency);
   const decimals = currency === "INR" || currency === "KRW" ? 0 : 2;
+  const { add } = useCart();
+  const router = useRouter();
 
   const priceText =
     product.priceRange.min === product.priceRange.max
@@ -19,23 +23,40 @@ export function LocationProductCard({ product }: { product: Product }) {
       : `${config.symbol}${minConverted.toLocaleString(config.locale, { maximumFractionDigits: decimals })}–${config.symbol}${maxConverted.toLocaleString(config.locale, { maximumFractionDigits: decimals })}`;
 
   return (
-    <Link
-      href={`/products/${product.slug}`}
-      className="group p-4 border rounded-lg hover:border-teal-400 transition-colors"
-    >
-      <div className="aspect-square relative rounded-md overflow-hidden bg-neutral-50 mb-3">
-        <Image src={product.image} alt={product.name} fill className="object-contain p-3" />
+    <div className="group flex flex-col p-4 border rounded-lg hover:border-teal-400 transition-colors">
+      <Link href={`/products/${product.slug}`} className="block">
+        <div className="aspect-square relative rounded-md overflow-hidden bg-neutral-50 mb-3">
+          <Image src={product.image} alt={product.name} fill className="object-contain p-3" />
+        </div>
+        <p className="font-medium text-black text-sm mb-1 group-hover:text-teal-700 transition-colors">
+          {product.name}
+        </p>
+        <p className="text-xs text-muted-foreground mb-2 line-clamp-2">{product.description}</p>
+        <div className="flex items-center justify-between text-xs mb-3">
+          <span className="font-medium text-teal-700">
+            {priceText}{product.priceRange.unit}
+          </span>
+          <span className="text-muted-foreground">MOQ {product.minimumOrder.quantity} {product.minimumOrder.unit}</span>
+        </div>
+      </Link>
+      <div className="flex gap-2 mt-auto">
+        <button
+          type="button"
+          onClick={() => {
+            add(product.slug);
+            router.push("/cart");
+          }}
+          className="flex-1 h-8 rounded-lg text-xs font-medium bg-teal-600 text-white hover:bg-teal-700 transition-colors cursor-pointer"
+        >
+          Add to Cart
+        </button>
+        <Link
+          href={`/buy-samples/${product.slug}`}
+          className="flex-1 h-8 rounded-lg text-xs font-medium border border-gray-300 text-gray-700 hover:border-gray-500 hover:text-black flex items-center justify-center transition-colors"
+        >
+          Buy Now
+        </Link>
       </div>
-      <p className="font-medium text-black text-sm mb-1 group-hover:text-teal-700 transition-colors">
-        {product.name}
-      </p>
-      <p className="text-xs text-muted-foreground mb-2 line-clamp-2">{product.description}</p>
-      <div className="flex items-center justify-between text-xs">
-        <span className="font-medium text-teal-700">
-          {priceText}{product.priceRange.unit}
-        </span>
-        <span className="text-muted-foreground">MOQ {product.minimumOrder.quantity} {product.minimumOrder.unit}</span>
-      </div>
-    </Link>
+    </div>
   );
 }

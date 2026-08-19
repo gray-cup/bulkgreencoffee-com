@@ -22,6 +22,11 @@ export default [
     route("products", "routes/marketing/products-index.tsx"),
     route("products/:slug", "routes/marketing/products-slug.tsx"),
 
+    // Generic bulk-buyer search-intent pages
+    route("indian-green-coffee-beans", "routes/marketing/indian-green-coffee-beans.tsx"),
+    route("bulk-green-coffee", "routes/marketing/bulk-green-coffee.tsx"),
+    route("1-container-green-coffee-beans", "routes/marketing/container-green-coffee-beans.tsx"),
+
     // Buy Samples
     route("buy-samples", "routes/marketing/buy-samples-index.tsx"),
     route("buy-samples/checkout", "routes/marketing/buy-samples-checkout.tsx"),

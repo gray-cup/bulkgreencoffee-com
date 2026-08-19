@@ -8,12 +8,16 @@ import { notFound, useParams } from "@/lib/next-nav-compat";
 import { getProductBySlug } from "@/data/products";
 import { Badge } from "@/components/ui/badge";
 import { CheckoutForm } from "@/components/buy-samples/CheckoutForm";
+import { SamplePricingTable } from "@/components/products";
 import { TIERS, calcPrice, deliveryFeeForGrams, type TierLabel } from "@/lib/pricing";
 
 export default function BuySampleSlugPage() {
   const { slug }  = useParams<{ slug: string }>();
   const product   = getProductBySlug(slug);
-  if (!product) notFound();
+  if (!product) {
+    notFound();
+    return null;
+  }
 
   const [activeTier, setActiveTier] = useState<TierLabel>("100g");
   const tier         = TIERS.find((t) => t.label === activeTier)!;
@@ -114,6 +118,9 @@ export default function BuySampleSlugPage() {
                 <span>₹{total}</span>
               </div>
             </div>
+
+            {/* Pricing for every weight size */}
+            <SamplePricingTable product={product} />
 
             {/* Form */}
             <CheckoutForm

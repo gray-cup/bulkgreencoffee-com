@@ -5,7 +5,7 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { LocationProductCard } from "@/components/products";
 import { countryDestinations, getCountryBySlug, getWhatsappLink } from "@/data/destinations";
-import { products } from "@/data/products";
+import { getRandomProducts } from "@/lib/random-products";
 import { getOgLocale } from "@/data/country-codes";
 import { getCitiesByCountry } from "@/data/country-city-content";
 import { BreadcrumbSchema } from "@/components/seo";
@@ -45,6 +45,7 @@ export default function CountryProductsPage() {
   if (!dest) notFound();
 
   const cities = getCitiesByCountry(dest.slug);
+  const featuredProducts = getRandomProducts(dest.slug, 6);
 
   const waLink = getWhatsappLink(
     `Hi, I'm browsing your product catalogue for ${dest.name} on bulkgreencoffee.com and I would like to enquire about sourcing Indian green coffee.`
@@ -93,18 +94,23 @@ export default function CountryProductsPage() {
 
         <hr className="mb-10" />
 
-        {/* Full catalogue */}
+        {/* Sample of the catalogue */}
         <div className="mb-12">
           <h2 className="text-lg font-semibold text-black mb-2">
-            All Products Available in {dest.name}
+            Popular Products for {dest.name} Buyers
           </h2>
           <p className="text-sm text-muted-foreground mb-6">
-            Every product ships with phytosanitary certificates, fumigation reports, and a certificate of origin.
+            A sample from our catalogue, every product ships with phytosanitary certificates, fumigation reports, and a certificate of origin.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {products.map((product) => (
+            {featuredProducts.map((product) => (
               <LocationProductCard key={product.slug} product={product} />
             ))}
+          </div>
+          <div className="mt-6">
+            <Link href="/products" className="inline-flex items-center gap-1 text-sm text-teal-700 hover:text-teal-900 font-medium">
+              View the full catalogue <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
         </div>
 

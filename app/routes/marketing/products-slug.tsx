@@ -6,6 +6,7 @@ import { getProductBySlug, getAllProductSlugs } from "@/data/products";
 import {
   ProductConfigurator,
   PriceDisplay,
+  SamplePricingTable,
 } from "@/components/products";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -71,6 +72,7 @@ export default function ProductPage() {
 
   if (!product) {
     notFound();
+    return null;
   }
 
   const breadcrumbs = [
@@ -224,6 +226,9 @@ export default function ProductPage() {
               >
                 Buy Samples
               </Link>
+
+              {/* Sample pricing for every weight size */}
+              <SamplePricingTable product={product} />
 
               {/* Accordions */}
               <Accordion type="multiple" defaultValue={["description"]}>

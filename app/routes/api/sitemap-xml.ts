@@ -16,6 +16,9 @@ export async function loader({ request }: LoaderFunctionArgs) {
       "/refunds",
       "/buy-samples",
       "/buy-samples/checkout",
+      "/indian-green-coffee-beans",
+      "/bulk-green-coffee",
+      "/1-container-green-coffee-beans",
     ];
 
     const productRoutes = products.map((p) => `/products/${p.slug}`);

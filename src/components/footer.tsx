@@ -4,6 +4,9 @@ export default function Footer() {
   const mainLinks = [
     { href: "/about", label: "About" },
     { href: "/products", label: "Products" },
+    { href: "/indian-green-coffee-beans", label: "Indian Green Coffee Beans" },
+    { href: "/bulk-green-coffee", label: "Bulk Green Coffee" },
+    { href: "/1-container-green-coffee-beans", label: "Container Orders" },
     { href: "/contact", label: "Contact" },
     { href: "/terms", label: "Terms & Conditions" },
     { href: "/refunds", label: "Refunds & Cancellations" },
