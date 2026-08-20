@@ -1,7 +1,9 @@
+import { getWhatsappLink } from "@/data/destinations";
+
 export function WhatsappWidget() {
   return (
     <a
-      href="https://whatsapp.com/"
+      href={getWhatsappLink("Hi, I'd like to enquire about sourcing Indian green coffee.")}
       target="_blank"
       className="fixed bottom-10 rounded-full scale-121 cursor-pointer duration-200 right-8"
     >
