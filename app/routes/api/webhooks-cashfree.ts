@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "@/lib/next-server-compat";
 import { eq } from "drizzle-orm";
 import { db } from "@/db";
 import { bulkgreencoffee_site } from "@/db/schema";
-import { verifyCashfreeWebhookSignature } from "@/lib/cashfree";
+import { verifyCashfreeWebhookSignature, fetchCfPaymentId } from "@/lib/cashfree";
 
 // Cashfree fires these for both Orders and Payment Links (a link creates an
 // order under the hood, keyed by the link_id we passed in at creation).
@@ -64,17 +64,27 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ received: true });
   }
 
-  const cfPaymentId = payload.data?.payment?.cf_payment_id
+  let cfPaymentId = payload.data?.payment?.cf_payment_id
     ? String(payload.data.payment.cf_payment_id)
     : null;
 
+  // Link "PAID" webhook has no cf_payment_id in the body - fetch it via the
+  // order_id the payload does carry.
+  const cfOrderId = payload.data?.order?.order_id ?? null;
+  if (!cfPaymentId && newStatus === "paid" && cfOrderId) {
+    cfPaymentId = await fetchCfPaymentId(cfOrderId);
+  }
+
+  const patch: Record<string, unknown> = {
+    payment_status: newStatus,
+    status_updated_at: new Date().toISOString(),
+  };
+  // Never null out a cf_payment_id we already captured on an earlier event.
+  if (cfPaymentId) patch.cf_payment_id = cfPaymentId;
+
   await db
     .update(bulkgreencoffee_site)
-    .set({
-      payment_status: newStatus,
-      cf_payment_id: cfPaymentId,
-      status_updated_at: new Date().toISOString(),
-    })
+    .set(patch)
     .where(eq(bulkgreencoffee_site.link_id, linkId));
 
   return NextResponse.json({ received: true });

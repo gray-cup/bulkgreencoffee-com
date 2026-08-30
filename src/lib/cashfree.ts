@@ -39,6 +39,29 @@ export function cashfreeHeaders() {
 }
 
 /**
+ * The Payment Link "PAID" webhook does NOT carry cf_payment_id - only the
+ * separate PAYMENT_SUCCESS_WEBHOOK does, and that one is keyed by Cashfree's
+ * own order_id, not our link_id. So when a link is paid we look the payment up
+ * by the order_id the link webhook does give us (data.order.order_id).
+ * Returns null on any failure - cf_payment_id is a nice-to-have, not critical.
+ */
+export async function fetchCfPaymentId(orderId: string): Promise<string | null> {
+  try {
+    const res = await fetch(`${CASHFREE_BASE_URL}/orders/${orderId}/payments`, {
+      headers: cashfreeHeaders(),
+    });
+    if (!res.ok) return null;
+    const body = (await res.json()) as any;
+    const payments: any[] = Array.isArray(body) ? body : body.data ?? body.payments ?? [];
+    const paid = payments.find((p) => (p.payment_status ?? p.status) === "SUCCESS") ?? payments[0];
+    const id = paid?.cf_payment_id ?? paid?.payment_id;
+    return id != null ? String(id) : null;
+  } catch {
+    return null;
+  }
+}
+
+/**
  * Cashfree signs webhooks as base64(HMAC-SHA256(timestamp + rawBody, client_secret)),
  * sent as `x-webhook-signature` alongside `x-webhook-timestamp`.
  * https://www.cashfree.com/docs/ (Payments > Webhooks > Verify signature)
