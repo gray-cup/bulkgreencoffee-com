@@ -114,7 +114,7 @@ export function ProductCard({ product, showPrice = true, showActions = true }: P
               Add to Cart
             </button>
             <Link
-              href={`/buy-samples/${product.slug}`}
+              href={`/buy-green-coffee-beans/${product.slug}`}
               className="flex-1 h-8 rounded-lg text-xs font-medium border border-gray-300 text-gray-700 hover:border-gray-500 hover:text-black flex items-center justify-center transition-colors"
             >
               Buy Now

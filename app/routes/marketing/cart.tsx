@@ -151,7 +151,7 @@ export default function CartPage() {
                 variant="teal"
                 size="lg"
                 className="flex-1"
-                onClick={() => navigate("/buy-samples/checkout")}
+                onClick={() => navigate("/buy-green-coffee-beans/checkout")}
               >
                 Proceed to Checkout
               </Button>

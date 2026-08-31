@@ -16,9 +16,9 @@ export function meta({ params }: { params: { slug?: string } }) {
   const product = getProductBySlug(params.slug || "");
   if (!product) return NOT_FOUND_META;
   return pageMeta({
-    title: `Buy a ${product.name} Sample (100g–1kg) | Bulk Green Coffee`,
-    description: `Order a small sample of ${product.name} before committing to a bulk order. ${product.description} Sample sizes 100g to 1kg, delivered across India.`,
-    canonical: `/buy-samples/${params.slug}`,
+    title: `Buy ${product.name} Green Coffee Beans Online | Bulk Green Coffee`,
+    description: `Buy ${product.name} green coffee beans online — ${product.description} Order 100g to 20kg, delivered across India with GST invoice and full traceability.`,
+    canonical: `/buy-green-coffee-beans/${params.slug}`,
     image: product.image?.startsWith("http") ? product.image : undefined,
   });
 }
@@ -42,10 +42,10 @@ export default function BuySampleSlugPage() {
       <div className="max-w-5xl mx-auto px-4 lg:px-6">
 
         <Link
-          href="/buy-samples"
+          href="/buy-green-coffee-beans"
           className="text-sm text-muted-foreground hover:text-black mb-8 inline-flex items-center gap-1 transition-colors"
         >
-          <ChevronLeft className="w-4 h-4" /> All samples
+          <ChevronLeft className="w-4 h-4" /> All green coffee
         </Link>
 
         <div className="mt-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">

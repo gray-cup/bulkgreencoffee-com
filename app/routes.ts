@@ -32,11 +32,14 @@ export default [
     route("roasted-coffee/:place", "routes/marketing/roasted-coffee-place.tsx"),
     route("bulk-roasted-coffee-cafes/:place", "routes/marketing/bulk-roasted-cafes-place.tsx"),
 
-    // Buy Samples
-    route("buy-samples", "routes/marketing/buy-samples-index.tsx"),
-    route("buy-samples/checkout", "routes/marketing/buy-samples-checkout.tsx"),
-    route("buy-samples/success", "routes/marketing/buy-samples-success.tsx"),
-    route("buy-samples/:slug", "routes/marketing/buy-samples-slug.tsx"),
+    // Buy Green Coffee Beans (formerly /buy-samples)
+    route("buy-green-coffee-beans", "routes/marketing/buy-samples-index.tsx"),
+    route("buy-green-coffee-beans/checkout", "routes/marketing/buy-samples-checkout.tsx"),
+    route("buy-green-coffee-beans/success", "routes/marketing/buy-samples-success.tsx"),
+    route("buy-green-coffee-beans/:slug", "routes/marketing/buy-samples-slug.tsx"),
+    // 301 the old /buy-samples/* URLs
+    route("buy-samples", "routes/marketing/buy-samples-redirect.tsx", { id: "buy-samples-redirect-base" }),
+    route("buy-samples/*", "routes/marketing/buy-samples-redirect.tsx", { id: "buy-samples-redirect-splat" }),
 
     // Green Coffee & Regional
     route("green-coffee", "routes/marketing/green-coffee-index.tsx"),

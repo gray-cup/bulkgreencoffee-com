@@ -137,7 +137,7 @@ export async function POST(request: NextRequest) {
         ...(email && { customer_email: email }),
       },
       link_meta: {
-        return_url: `${origin}/buy-samples/success?link_id=${linkId}`,
+        return_url: `${origin}/buy-green-coffee-beans/success?link_id=${linkId}`,
       },
       link_notify: { send_sms: true, send_email: !!email },
       link_expiry_time: expiryTime.toISOString(),

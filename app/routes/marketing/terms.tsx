@@ -69,7 +69,7 @@ export default function TermsAndConditions() {
           <p className="mt-4">
             We also offer white-label packaging, custom blending, and product-request sourcing as additional services.
             Samples (100g, 1kg, 3kg, 5kg) are available for purchase via our{" "}
-            <Link href="/buy-samples" className="underline underline-offset-4 text-black">Buy Samples</Link> page.
+            <Link href="/buy-green-coffee-beans" className="underline underline-offset-4 text-black">Buy Green Coffee Beans</Link> page.
           </p>
         </section>
 

@@ -27,7 +27,7 @@ export function Navbar() {
             <nav className="hidden md:flex text-neutral-100 gap-1 text-sm font-medium">
               {[
                 ["Products", "/products"],
-                ["Buy Samples", "/buy-samples"],
+                ["Buy Green Coffee Beans", "/buy-green-coffee-beans"],
                 ["Product Request", "/new-product-request"],
                 ["White Label", "/white-label"],
               ].map(([label, href]) => (
@@ -122,7 +122,7 @@ export function Navbar() {
           <nav className="flex flex-col text-neutral-100 gap-1 text-sm font-medium">
             {[
               ["Products", "/products"],
-              ["Buy Samples", "/buy-samples"],
+              ["Buy Green Coffee Beans", "/buy-green-coffee-beans"],
               ["Cart", "/cart"],
               ["Product Request", "/new-product-request"],
               ["White Label", "/white-label"],

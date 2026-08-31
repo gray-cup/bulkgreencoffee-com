@@ -12,7 +12,7 @@ import { TIERS, calcPrice, deliveryFeeForGrams, type TierLabel } from "@/lib/pri
 import { pageMeta } from "@/lib/seo";
 
 export const meta = () =>
-  pageMeta({ title: "Checkout | Bulk Green Coffee", description: "Complete your green coffee sample order.", noindex: true });
+  pageMeta({ title: "Checkout | Bulk Green Coffee", description: "Complete your green coffee order.", noindex: true });
 
 type SelectedItem = { slug: string; tier: TierLabel };
 
@@ -134,13 +134,13 @@ function CheckoutPageInner() {
     <div className="min-h-screen py-12">
       <div className="max-w-6xl mx-auto px-4 lg:px-6">
         <h1 className="text-3xl font-semibold text-black mb-2">Your order</h1>
-        <p className="text-muted-foreground mb-8">Fill in your details and we&apos;ll ship your samples.</p>
+        <p className="text-muted-foreground mb-8">Fill in your details and we&apos;ll ship your order.</p>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           {/* Left: form */}
           <CheckoutForm
             items={selected}
-            onBack={() => router.push("/buy-samples")}
+            onBack={() => router.push("/buy-green-coffee-beans")}
           />
 
           {/* Right: order summary */}
@@ -220,7 +220,7 @@ function CheckoutPageInner() {
         {/* Add more */}
         {unselectedProducts.length > 0 && (
           <div className="mt-16">
-            <h2 className="text-xl font-semibold text-black mb-1">Add more samples</h2>
+            <h2 className="text-xl font-semibold text-black mb-1">Add more coffees</h2>
             <p className="text-sm text-muted-foreground mb-6">Pick a size and add to your order.</p>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
               {unselectedProducts.map((product) => (

@@ -16,10 +16,10 @@ import { TIERS, calcPrice, deliveryFeeForGrams, type TierLabel } from "@/lib/pri
 
 export const meta = () =>
   pageMeta({
-    title: "Buy Green Coffee Samples | 100g–1kg Sample Packs | Bulk Green Coffee",
+    title: "Buy Green Coffee Beans Online | Koraput, Attikan & Halflong | Bulk Green Coffee",
     description:
-      "Order small samples of Indian specialty and commercial green coffee before a bulk order. 100g, 250g, 500g and 1kg packs, delivered across India.",
-    canonical: "/buy-samples",
+      "Buy Indian green coffee beans online — specialty and commercial Arabica & Robusta from Koraput, Attikan, Halflong and more. Order 100g to 20kg, delivered across India with GST invoice.",
+    canonical: "/buy-green-coffee-beans",
   });
 
 type SelectedItem = { slug: string; tier: TierLabel };
@@ -91,9 +91,9 @@ function BuySamplesInner() {
   return (
       <div className="min-h-screen pb-32">
         <div className="max-w-7xl mx-auto px-4 lg:px-6 pt-12 pb-6">
-          <h1 className="text-3xl font-semibold text-black mb-2">Buy Samples</h1>
+          <h1 className="text-3xl font-semibold text-black mb-2">Buy Green Coffee Beans</h1>
           <p className="text-muted-foreground max-w-xl">
-            Pick the coffees you want to try and choose your quantity.
+            Pick the Indian green coffee lots you want and choose your quantity — 100g to 20kg, roaster and importer friendly.
           </p>
         </div>
 
@@ -172,7 +172,7 @@ function BuySamplesInner() {
                   </div>
                   <div className="flex flex-col flex-1 p-4 gap-3">
                     <div className="flex-1">
-                      <Link href={`/buy-samples/${product.slug}`} className="font-semibold text-sm text-black leading-tight hover:underline cursor-pointer">
+                      <Link href={`/buy-green-coffee-beans/${product.slug}`} className="font-semibold text-sm text-black leading-tight hover:underline cursor-pointer">
                         {product.name}
                       </Link>
                       {product.region && (
@@ -202,7 +202,7 @@ function BuySamplesInner() {
                               Add to Cart
                             </button>
                             <Link
-                              href={`/buy-samples/${product.slug}`}
+                              href={`/buy-green-coffee-beans/${product.slug}`}
                               className="sm:flex-1 h-9 rounded-xl text-sm font-medium border border-gray-200 text-gray-700 hover:border-gray-400 hover:text-black flex items-center justify-center transition-colors"
                             >
                               Buy Now
@@ -242,7 +242,7 @@ function BuySamplesInner() {
               <Button variant="lightgraybg" size="sm" className="flex-1 sm:flex-none" onClick={() => setShowItemsOpen(true)}>
                 Show Items
               </Button>
-              <Button variant="teal" size="lg" className="flex-1 sm:flex-none" onClick={() => router.push("/buy-samples/checkout")}>
+              <Button variant="teal" size="lg" className="flex-1 sm:flex-none" onClick={() => router.push("/buy-green-coffee-beans/checkout")}>
                 Proceed to Checkout
               </Button>
             </div>

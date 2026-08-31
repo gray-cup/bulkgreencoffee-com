@@ -140,7 +140,7 @@ export async function POST(request: NextRequest) {
       },
 
       link_meta: {
-        return_url: `${origin}/buy-samples/success?link_id=${linkId}`,
+        return_url: `${origin}/buy-green-coffee-beans/success?link_id=${linkId}`,
       },
 
       link_notify: {

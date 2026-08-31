@@ -24,7 +24,7 @@ export async function loader({ request }: LoaderFunctionArgs) {
       "/sites",
       "/sample-request",
       "/new-product-request",
-      "/buy-samples",
+      "/buy-green-coffee-beans",
       "/india/available-locations",
       "/indian-green-coffee-beans",
       "/bulk-green-coffee",
@@ -32,7 +32,7 @@ export async function loader({ request }: LoaderFunctionArgs) {
     ];
 
     const productRoutes = products.map((p) => `/products/${p.slug}`);
-    const buySampleRoutes = products.map((p) => `/buy-samples/${p.slug}`);
+    const buySampleRoutes = products.map((p) => `/buy-green-coffee-beans/${p.slug}`);
     const roastedRetailRoutes = roastedPlaces.map((p) => `/roasted-coffee/${p.slug}`);
     const roastedCafeRoutes = roastedPlaces.map((p) => `/bulk-roasted-coffee-cafes/${p.slug}`);
     // Root-level /:country is canonical (green-coffee/:country points its canonical here)

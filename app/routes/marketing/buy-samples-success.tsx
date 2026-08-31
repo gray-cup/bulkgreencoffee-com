@@ -7,7 +7,7 @@ import { Check, ChevronLeft, Loader2, X } from "lucide-react";
 import { pageMeta } from "@/lib/seo";
 
 export const meta = () =>
-  pageMeta({ title: "Order Confirmed | Bulk Green Coffee", description: "Your green coffee sample order is confirmed.", noindex: true });
+  pageMeta({ title: "Order Confirmed | Bulk Green Coffee", description: "Your green coffee order is confirmed.", noindex: true });
 
 type VerifyStatus = "checking" | "paid" | "pending" | "failed";
 
@@ -77,10 +77,10 @@ function SuccessInner() {
           </p>
         </div>
         <Link
-          href="/buy-samples"
+          href="/buy-green-coffee-beans"
           className="inline-flex items-center gap-2 text-sm font-medium text-teal-700 hover:text-teal-900 transition-colors"
         >
-          <ChevronLeft className="w-4 h-4" /> Back to samples
+          <ChevronLeft className="w-4 h-4" /> Back to green coffee
         </Link>
       </div>
     );
@@ -96,7 +96,7 @@ function SuccessInner() {
         <p className="text-muted-foreground">
           {status === "pending"
             ? "We're still confirming your payment with the bank: you'll get an SMS/email as soon as it's confirmed."
-            : "Your sample order has been received. We'll pack and ship it to you within 2–3 business days."}
+            : "Your order has been received. We'll pack and ship it to you within 2–3 business days."}
         </p>
       </div>
       <div className="rounded-xl border border-gray-200 bg-gray-50 p-4 text-sm text-gray-700 text-left space-y-1">
