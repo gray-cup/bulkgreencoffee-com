@@ -1,18 +1,14 @@
 import React from "react";
-import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import { Button } from "@/components/ui/button";
 
-export const metadata: Metadata = {
-  title: "Contact Us | Bulk Green Coffee | Indian Green Coffee Wholesale",
-  description:
-    "Get in touch with Bulk Green Coffee to enquire about wholesale Indian green coffee. WhatsApp: +91 85279 14317. We supply roasters, importers, and distributors worldwide.",
-  alternates: { canonical: "/contact" },
-  openGraph: {
-    title: "Contact Bulk Green Coffee | Wholesale Indian Arabica Enquiries",
-    description: "Reach us on WhatsApp or email to discuss your green coffee sourcing requirements. Same-day response.",
-    url: "https://bulkgreencoffee.com/contact",
-  },
-};
+export const meta = () =>
+  pageMeta({
+    title: "Contact Us | Bulk Green Coffee | Indian Green Coffee Wholesale",
+    description:
+      "Get in touch with Bulk Green Coffee to enquire about wholesale Indian green coffee. WhatsApp: +91 85279 14317. We supply roasters, importers, and distributors worldwide.",
+    canonical: "/contact",
+  });
 
 /* ---------- Page ---------- */
 export default function ContactPage() {

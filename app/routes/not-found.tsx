@@ -1,5 +1,11 @@
+import { data } from "react-router";
 import Link from "@/lib/next-link-compat";
 import { Button } from "@/components/ui/button";
+import { NOT_FOUND_META } from "@/lib/seo";
+
+// Return a real 404 status so crawlers don't treat unmatched URLs as soft-404s.
+export const loader = () => data(null, { status: 404 });
+export const meta = () => NOT_FOUND_META;
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Navbar } from "@/components/navbar";
 import Footer from "@/components/footer";

@@ -1,22 +1,17 @@
 import Link from "@/lib/next-link-compat";
-import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { INDIA_STATES, getCitiesByState, indiaCities } from "@/data/india-locations";
 import { getWhatsappLink } from "@/data/destinations";
 
-export const metadata: Metadata = {
-  title: "Buy Indian Green Coffee in India | All States & Cities | Bulk Green Coffee",
-  description:
-    "Wholesale Indian green coffee delivered across India. Commercial AA/AAA from ₹800/kg, specialty from ₹1,100/kg. Maharashtra, Karnataka, Tamil Nadu, Delhi and more. MOQ 10 kg.",
-  alternates: { canonical: "/india/available-locations" },
-  openGraph: {
-    title: "Indian Green Coffee Supplier | All India Locations | Bulk Green Coffee",
+export const meta = () =>
+  pageMeta({
+    title: "Buy Indian Green Coffee in India | All States & Cities | Bulk Green Coffee",
     description:
-      "Bulk green coffee delivery across India. Tribal Arabica, South India estates, and North East origins. GST invoice included.",
-    url: "https://bulkgreencoffee.com/india/available-locations",
-  },
-};
+      "Wholesale Indian green coffee delivered across India. Commercial AA/AAA from ₹800/kg, specialty from ₹1,100/kg. Maharashtra, Karnataka, Tamil Nadu, Delhi and more. MOQ 10 kg.",
+    canonical: "/india/available-locations",
+  });
 
 export default function AvailableLocationsPage() {
   const waLink = getWhatsappLink(

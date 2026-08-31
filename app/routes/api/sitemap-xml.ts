@@ -3,6 +3,7 @@ import { countryDestinations, stateDestinations } from "@/data/destinations";
 import { products } from "@/data/products";
 import { indiaCities, TOP_INDIAN_CITIES } from "@/data/india-locations";
 import { countryCityContent } from "@/data/country-city-content";
+import { roastedPlaces } from "@/data/roasted-places";
 
 const BASE_URL = "https://bulkgreencoffee.com";
 
@@ -24,9 +25,6 @@ export async function loader({ request }: LoaderFunctionArgs) {
       "/sample-request",
       "/new-product-request",
       "/buy-samples",
-      "/buy-samples/checkout",
-      "/green-coffee",
-      "/india",
       "/india/available-locations",
       "/indian-green-coffee-beans",
       "/bulk-green-coffee",
@@ -35,7 +33,10 @@ export async function loader({ request }: LoaderFunctionArgs) {
 
     const productRoutes = products.map((p) => `/products/${p.slug}`);
     const buySampleRoutes = products.map((p) => `/buy-samples/${p.slug}`);
-    const destinationRoutes = countryDestinations.map((c) => `/green-coffee/${c.slug}`);
+    const roastedRetailRoutes = roastedPlaces.map((p) => `/roasted-coffee/${p.slug}`);
+    const roastedCafeRoutes = roastedPlaces.map((p) => `/bulk-roasted-coffee-cafes/${p.slug}`);
+    // Root-level /:country is canonical (green-coffee/:country points its canonical here)
+    const destinationRoutes = countryDestinations.map((c) => `/${c.slug}`);
     const destinationStateRoutes = stateDestinations.map((s) => `/green-coffee/india/${s.slug}`);
     const countryCityRoutes = countryCityContent.map((c) => `/${c.countrySlug}/${c.citySlug}`);
     const supplierRoutes = TOP_INDIAN_CITIES.map((city) => `/${city}-green-coffee-supplier`);
@@ -47,6 +48,8 @@ export async function loader({ request }: LoaderFunctionArgs) {
       ...staticRoutes,
       ...productRoutes,
       ...buySampleRoutes,
+      ...roastedRetailRoutes,
+      ...roastedCafeRoutes,
       ...destinationRoutes,
       ...destinationStateRoutes,
       ...countryCityRoutes,

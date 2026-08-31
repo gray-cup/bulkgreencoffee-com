@@ -1,13 +1,14 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
-import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "White Label Green Coffee Sourcing | Indian Arabica & Robusta | Bulk Green Coffee",
-  description:
-    "Source Indian green coffee under your own brand. We supply specialty and commercial Arabica and Robusta from Koraput, Assam, Karnataka, and Kerala, export-ready with full traceability. MOQ from 10 kg.",
-  alternates: { canonical: "/white-label" },
-};
+export const meta = () =>
+  pageMeta({
+    title: "White Label Green Coffee Sourcing | Indian Arabica & Robusta | Bulk Green Coffee",
+    description:
+      "Source Indian green coffee under your own brand. We supply specialty and commercial Arabica and Robusta from Koraput, Assam, Karnataka, and Kerala, export-ready with full traceability. MOQ from 10 kg.",
+    canonical: "/white-label",
+  });
 
 export default function WhiteLabelPage() {
   return (

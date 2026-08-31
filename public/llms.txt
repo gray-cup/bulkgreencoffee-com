@@ -2,7 +2,7 @@
 
 # llms-full v1
 # site: https://bulkgreencoffee.com
-# generated: 2026-08-15T14:34:52.668Z
+# generated: 2026-08-31T16:06:00.856Z
 # generator: custom script
 # pages: 24
 

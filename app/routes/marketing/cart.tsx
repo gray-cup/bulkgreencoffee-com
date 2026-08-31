@@ -9,6 +9,10 @@ import { useCurrency } from "@/components/currency-provider";
 import { formatPrice, convertPrice } from "@/lib/currency";
 import { Button } from "@/components/ui/button";
 import { calcPrice, deliveryFeeForGrams } from "@/lib/pricing";
+import { pageMeta } from "@/lib/seo";
+
+export const meta = () =>
+  pageMeta({ title: "Your Cart | Bulk Green Coffee", description: "Review your green coffee sample selection.", noindex: true });
 
 export default function CartPage() {
   const { items, remove, updateTier, clear, count } = useCart();

@@ -1,6 +1,6 @@
 import { notFound } from "@/lib/next-nav-compat";
 import Link from "@/lib/next-link-compat";
-import type { Metadata } from "next";
+import { pageMeta, NOT_FOUND_META } from "@/lib/seo";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { LocationProductCard } from "@/components/products";
@@ -18,24 +18,16 @@ export function generateStaticParams() {
   return countryDestinations.map((c) => ({ country: c.slug }));
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { country } = await params;
-  const dest = getCountryBySlug(country);
-  if (!dest) return { title: "Not Found" };
-  return {
+export function meta({ params }: { params: { country?: string } }) {
+  const dest = getCountryBySlug(params.country || "");
+  if (!dest) return NOT_FOUND_META;
+  // Same unfiltered catalogue as /products for every country - canonicalize to
+  // the single master page to avoid ~100 near-duplicate pages in search.
+  return pageMeta({
     title: `Indian Green Coffee Products for ${dest.name} Buyers`,
     description: `Full catalogue of Indian green coffee available to ${dest.name}: specialty and commercial Arabica, Robusta, all origins. Export-ready with full documentation.`,
-    // This page renders the same unfiltered product catalogue as /products for
-    // every country - canonicalize to the single master catalogue page to
-    // avoid ~100 near-duplicate pages competing with it in search.
-    alternates: { canonical: "/products" },
-    openGraph: {
-      title: `Indian Green Coffee Products for ${dest.name} Buyers`,
-      description: `Browse our full green coffee catalogue for ${dest.name}: specialty and commercial grades from Koraput, Halflong, Chikmagalur, Coorg, and more.`,
-      url: `${BASE_URL}/${dest.slug}/products`,
-      locale: getOgLocale(dest.slug),
-    },
-  };
+    canonical: "/products",
+  });
 }
 import { useParams } from "react-router";
 

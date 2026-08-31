@@ -1,11 +1,13 @@
 import type { LinksFunction, MetaFunction } from "react-router";
-import { Links, Meta, Outlet, Scripts, ScrollRestoration } from "react-router";
+import { Links, Meta, Outlet, Scripts, ScrollRestoration, isRouteErrorResponse } from "react-router";
 import "@/styles/globals.css";
 import { cn } from "@/lib/utils";
 import RootProviders from "@/components/providers";
 import { WhatsappWidget } from "@/components/whatsapp-widget";
 import { OrganizationSchema } from "@/components/seo";
 import { Analytics } from "@vercel/analytics/react";
+import type { ReactNode } from "react";
+import NotFound from "./routes/not-found";
 
 export const links: LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -49,7 +51,7 @@ export const meta: MetaFunction = () => {
   ];
 };
 
-export default function App() {
+export function Layout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className="bg-white overflow-x-hidden">
       <head>
@@ -83,14 +85,34 @@ gtag('config', 'G-MRH06FRBDY');`,
             }),
           }}
         />
-        <RootProviders>
-          <Outlet />
-        </RootProviders>
+        <RootProviders>{children}</RootProviders>
         <WhatsappWidget />
         <Analytics />
         <ScrollRestoration />
         <Scripts />
       </body>
     </html>
+  );
+}
+
+export default function App() {
+  return <Outlet />;
+}
+
+export function ErrorBoundary({ error }: { error: unknown }) {
+  // A 404 (thrown by notFound() anywhere in the tree) renders the normal
+  // not-found page. Anything else falls through to a minimal message.
+  if (isRouteErrorResponse(error) && error.status === 404) {
+    return <NotFound />;
+  }
+  if (error instanceof Response && error.status === 404) {
+    return <NotFound />;
+  }
+  return (
+    <div className="min-h-screen flex flex-col items-center justify-center gap-3 px-4 text-center">
+      <h1 className="text-2xl font-semibold text-neutral-800">Something went wrong</h1>
+      <p className="text-muted-foreground">Please try again, or head back to the home page.</p>
+      <a href="/" className="text-teal-700 underline">Back to home</a>
+    </div>
   );
 }

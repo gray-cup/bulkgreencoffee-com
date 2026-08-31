@@ -6,6 +6,14 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Turnstile, useTurnstile } from "@/components/ui/turnstile";
+import { pageMeta } from "@/lib/seo";
+
+export const meta = () =>
+  pageMeta({
+    title: "Request a Green Coffee Sample | Bulk Green Coffee",
+    description: "Tell us what Indian green coffee you're looking for and we'll send a sample for evaluation before your bulk order.",
+    canonical: "/sample-request",
+  });
 
 const productOptions = [
   {

@@ -6,6 +6,14 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Turnstile, useTurnstile } from "@/components/ui/turnstile";
+import { pageMeta } from "@/lib/seo";
+
+export const meta = () =>
+  pageMeta({
+    title: "Request a Product | Bulk Green Coffee",
+    description: "Looking for an Indian green coffee origin, grade, or process we don't list yet? Tell us and we'll source it.",
+    canonical: "/new-product-request",
+  });
 
 const productCategories = [
   { id: "coffee", label: "Coffee", color: "bg-amber-900 border-amber-900" },

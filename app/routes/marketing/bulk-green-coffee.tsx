@@ -1,5 +1,5 @@
 import Link from "@/lib/next-link-compat";
-import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { LocationProductCard } from "@/components/products";
@@ -9,21 +9,13 @@ import { BreadcrumbSchema, FaqSchema } from "@/components/seo";
 
 const BASE_URL = "https://bulkgreencoffee.com";
 
-export async function generateMetadata(): Promise<Metadata> {
-  return {
+export const meta = () =>
+  pageMeta({
     title: "Bulk Green Coffee | Wholesale Green Coffee Beans, India Export",
     description:
       "Source bulk green coffee beans from India, commercial grades from 60 kg, specialty single-origin lots from 10 kg. Consistent supply, competitive pricing, full export documentation.",
-    alternates: { canonical: "/bulk-green-coffee" },
-    openGraph: {
-      title: "Bulk Green Coffee | Wholesale India Export",
-      description:
-        "Commercial and specialty grade bulk green coffee from India. Consistent volume supply, competitive per-kg pricing, full export documentation.",
-      url: `${BASE_URL}/bulk-green-coffee`,
-      locale: "en_US",
-    },
-  };
-}
+    canonical: "/bulk-green-coffee",
+  });
 
 const faqs = [
   {

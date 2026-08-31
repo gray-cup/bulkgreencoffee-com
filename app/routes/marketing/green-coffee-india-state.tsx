@@ -1,6 +1,6 @@
 import { notFound } from "@/lib/next-nav-compat";
 import Link from "@/lib/next-link-compat";
-import type { Metadata } from "next";
+import { pageMeta, NOT_FOUND_META } from "@/lib/seo";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { LocationProductCard } from "@/components/products";
@@ -18,20 +18,14 @@ export function generateStaticParams() {
   return stateDestinations.map((s) => ({ state: s.slug }));
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { state } = await params;
-  const dest = getStateBySlug(state);
-  if (!dest) return { title: "Not Found" };
-  return {
+export function meta({ params }: { params: { state?: string } }) {
+  const dest = getStateBySlug(params.state || "");
+  if (!dest) return NOT_FOUND_META;
+  return pageMeta({
     title: dest.metaTitle,
     description: dest.metaDescription,
-    alternates: { canonical: `/green-coffee/india/${dest.slug}` },
-    openGraph: {
-      title: dest.metaTitle,
-      description: dest.metaDescription,
-      url: `https://bulkgreencoffee.com/green-coffee/india/${dest.slug}`,
-    },
-  };
+    canonical: `/green-coffee/india/${dest.slug}`,
+  });
 }
 import { useParams } from "react-router";
 

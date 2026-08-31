@@ -1,5 +1,5 @@
 import Link from "@/lib/next-link-compat";
-import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { LocationProductCard } from "@/components/products";
@@ -9,21 +9,13 @@ import { BreadcrumbSchema, FaqSchema } from "@/components/seo";
 
 const BASE_URL = "https://bulkgreencoffee.com";
 
-export async function generateMetadata(): Promise<Metadata> {
-  return {
+export const meta = () =>
+  pageMeta({
     title: "1 Container Green Coffee Beans | Full Container Load (FCL) from India",
     description:
       "Order a full container load of Indian green coffee beans, 20ft or 40ft, commercial or specialty grade. Container loading, documentation, and freight handled end-to-end.",
-    alternates: { canonical: "/1-container-green-coffee-beans" },
-    openGraph: {
-      title: "Full Container Load Green Coffee Beans from India",
-      description:
-        "20ft and 40ft full container loads of Indian green coffee, commercial and specialty grade, with export documentation and freight handled end-to-end.",
-      url: `${BASE_URL}/1-container-green-coffee-beans`,
-      locale: "en_US",
-    },
-  };
-}
+    canonical: "/1-container-green-coffee-beans",
+  });
 
 const faqs = [
   {

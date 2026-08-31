@@ -27,6 +27,11 @@ export default [
     route("bulk-green-coffee", "routes/marketing/bulk-green-coffee.tsx"),
     route("1-container-green-coffee-beans", "routes/marketing/container-green-coffee-beans.tsx"),
 
+    // Roasted coffee - place-targeted retail + cafe bulk
+    route("roasted-coffee/checkout", "routes/marketing/roasted-checkout.tsx"),
+    route("roasted-coffee/:place", "routes/marketing/roasted-coffee-place.tsx"),
+    route("bulk-roasted-coffee-cafes/:place", "routes/marketing/bulk-roasted-cafes-place.tsx"),
+
     // Buy Samples
     route("buy-samples", "routes/marketing/buy-samples-index.tsx"),
     route("buy-samples/checkout", "routes/marketing/buy-samples-checkout.tsx"),
@@ -57,6 +62,7 @@ export default [
   route("api/call-request", "routes/api/call-request.ts"),
   route("api/contact", "routes/api/contact.ts"),
   route("api/create-payment", "routes/api/create-payment.ts"),
+  route("api/roasted-create-payment", "routes/api/roasted-create-payment.ts"),
   route("api/exchange-rates", "routes/api/exchange-rates.ts"),
   route("api/geo", "routes/api/geo.ts"),
   route("api/new-product-request", "routes/api/new-product-request.ts"),

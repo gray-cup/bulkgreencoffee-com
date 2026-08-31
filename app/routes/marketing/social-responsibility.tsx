@@ -1,11 +1,12 @@
-import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Social Responsibility | Tribal Farmers & Sustainability | Bulk Green Coffee",
-  description:
-    "How Bulk Green Coffee supports tribal coffee farming communities in Koraput, Assam, and Arunachal Pradesh, fair pricing, traceability, and sustainable sourcing from India's most remote growing regions.",
-  alternates: { canonical: "/social-responsibility" },
-};
+export const meta = () =>
+  pageMeta({
+    title: "Social Responsibility | Tribal Farmers & Sustainability | Bulk Green Coffee",
+    description:
+      "How Bulk Green Coffee supports tribal coffee farming communities in Koraput, Assam, and Arunachal Pradesh, fair pricing, traceability, and sustainable sourcing from India's most remote growing regions.",
+    canonical: "/social-responsibility",
+  });
 
 export default function SocialResponsibilityPage() {
   return (

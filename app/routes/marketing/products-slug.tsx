@@ -1,8 +1,8 @@
 import { notFound } from "@/lib/next-nav-compat";
 import Image from "@/components/Image";
 import Link from "@/lib/next-link-compat";
-import type { Metadata } from "next";
-import { getProductBySlug, getAllProductSlugs } from "@/data/products";
+import { pageMeta, NOT_FOUND_META } from "@/lib/seo";
+import { getProductBySlug } from "@/data/products";
 import {
   ProductConfigurator,
   PriceDisplay,
@@ -17,53 +17,18 @@ import {
 } from "@/components/ui/accordion";
 import { BreadcrumbSchema, ProductSchema } from "@/components/seo";
 
-type ProductPageProps = {
-  params: Promise<{ slug: string }>;
-};
+export function meta({ params }: { params: { slug?: string } }) {
+  const product = getProductBySlug(params.slug || "");
+  if (!product) return NOT_FOUND_META;
 
-export const revalidate = 3600;
-
-export async function generateStaticParams() {
-  const slugs = getAllProductSlugs();
-  return slugs.map((slug) => ({ slug }));
-}
-
-export async function generateMetadata({
-  params,
-}: ProductPageProps): Promise<Metadata> {
-  const { slug } = await params;
-  const product = getProductBySlug(slug);
-
-  if (!product) {
-    return { title: "Product Not Found" };
-  }
-
-  const baseUrl = "https://bulkgreencoffee.com";
-  const productUrl = `${baseUrl}/products/${slug}`;
-
-  const seoDescription = `Buy ${product.name} in bulk from Bulk Green Coffee. ${product.description} Price: ₹${product.priceRange.min}-₹${product.priceRange.max} ${product.priceRange.unit}. MOQ: ${product.minimumOrder.quantity} ${product.minimumOrder.unit}.`;
-
-  return {
+  return pageMeta({
     title: `${product.name} | Wholesale ${product.category} Supplier India | Bulk Green Coffee`,
-    description: seoDescription,
-    openGraph: {
-      title: `${product.name} | Wholesale ${product.category} | Bulk Green Coffee`,
-      description: seoDescription,
-      url: productUrl,
-      siteName: "Bulk Green Coffee",
-      type: "website",
-      locale: "en_IN",
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: `${product.name} | Wholesale ${product.category} | Bulk Green Coffee`,
-      description: seoDescription,
-    },
-    alternates: {
-      canonical: productUrl,
-    },
-  };
+    description: `Buy ${product.name} in bulk from Bulk Green Coffee. ${product.description} Price: ₹${product.priceRange.min}-₹${product.priceRange.max} ${product.priceRange.unit}. MOQ: ${product.minimumOrder.quantity} ${product.minimumOrder.unit}.`,
+    canonical: `/products/${params.slug}`,
+    image: product.image?.startsWith("http") ? product.image : undefined,
+  });
 }
+
 import { useParams } from "react-router";
 
 export default function ProductPage() {

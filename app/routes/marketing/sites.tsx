@@ -1,13 +1,14 @@
-import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import Link from "@/lib/next-link-compat";
 import { ArrowRight } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "Our Sites | Bulk Green Coffee",
-  description:
-    "Explore the informational websites owned and operated by Bulk Green Coffee, focused on bulk chai, CTC tea education, and loose-leaf tea knowledge.",
-  alternates: { canonical: "/sites" },
-};
+export const meta = () =>
+  pageMeta({
+    title: "Our Sites | Bulk Green Coffee",
+    description:
+      "Explore the informational websites owned and operated by Bulk Green Coffee, focused on bulk chai, CTC tea education, and loose-leaf tea knowledge.",
+    canonical: "/sites",
+  });
 
 export default function SitesPage() {
   return (

@@ -4,6 +4,10 @@ import { Suspense, useEffect, useState } from "react";
 import { useSearchParams } from "@/lib/next-nav-compat";
 import Link from "@/lib/next-link-compat";
 import { Check, ChevronLeft, Loader2, X } from "lucide-react";
+import { pageMeta } from "@/lib/seo";
+
+export const meta = () =>
+  pageMeta({ title: "Order Confirmed | Bulk Green Coffee", description: "Your green coffee sample order is confirmed.", noindex: true });
 
 type VerifyStatus = "checking" | "paid" | "pending" | "failed";
 

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, Suspense } from "react";
+import { pageMeta } from "@/lib/seo";
 import { useSearchParams, useRouter } from "@/lib/next-nav-compat";
 import Image from "@/components/Image";
 import Link from "@/lib/next-link-compat";
@@ -12,6 +13,14 @@ import { products } from "@/data/products";
 import { useCurrency } from "@/components/currency-provider";
 import { formatPrice, convertPrice } from "@/lib/currency";
 import { TIERS, calcPrice, deliveryFeeForGrams, type TierLabel } from "@/lib/pricing";
+
+export const meta = () =>
+  pageMeta({
+    title: "Buy Green Coffee Samples | 100g–1kg Sample Packs | Bulk Green Coffee",
+    description:
+      "Order small samples of Indian specialty and commercial green coffee before a bulk order. 100g, 250g, 500g and 1kg packs, delivered across India.",
+    canonical: "/buy-samples",
+  });
 
 type SelectedItem = { slug: string; tier: TierLabel };
 

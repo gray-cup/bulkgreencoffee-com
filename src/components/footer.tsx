@@ -19,6 +19,16 @@ export default function Footer() {
     { href: "https://instagram.com/thegraycup", label: "Instagram" },
   ];
 
+  const roastedLinks = [
+    { href: "/roasted-coffee/mumbai", label: "Roasted Coffee Mumbai" },
+    { href: "/roasted-coffee/pune", label: "Roasted Coffee Pune" },
+    { href: "/roasted-coffee/bengaluru", label: "Roasted Coffee Bengaluru" },
+    { href: "/roasted-coffee/delhi", label: "Roasted Coffee Delhi" },
+    { href: "/bulk-roasted-coffee-cafes/mumbai", label: "Café Bulk Coffee Mumbai" },
+    { href: "/bulk-roasted-coffee-cafes/pune", label: "Café Bulk Coffee Pune" },
+    { href: "/bulk-roasted-coffee-cafes/bengaluru", label: "Café Bulk Coffee Bengaluru" },
+  ];
+
   const resourceLinks = [
     { href: "https://graycup.org", label: "Company Site" },
     { href: "https://bulkgreencoffee.com/", label: "B2B Store" },
@@ -58,6 +68,17 @@ export default function Footer() {
             ))}
           </nav>
         </div>
+
+        <nav className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-black/80">
+          {roastedLinks.map((link) => (
+            <Link key={link.href} href={link.href} className="hover:underline">
+              {link.label}
+            </Link>
+          ))}
+          <Link href="/sitemap.xml" className="hover:underline">
+            More cities →
+          </Link>
+        </nav>
       </div>
     </footer>
   );

@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import Link from "@/lib/next-link-compat";
 import Image from "@/components/Image";
 import { Badge } from "@/components/ui/badge";
@@ -20,17 +20,13 @@ import {
   Users,
 } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "Our Team | Meet the Solo Developer Behind the Magic",
-  description:
-    "Meet Arjun Aditya, the one-person army who built this entire platform. Yes, just one person. We're as surprised as you are.",
-  alternates: { canonical: "/team" },
-  openGraph: {
+export const meta = () =>
+  pageMeta({
     title: "Our Team | Meet the Solo Developer Behind the Magic",
     description:
-      "Meet Arjun Aditya, the one-person army who built this entire platform.",
-  },
-};
+      "Meet Arjun Aditya, the one-person army who built this entire platform. Yes, just one person. We're as surprised as you are.",
+    canonical: "/team",
+  });
 
 export default function TeamPage() {
   return (

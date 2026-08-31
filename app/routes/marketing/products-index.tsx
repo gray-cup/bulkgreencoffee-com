@@ -1,7 +1,16 @@
 "use client";
 
 import { useState } from "react";
+import { pageMeta } from "@/lib/seo";
 import { getProductsByRegion } from "@/data/products";
+
+export const meta = () =>
+  pageMeta({
+    title: "Green Coffee Catalogue | Wholesale Indian Arabica & Robusta | Bulk Green Coffee",
+    description:
+      "Full catalogue of Indian green coffee: specialty single-origin lots and commercial AA/AAA grades from Koraput, Halflong, Chikmagalur, Coorg, Wayanad, and Bababudangiri. Peaberry available. Export-ready.",
+    canonical: "/products",
+  });
 import type { Product } from "@/data/products";
 import { ProductCard } from "@/components/products";
 

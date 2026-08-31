@@ -1,6 +1,6 @@
 import { notFound } from "@/lib/next-nav-compat";
 import Link from "@/lib/next-link-compat";
-import type { Metadata } from "next";
+import { pageMeta, NOT_FOUND_META } from "@/lib/seo";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { LocationProductCard } from "@/components/products";
@@ -21,22 +21,15 @@ export function generateStaticParams() {
   return countryCityContent.map((c) => ({ country: c.countrySlug, city: c.citySlug }));
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { country, city } = await params;
-  const data = getCountryCity(country, city);
-  const dest = getCountryBySlug(country || "");
-  if (!data || !dest) return { title: "Not Found" };
-  return {
+export function meta({ params }: { params: { country?: string; city?: string } }) {
+  const data = getCountryCity(params.country || "", params.city || "");
+  const dest = getCountryBySlug(params.country || "");
+  if (!data || !dest) return NOT_FOUND_META;
+  return pageMeta({
     title: `Buy Indian Green Coffee in ${data.city}, ${dest.name} | Wholesale Arabica Supplier`,
     description: `Source Indian green coffee in ${data.city}, ${dest.name}. Commercial and specialty Arabica, export-ready with full documentation. Delivered in ${data.transitDays}. WhatsApp: +91 85279 14317.`,
-    alternates: { canonical: `/${country}/${city}` },
-    openGraph: {
-      title: `Indian Green Coffee Supplier in ${data.city} | Bulk Green Coffee`,
-      description: `Wholesale Indian Arabica for ${data.city} roasters and buyers. ${data.cityContext}`,
-      url: `${BASE_URL}/${country}/${city}`,
-      locale: getOgLocale(country),
-    },
-  };
+    canonical: `/${params.country}/${params.city}`,
+  });
 }
 import { useParams } from "react-router";
 

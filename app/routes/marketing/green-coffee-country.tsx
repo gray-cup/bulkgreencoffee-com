@@ -1,6 +1,6 @@
 import { notFound } from "@/lib/next-nav-compat";
 import Link from "@/lib/next-link-compat";
-import type { Metadata } from "next";
+import { pageMeta, NOT_FOUND_META } from "@/lib/seo";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { LocationProductCard } from "@/components/products";
@@ -21,25 +21,16 @@ export function generateStaticParams() {
   return countryDestinations.map((c) => ({ country: c.slug }));
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { country } = await params;
-  const dest = getCountryBySlug(country);
-  if (!dest) return { title: "Not Found" };
-  return {
-    // dest.metaTitle already includes the "| Bulk Green Coffee" brand suffix,
-    // so it must bypass the root layout's title template (which would append it again).
-    title: { absolute: dest.metaTitle },
+export function meta({ params }: { params: { country?: string } }) {
+  const dest = getCountryBySlug(params.country || "");
+  if (!dest) return NOT_FOUND_META;
+  // Canonicalizes to the shorter root-level URL (e.g. /germany), the primary
+  // international route; this /green-coffee/:country page points there.
+  return pageMeta({
+    title: dest.metaTitle,
     description: dest.metaDescription,
-    // Canonicalizes to the shorter root-level URL (e.g. /germany) which is the
-    // primary international route going forward - see src/app/(marketing)/[country].
-    alternates: { canonical: `/${dest.slug}` },
-    openGraph: {
-      title: dest.metaTitle,
-      description: dest.metaDescription,
-      url: `https://bulkgreencoffee.com/green-coffee/${dest.slug}`,
-      locale: getOgLocale(dest.slug),
-    },
-  };
+    canonical: `/${dest.slug}`,
+  });
 }
 import { useParams } from "react-router";
 

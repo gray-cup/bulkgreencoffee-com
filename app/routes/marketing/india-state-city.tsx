@@ -1,6 +1,6 @@
 import { notFound } from "@/lib/next-nav-compat";
 import Link from "@/lib/next-link-compat";
-import type { Metadata } from "next";
+import { pageMeta, NOT_FOUND_META } from "@/lib/seo";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -19,21 +19,15 @@ export function generateStaticParams() {
   return indiaCities.map((c) => ({ state: c.stateSlug, city: c.citySlug }));
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { state, city } = await params;
-  const data = getCityBySlug(state, city);
-  if (!data) return { title: "Not Found" };
-  const stateName = getStateNameFromSlug(state || "") ?? data.state;
-  return {
+export function meta({ params }: { params: { state?: string; city?: string } }) {
+  const data = getCityBySlug(params.state || "", params.city || "");
+  if (!data) return NOT_FOUND_META;
+  const stateName = getStateNameFromSlug(params.state || "") ?? data.state;
+  return pageMeta({
     title: `Buy Indian Green Coffee in ${data.city}, ${stateName} | Wholesale Arabica Supplier`,
     description: `Source Indian green coffee in ${data.city}, ${stateName}. Commercial AA/AAA from ₹800/kg, specialty lots from ₹1,100/kg. MOQ ${data.moq}. Delivered in ${data.transitDays}. WhatsApp: +91 85279 14317.`,
-    alternates: { canonical: `/india/${state}/${city}` },
-    openGraph: {
-      title: `Indian Green Coffee Supplier in ${data.city} | Bulk Green Coffee`,
-      description: `Wholesale Indian Arabica for ${data.city} roasters and buyers. ${data.cityContext}`,
-      url: `https://bulkgreencoffee.com/india/${state}/${city}`,
-    },
-  };
+    canonical: `/india/${params.state}/${params.city}`,
+  });
 }
 import { useParams } from "react-router";
 

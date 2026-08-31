@@ -1,5 +1,14 @@
 import { Button } from "@/components/ui/button";
+import { pageMeta } from "@/lib/seo";
 import { getProductsByRegion, getCommercialProducts } from "@/data/products";
+
+export const meta = () =>
+  pageMeta({
+    title: "Bulk Green Coffee | Indian Specialty & Commercial Green Coffee",
+    description:
+      "Wholesale Indian green coffee for roasters, blenders, and importers. Specialty lots (Natural, Honey, Washed) and commercial AA/AAA grade from Koraput (Odisha) and Halflong (Assam). Peaberry available. Export-ready with full traceability.",
+    canonical: "/",
+  });
 import { LazyProductRow } from "@/components/products";
 import { RequestCallDialog } from "@/components/RequestCallDialog";
 import Link from "@/lib/next-link-compat";

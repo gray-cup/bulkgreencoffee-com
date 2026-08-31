@@ -9,6 +9,10 @@ import { CheckoutForm } from "@/components/buy-samples/CheckoutForm";
 import { useCurrency } from "@/components/currency-provider";
 import { formatPrice, convertPrice } from "@/lib/currency";
 import { TIERS, calcPrice, deliveryFeeForGrams, type TierLabel } from "@/lib/pricing";
+import { pageMeta } from "@/lib/seo";
+
+export const meta = () =>
+  pageMeta({ title: "Checkout | Bulk Green Coffee", description: "Complete your green coffee sample order.", noindex: true });
 
 type SelectedItem = { slug: string; tier: TierLabel };
 

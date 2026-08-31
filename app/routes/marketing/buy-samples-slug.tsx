@@ -10,6 +10,18 @@ import { Badge } from "@/components/ui/badge";
 import { CheckoutForm } from "@/components/buy-samples/CheckoutForm";
 import { SamplePricingTable } from "@/components/products";
 import { TIERS, calcPrice, deliveryFeeForGrams, type TierLabel } from "@/lib/pricing";
+import { pageMeta, NOT_FOUND_META } from "@/lib/seo";
+
+export function meta({ params }: { params: { slug?: string } }) {
+  const product = getProductBySlug(params.slug || "");
+  if (!product) return NOT_FOUND_META;
+  return pageMeta({
+    title: `Buy a ${product.name} Sample (100g–1kg) | Bulk Green Coffee`,
+    description: `Order a small sample of ${product.name} before committing to a bulk order. ${product.description} Sample sizes 100g to 1kg, delivered across India.`,
+    canonical: `/buy-samples/${params.slug}`,
+    image: product.image?.startsWith("http") ? product.image : undefined,
+  });
+}
 
 export default function BuySampleSlugPage() {
   const { slug }  = useParams<{ slug: string }>();

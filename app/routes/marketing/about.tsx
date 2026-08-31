@@ -1,6 +1,15 @@
 import Image from "@/components/Image";
 import React from "react";
 import Link from "@/lib/next-link-compat";
+import { pageMeta } from "@/lib/seo";
+
+export const meta = () =>
+  pageMeta({
+    title: "About Bulk Green Coffee | Indian Green Coffee Exporter",
+    description:
+      "Bulk Green Coffee (Gray Cup Enterprises) sources specialty and commercial Indian green coffee direct from tribal cooperatives and estates in Koraput, Assam, and South India for roasters and importers worldwide.",
+    canonical: "/about",
+  });
 import { Button } from "@/components/ui/button";
 import { FaGithub, FaLinkedin, FaGlobeAsia, FaInstagram } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";

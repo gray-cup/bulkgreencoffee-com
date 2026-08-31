@@ -1,4 +1,12 @@
 import React from "react";
+import { pageMeta } from "@/lib/seo";
+
+export const meta = () =>
+  pageMeta({
+    title: "Careers | Bulk Green Coffee",
+    description: "Work with Bulk Green Coffee. Open roles across sourcing, quality, logistics, and growth for India's green coffee export business.",
+    canonical: "/careers",
+  });
 
 export default function CareersPage() {
   return (

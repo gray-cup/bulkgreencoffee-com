@@ -1,5 +1,5 @@
 import Link from "@/lib/next-link-compat";
-import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { LocationProductCard } from "@/components/products";
@@ -9,21 +9,13 @@ import { BreadcrumbSchema, FaqSchema } from "@/components/seo";
 
 const BASE_URL = "https://bulkgreencoffee.com";
 
-export async function generateMetadata(): Promise<Metadata> {
-  return {
+export const meta = () =>
+  pageMeta({
     title: "Indian Green Coffee Beans | Wholesale Arabica & Robusta Supplier",
     description:
       "Buy Indian green coffee beans in bulk, specialty and commercial Arabica & Robusta from Koraput, Chikmagalur, Coorg, Wayanad, and Assam. Export-ready with full documentation.",
-    alternates: { canonical: "/indian-green-coffee-beans" },
-    openGraph: {
-      title: "Indian Green Coffee Beans | Wholesale Supplier",
-      description:
-        "Specialty and commercial grade Indian green coffee beans, Arabica and Robusta, sourced direct from Koraput, Chikmagalur, Coorg, Wayanad, and Assam. Export-ready with full documentation.",
-      url: `${BASE_URL}/indian-green-coffee-beans`,
-      locale: "en_US",
-    },
-  };
-}
+    canonical: "/indian-green-coffee-beans",
+  });
 
 const faqs = [
   {

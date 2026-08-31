@@ -1,6 +1,6 @@
 import { notFound } from "@/lib/next-nav-compat";
 import Link from "@/lib/next-link-compat";
-import type { Metadata } from "next";
+import { pageMeta, NOT_FOUND_META } from "@/lib/seo";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { LocationProductCard } from "@/components/products";
@@ -14,20 +14,15 @@ export function generateStaticParams() {
   return TOP_INDIAN_CITIES.map((city) => ({ city }));
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const citySlug = (await params).city;
+export function meta({ params }: { params: { city?: string } }) {
+  const citySlug = params.city || "";
   const data = getCityBySlugOnly(citySlug);
-  if (!data) return { title: "Not Found" };
-  return {
+  if (!data) return NOT_FOUND_META;
+  return pageMeta({
     title: `${data.city} Green Coffee Supplier | Bulk Green Coffee`,
     description: `Wholesale Indian green coffee in ${data.city}: commercial AA/AAA from ₹800/kg, specialty from ₹1,100/kg, MOQ ${data.moq}, delivered in ${data.transitDays}.`,
-    alternates: { canonical: `/${citySlug}-green-coffee-supplier` },
-    openGraph: {
-      title: `Green Coffee Suppliers in ${data.city} | Indian Arabica Wholesale`,
-      description: `Wholesale Indian Arabica & Robusta for ${data.city}. ${data.cityContext}`,
-      url: `https://bulkgreencoffee.com/${citySlug}-green-coffee-supplier`,
-    },
-  };
+    canonical: `/${citySlug}-green-coffee-supplier`,
+  });
 }
 import { useParams } from "react-router";
 

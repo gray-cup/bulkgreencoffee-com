@@ -1,11 +1,12 @@
-import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Privacy Policy | Bulk Green Coffee",
-  description: "Privacy and security policy for Bulk Green Coffee (Gray Cup Enterprises Private Limited). How we collect, use, and protect your data.",
-  alternates: { canonical: "/privacy" },
-  robots: { index: true, follow: false },
-};
+export const meta = () =>
+  pageMeta({
+    title: "Privacy Policy | Bulk Green Coffee",
+    description:
+      "Privacy and security policy for Bulk Green Coffee (Gray Cup Enterprises Private Limited). How we collect, use, and protect your data.",
+    canonical: "/privacy",
+  });
 
 export default function PrivacyPolicy() {
   return (

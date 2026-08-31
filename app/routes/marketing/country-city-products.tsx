@@ -1,6 +1,6 @@
 import { notFound } from "@/lib/next-nav-compat";
 import Link from "@/lib/next-link-compat";
-import type { Metadata } from "next";
+import { pageMeta, NOT_FOUND_META } from "@/lib/seo";
 import { Button } from "@/components/ui/button";
 import { LocationProductCard } from "@/components/products";
 import { ArrowRight } from "lucide-react";
@@ -18,24 +18,17 @@ export function generateStaticParams() {
   return countryCityContent.map((c) => ({ country: c.countrySlug, city: c.citySlug }));
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { country, city } = await params;
-  const data = getCountryCity(country, city);
-  const dest = getCountryBySlug(country);
-  if (!data || !dest) return { title: "Not Found" };
-  return {
+export function meta({ params }: { params: { country?: string; city?: string } }) {
+  const data = getCountryCity(params.country || "", params.city || "");
+  const dest = getCountryBySlug(params.country || "");
+  if (!data || !dest) return NOT_FOUND_META;
+  // Same unfiltered catalogue as /products for every city - canonicalize to
+  // the single master page to avoid ~120 near-duplicate pages.
+  return pageMeta({
     title: `Indian Green Coffee Products for ${data.city} Buyers`,
     description: `Full catalogue of Indian green coffee available in ${data.city}, ${dest.name}: specialty and commercial Arabica, Robusta, all origins. Delivered in ${data.transitDays}.`,
-    // Same unfiltered catalogue as /products for every city - canonicalize to
-    // the single master catalogue page to avoid ~120 near-duplicate pages.
-    alternates: { canonical: "/products" },
-    openGraph: {
-      title: `Indian Green Coffee Products for ${data.city}`,
-      description: `Browse our full green coffee catalogue for ${data.city}, ${dest.name}: specialty and commercial grades from Koraput, Halflong, Chikmagalur, Coorg, and more.`,
-      url: `${BASE_URL}/${country}/${city}/products`,
-      locale: getOgLocale(country),
-    },
-  };
+    canonical: "/products",
+  });
 }
 import { useParams } from "react-router";
 

@@ -1,12 +1,13 @@
 import Link from "@/lib/next-link-compat";
-import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Terms & Conditions | Bulk Green Coffee",
-  description: "Terms and conditions for purchasing Indian green coffee from Bulk Green Coffee (Gray Cup Enterprises Private Limited).",
-  alternates: { canonical: "/terms" },
-  robots: { index: true, follow: false },
-};
+export const meta = () =>
+  pageMeta({
+    title: "Terms & Conditions | Bulk Green Coffee",
+    description:
+      "Terms and conditions for purchasing Indian green coffee from Bulk Green Coffee (Gray Cup Enterprises Private Limited).",
+    canonical: "/terms",
+  });
 
 const LAST_UPDATED = "May 18, 2026";
 
