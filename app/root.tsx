@@ -57,6 +57,16 @@ export default function App() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
         <Links />
+        {/* Google tag (gtag.js) */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-NK59Q6X9FG" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-NK59Q6X9FG');`,
+          }}
+        />
       </head>
       <body className={cn("min-h-screen w-full overflow-x-hidden bg-background font-sans antialiased")}>
         <OrganizationSchema />
