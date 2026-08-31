@@ -58,13 +58,13 @@ export default function App() {
         <Meta />
         <Links />
         {/* Google tag (gtag.js) */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-NK59Q6X9FG" />
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-MRH06FRBDY" />
         <script
           dangerouslySetInnerHTML={{
             __html: `window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
-gtag('config', 'G-NK59Q6X9FG');`,
+gtag('config', 'G-MRH06FRBDY');`,
           }}
         />
       </head>
