@@ -22,6 +22,7 @@ export async function loader({ request }: LoaderFunctionArgs) {
     ];
 
     const productRoutes = products.map((p) => `/products/${p.slug}`);
+    const buySampleRoutes = products.map((p) => `/buy-samples/${p.slug}`);
     const destinationRoutes = countryDestinations.map((c) => `/green-coffee/${c.slug}`);
 
     const stateRoutes = Array.from(new Set(indiaCities.map((c) => c.stateSlug))).map((s) => `/india/${s}`);
@@ -30,6 +31,7 @@ export async function loader({ request }: LoaderFunctionArgs) {
     const allRoutes = [
       ...staticRoutes,
       ...productRoutes,
+      ...buySampleRoutes,
       ...destinationRoutes,
       ...stateRoutes,
       ...cityRoutes,
