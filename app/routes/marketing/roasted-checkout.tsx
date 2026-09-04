@@ -77,6 +77,11 @@ export default function RoastedCheckoutPage() {
       setErr("Name, phone, address and pincode are required.");
       return;
     }
+    // Indian PIN codes are exactly 6 digits, first digit 1-9.
+    if (country.trim().toLowerCase() === "india" && !/^[1-9]\d{5}$/.test(pincode.trim())) {
+      setErr("Enter a valid 6-digit PIN code.");
+      return;
+    }
     setErr("");
     setBusy(true);
     try {

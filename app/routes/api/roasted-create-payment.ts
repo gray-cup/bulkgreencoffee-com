@@ -54,6 +54,10 @@ export async function POST(request: NextRequest) {
         { status: 400 },
       );
     }
+    // Indian PIN codes are exactly 6 digits, first digit 1-9.
+    if ((country ?? "").trim().toLowerCase() === "india" && !/^[1-9]\d{5}$/.test(String(pincode).trim())) {
+      return NextResponse.json({ error: "Enter a valid 6-digit PIN code" }, { status: 400 });
+    }
 
     const isIndia = country.trim().toLowerCase() === "india";
 

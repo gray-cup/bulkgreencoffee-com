@@ -60,7 +60,7 @@ function titleCase(str: string) {
 }
 
 function validate(fields: {
-  name: string; phone: string; email: string; address: string; pincode: string;
+  name: string; phone: string; email: string; address: string; pincode: string; country: string;
 }): FieldErrors {
   const e: FieldErrors = {};
   if (!fields.name.trim())                             e.name    = "Name is required.";
@@ -70,6 +70,9 @@ function validate(fields: {
   if (!fields.address.trim())                          e.address = "Delivery address is required.";
   else if (fields.address.trim().length < 7)           e.address = "Address must be at least 7 characters.";
   if (!fields.pincode.trim())                          e.pincode = "Pincode / ZIP is required.";
+  // Indian PIN codes are exactly 6 digits, first digit 1-9.
+  else if (fields.country.trim().toLowerCase() === "india" && !/^[1-9]\d{5}$/.test(fields.pincode.trim()))
+    e.pincode = "Enter a valid 6-digit PIN code.";
   return e;
 }
 
@@ -103,7 +106,7 @@ export function CheckoutForm({ items, renderSummary, onBack }: Props) {
   const touch = (field: string) => setTouched((prev) => new Set([...prev, field]));
   const showErr = (field: string) => touched.has(field) || triedSubmit;
 
-  const fieldValues = { name, phone, email, address, pincode };
+  const fieldValues = { name, phone, email, address, pincode, country };
   const errors = validate(fieldValues);
   const hasErrors = Object.keys(errors).length > 0;
 
