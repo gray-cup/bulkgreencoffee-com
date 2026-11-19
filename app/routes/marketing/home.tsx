@@ -10,7 +10,6 @@ export const meta = () =>
     canonical: "/",
   });
 import { LazyProductRow } from "@/components/products";
-import { RequestCallDialog } from "@/components/RequestCallDialog";
 import Link from "@/lib/next-link-compat";
 
 const eastIndiaProducts = getProductsByRegion("East India");
@@ -30,12 +29,6 @@ export default function Home() {
             From AAA/AA commercial grade beans at ₹800/kg to award-worthy specialty lots, we source directly from Koraput, Assam, and South India. Whether you run a roastery, a café chain, or import at scale, we have the right grade for your volume.
           </p>
           <div className="pt-5 flex flex-wrap gap-3">
-            <RequestCallDialog />
-            <Link href="https://cal.com/arjunaditya/30min?user=arjunaditya" target="_blank">
-              <Button variant="lightgraybg" size="sm">
-                Schedule a Zoom Meeting
-              </Button>
-            </Link>
             <Link href="/products">
               <Button variant="teal" size="sm">
                 Buy Products

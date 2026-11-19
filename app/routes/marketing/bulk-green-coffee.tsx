@@ -3,7 +3,6 @@ import { pageMeta } from "@/lib/seo";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { LocationProductCard } from "@/components/products";
-import { getWhatsappLink } from "@/data/destinations";
 import { getRandomProducts } from "@/lib/random-products";
 import { BreadcrumbSchema, FaqSchema } from "@/components/seo";
 
@@ -38,9 +37,6 @@ const faqs = [
 
 export default function BulkGreenCoffeePage() {
   const featuredProducts = getRandomProducts("bulk-green-coffee", 6);
-  const waLink = getWhatsappLink(
-    "Hi, I'm looking to place a bulk green coffee order and would like to enquire about grades, pricing, and volume."
-  );
 
   const breadcrumbs = [
     { name: "Home", url: BASE_URL },
@@ -69,9 +65,6 @@ export default function BulkGreenCoffeePage() {
             Commercial-grade and specialty green coffee at volume, from 60 kg bags to full containers. Consistent supply, competitive per-kg pricing, and full export documentation on every shipment.
           </p>
           <div className="flex flex-wrap gap-3">
-            <a href={waLink} target="_blank" rel="noopener noreferrer">
-              <Button variant="teal" size="sm">WhatsApp: +91 85279 14317</Button>
-            </a>
             <Link href="/1-container-green-coffee-beans">
               <Button variant="lightgraybg" size="sm">Full Container Orders</Button>
             </Link>
@@ -163,9 +156,6 @@ export default function BulkGreenCoffeePage() {
             Message us on WhatsApp with your target grade and volume. We respond within a few hours and can arrange samples before any bulk commitment.
           </p>
           <div className="flex flex-wrap gap-3">
-            <a href={waLink} target="_blank" rel="noopener noreferrer">
-              <Button variant="teal" size="sm">WhatsApp: +91 85279 14317</Button>
-            </a>
             <Link href="/contact">
               <Button variant="lightgraybg" size="sm">Contact Form</Button>
             </Link>

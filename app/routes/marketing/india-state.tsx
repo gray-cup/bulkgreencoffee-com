@@ -8,7 +8,6 @@ import {
   getCitiesByState,
   getStateNameFromSlug,
 } from "@/data/india-locations";
-import { getWhatsappLink } from "@/data/destinations";
 
 type Props = { params: Promise<{ state: string }> };
 
@@ -21,7 +20,7 @@ export function meta({ params }: { params: { state?: string } }) {
   if (!stateName) return NOT_FOUND_META;
   return pageMeta({
     title: `Buy Indian Green Coffee in ${stateName} | Wholesale Arabica Supplier`,
-    description: `Source Indian green coffee wholesale in ${stateName}. Commercial AA/AAA from ₹800/kg, specialty from ₹1,100/kg. MOQ 10 kg. GST invoice. WhatsApp: +91 85279 14317.`,
+    description: `Source Indian green coffee wholesale in ${stateName}. Commercial AA/AAA from ₹800/kg, specialty from ₹1,100/kg. MOQ 10 kg. GST invoice.`,
     canonical: `/india/${params.state}`,
   });
 }
@@ -34,9 +33,6 @@ export default function StatePage() {
 
   const cities = getCitiesByState(state || "");
 
-  const waLink = getWhatsappLink(
-    `Hi, I found your ${stateName} page on bulkgreencoffee.com and would like to enquire about sourcing Indian green coffee.`
-  );
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -75,9 +71,6 @@ export default function StatePage() {
             We supply wholesale Indian green coffee to roasters, distributors, and institutional buyers across {stateName}. Specialty Arabica from Koraput, Halflong, and South India, delivered with GST invoice and full origin documentation.
           </p>
           <div className="flex flex-wrap gap-3">
-            <a href={waLink} target="_blank" rel="noopener noreferrer">
-              <Button variant="teal" size="sm">WhatsApp: +91 85279 14317</Button>
-            </a>
             <Link href="/products">
               <Button variant="lightgraybg" size="sm">Browse Products</Button>
             </Link>
@@ -164,9 +157,6 @@ export default function StatePage() {
             Minimum 10 kg. GST invoice included. Direct from tribal cooperatives and estates.
           </p>
           <div className="flex flex-wrap gap-3">
-            <a href={waLink} target="_blank" rel="noopener noreferrer">
-              <Button variant="teal" size="sm">WhatsApp: +91 85279 14317</Button>
-            </a>
             <Link href="/contact">
               <Button variant="lightgraybg" size="sm">Contact Form</Button>
             </Link>

@@ -4,7 +4,7 @@ import { pageMeta, NOT_FOUND_META } from "@/lib/seo";
 import { Button } from "@/components/ui/button";
 import { LocationProductCard } from "@/components/products";
 import { ArrowRight } from "lucide-react";
-import { getCountryBySlug, getWhatsappLink } from "@/data/destinations";
+import { getCountryBySlug } from "@/data/destinations";
 import { getRandomProducts } from "@/lib/random-products";
 import { getOgLocale } from "@/data/country-codes";
 import { countryCityContent, getCountryCity } from "@/data/country-city-content";
@@ -38,9 +38,6 @@ export default function CountryCityProductsPage() {
   const dest = getCountryBySlug(country || "");
   if (!data || !dest) notFound();
 
-  const waLink = getWhatsappLink(
-    `Hi, I'm browsing your product catalogue for ${data.city}, ${dest.name} on bulkgreencoffee.com and I would like to enquire about sourcing Indian green coffee.`
-  );
   const featuredProducts = getRandomProducts(`${country}-${city}`, 6);
 
   const breadcrumbs = [
@@ -78,9 +75,6 @@ export default function CountryCityProductsPage() {
             Our full catalogue of specialty and commercial green coffee, delivered to {data.city} in {data.transitDays} with full phytosanitary and customs documentation.
           </p>
           <div className="flex flex-wrap gap-3">
-            <a href={waLink} target="_blank" rel="noopener noreferrer">
-              <Button variant="teal" size="sm">WhatsApp Us</Button>
-            </a>
             <Link href={`/${country}/${city}`}>
               <Button variant="lightgraybg" size="sm">Back to {data.city} Overview</Button>
             </Link>
@@ -121,9 +115,6 @@ export default function CountryCityProductsPage() {
             Message us on WhatsApp with your target origin, volume, and timeline. We respond within a few hours and can arrange samples before any bulk commitment.
           </p>
           <div className="flex flex-wrap gap-3">
-            <a href={waLink} target="_blank" rel="noopener noreferrer">
-              <Button variant="teal" size="sm">WhatsApp: +91 85279 14317</Button>
-            </a>
             <Link href="/contact">
               <Button variant="lightgraybg" size="sm">Contact Form</Button>
             </Link>

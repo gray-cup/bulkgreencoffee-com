@@ -3,7 +3,6 @@ import { pageMeta } from "@/lib/seo";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { INDIA_STATES, getCitiesByState, indiaCities } from "@/data/india-locations";
-import { getWhatsappLink } from "@/data/destinations";
 
 export const meta = () =>
   pageMeta({
@@ -14,9 +13,6 @@ export const meta = () =>
   });
 
 export default function AvailableLocationsPage() {
-  const waLink = getWhatsappLink(
-    "Hi, I found your available locations page on bulkgreencoffee.com and would like to enquire about sourcing Indian green coffee."
-  );
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -52,9 +48,6 @@ export default function AvailableLocationsPage() {
             We supply wholesale Indian green coffee to {indiaCities.length}+ cities across {INDIA_STATES.length} states. Specialty Arabica from tribal cooperatives in Koraput (Odisha) and Halflong (Assam), plus South India estates from Chikmagalur, Coorg, Wayanad, and Bababudangiri.
           </p>
           <div className="flex flex-wrap gap-3">
-            <a href={waLink} target="_blank" rel="noopener noreferrer">
-              <Button variant="teal" size="sm">WhatsApp: +91 85279 14317</Button>
-            </a>
             <Link href="/products">
               <Button variant="lightgraybg" size="sm">Browse Products</Button>
             </Link>
@@ -191,9 +184,6 @@ export default function AvailableLocationsPage() {
             Tell us your city, volume, and preferred origin. We respond within a few hours.
           </p>
           <div className="flex flex-wrap gap-3">
-            <a href={waLink} target="_blank" rel="noopener noreferrer">
-              <Button variant="teal" size="sm">WhatsApp: +91 85279 14317</Button>
-            </a>
             <Link href="/contact">
               <Button variant="lightgraybg" size="sm">Contact Form</Button>
             </Link>

@@ -11,7 +11,6 @@ import {
 } from "@/data/india-locations";
 import { getProductBySlug } from "@/data/products";
 import { LocationProductCard } from "@/components/products";
-import { getWhatsappLink } from "@/data/destinations";
 
 type Props = { params: Promise<{ state: string; city: string }> };
 
@@ -25,7 +24,7 @@ export function meta({ params }: { params: { state?: string; city?: string } }) 
   const stateName = getStateNameFromSlug(params.state || "") ?? data.state;
   return pageMeta({
     title: `Buy Indian Green Coffee in ${data.city}, ${stateName} | Wholesale Arabica Supplier`,
-    description: `Source Indian green coffee in ${data.city}, ${stateName}. Commercial AA/AAA from ₹800/kg, specialty lots from ₹1,100/kg. MOQ ${data.moq}. Delivered in ${data.transitDays}. WhatsApp: +91 85279 14317.`,
+    description: `Source Indian green coffee in ${data.city}, ${stateName}. Commercial AA/AAA from ₹800/kg, specialty lots from ₹1,100/kg. MOQ ${data.moq}. Delivered in ${data.transitDays}.`,
     canonical: `/india/${params.state}/${params.city}`,
   });
 }
@@ -42,9 +41,6 @@ export default function CityPage() {
     .map((s) => getProductBySlug(s))
     .filter(Boolean) as NonNullable<ReturnType<typeof getProductBySlug>>[];
 
-  const waLink = getWhatsappLink(
-    `Hi, I found your page for ${data.city}, ${stateName} on bulkgreencoffee.com and I would like to enquire about sourcing Indian green coffee.`
-  );
 
   const jsonLd = [
     {
@@ -64,7 +60,6 @@ export default function CityPage() {
       name: `Bulk Green Coffee: ${data.city}`,
       description: `Indian green coffee wholesale supplier serving ${data.city}, ${stateName}.`,
       url: `https://bulkgreencoffee.com/india/${state}/${city}`,
-      telephone: "+918527914317",
       areaServed: [data.city, ...data.nearbyAreas].map((area) => ({ "@type": "City", name: area })),
       geo: { "@type": "GeoCoordinates", latitude: data.coordinates.lat, longitude: data.coordinates.lng },
     },
@@ -110,9 +105,6 @@ export default function CityPage() {
             {data.cityContext}
           </p>
           <div className="flex flex-wrap gap-3">
-            <a href={waLink} target="_blank" rel="noopener noreferrer">
-              <Button variant="teal" size="sm">WhatsApp: +91 85279 14317</Button>
-            </a>
             <Link href="/products">
               <Button variant="lightgraybg" size="sm">Browse Products</Button>
             </Link>
@@ -264,9 +256,6 @@ export default function CityPage() {
             Minimum {data.moq}. Delivered in {data.transitDays}. GST invoice included.
           </p>
           <div className="flex flex-wrap gap-3">
-            <a href={waLink} target="_blank" rel="noopener noreferrer">
-              <Button variant="teal" size="sm">WhatsApp: +91 85279 14317</Button>
-            </a>
             <Link href="/contact">
               <Button variant="lightgraybg" size="sm">Contact Form</Button>
             </Link>

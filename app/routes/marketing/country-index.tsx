@@ -7,7 +7,6 @@ import { LocationProductCard } from "@/components/products";
 import {
   countryDestinations,
   getCountryBySlug,
-  getWhatsappLink,
 } from "@/data/destinations";
 import { getProductBySlug } from "@/data/products";
 import { getIsoCountry, getOgLocale } from "@/data/country-codes";
@@ -44,9 +43,6 @@ export default function CountryPage() {
     .map((s) => getProductBySlug(s))
     .filter(Boolean) as NonNullable<ReturnType<typeof getProductBySlug>>[];
 
-  const waLink = getWhatsappLink(
-    `Hi, I found your page for ${dest.name} on bulkgreencoffee.com and I would like to enquire about sourcing Indian green coffee.`
-  );
 
   const isoCountry = getIsoCountry(dest.slug);
 
@@ -77,9 +73,6 @@ export default function CountryPage() {
             {dest.heroSubtitle}
           </p>
           <div className="flex flex-wrap gap-3">
-            <a href={waLink} target="_blank" rel="noopener noreferrer">
-              <Button variant="teal" size="sm">WhatsApp Us</Button>
-            </a>
             <Link href="/contact">
               <Button variant="lightgraybg" size="sm">Contact Form</Button>
             </Link>
@@ -230,9 +223,6 @@ export default function CountryPage() {
             Message us on WhatsApp with your target origin, volume, and timeline. We respond within a few hours and can arrange samples before any bulk commitment.
           </p>
           <div className="flex flex-wrap gap-3">
-            <a href={waLink} target="_blank" rel="noopener noreferrer">
-              <Button variant="teal" size="sm">WhatsApp: +91 85279 14317</Button>
-            </a>
             <Link href="/contact">
               <Button variant="lightgraybg" size="sm">Contact Form</Button>
             </Link>

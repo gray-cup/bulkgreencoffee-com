@@ -3,7 +3,6 @@ import { pageMeta } from "@/lib/seo";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { LocationProductCard } from "@/components/products";
-import { getWhatsappLink } from "@/data/destinations";
 import { getRandomProducts } from "@/lib/random-products";
 import { BreadcrumbSchema, FaqSchema } from "@/components/seo";
 
@@ -38,9 +37,6 @@ const faqs = [
 
 export default function IndianGreenCoffeeBeansPage() {
   const featuredProducts = getRandomProducts("indian-green-coffee-beans", 6);
-  const waLink = getWhatsappLink(
-    "Hi, I'm looking to buy Indian green coffee beans in bulk and would like to enquire about sourcing."
-  );
 
   const breadcrumbs = [
     { name: "Home", url: BASE_URL },
@@ -69,9 +65,6 @@ export default function IndianGreenCoffeeBeansPage() {
             Specialty and commercial-grade green (unroasted) Arabica and Robusta, sourced directly from Koraput, Chikmagalur, Coorg, Wayanad, and North East India. Export-ready with full phytosanitary and customs documentation.
           </p>
           <div className="flex flex-wrap gap-3">
-            <a href={waLink} target="_blank" rel="noopener noreferrer">
-              <Button variant="teal" size="sm">WhatsApp: +91 85279 14317</Button>
-            </a>
             <Link href="/products">
               <Button variant="lightgraybg" size="sm">Browse Full Catalogue</Button>
             </Link>
@@ -161,9 +154,6 @@ export default function IndianGreenCoffeeBeansPage() {
             Message us on WhatsApp with your target origin, grade, and volume. We respond within a few hours and can arrange samples before any bulk order.
           </p>
           <div className="flex flex-wrap gap-3">
-            <a href={waLink} target="_blank" rel="noopener noreferrer">
-              <Button variant="teal" size="sm">WhatsApp: +91 85279 14317</Button>
-            </a>
             <Link href="/contact">
               <Button variant="lightgraybg" size="sm">Contact Form</Button>
             </Link>

@@ -6,7 +6,6 @@ import { Button } from "@/components/ui/button";
 import { LocationProductCard } from "@/components/products";
 import { TOP_INDIAN_CITIES, getCityBySlugOnly, getStateNameFromSlug } from "@/data/india-locations";
 import { getProductBySlug } from "@/data/products";
-import { getWhatsappLink } from "@/data/destinations";
 
 type Props = { params: Promise<{ city: string }> };
 
@@ -36,9 +35,6 @@ export default function SupplierPage() {
     .map((s) => getProductBySlug(s))
     .filter(Boolean) as NonNullable<ReturnType<typeof getProductBySlug>>[];
 
-  const waLink = getWhatsappLink(
-    `Hi, I'm looking for Indian green coffee suppliers in ${data.city}. I found your page on bulkgreencoffee.com and would like to enquire.`
-  );
 
   const jsonLd = [
     {
@@ -57,7 +53,6 @@ export default function SupplierPage() {
       name: `Bulk Green Coffee Supplier in ${data.city}`,
       description: `Indian green coffee wholesale supplier serving ${data.city}, ${stateName}.`,
       url: `https://bulkgreencoffee.com/${city || ""}-green-coffee-supplier`,
-      telephone: "+918527914317",
       areaServed: { "@type": "City", name: data.city },
       geo: { "@type": "GeoCoordinates", latitude: data.coordinates.lat, longitude: data.coordinates.lng },
     },
@@ -103,9 +98,6 @@ export default function SupplierPage() {
             {data.cityContext}
           </p>
           <div className="flex flex-wrap gap-3">
-            <a href={waLink} target="_blank" rel="noopener noreferrer">
-              <Button variant="teal" size="sm">WhatsApp: +91 85279 14317</Button>
-            </a>
             <Link href="/products">
               <Button variant="lightgraybg" size="sm">Browse Products</Button>
             </Link>
@@ -158,7 +150,6 @@ export default function SupplierPage() {
               {[
                 { label: "Legal Name", value: "Gray Cup Enterprises Pvt. Ltd." },
                 { label: "GST", value: "06AAMCG4985H1Z4" },
-                { label: "WhatsApp", value: "+91 85279 14317" },
                 { label: "UPI", value: "graycup@kotak" },
               ].map((item) => (
                 <div key={item.label} className="flex gap-3">
@@ -240,9 +231,6 @@ export default function SupplierPage() {
             MOQ {data.moq}. Delivered in {data.transitDays}. GST invoice. WhatsApp for a same-day response.
           </p>
           <div className="flex flex-wrap gap-3">
-            <a href={waLink} target="_blank" rel="noopener noreferrer">
-              <Button variant="teal" size="sm">WhatsApp: +91 85279 14317</Button>
-            </a>
             <Link href="/contact">
               <Button variant="lightgraybg" size="sm">Contact Form</Button>
             </Link>

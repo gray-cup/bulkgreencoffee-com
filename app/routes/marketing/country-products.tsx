@@ -4,7 +4,7 @@ import { pageMeta, NOT_FOUND_META } from "@/lib/seo";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { LocationProductCard } from "@/components/products";
-import { countryDestinations, getCountryBySlug, getWhatsappLink } from "@/data/destinations";
+import { countryDestinations, getCountryBySlug } from "@/data/destinations";
 import { getRandomProducts } from "@/lib/random-products";
 import { getOgLocale } from "@/data/country-codes";
 import { getCitiesByCountry } from "@/data/country-city-content";
@@ -39,9 +39,6 @@ export default function CountryProductsPage() {
   const cities = getCitiesByCountry(dest.slug);
   const featuredProducts = getRandomProducts(dest.slug, 6);
 
-  const waLink = getWhatsappLink(
-    `Hi, I'm browsing your product catalogue for ${dest.name} on bulkgreencoffee.com and I would like to enquire about sourcing Indian green coffee.`
-  );
 
   const breadcrumbs = [
     { name: "Home", url: BASE_URL },
@@ -75,9 +72,6 @@ export default function CountryProductsPage() {
             Our full catalogue of specialty and commercial green coffee, export-ready for {dest.name} with full phytosanitary and customs documentation.
           </p>
           <div className="flex flex-wrap gap-3">
-            <a href={waLink} target="_blank" rel="noopener noreferrer">
-              <Button variant="teal" size="sm">WhatsApp Us</Button>
-            </a>
             <Link href={`/${dest.slug}`}>
               <Button variant="lightgraybg" size="sm">Back to {dest.name} Overview</Button>
             </Link>
@@ -136,9 +130,6 @@ export default function CountryProductsPage() {
             Message us on WhatsApp with your target origin, volume, and timeline. We respond within a few hours and can arrange samples before any bulk commitment.
           </p>
           <div className="flex flex-wrap gap-3">
-            <a href={waLink} target="_blank" rel="noopener noreferrer">
-              <Button variant="teal" size="sm">WhatsApp: +91 85279 14317</Button>
-            </a>
             <Link href="/contact">
               <Button variant="lightgraybg" size="sm">Contact Form</Button>
             </Link>

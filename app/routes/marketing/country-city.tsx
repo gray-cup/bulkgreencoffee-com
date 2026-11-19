@@ -4,7 +4,7 @@ import { pageMeta, NOT_FOUND_META } from "@/lib/seo";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { LocationProductCard } from "@/components/products";
-import { getCountryBySlug, getWhatsappLink } from "@/data/destinations";
+import { getCountryBySlug } from "@/data/destinations";
 import { getProductBySlug } from "@/data/products";
 import { getOgLocale } from "@/data/country-codes";
 import {
@@ -27,7 +27,7 @@ export function meta({ params }: { params: { country?: string; city?: string } }
   if (!data || !dest) return NOT_FOUND_META;
   return pageMeta({
     title: `Buy Indian Green Coffee in ${data.city}, ${dest.name} | Wholesale Arabica Supplier`,
-    description: `Source Indian green coffee in ${data.city}, ${dest.name}. Commercial and specialty Arabica, export-ready with full documentation. Delivered in ${data.transitDays}. WhatsApp: +91 85279 14317.`,
+    description: `Source Indian green coffee in ${data.city}, ${dest.name}. Commercial and specialty Arabica, export-ready with full documentation. Delivered in ${data.transitDays}.`,
     canonical: `/${params.country}/${params.city}`,
   });
 }
@@ -44,9 +44,6 @@ export default function CountryCityPage() {
     .map((s) => getProductBySlug(s))
     .filter(Boolean) as NonNullable<ReturnType<typeof getProductBySlug>>[];
 
-  const waLink = getWhatsappLink(
-    `Hi, I found your page for ${data.city}, ${dest.name} on bulkgreencoffee.com and I would like to enquire about sourcing Indian green coffee.`
-  );
 
   const jsonLd = [
     {
@@ -65,7 +62,6 @@ export default function CountryCityPage() {
       name: `Bulk Green Coffee: ${data.city}`,
       description: `Indian green coffee wholesale supplier serving ${data.city}, ${dest.name}.`,
       url: `${BASE_URL}/${country}/${city}`,
-      telephone: "+918527914317",
       areaServed: [data.city, ...data.nearbyAreas].map((area) => ({ "@type": "City", name: area })),
       geo: { "@type": "GeoCoordinates", latitude: data.coordinates.lat, longitude: data.coordinates.lng },
     },
@@ -109,9 +105,6 @@ export default function CountryCityPage() {
             {data.cityContext}
           </p>
           <div className="flex flex-wrap gap-3">
-            <a href={waLink} target="_blank" rel="noopener noreferrer">
-              <Button variant="teal" size="sm">WhatsApp: +91 85279 14317</Button>
-            </a>
             <Link href={`/${country}/${city}/products`}>
               <Button variant="lightgraybg" size="sm">Browse Products</Button>
             </Link>
@@ -262,9 +255,6 @@ export default function CountryCityPage() {
             Delivered in {data.transitDays}. Full export documentation included.
           </p>
           <div className="flex flex-wrap gap-3">
-            <a href={waLink} target="_blank" rel="noopener noreferrer">
-              <Button variant="teal" size="sm">WhatsApp: +91 85279 14317</Button>
-            </a>
             <Link href="/contact">
               <Button variant="lightgraybg" size="sm">Contact Form</Button>
             </Link>

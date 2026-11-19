@@ -8,7 +8,6 @@ import { FaqSchema } from "@/components/seo";
 import {
   stateDestinations,
   getStateBySlug,
-  getWhatsappLink,
 } from "@/data/destinations";
 import { getProductBySlug } from "@/data/products";
 
@@ -38,9 +37,6 @@ export default function StatePage() {
     .map((s) => getProductBySlug(s))
     .filter(Boolean) as NonNullable<ReturnType<typeof getProductBySlug>>[];
 
-  const waLink = getWhatsappLink(
-    `Hi, I found your page for ${dest.name} on bulkgreencoffee.com and I would like to enquire about sourcing Indian green coffee.`
-  );
 
   return (
     <div className="min-h-screen py-20 px-4 lg:px-6">
@@ -59,9 +55,6 @@ export default function StatePage() {
             {dest.heroSubtitle}
           </p>
           <div className="flex flex-wrap gap-3">
-            <a href={waLink} target="_blank" rel="noopener noreferrer">
-              <Button variant="teal" size="sm">WhatsApp: +91 85279 14317</Button>
-            </a>
             <Link href="/contact">
               <Button variant="lightgraybg" size="sm">Contact Form</Button>
             </Link>
@@ -140,7 +133,6 @@ export default function StatePage() {
                 { label: "CIN", value: "U47211DL2025PTC457808" },
                 { label: "GST", value: "06AAMCG4985H1Z4" },
                 { label: "Incorporated", value: "7th November 2025" },
-                { label: "WhatsApp", value: "+91 85279 14317" },
                 { label: "UPI", value: "graycup@kotak" },
               ].map((item) => (
                 <div key={item.label} className="flex gap-3">
@@ -178,9 +170,6 @@ export default function StatePage() {
             Message us on WhatsApp with your origin preference, volume, and delivery location. We respond within a few hours and can arrange samples before any bulk order.
           </p>
           <div className="flex flex-wrap gap-3">
-            <a href={waLink} target="_blank" rel="noopener noreferrer">
-              <Button variant="teal" size="sm">WhatsApp: +91 85279 14317</Button>
-            </a>
             <Link href="/contact">
               <Button variant="lightgraybg" size="sm">Contact Form</Button>
             </Link>

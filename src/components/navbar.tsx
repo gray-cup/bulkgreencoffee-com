@@ -9,8 +9,6 @@ import { useCart } from "@/context/cart-context";
 const NAV_LINKS: [string, string][] = [
   ["Products", "/products"],
   ["Buy Green Coffee Beans", "/buy-green-coffee-beans"],
-  ["Product Request", "/new-product-request"],
-  ["White Label", "/white-label"],
 ];
 
 export function Navbar() {
@@ -38,6 +36,14 @@ export function Navbar() {
           </div>
 
           <div className="flex shrink-0 items-center gap-2">
+            <a
+              href="https://graycup.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden whitespace-nowrap rounded-md bg-teal-800 px-4 py-2 text-sm font-medium text-white hover:bg-teal-700 lg:inline-block"
+            >
+              Visit Gray Cup Store
+            </a>
             <CurrencySelector />
             <Link
               href="/cart"
@@ -50,12 +56,6 @@ export function Navbar() {
                   {count}
                 </span>
               )}
-            </Link>
-            <Link
-              href="/contact"
-              className="hidden rounded-md bg-teal-800 px-4 py-2 text-sm font-medium text-white hover:bg-teal-700 lg:inline-block"
-            >
-              Contact
             </Link>
             <button
               className="rounded-md p-2 hover:bg-neutral-200 lg:hidden"
@@ -92,13 +92,15 @@ export function Navbar() {
               ))}
             </nav>
             <div className="mt-auto flex flex-col gap-2 pt-6">
-              <Link
-                href="/contact"
+              <a
+                href="https://graycup.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => setMenuOpen(false)}
                 className="rounded-md bg-teal-800 px-4 py-2.5 text-center text-sm font-medium text-white"
               >
-                Contact
-              </Link>
+                Visit Gray Cup Store
+              </a>
               <Link
                 href="https://graycup.org/"
                 target="_blank"

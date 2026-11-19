@@ -2,24 +2,22 @@
 
 # llms-full v1
 # site: https://bulkgreencoffee.com
-# generated: 2026-09-03T16:14:15.427Z
+# generated: 2026-11-19T18:31:03.640Z
 # generator: custom script
-# pages: 24
+# pages: 22
 
 ## Table of Contents
 - 1 https://bulkgreencoffee.com — Bulk Green Coffee - Home
 - 2 https://bulkgreencoffee.com/about — About Bulk Green Coffee
 - 3 https://bulkgreencoffee.com/products — Products - Green Coffee Catalog
 - 4 https://bulkgreencoffee.com/contact — Contact Bulk Green Coffee
-- 5 https://bulkgreencoffee.com/white-label — Bulk Green Coffee - White Label
-- 6 https://bulkgreencoffee.com/sample-request — Bulk Green Coffee - Sample Request
-- 7 https://bulkgreencoffee.com/sites — Bulk Green Coffee - Sites
-- 8 https://bulkgreencoffee.com/careers — Bulk Green Coffee - Careers
-- 9 https://bulkgreencoffee.com/team — Bulk Green Coffee - Team
-- 10 https://bulkgreencoffee.com/social-responsibility — Bulk Green Coffee - Social Responsibility
-- 11 https://bulkgreencoffee.com/terms — Terms of Service
-- 12 https://bulkgreencoffee.com/privacy — Privacy Policy
-- 13 https://bulkgreencoffee.com/new-product-request — New Product Request
+- 5 https://bulkgreencoffee.com/sample-request — Bulk Green Coffee - Sample Request
+- 6 https://bulkgreencoffee.com/sites — Bulk Green Coffee - Sites
+- 7 https://bulkgreencoffee.com/careers — Bulk Green Coffee - Careers
+- 8 https://bulkgreencoffee.com/team — Bulk Green Coffee - Team
+- 9 https://bulkgreencoffee.com/social-responsibility — Bulk Green Coffee - Social Responsibility
+- 10 https://bulkgreencoffee.com/terms — Terms of Service
+- 11 https://bulkgreencoffee.com/privacy — Privacy Policy
 
 ---
 
@@ -45,13 +43,7 @@ description: Browse our catalog of green coffee products from East India (Korapu
 ### BEGIN PAGE
 title: Contact Bulk Green Coffee
 url: https://bulkgreencoffee.com/contact
-description: Contact information including schedule a meeting, phone numbers, sales inquiries at office@graycup.org, and general enquiries at arjun@graycup.in.
-### END PAGE
-
-### BEGIN PAGE
-title: Bulk Green Coffee - White Label
-url: https://bulkgreencoffee.com/white-label
-description: White label solutions for businesses looking to brand our coffee products.
+description: Contact information including sales inquiries at office@graycup.org, and general enquiries at arjun@graycup.in.
 ### END PAGE
 
 ### BEGIN PAGE
@@ -94,12 +86,6 @@ description: Terms of service for Bulk Green Coffee customers.
 title: Privacy Policy
 url: https://bulkgreencoffee.com/privacy
 description: Privacy policy and data handling practices.
-### END PAGE
-
-### BEGIN PAGE
-title: New Product Request
-url: https://bulkgreencoffee.com/new-product-request
-description: Request products not currently in our catalog.
 ### END PAGE
 
 

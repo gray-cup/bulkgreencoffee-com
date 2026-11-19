@@ -105,7 +105,6 @@ export default function RefundsAndCancellations() {
           <ul className="mt-2 space-y-1">
             <li>Email: <a href="mailto:office@graycup.org" className="underline underline-offset-4">office@graycup.org</a></li>
             <li>Email: <a href="mailto:arjun@graycup.in" className="underline underline-offset-4">arjun@graycup.in</a></li>
-            <li>Phone: <a href="tel:+918527914317" className="underline underline-offset-4">+91 8527914317</a></li>
           </ul>
           <p className="mt-3">
             See also our <Link href="/terms" className="underline underline-offset-4 text-black">Terms & Conditions</Link>.

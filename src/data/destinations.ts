@@ -26,12 +26,6 @@ export type StateDestination = {
   faqs: { q: string; a: string }[];
 };
 
-const WHATSAPP_NUMBER = "918527914317";
-
-export function getWhatsappLink(message: string) {
-  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
-}
-
 export const countryDestinations: CountryDestination[] = [
   {
     slug: "germany",

@@ -6,7 +6,7 @@ export const meta = () =>
   pageMeta({
     title: "Contact Us | Bulk Green Coffee | Indian Green Coffee Wholesale",
     description:
-      "Get in touch with Bulk Green Coffee to enquire about wholesale Indian green coffee. WhatsApp: +91 85279 14317. We supply roasters, importers, and distributors worldwide.",
+      "Get in touch with Bulk Green Coffee to enquire about wholesale Indian green coffee. We supply roasters, importers, and distributors worldwide.",
     canonical: "/contact",
   });
 
@@ -27,38 +27,7 @@ export default function ContactPage() {
         </div>
 
         {/* Contact Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {/* Schedule Meeting */}
-          <div className="p-4 border rounded-lg flex flex-col">
-            <h2 className="font-semibold text-black mb-1">
-              Schedule a Meeting
-            </h2>
-            <p className="text-sm text-muted-foreground mb-3">
-              Book a Zoom call with Arjun.
-            </p>
-            <Button size="minor" variant="black" asChild className="mt-auto">
-              <a
-                href="https://cal.com/arjunaditya/30min?user=arjunaditya"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Schedule
-              </a>
-            </Button>
-          </div>
-
-          {/* Phone */}
-          <div className="p-4 border rounded-lg">
-            <h2 className="font-semibold text-black mb-1">Phone</h2>
-            <p className="text-sm text-muted-foreground mb-3">
-              Call us directly.
-            </p>
-            <p className="text-sm text-black underline underline-offset-4 hover:text-neutral-600">
-              +91 85279 14317
-            </p>
-
-          </div>
-
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Sales & Purchases */}
           <div className="p-4 border rounded-lg">
             <h2 className="font-semibold text-black mb-1">Sales & Purchases</h2>
