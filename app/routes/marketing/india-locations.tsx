@@ -144,7 +144,7 @@ export default function AvailableLocationsPage() {
           <h2 className="text-lg font-semibold text-black mb-4">How to Order</h2>
           <div className="space-y-4">
             {[
-              { step: "1", title: "WhatsApp or Email Us", desc: "Message us with your city, preferred origin, grade, and quantity. We respond within a few hours." },
+              { step: "1", title: "Email Us", desc: "Message us with your city, preferred origin, grade, and quantity. We respond within a few hours." },
               { step: "2", title: "Receive Sample", desc: "We send 200–500 g sample packs before any bulk commitment so you can cup before you commit." },
               { step: "3", title: "Confirm Order", desc: "Confirm volume, receive pro-forma invoice with GST breakup from Gray Cup Enterprises Pvt. Ltd." },
               { step: "4", title: "Delivery to Your City", desc: "Packed in GrainPro bags and dispatched via road freight to your address across India." },

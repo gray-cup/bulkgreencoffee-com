@@ -151,7 +151,7 @@ export default function ContainerGreenCoffeeBeansPage() {
         <div className="p-8 rounded-xl border border-teal-200 bg-teal-50">
           <h2 className="text-lg font-semibold text-black mb-1">Ready to book a container?</h2>
           <p className="text-sm text-muted-foreground mb-4">
-            Message us on WhatsApp with your target grade, volume, destination port, and Incoterm. We respond within a few hours.
+            Contact us with your target grade, volume, destination port, and Incoterm. We respond within a few hours.
           </p>
           <div className="flex flex-wrap gap-3">
             <Link href="/contact">

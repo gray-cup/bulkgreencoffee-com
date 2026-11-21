@@ -63,7 +63,7 @@ export const indiaCities: IndiaCity[] = [
     faqs: [
       {
         question: "Can I buy specialty green coffee in Pune in small trial quantities?",
-        answer: "Yes, specialty lots start from 10 kg, ideal for Pune roasters trialling a new origin. We also send 250-500g sample packs before any bulk order. Contact us on WhatsApp.",
+        answer: "Yes, specialty lots start from 10 kg, ideal for Pune roasters trialling a new origin. We also send 250-500g sample packs before any bulk order. Contact us.",
       },
       {
         question: "How long does delivery to Pune take?",
@@ -453,7 +453,7 @@ export const indiaCities: IndiaCity[] = [
     faqs: [
       {
         question: "Can I buy green coffee wholesale in Jodhpur?",
-        answer: "Yes, we supply commercial and specialty green coffee to Jodhpur's hospitality sector and roasters. Transit is 4-6 days. Contact us on WhatsApp for current lot availability and pricing.",
+        answer: "Yes, we supply commercial and specialty green coffee to Jodhpur's hospitality sector and roasters. Transit is 4-6 days. Contact us for current lot availability and pricing.",
       },
     ],
     coordinates: { lat: 26.2389, lng: 73.0243 },
@@ -495,7 +495,7 @@ export const indiaCities: IndiaCity[] = [
     faqs: [
       {
         question: "How do I source bulk green coffee in Lucknow?",
-        answer: "We dispatch from our warehouse to Lucknow via road freight, typical transit is 3-5 days. Minimum order is 10 kg for specialty and 60 kg for commercial grade. WhatsApp us for a quote and sample.",
+        answer: "We dispatch from our warehouse to Lucknow via road freight, typical transit is 3-5 days. Minimum order is 10 kg for specialty and 60 kg for commercial grade. Contact us for a quote and sample.",
       },
     ],
     coordinates: { lat: 26.8467, lng: 80.9462 },
@@ -535,7 +535,7 @@ export const indiaCities: IndiaCity[] = [
     faqs: [
       {
         question: "Can specialty cafés in Varanasi order small green coffee lots?",
-        answer: "Yes, specialty lots start from 10 kg, ideal for boutique cafés along the ghats. We offer 250g sample packs before any bulk commitment. WhatsApp us for availability.",
+        answer: "Yes, specialty lots start from 10 kg, ideal for boutique cafés along the ghats. We offer 250g sample packs before any bulk commitment. Contact us for availability.",
       },
     ],
     coordinates: { lat: 25.3176, lng: 82.9739 },
@@ -577,7 +577,7 @@ export const indiaCities: IndiaCity[] = [
     faqs: [
       {
         question: "How do Indore roasters buy green coffee in bulk?",
-        answer: "We ship directly to Indore via road freight in 3-5 days. Specialty lots (Koraput Naturals, HSD) from 10 kg and commercial AA/AAA from 60 kg bags. WhatsApp us for current stock.",
+        answer: "We ship directly to Indore via road freight in 3-5 days. Specialty lots (Koraput Naturals, HSD) from 10 kg and commercial AA/AAA from 60 kg bags. Contact us for current stock.",
       },
     ],
     coordinates: { lat: 22.7196, lng: 75.8577 },
@@ -639,7 +639,7 @@ export const indiaCities: IndiaCity[] = [
     faqs: [
       {
         question: "How quickly can you deliver green coffee to Vijayawada?",
-        answer: "Delivery to Vijayawada is 4-6 business days via road freight. We supply commercial-grade lots from 60 kg and specialty from 10 kg. WhatsApp us for a quote.",
+        answer: "Delivery to Vijayawada is 4-6 business days via road freight. We supply commercial-grade lots from 60 kg and specialty from 10 kg. Contact us for a quote.",
       },
     ],
     coordinates: { lat: 16.5062, lng: 80.6480 },
@@ -703,7 +703,7 @@ export const indiaCities: IndiaCity[] = [
     faqs: [
       {
         question: "Can Chandigarh specialty cafés buy single-origin green coffee from you?",
-        answer: "Yes, Chandigarh's café scene has excellent palates. We supply Koraput Naturals, Peaberry, and Halflong Arabica for single-origin menus. Minimum 10 kg. Sample packs available via WhatsApp.",
+        answer: "Yes, Chandigarh's café scene has excellent palates. We supply Koraput Naturals, Peaberry, and Halflong Arabica for single-origin menus. Minimum 10 kg. Sample packs available on request.",
       },
     ],
     coordinates: { lat: 30.7333, lng: 76.7794 },
@@ -767,7 +767,7 @@ export const indiaCities: IndiaCity[] = [
     faqs: [
       {
         question: "Can I buy bulk green coffee in Guwahati?",
-        answer: "Yes, we deliver to Guwahati in 5-7 days via road freight from our dispatch point. Commercial lots for canteens and specialty for cafés. WhatsApp us for current availability.",
+        answer: "Yes, we deliver to Guwahati in 5-7 days via road freight from our dispatch point. Commercial lots for canteens and specialty for cafés. Contact us for current availability.",
       },
     ],
     coordinates: { lat: 26.1445, lng: 91.7362 },
@@ -789,7 +789,7 @@ export const indiaCities: IndiaCity[] = [
     faqs: [
       {
         question: "How do I order bulk green coffee for Ranchi institutions?",
-        answer: "Contact us via WhatsApp and we'll arrange road freight delivery to Ranchi in 4-6 days. We supply commercial AA/AAA for institutional canteens and specialty lots for cafés.",
+        answer: "Contact us and we'll arrange road freight delivery to Ranchi in 4-6 days. We supply commercial AA/AAA for institutional canteens and specialty lots for cafés.",
       },
     ],
     coordinates: { lat: 23.3441, lng: 85.3096 },
@@ -811,7 +811,7 @@ export const indiaCities: IndiaCity[] = [
     faqs: [
       {
         question: "Can Raipur's steel industry campuses buy green coffee in bulk?",
-        answer: "Yes, commercial AA/AAA is ideal for industrial canteens. We deliver to Raipur in 3-5 days. GST invoice included. WhatsApp for institutional pricing.",
+        answer: "Yes, commercial AA/AAA is ideal for industrial canteens. We deliver to Raipur in 3-5 days. GST invoice included. Contact us for institutional pricing.",
       },
     ],
     coordinates: { lat: 21.2514, lng: 81.6296 },
@@ -897,7 +897,7 @@ export const indiaCities: IndiaCity[] = [
     faqs: [
       {
         question: "Do you deliver green coffee to Madurai cafés and hotels?",
-        answer: "Yes, Madurai delivery is 4-6 days. Commercial lots for filter coffee blending and specialty for single-origin menus. WhatsApp for current stock and pricing.",
+        answer: "Yes, Madurai delivery is 4-6 days. Commercial lots for filter coffee blending and specialty for single-origin menus. Contact us for current stock and pricing.",
       },
     ],
     coordinates: { lat: 9.9252, lng: 78.1198 },
@@ -937,7 +937,7 @@ export const indiaCities: IndiaCity[] = [
     faqs: [
       {
         question: "How do Salem's steel industry canteens buy green coffee?",
-        answer: "Industrial canteens use commercial AA/AAA grade in 60 kg bags for cost-effective bulk brewing. Transit to Salem is 4-6 days. WhatsApp us for institutional pricing.",
+        answer: "Industrial canteens use commercial AA/AAA grade in 60 kg bags for cost-effective bulk brewing. Transit to Salem is 4-6 days. Contact us for institutional pricing.",
       },
     ],
     coordinates: { lat: 11.6643, lng: 78.1460 },
@@ -1021,7 +1021,7 @@ export const indiaCities: IndiaCity[] = [
     faqs: [
       {
         question: "Do you deliver green coffee to Rajkot businesses?",
-        answer: "Yes, Rajkot delivery is 3-5 days. We cater to industrial canteens and specialty cafés. WhatsApp us for pricing and current stock.",
+        answer: "Yes, Rajkot delivery is 3-5 days. We cater to industrial canteens and specialty cafés. Contact us for pricing and current stock.",
       },
     ],
     coordinates: { lat: 22.3039, lng: 70.8022 },

@@ -130,7 +130,7 @@ export default function IndianGreenCoffeeBeansPage() {
             India is the world's sixth-largest coffee producer, and unlike most origins, it grows both Arabica and Robusta at scale, primarily shade-grown across the Western Ghats, Eastern Ghats, and North East hill regions. That gives buyers a wide range of options: bright, high-altitude specialty Arabica from Koraput and Chikmagalur; full-bodied commercial Arabica from Coorg and Wayanad; and bold, low-acid Robusta from Assam and Arunachal Pradesh for espresso blends and instant coffee manufacturing.
           </p>
           <p className="text-sm text-muted-foreground leading-relaxed">
-            We supply both specialty single-origin lots (10 kg minimum, cupped and scored) and commercial-grade beans (60 kg minimum, screen-sorted AAA through BB) with full export documentation: phytosanitary certificates, fumigation reports, and moisture analysis on every shipment. WhatsApp us with your target origin, grade, and volume, we typically respond within a few hours and can arrange samples before any bulk commitment.
+            We supply both specialty single-origin lots (10 kg minimum, cupped and scored) and commercial-grade beans (60 kg minimum, screen-sorted AAA through BB) with full export documentation: phytosanitary certificates, fumigation reports, and moisture analysis on every shipment. Contact us with your target origin, grade, and volume, we typically respond within a few hours and can arrange samples before any bulk commitment.
           </p>
         </div>
 
@@ -151,7 +151,7 @@ export default function IndianGreenCoffeeBeansPage() {
         <div className="p-8 rounded-xl border border-teal-200 bg-teal-50">
           <h2 className="text-lg font-semibold text-black mb-1">Ready to source Indian green coffee?</h2>
           <p className="text-sm text-muted-foreground mb-4">
-            Message us on WhatsApp with your target origin, grade, and volume. We respond within a few hours and can arrange samples before any bulk order.
+            Contact us with your target origin, grade, and volume. We respond within a few hours and can arrange samples before any bulk order.
           </p>
           <div className="flex flex-wrap gap-3">
             <Link href="/contact">

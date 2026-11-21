@@ -167,7 +167,7 @@ export default function StatePage() {
             Ready to source green coffee in {dest.name}?
           </h2>
           <p className="text-sm text-muted-foreground mb-4">
-            Message us on WhatsApp with your origin preference, volume, and delivery location. We respond within a few hours and can arrange samples before any bulk order.
+            Contact us with your origin preference, volume, and delivery location. We respond within a few hours and can arrange samples before any bulk order.
           </p>
           <div className="flex flex-wrap gap-3">
             <Link href="/contact">

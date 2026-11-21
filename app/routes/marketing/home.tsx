@@ -249,7 +249,7 @@ export default function Home() {
                       },
                       {
                         q: "Can I get a sample before placing a bulk order?",
-                        a: "Yes, we strongly recommend sampling before committing to bulk. Contact us via WhatsApp or the contact form with your target origin, process preference, and volume requirements. We'll share current lot availability and arrange samples.",
+                        a: "Yes, we strongly recommend sampling before committing to bulk. Contact us via the contact form with your target origin, process preference, and volume requirements. We'll share current lot availability and arrange samples.",
                       },
                       {
                         q: "What packaging do you use for green coffee?",

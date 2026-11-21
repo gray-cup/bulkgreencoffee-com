@@ -189,7 +189,7 @@ export default function CityPage() {
             We supply Indian green (unroasted) Arabica and Robusta coffee to {data.city} buyers across the {data.industries.slice(0, 3).join(", ")} sectors. Our specialty origins, including Koraput Arabica (Natural, Honey Sun-Dried, Washed) from Odisha, Halflong SL-9 Arabica from Assam, and South India lots from Chikmagalur, Coorg, Wayanad, and Bababudangiri, are available from {data.moq} minimum order.
           </p>
           <p className="text-sm text-muted-foreground leading-relaxed">
-            Delivery from dispatch to {data.city} takes {data.transitDays} by road freight. All India domestic orders include a valid GST invoice from Gray Cup Enterprises Private Limited (GST: 06AAMCG4985H1Z4). WhatsApp us to discuss your requirement: we respond within a few hours and can arrange sample packs before any bulk order.
+            Delivery from dispatch to {data.city} takes {data.transitDays} by road freight. All India domestic orders include a valid GST invoice from Gray Cup Enterprises Private Limited (GST: 06AAMCG4985H1Z4). Contact us to discuss your requirement: we respond within a few hours and can arrange sample packs before any bulk order.
           </p>
         </div>
 

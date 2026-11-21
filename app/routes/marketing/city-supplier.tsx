@@ -228,7 +228,7 @@ export default function SupplierPage() {
             Order Indian Green Coffee in {data.city}
           </h2>
           <p className="text-sm text-muted-foreground mb-4">
-            MOQ {data.moq}. Delivered in {data.transitDays}. GST invoice. WhatsApp for a same-day response.
+            MOQ {data.moq}. Delivered in {data.transitDays}. GST invoice. Contact us for a same-day response.
           </p>
           <div className="flex flex-wrap gap-3">
             <Link href="/contact">

@@ -227,7 +227,7 @@ export const countryDestinations: CountryDestination[] = [
     faqs: [
       {
         q: "Do you have French-speaking staff for enquiries?",
-        a: "Our primary communication is in English, but we are happy to work with your French-speaking procurement or logistics team via WhatsApp, email, or Zoom. We provide all documentation in English which is standard for international green coffee trade.",
+        a: "Our primary communication is in English, but we are happy to work with your French-speaking procurement or logistics team via email. We provide all documentation in English which is standard for international green coffee trade.",
       },
       {
         q: "Can I feature Indian coffee as a seasonal origin in my Paris café?",
@@ -325,7 +325,7 @@ export const countryDestinations: CountryDestination[] = [
     faqs: [
       {
         q: "Can I order a sample pack before committing to a bulk shipment?",
-        a: "Yes, we send 250–500g sample packs by air to Ireland before any bulk commitment. Contact us via WhatsApp or the contact form with your origin preferences and we'll dispatch within 5 business days.",
+        a: "Yes, we send 250–500g sample packs by air to Ireland before any bulk commitment. Contact us via the contact form with your origin preferences and we'll dispatch within 5 business days.",
       },
     ],
   },
@@ -1447,7 +1447,7 @@ export const countryDestinations: CountryDestination[] = [
     popularProductSlugs: ["koraput-commercial-aaa", "koraput-naturals", "halflong-arabica-naturals", "chikmagalur-arabica", "chirang-robusta-naturals"],
     faqs: [
       { q: "Do you provide GST invoices for Indian buyers?", a: "Yes, Gray Cup Enterprises Private Limited is GST registered (GSTIN: 06AAMCG4985H1Z4). We provide valid GST tax invoices for all domestic orders, whether to roasters, café chains, or institutional procurement teams." },
-      { q: "What is the minimum order for domestic Indian buyers?", a: "Specialty lots (Koraput Naturals, Halflong, Bababudangiri) from 10 kg. Commercial grade (Koraput AA/AAA, South India Arabica) from 60 kg. Robusta from 10 kg. Contact us via WhatsApp for domestic pricing and current lot availability." },
+      { q: "What is the minimum order for domestic Indian buyers?", a: "Specialty lots (Koraput Naturals, Halflong, Bababudangiri) from 10 kg. Commercial grade (Koraput AA/AAA, South India Arabica) from 60 kg. Robusta from 10 kg. Contact us for domestic pricing and current lot availability." },
     ],
   },
   {

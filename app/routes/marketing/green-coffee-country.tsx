@@ -195,7 +195,7 @@ export default function CountryPage() {
             Ready to source Indian green coffee in {dest.name}?
           </h2>
           <p className="text-sm text-muted-foreground mb-4">
-            Message us on WhatsApp with your target origin, volume, and timeline. We respond within a few hours and can arrange samples before any bulk commitment.
+            Contact us with your target origin, volume, and timeline. We respond within a few hours and can arrange samples before any bulk commitment.
           </p>
           <div className="flex flex-wrap gap-3">
             <Link href="/contact">

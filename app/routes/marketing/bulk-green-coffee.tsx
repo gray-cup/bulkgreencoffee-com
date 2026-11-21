@@ -132,7 +132,7 @@ export default function BulkGreenCoffeePage() {
             Bulk buyers, roasters, blenders, café chains, instant coffee manufacturers, and importers, need two things above all: consistent quality across every shipment, and a price that holds at scale. Our commercial grades (AAA through BB) are screen-sorted and moisture-tested to a fixed specification, so a bag ordered this quarter cups the same as a bag ordered next quarter.
           </p>
           <p className="text-sm text-muted-foreground leading-relaxed">
-            Every bulk shipment, whether it's a few 60 kg bags or a full container, ships with phytosanitary certificates, fumigation reports, moisture analysis, and a certificate of origin. WhatsApp us your target grade and volume and we'll quote current pricing with freight.
+            Every bulk shipment, whether it's a few 60 kg bags or a full container, ships with phytosanitary certificates, fumigation reports, moisture analysis, and a certificate of origin. Send us your target grade and volume and we'll quote current pricing with freight.
           </p>
         </div>
 
@@ -153,7 +153,7 @@ export default function BulkGreenCoffeePage() {
         <div className="p-8 rounded-xl border border-teal-200 bg-teal-50">
           <h2 className="text-lg font-semibold text-black mb-1">Ready to place a bulk order?</h2>
           <p className="text-sm text-muted-foreground mb-4">
-            Message us on WhatsApp with your target grade and volume. We respond within a few hours and can arrange samples before any bulk commitment.
+            Contact us with your target grade and volume. We respond within a few hours and can arrange samples before any bulk commitment.
           </p>
           <div className="flex flex-wrap gap-3">
             <Link href="/contact">
