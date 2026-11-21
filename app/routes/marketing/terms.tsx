@@ -74,10 +74,9 @@ export default function TermsAndConditions() {
         </section>
 
         <section>
-          <h2 className="text-lg font-semibold text-black mb-3">3. Pricing & Currency</h2>
+          <h2 className="text-lg font-semibold text-black mb-3">3. Pricing</h2>
           <p>
-            All listed prices are in Indian Rupees (INR). Currency conversions shown on the site are indicative only
-            and based on live exchange rates. All payments are processed in INR through our payment gateway (Cashfree Payments).
+            All listed prices are in Indian Rupees (INR). All payments are processed in INR through our payment gateway (Cashfree Payments).
             We reserve the right to update prices without prior notice.
           </p>
         </section>

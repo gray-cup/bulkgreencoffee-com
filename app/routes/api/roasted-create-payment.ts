@@ -7,10 +7,7 @@ import {
   CASHFREE_CLIENT_ID,
   CASHFREE_CLIENT_SECRET,
   cashfreeHeaders,
-  resolveCashfreeCurrency,
 } from "@/lib/cashfree";
-import { convertPrice, type CurrencyCode } from "@/lib/currency";
-import { fetchExchangeRates } from "@/lib/exchange-rates";
 import { getProductBySlug } from "@/data/products";
 import {
   computeRoastedOrderTotal,
@@ -33,7 +30,6 @@ interface RoastedOrderRequest {
   gstOrTaxId?: string;
   businessType?: string;
   items: RoastedOrderItem[]; // { slug, pack, qty } - price recomputed server-side
-  currency?: CurrencyCode;
 }
 
 export async function POST(request: NextRequest) {
@@ -98,17 +94,8 @@ export async function POST(request: NextRequest) {
     expiryTime.setMinutes(expiryTime.getMinutes() + 30);
     const origin = request.headers.get("origin") || "https://bulkgreencoffee.com";
 
-    let linkCurrency: CurrencyCode = "INR";
-    let linkAmount = totalAmount;
-    if (!isIndia && body.currency && body.currency !== "INR") {
-      linkCurrency = resolveCashfreeCurrency(body.currency);
-      const rates = await fetchExchangeRates();
-      linkAmount = convertPrice(totalAmount, linkCurrency, rates);
-      if (!linkAmount || linkAmount <= 0) {
-        linkCurrency = "INR";
-        linkAmount = totalAmount;
-      }
-    }
+    const linkCurrency = "INR";
+    const linkAmount = totalAmount;
 
     await db.insert(bulkgreencoffee_site).values({
       name,
@@ -127,7 +114,7 @@ export async function POST(request: NextRequest) {
       link_id: linkId,
       payment_status: "pending",
       currency: linkCurrency,
-      charged_amount: linkCurrency === "INR" ? null : linkAmount,
+      charged_amount: null,
     });
 
     const paymentLinkPayload = {

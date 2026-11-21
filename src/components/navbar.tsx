@@ -3,7 +3,6 @@
 import { useState } from "react";
 import Link from "@/lib/next-link-compat";
 import { Menu, ShoppingCart, X } from "lucide-react";
-import { CurrencySelector } from "@/components/currency-selector";
 import { useCart } from "@/context/cart-context";
 
 const NAV_LINKS: [string, string][] = [
@@ -44,7 +43,6 @@ export function Navbar() {
             >
               Visit Gray Cup Store
             </a>
-            <CurrencySelector />
             <Link
               href="/cart"
               className="relative rounded-md p-2 text-neutral-800 hover:bg-neutral-200"

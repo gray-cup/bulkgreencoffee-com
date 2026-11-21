@@ -10,8 +10,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { products } from "@/data/products";
-import { useCurrency } from "@/components/currency-provider";
-import { formatPrice, convertPrice } from "@/lib/currency";
+import { formatINR as fmt } from "@/lib/currency";
 import { TIERS, calcPrice, deliveryFeeForGrams, type TierLabel } from "@/lib/pricing";
 
 export const meta = () =>
@@ -72,8 +71,6 @@ function BuySamplesInner() {
   const orderDeliveryFee = deliveryFeeForGrams(orderGrams);
   const orderTotal = orderSubtotal + orderDeliveryFee;
 
-  const { currency, rates } = useCurrency();
-  const fmt = (inr: number) => formatPrice(convertPrice(inr, currency, rates), currency);
 
   // Tier for the selection grid prices
   const gridTier = TIERS.find((t) => t.label === activeTier)!;

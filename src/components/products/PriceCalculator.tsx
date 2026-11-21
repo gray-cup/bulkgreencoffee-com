@@ -6,8 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent } from "@/components/ui/card";
 import type { Product } from "@/data/products";
-import { useCurrency } from "@/components/currency-provider";
-import { CURRENCIES } from "@/lib/currency";
+import { formatINR } from "@/lib/currency";
 
 type PriceCalculatorProps = {
   product: Product;
@@ -24,8 +23,6 @@ export function PriceCalculator({
   const navigate = useNavigate();
   const location = useLocation();
   const pathname = location.pathname;
-  const { currency, convert } = useCurrency();
-  const currencyConfig = CURRENCIES[currency];
 
   // Initialize from URL params or defaults
   const initialGrade = searchParams.get("grade") || product.grades[0];
@@ -126,13 +123,7 @@ export function PriceCalculator({
           <div className="flex justify-between text-sm">
             <span className="text-muted-foreground">Unit Price:</span>
             <span className="font-medium">
-              {currencyConfig.symbol}
-              {convert(unitPrice, currency).toFixed(currency === "INR" ? 0 : 2)}{" "}
-              {currency !== "USD" && (
-                <span className="font-normal text-muted-foreground">
-                  (${convert(unitPrice, "USD").toFixed(2)}){" "}
-                </span>
-              )}
+              {formatINR(unitPrice)}{" "}
               {product.priceRange.unit}
             </span>
           </div>
@@ -145,15 +136,7 @@ export function PriceCalculator({
           <div className="flex justify-between items-center text-lg font-semibold border-t pt-3">
             <span>Estimated Total</span>
             <span className="text-green-600">
-              {currencyConfig.symbol}
-              {convert(estimatedPrice, currency).toLocaleString(currencyConfig.locale, {
-                maximumFractionDigits: currency === "INR" ? 0 : 2,
-              })}
-              {currency !== "USD" && (
-                <span className="text-sm font-normal text-muted-foreground ml-1">
-                  (${convert(estimatedPrice, "USD").toFixed(2)})
-                </span>
-              )}
+              {formatINR(estimatedPrice)}
             </span>
           </div>
         </div>

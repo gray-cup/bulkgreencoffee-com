@@ -63,7 +63,6 @@ export default [
   route("api/contact", "routes/api/contact.ts"),
   route("api/create-payment", "routes/api/create-payment.ts"),
   route("api/roasted-create-payment", "routes/api/roasted-create-payment.ts"),
-  route("api/exchange-rates", "routes/api/exchange-rates.ts"),
   route("api/geo", "routes/api/geo.ts"),
   route("api/quote-request", "routes/api/quote-request.ts"),
   route("api/verify-payment", "routes/api/verify-payment.ts"),

@@ -20,8 +20,6 @@ export interface SampleOrderRequest {
   items: Array<{ slug: string; tier: string }>;
   currency: string;
 }
-import { useCurrency } from "@/components/currency-provider";
-import { convertPrice, formatPrice } from "@/lib/currency";
 import { priceForItem, gramsForTier, deliveryFeeForGrams, type OrderItem } from "@/lib/pricing";
 
 const businessCategories = [
@@ -84,7 +82,6 @@ type Props = {
 
 export function CheckoutForm({ items, renderSummary, onBack }: Props) {
   const turnstile = useTurnstile();
-  const { currency, rates } = useCurrency();
 
   const [customerType, setCustomerType] = useState<"individual" | "business">("individual");
   const [country,      setCountry]      = useState("");
@@ -185,12 +182,7 @@ export function CheckoutForm({ items, renderSummary, onBack }: Props) {
   const deliveryFee      = deliveryFeeForGrams(totalGrams);
   const finalAmount      = totalAmount + deliveryFee;
 
-  // International orders are charged in the customer's local currency
-  // (Cashfree still settles to us in INR) so foreign cards aren't declined
-  // over an INR-only charge and the amount matches what's shown here.
-  const payLabel = isIndia
-    ? `Pay ₹${finalAmount} & Order`
-    : `Pay ${formatPrice(convertPrice(finalAmount, currency, rates), currency)} & Order`;
+  const payLabel = `Pay ₹${finalAmount} & Order`;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -211,7 +203,7 @@ export function CheckoutForm({ items, renderSummary, onBack }: Props) {
       gstOrTaxId:   gstOrTaxId || undefined,
       businessType: businessType || undefined,
       items,
-      currency: isIndia ? "INR" : currency,
+      currency: "INR",
     };
 
     try {

@@ -6,8 +6,7 @@ import { useRouter } from "@/lib/next-nav-compat";
 import { X } from "lucide-react";
 import { products } from "@/data/products";
 import { CheckoutForm } from "@/components/buy-samples/CheckoutForm";
-import { useCurrency } from "@/components/currency-provider";
-import { formatPrice, convertPrice } from "@/lib/currency";
+import { formatINR as fmt } from "@/lib/currency";
 import { TIERS, calcPrice, deliveryFeeForGrams, type TierLabel } from "@/lib/pricing";
 import { pageMeta } from "@/lib/seo";
 
@@ -26,10 +25,8 @@ function AddProductCard({
   onAdd: (tier: TierLabel) => void;
 }) {
   const [tier, setTier] = useState<TierLabel>(defaultTier);
-  const { currency, rates } = useCurrency();
   const tierData = TIERS.find((t) => t.label === tier)!;
   const priceINR = calcPrice(product.priceRange.min, tierData.grams);
-  const fmt = (inr: number) => formatPrice(convertPrice(inr, currency, rates), currency);
 
   return (
     <div className="flex flex-col rounded-2xl border border-gray-200 bg-white overflow-hidden hover:border-gray-300 hover:shadow-sm transition-all">
@@ -119,8 +116,6 @@ function CheckoutPageInner() {
   const orderDeliveryFee = deliveryFeeForGrams(orderGrams);
   const orderTotal = orderSubtotal + orderDeliveryFee;
 
-  const { currency, rates } = useCurrency();
-  const fmt = (inr: number) => formatPrice(convertPrice(inr, currency, rates), currency);
 
   React.useEffect(() => {
     localStorage.setItem("bgc_selected", JSON.stringify(selected));

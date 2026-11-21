@@ -5,8 +5,7 @@ import { useNavigate } from "react-router";
 import { X } from "lucide-react";
 import { products } from "@/data/products";
 import { useCart, CART_TIERS, type TierLabel } from "@/context/cart-context";
-import { useCurrency } from "@/components/currency-provider";
-import { formatPrice, convertPrice } from "@/lib/currency";
+import { formatINR as fmt } from "@/lib/currency";
 import { Button } from "@/components/ui/button";
 import { calcPrice, deliveryFeeForGrams } from "@/lib/pricing";
 import { pageMeta } from "@/lib/seo";
@@ -16,9 +15,7 @@ export const meta = () =>
 
 export default function CartPage() {
   const { items, remove, updateTier, clear, count } = useCart();
-  const { currency, rates } = useCurrency();
   const navigate = useNavigate();
-  const fmt = (inr: number) => formatPrice(convertPrice(inr, currency, rates), currency);
 
   const cartProducts = items
     .map((item) => {

@@ -1,13 +1,10 @@
 "use client";
 
 import { TIERS, calcPrice, deliveryFeeForGrams } from "@/lib/pricing";
-import { useCurrency } from "@/components/currency-provider";
-import { formatPrice, convertPrice } from "@/lib/currency";
+import { formatINR as fmt } from "@/lib/currency";
 import type { Product } from "@/data/products";
 
 export function SamplePricingTable({ product }: { product: Product }) {
-  const { currency, rates } = useCurrency();
-  const fmt = (inr: number) => formatPrice(convertPrice(inr, currency, rates), currency);
 
   return (
     <div className="rounded-xl border border-gray-200 overflow-hidden">

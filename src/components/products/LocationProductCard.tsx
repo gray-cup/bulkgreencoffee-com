@@ -3,24 +3,18 @@
 import { Image } from "@/components/Image";
 import Link from "@/lib/next-link-compat";
 import { useRouter } from "@/lib/next-nav-compat";
-import { useCurrency } from "@/components/currency-provider";
-import { CURRENCIES } from "@/lib/currency";
+import { formatINR } from "@/lib/currency";
 import { useCart } from "@/context/cart-context";
 import type { Product } from "@/data/products";
 
 export function LocationProductCard({ product }: { product: Product }) {
-  const { currency, convert } = useCurrency();
-  const config = CURRENCIES[currency];
-  const minConverted = convert(product.priceRange.min, currency);
-  const maxConverted = convert(product.priceRange.max, currency);
-  const decimals = currency === "INR" || currency === "KRW" ? 0 : 2;
   const { add } = useCart();
   const router = useRouter();
 
   const priceText =
     product.priceRange.min === product.priceRange.max
-      ? `${config.symbol}${minConverted.toLocaleString(config.locale, { maximumFractionDigits: decimals })}`
-      : `${config.symbol}${minConverted.toLocaleString(config.locale, { maximumFractionDigits: decimals })}–${config.symbol}${maxConverted.toLocaleString(config.locale, { maximumFractionDigits: decimals })}`;
+      ? formatINR(product.priceRange.min)
+      : `${formatINR(product.priceRange.min)}–${formatINR(product.priceRange.max)}`;
 
   return (
     <div className="group flex flex-col p-4 border rounded-lg hover:border-teal-400 transition-colors">

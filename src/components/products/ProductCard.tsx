@@ -5,8 +5,6 @@ import Link from "@/lib/next-link-compat";
 import { useRouter } from "@/lib/next-nav-compat";
 import { Check, Plus } from "lucide-react";
 import type { Product } from "@/data/products";
-import { useCurrency } from "@/components/currency-provider";
-import { CURRENCIES } from "@/lib/currency";
 import { useCart } from "@/context/cart-context";
 
 type ProductCardProps = {
@@ -17,9 +15,6 @@ type ProductCardProps = {
 
 /** Plain product card. The only motion is a slight photo zoom on hover (CSS transform, no JS). */
 export function ProductCard({ product, showPrice = true, showActions = true }: ProductCardProps) {
-  const { currency, convert } = useCurrency();
-  const config = CURRENCIES[currency];
-  const minPriceConverted = convert(product.priceRange.min, currency);
   const { toggle, add, isInCart } = useCart();
   const router = useRouter();
   const inCart = isInCart(product.slug);
@@ -79,8 +74,7 @@ export function ProductCard({ product, showPrice = true, showActions = true }: P
         {showPrice && (
           <div className="mt-1 flex items-center justify-between text-xs text-neutral-600">
             <span dir="ltr">
-              From {config.symbol}
-              {currency === "INR" ? minPriceConverted : minPriceConverted.toFixed(2)}
+              From ₹{product.priceRange.min}
               {product.minimumOrder.unit ? `/${product.minimumOrder.unit}` : ""}
             </span>
             <span>

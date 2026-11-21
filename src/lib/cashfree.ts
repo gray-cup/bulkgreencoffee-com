@@ -1,5 +1,4 @@
 import crypto from "crypto";
-import type { CurrencyCode } from "./currency";
 
 export const CASHFREE_CLIENT_ID = process.env.CASHFREE_CLIENT_ID;
 export const CASHFREE_CLIENT_SECRET = process.env.CASHFREE_CLIENT_SECRET;
@@ -12,19 +11,6 @@ export const CASHFREE_BASE_URL =
     : "https://api.cashfree.com/pg";
 
 export const CASHFREE_API_VERSION = "2023-08-01";
-
-// Currencies we've confirmed Cashfree Payment Links accepts for international
-// settlement. Anything outside this list falls back to USD so an order never
-// gets rejected for an unsupported link_currency. Verify/extend this list
-// against your Cashfree dashboard (Settings -> Payment Methods -> Currencies)
-// if you need more.
-const CASHFREE_SUPPORTED_CURRENCIES: ReadonlySet<CurrencyCode> = new Set([
-  "USD", "EUR", "GBP", "AED", "AUD", "CAD", "SGD", "CHF", "JPY", "HKD",
-]);
-
-export function resolveCashfreeCurrency(currency: CurrencyCode): CurrencyCode {
-  return CASHFREE_SUPPORTED_CURRENCIES.has(currency) ? currency : "USD";
-}
 
 export function cashfreeHeaders() {
   if (!CASHFREE_CLIENT_ID || !CASHFREE_CLIENT_SECRET) {
