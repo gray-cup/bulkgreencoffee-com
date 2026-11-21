@@ -123,9 +123,6 @@ export function FAQAccordion({ items }: FAQAccordionProps) {
           <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium transition-colors">
             Contact Sales Team
           </button>
-          <button className="border border-blue-600 text-blue-600 hover:bg-blue-50 px-6 py-2 rounded-lg font-medium transition-colors">
-            Schedule a Demo
-          </button>
         </div>
       </motion.div>
     </div>
